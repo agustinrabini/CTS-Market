@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/nav_home"
+        android:title="Home"
+        android:icon="@drawable/ic_home_button_icon_icons_com_72700"
+        android:iconTint="#000000">
+    </item>
+
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Usuario">
+
+            <menu>
+        <item
+            android:id="@+id/nav_mi_usuario"
+            android:title="Mi user"
+            android:icon="@drawable/card_account_details_icon_137804">
+        </item>
+
+        <item
+            android:id="@+id/nav_notificaciones"
+            android:title="Notificaciones"
+            android:icon="@drawable/alarm_alert_attention_bell_clock_notification_ring_icon_123203">
+        </item>
+
+        <item
+            android:id="@+id/nav_pedidos"
+            android:title="Pedidos"
+            android:icon="@drawable/_849824_basket_buy_market_multimedia_shop_shopping_store_107977">
+        </item>
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="Logout"
+                    android:icon="@drawable/back_arrow_icon_icons_com_72866">
+                </item>
+
+
+            </menu>
+
+        </item>
+
+    </group>
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Actividades">
+
+            <menu>
+
+                <item
+                    android:id="@+id/nav_productos"
+                    android:title="Productos"
+                    android:icon="@drawable/knife_icon_136467">
+                </item>
+
+                <item
+                    android:id="@+id/nav_contacto"
+                    android:title="Contacto"
+                    android:icon="@drawable/_213460_account_avatar_head_person_profile_user_115386">
+                </item>
+
+                <item
+                    android:id="@+id/nav_exhibicion"
+                    android:title="Exhibición"
+                    android:icon="@drawable/publicmuseumsign_89226">
+                </item>
+
+                <item
+                    android:id="@+id/nav_talleres"
+                    android:title="Talleres"
+                    android:icon="@drawable/ic_map_foreground">
+                </item>
+
+            </menu>
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Otros">
+
+            <menu>
+
+                <item
+                    android:id="@+id/nav_categorias"
+                    android:title="Categorias"
+                    android:icon="@drawable/align_left_icon_178581">
+                </item>
+
+                <item
+                    android:id="@+id/nav_comp"
+                    android:title="Compartir"
+                    android:icon="@drawable/brand_telegram_icon_151521">
+                </item>
+
+
+                <item
+                    android:id="@+id/nav_puntuar"
+                    android:title="Puntuar app"
+                    android:icon="@drawable/medal_icon_icons_com_59186">
+                </item>
+
+                <item
+                    android:id="@+id/nav_conf"
+                    android:title="Configuración"
+                    android:icon="@drawable/_643771_configuration_configure_gear_set_setting_113449">
+                </item>
+
+            </menu>
+        </item>
+    </group>
+
+</menu>

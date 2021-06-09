@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Elegí cantidad"
+        android:gravity="center"
+        android:padding="15dp"
+        android:textSize="15dp"
+        android:fontFamily="@font/quicksand_semibold"
+        android:textColor="#000000"/>
+
+    <Button
+        android:id="@+id/btn_quantity_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:fontFamily="@font/quicksand_semibold"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="@drawable/background_quantity"
+        android:text="1 Unidad"/>
+
+    <Button
+        android:id="@+id/btn_quantity_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:fontFamily="@font/quicksand_semibold"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="@drawable/background_quantity"
+        android:text="2 unidades" />
+
+    <Button
+        android:id="@+id/btn_quantity_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="3 unidades"
+        android:textSize="15dp"
+        android:fontFamily="@font/quicksand_semibold"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="@drawable/background_quantity" />
+
+    <Button
+        android:id="@+id/btn_quantity_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="4 unidades"
+        android:textSize="15dp"
+        android:fontFamily="@font/quicksand_semibold"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="@drawable/background_quantity" />
+
+    <Button
+        android:id="@+id/btn_quantity_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="5 unidades"
+        android:textSize="15dp"
+        android:fontFamily="@font/quicksand_semibold"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="@drawable/background_quantity" />
+</LinearLayout>
