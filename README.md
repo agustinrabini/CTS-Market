@@ -8,7 +8,7 @@ Repositorio publico de la app.
 
 The application is developed enterally by me as a learning and introduction to the mobile development industry in order to initiate my professional career as mobile developer. It was started in November 2020, It is not available in the Gooole Playstore yet. The estimated launch date is for the month of September 2021.
 
-La aplicación es desarrollada enteramente por mi a modo de aprendizaje e introducción a la industria de desarrollo móvil para lanzar mi carrera profesional. Fué comenzada en el mes de noviembre del año 2020, aún no se encuentra disponible en la Goole Playstore. La fecha estimada de lanzamiento es para el mes de septiembre del año 2021.
+La aplicación en su totalidad es desarrollada por mi a modo de aprendizaje e introducción a la industria de desarrollo móvil con el fin además para lanzar mi carrera profesional como desarrolaldor. Fué comenzada en el mes de noviembre del año 2020, aún no se encuentra disponible en la Goole Playstore. La fecha estimada de lanzamiento es para el mes de septiembre del año 2021.
 
 
 # About it
