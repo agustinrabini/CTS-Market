@@ -28,7 +28,6 @@ public class LocationAddActivity extends AppCompatActivity {
     private EditText etProvince;
     private TextView tvCancelar;
     private Button btnSave;
-    private Integer iduser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +37,7 @@ public class LocationAddActivity extends AppCompatActivity {
         findViews();
         btnGuardar();
     }
+
     //si el usuario ya esta registrado se le hace un UPDATE a la DB updateLocation();
     //si es la primera vez que se registra se hace un POST con firstTimePost();
     public void btnGuardar(){
@@ -45,19 +45,13 @@ public class LocationAddActivity extends AppCompatActivity {
             if (Location.idLocation != null) {
                 updateLocation();
             }else{
+
                 firstTimePost();
             }
+        });
 
-            //Si viene desde ProductsActivity3 vuelve ahí
-            Intent toLocationAdd = getIntent();
-            String backTo = toLocationAdd.getStringExtra("locationAdd");
-
-            if (backTo.equals("fromPA3")) {//'fromLAA', 'desde locationActivityAdd', hace un recreate() el productsActivity3
-                Intent fromLAA = new Intent(this, ProductsActivity3.class);
-                fromLAA.putExtra("fromLAA","fromLAA");
-                startActivity(fromLAA);
-                finish();
-            }
+        tvCancelar.setOnClickListener(v -> {
+            backTo();
         });
     }
 
@@ -82,9 +76,11 @@ public class LocationAddActivity extends AppCompatActivity {
                     Integer.parseInt(etStreetNumber.getText().toString()),
                     etFloor.getText().toString(),
                     Integer.parseInt(etPostalCode.getText().toString()));
-        }
 
+            backTo();
+        }
     }
+
     //se ejecuta un INSERT a en la tabla location de la DB. Tambien se hace un UPDATE, a la tabla
     //user donde se actualiza su idLocation que era nulo.
     private void firstTimePost(){
@@ -99,6 +95,8 @@ public class LocationAddActivity extends AppCompatActivity {
         }else{
 
             postL();
+
+            backTo();
         }
     }
 
@@ -121,6 +119,23 @@ public class LocationAddActivity extends AppCompatActivity {
         );
 
         updatedb();
+    }
+
+    private void backTo(){
+
+        //Si viene desde ProductsActivity3 vuelve ahí
+        Intent toLocationAdd = getIntent();
+        String backTo = toLocationAdd.getStringExtra("locationAdd");
+
+        if (backTo.equals("fromPA3")) {//'fromLAA', 'desde locationActivityAdd', hace un recreate() el productsActivity3
+            Intent fromLAA = new Intent(this, ProductsActivity3.class);
+            fromLAA.putExtra("fromLAA","fromLAA");
+            startActivity(fromLAA);
+            finish();
+        }
+
+        //si viene de otro LocationInfo vuelve ahí
+
     }
 
     private void findViews(){

@@ -45,16 +45,16 @@ public class UserEditActivity extends AppCompatActivity {
                         Integer.parseInt(etDni.getText().toString()),
                         Integer.parseInt(etPhone.getText().toString())
                 );
-            }
 
-            Intent toUserEdit = getIntent();
-            String backTo = toUserEdit.getStringExtra("fromPA4");
+                Intent toUserEdit = getIntent();
+                String backTo = toUserEdit.getStringExtra("fromPA4");
 
-            if (backTo.equals("fromPA4")) {
-                Intent fromUE = new Intent(this, ProductsActivity4.class);
-                fromUE.putExtra("fromUE","fromUE");
-                startActivity(fromUE);
-                finish();
+                if (backTo.equals("fromPA4")) {
+                    Intent fromUE = new Intent(this, ProductsActivity4.class);
+                    fromUE.putExtra("fromUE","fromUE");
+                    startActivity(fromUE);
+                    finish();
+                }
             }
         });
     }

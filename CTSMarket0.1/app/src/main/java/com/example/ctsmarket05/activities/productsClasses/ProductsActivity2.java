@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.QuantityBottomSheet;
+import com.example.ctsmarket05.entities.Product;
 import com.squareup.picasso.Picasso;
 
 public class ProductsActivity2 extends AppCompatActivity implements QuantityBottomSheet.QuantityListener {
@@ -24,7 +25,6 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
     private TextView tvDescription2;
     private TextView tvLength;
     private TextView tvQuantity;
-    private String quantity;
     private Integer quantityProduct = 1;
 
     @Override
@@ -48,14 +48,17 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
         String image = Clicked.getStringExtra("image");
         Integer price = Clicked.getIntExtra("price",0);
         Integer length = Clicked.getIntExtra("length",0);
-        Integer stock = Clicked.getIntExtra("stock",0);
 
-        tvName2.setText(name);
+        Product.NAME = name;
+        Product.PRICE = price;
+        Product.IMAGE = image;
+
+        tvName2.setText(Product.NAME);
         tvBlade2.setText(blade);
         tvBrand2.setText(brand);
         tvDescription2.setText(description);
-        Picasso.with(this).load(image).into(ivProduct2);
-        tvPrice2.setText(String.valueOf(price) + " $ARS");
+        Picasso.with(this).load(Product.IMAGE).into(ivProduct2);
+        tvPrice2.setText(Product.PRICE.toString() + " $ARS");
         tvLength.setText(String.valueOf(length + " cm"));
     }
 
@@ -74,18 +77,13 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
 
             Intent Clicked = getIntent();
             Integer price = Clicked.getIntExtra("price",0);
-            String name = Clicked.getStringExtra("name");
-            String image = Clicked.getStringExtra("image");
 
-            Integer orderPrice = price * quantityProduct;
+            Product.QUANTITY = quantityProduct;
+            Product.PRICE = price * quantityProduct;
 
             //Se va pasando por los activities toda la informacion del producto a medida que el usuario
             //recorre toda la secuencia de compra
             Intent toProdActv3 = new Intent(this, ProductsActivity3.class);
-            toProdActv3.putExtra("name", name);
-            toProdActv3.putExtra("price", orderPrice.toString());
-            toProdActv3.putExtra("image", image);
-            toProdActv3.putExtra("quantity", quantityProduct.toString());
             startActivity(toProdActv3);
         });
     }

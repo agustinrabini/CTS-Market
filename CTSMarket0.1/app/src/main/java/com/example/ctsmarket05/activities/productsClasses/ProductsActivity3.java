@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.LocationAddActivity;
+import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.retrofit.locationRetrofit.LocationGET;
 
 public class ProductsActivity3 extends AppCompatActivity {
@@ -22,6 +23,7 @@ public class ProductsActivity3 extends AppCompatActivity {
     private ImageView ivNeedLocation;
     private ImageView ivHome;
     private ImageView ivSellerHouse;
+    private String productPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +41,8 @@ public class ProductsActivity3 extends AppCompatActivity {
 
     private void price() {
 
-        Intent topProdActv3 = getIntent();
-        String price = topProdActv3.getStringExtra("price");
-        tvFinalPrice.setText("PRECIO: " + price + "$ARS");
+        tvFinalPrice.setText("PRECIO: " + Product.PRICE.toString() + "$ARS");
+
     }
 
     private void changeLocation(){

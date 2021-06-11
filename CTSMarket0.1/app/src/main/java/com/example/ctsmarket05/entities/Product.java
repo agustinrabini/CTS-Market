@@ -24,6 +24,14 @@ public class Product {
 
     private int stock;
 
+    public static String NAME;
+
+    public static Integer PRICE;
+
+    public static Integer QUANTITY;
+
+    public static String IMAGE;
+
     public Product(int id_product, String name, String blade, String brand, String description, String image, int price, int length, int stock) {
         this.id_product = id_product;
         this.name = name;
