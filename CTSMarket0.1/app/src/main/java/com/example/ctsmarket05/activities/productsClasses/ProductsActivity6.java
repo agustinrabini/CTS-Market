@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
+import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;
 import com.squareup.picasso.Picasso;
 
@@ -35,15 +36,11 @@ public class ProductsActivity6 extends AppCompatActivity {
 
         Intent payment = getIntent();
 
-        String image = payment.getStringExtra("image");
-        String name = payment.getStringExtra("name");
-        String price = payment.getStringExtra("price");
         String sendingMethod = payment.getStringExtra("sendingMethod");
         String payMethod = payment.getStringExtra("payMethod");
-        String quantity = payment.getStringExtra("quantity");
 
-        tvProdName.setText(name);
-        Picasso.with(this).load(image).into(ivImage);
+        tvProdName.setText(Product.NAME);
+        Picasso.with(this).load(Product.IMAGE).into(ivImage);
         //tvQuantity.setText();
 
         if (sendingMethod.equals("sellerHome")){
@@ -53,14 +50,14 @@ public class ProductsActivity6 extends AppCompatActivity {
         if (payMethod.equals("payWithCash")){
             tvPayment.setText("En efectivo al retirar el producto");
         }
-        tvFinalPrice.setText(price + " " +  "$ARS");
+        tvFinalPrice.setText(Product.PRICE + " " +  "$ARS");
 
         UserGET userGET = new UserGET();
         userGET.SetOnDataListenerUser(user ->
                 tvUserInfo.setText(user.getName_lastname() + " - " + "DNI: " + user.getDni().toString() + " - " + "\n" +"Contacto: " + user.getPhone().toString()));
         userGET.getUserByGmail();
 
-        tvQuantity.setText(quantity);
+        tvQuantity.setText(Product.QUANTITY);
 
     }
 

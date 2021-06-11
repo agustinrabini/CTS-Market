@@ -12,6 +12,7 @@ import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.LocationAddActivity;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.retrofit.locationRetrofit.LocationGET;
+import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;
 
 public class ProductsActivity3 extends AppCompatActivity {
 
@@ -23,7 +24,6 @@ public class ProductsActivity3 extends AppCompatActivity {
     private ImageView ivNeedLocation;
     private ImageView ivHome;
     private ImageView ivSellerHouse;
-    private String productPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,18 +31,11 @@ public class ProductsActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_products3);
 
         findViews();
-        price();
-        showLocation();
+        showInfo();
         changeLocation();
         sendToHome();
         sendByMail();
         retireAtSellerHome();
-    }
-
-    private void price() {
-
-        tvFinalPrice.setText("PRECIO: " + Product.PRICE.toString() + "$ARS");
-
     }
 
     private void changeLocation(){
@@ -54,28 +47,34 @@ public class ProductsActivity3 extends AppCompatActivity {
         });
     }
 
-    private void showLocation() {
+    private void showInfo() {
 
-        LocationGET locationGET = new LocationGET();
-        locationGET.SetOnDataListener(location -> {
+        tvFinalPrice.setText("PRECIO: " + Product.PRICE.toString() + "$ARS");
 
-            Integer idlocation = location.getId_location();
+        UserGET userGET = new UserGET();
+        userGET.SetOnDataListenerUser(user -> {
+
+            Integer idlocation = user.getId_location();
 
                 if (idlocation != null) {
 
-                    tvLocation.setText(location.getProvince() + location.getCity() + location.getDistrict() + "\n"
-                            + location.getStreet() + location.getStreet_number().toString() + "\n"
-                            + location.getFloor());
-                    tvContinue.setVisibility(View.VISIBLE);
+                    LocationGET locationGET = new LocationGET();
+                    locationGET.SetOnDataListener(location -> {
+                        tvContinue.setVisibility(View.VISIBLE);
+                        tvLocation.setText(location.getProvince() + location.getCity() + location.getDistrict() + "\n"
+                                + location.getStreet() + location.getStreet_number().toString() + "\n"
+                                + location.getFloor()
+                        );
+                    });
+                    locationGET.getLocation();
 
                 } else {
-                    tvNeedLocation.setVisibility(View.VISIBLE);
-                    ivNeedLocation.setVisibility(View.VISIBLE);
-                    tvChangeLocation.setText("Agregar ubicación");
+                   tvNeedLocation.setVisibility(View.VISIBLE);
+                   ivNeedLocation.setVisibility(View.VISIBLE);
+                   tvChangeLocation.setText("Agregar ubicación");
                 }
-            });
-
-            locationGET.getLocation();
+        });
+        userGET.getUserByGmail();
     }
 
     private void sendToHome(){

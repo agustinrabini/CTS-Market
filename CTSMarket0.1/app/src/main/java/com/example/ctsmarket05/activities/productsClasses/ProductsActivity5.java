@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
+import com.example.ctsmarket05.entities.Product;
 
 public class ProductsActivity5 extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public class ProductsActivity5 extends AppCompatActivity {
         Intent toProdActv5 = getIntent();
         String price = toProdActv5.getStringExtra("price");
 
-        tvFinalPrice.setText( "PRECIO FINAL: " + price);
+        tvFinalPrice.setText( "PRECIO FINAL: " + Product.PRICE);
     }
 
     private void payWithCash() {

@@ -128,7 +128,7 @@ GoogleSignInClient mGoogleSignInClient;
 
         UserInterface userInterface= retrofit.create(UserInterface.class);
 
-        Call<Void> call = userInterface.checkUser(User.gmail);
+        Call<Void> call = userInterface.checkUser(personEmail);
 
         call.enqueue(new Callback<Void>() {
             @Override
