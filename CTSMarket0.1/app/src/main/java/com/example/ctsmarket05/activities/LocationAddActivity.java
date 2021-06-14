@@ -43,6 +43,7 @@ public class LocationAddActivity extends AppCompatActivity {
     public void btnGuardar(){
         btnSave.setOnClickListener(v -> {
             if (Location.idLocation != null) {
+
                 updateLocation();
             }else{
 
@@ -50,9 +51,9 @@ public class LocationAddActivity extends AppCompatActivity {
             }
         });
 
-        tvCancelar.setOnClickListener(v -> {
-            backTo();
-        });
+        //tvCancelar.setOnClickListener(v -> {
+        //    backTo();
+        //});
     }
 
     private void updateLocation() {

@@ -63,7 +63,7 @@ public class ProductsActivity3 extends AppCompatActivity {
                         tvContinue.setVisibility(View.VISIBLE);
                         tvLocation.setText(location.getProvince() + location.getCity() + location.getDistrict() + "\n"
                                 + location.getStreet() + location.getStreet_number().toString() + "\n"
-                                + location.getFloor()
+                                + location.getFloor() + ""+ location.getPostal_code().toString()
                         );
                     });
                     locationGET.getLocation();
