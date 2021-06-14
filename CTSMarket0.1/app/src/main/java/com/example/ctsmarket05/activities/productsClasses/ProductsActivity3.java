@@ -56,23 +56,31 @@ public class ProductsActivity3 extends AppCompatActivity {
 
             Integer idlocation = user.getId_location();
 
-                if (idlocation != null) {
+            if (idlocation==null) {
 
-                    LocationGET locationGET = new LocationGET();
-                    locationGET.SetOnDataListener(location -> {
-                        tvContinue.setVisibility(View.VISIBLE);
-                        tvLocation.setText(location.getProvince() + location.getCity() + location.getDistrict() + "\n"
-                                + location.getStreet() + location.getStreet_number().toString() + "\n"
-                                + location.getFloor() + ""+ location.getPostal_code().toString()
-                        );
-                    });
-                    locationGET.getLocation();
+                tvNeedLocation.setVisibility(View.VISIBLE);
+                ivNeedLocation.setVisibility(View.VISIBLE);
+                tvChangeLocation.setText("Agregar ubicación");
 
-                } else {
-                   tvNeedLocation.setVisibility(View.VISIBLE);
-                   ivNeedLocation.setVisibility(View.VISIBLE);
-                   tvChangeLocation.setText("Agregar ubicación");
-                }
+            }else{
+               tvContinue.setVisibility(View.VISIBLE);
+
+                LocationGET locationGET = new LocationGET();
+                locationGET.SetOnDataListener(location -> {
+
+                    String province = location.getProvince();
+                    String city = location.getCity();
+                    String disctrict = location.getDistrict();
+                    String street = location.getStreet();
+                    String street_number = location.getStreet_number().toString();
+                    String floor = location.getFloor();
+                    String postal_code = location.getPostal_code().toString();
+
+                    tvLocation.setText(province+" "+city+" "+disctrict+ "\n"+street+" "+street_number+" "+floor+ "\n"+postal_code);
+
+                });
+                locationGET.getLocation();
+            }
         });
         userGET.getUserByGmail();
     }
