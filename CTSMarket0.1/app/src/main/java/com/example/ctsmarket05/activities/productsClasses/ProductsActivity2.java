@@ -41,6 +41,9 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
 
     private void getProductInfo() {
         Intent Clicked = getIntent();
+
+        String id_prod = Clicked.getStringExtra("id_product");
+
         String name = Clicked.getStringExtra("name");
         String blade = Clicked.getStringExtra("blade");
         String brand = Clicked.getStringExtra("brand");
@@ -49,6 +52,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
         Integer price = Clicked.getIntExtra("price",0);
         Integer length = Clicked.getIntExtra("length",0);
 
+        Product.ID_PRODUCT = Integer.parseInt(id_prod);
         Product.NAME = name;
         Product.PRICE = price;
         Product.IMAGE = image;

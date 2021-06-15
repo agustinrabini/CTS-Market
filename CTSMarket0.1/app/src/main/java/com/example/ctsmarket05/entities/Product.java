@@ -24,6 +24,8 @@ public class Product {
 
     private int stock;
 
+    public static Integer ID_PRODUCT;
+
     public static String NAME;
 
     public static Integer PRICE;

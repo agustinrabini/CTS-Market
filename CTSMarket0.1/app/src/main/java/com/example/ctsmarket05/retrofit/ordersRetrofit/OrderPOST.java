@@ -4,11 +4,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.ctsmarket05.entities.Cart;
 import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.User;
-import com.google.gson.JsonArray;
-
-import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class OrderPOST extends AppCompatActivity {
 
-    public void orderPost(Integer id_user, Integer order_price, Integer quantity_products, Integer order_state, Integer shipping, JsonArray cart, Date date){
+    public void orderPost(Integer id_user, Integer order_price, Integer quantity_products, Integer order_state, Integer shipping, Cart cart, String date){
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)

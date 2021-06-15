@@ -67,6 +67,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
             TextView tvLength = itemView.findViewById(R.id.tv_length1);
             ConstraintLayout constraintLayoutProd = itemView.findViewById(R.id.cl_product1);
 
+            Integer id = product.getId_product();
+            String id_prod = id.toString();
+
             tvName.setText(product.getName());
             tvPrice.setText(String.valueOf(product.getPrice()));
             tvDescription.setText(product.getDescription());
@@ -86,6 +89,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
                 clicked.putExtra("price", product.getPrice());
                 clicked.putExtra("length", product.getLength());
                 clicked.putExtra("stock", product.getStock());
+                clicked.putExtra("id_product", id_prod);
 
                 v.getContext().startActivity(clicked);
             });

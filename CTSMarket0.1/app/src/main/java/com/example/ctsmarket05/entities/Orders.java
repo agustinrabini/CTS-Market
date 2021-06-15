@@ -1,9 +1,5 @@
 package com.example.ctsmarket05.entities;
 
-import com.google.gson.JsonArray;
-
-import java.util.Date;
-
 public class Orders {
 
     private Integer id_order;
@@ -12,11 +8,11 @@ public class Orders {
     private Integer quantity_products;
     private Integer order_state;
     private Integer shipping;
-    private JsonArray cart;
-    private Date date;
+    private Cart cart;
+    private String date;
 
 
-    public Orders(Integer id_user, Integer order_price, Integer quantity_products, Integer order_state, Integer shipping, JsonArray cart, Date date) {
+    public Orders(Integer id_user, Integer order_price, Integer quantity_products, Integer order_state, Integer shipping, Cart cart, String date) {
         this.id_user = id_user;
         this.order_price = order_price;
         this.quantity_products = quantity_products;
@@ -66,19 +62,19 @@ public class Orders {
         this.shipping = shipping;
     }
 
-    public JsonArray getCart() {
+    public Cart getCart() {
         return cart;
     }
 
-    public void setCart(JsonArray cart) {
+    public void setCart(Cart cart) {
         this.cart = cart;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }

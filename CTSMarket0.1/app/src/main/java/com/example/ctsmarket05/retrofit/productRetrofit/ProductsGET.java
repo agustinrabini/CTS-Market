@@ -7,17 +7,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.User;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ProductGET extends AppCompatActivity {
+public class ProductsGET extends AppCompatActivity {
 
     private DataInterfaceProd mListener;
 
-    public void getProduct(Integer id){
+    public void getProducts(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -25,22 +27,22 @@ public class ProductGET extends AppCompatActivity {
 
         ProductInterface productInterface = retrofit.create(ProductInterface.class);
 
-        Call<Product> call = productInterface.showProduct(id);
-        call.enqueue(new Callback<Product>() {
+        Call<List<Product>> call = productInterface.productsList();
+        call.enqueue(new Callback<List<Product>>() {
             @Override
-            public void onResponse(Call<Product> call, Response<Product> response) {
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
 
                 if(response.isSuccessful() && response.body()!=null){
                     mListener.responseProd(response.body());
                 }
                 else{
-                    Toast.makeText(ProductGET.this, "Error:" + response.code(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ProductsGET.this, "Error:" + response.code(), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<Product> call, Throwable t) {
-                Toast.makeText(ProductGET.this, "Error:" + t.getMessage(), Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                Toast.makeText(ProductsGET.this, "Error:" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -50,6 +52,6 @@ public class ProductGET extends AppCompatActivity {
     }
 
     public interface DataInterfaceProd {
-        void responseProd(Product product);
+        void responseProd(List<Product> products);
     }
 }

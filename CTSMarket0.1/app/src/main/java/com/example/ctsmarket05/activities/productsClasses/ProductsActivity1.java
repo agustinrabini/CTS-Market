@@ -23,7 +23,7 @@ import com.example.ctsmarket05.activities.UserActivty;
 import com.example.ctsmarket05.adapters.ComplementAdapter;
 import com.example.ctsmarket05.adapters.ProductsAdapter;
 import com.example.ctsmarket05.entities.Product;
-import com.example.ctsmarket05.retrofit.productRetrofit.ProductGET;
+import com.example.ctsmarket05.retrofit.productRetrofit.ProductsGET;
 import com.google.android.material.navigation.NavigationView;
 
 public class ProductsActivity1 extends AppCompatActivity implements OnCustomClickListener {
@@ -50,12 +50,12 @@ public class ProductsActivity1 extends AppCompatActivity implements OnCustomClic
         rvcomplementario();
         rvproducts();
 
-        ProductGET productGET = new ProductGET();
-        productGET.SetOnDataListenerProd(products -> {
+        ProductsGET productsGET = new ProductsGET();
+        productsGET.SetOnDataListenerProd(products -> {
             productsAdapter.setProducts(products);
             complementAdapter.setComplement(products);
         });
-        productGET.getProducts();
+        productsGET.getProducts();
     }
 
     private void rvproducts(){

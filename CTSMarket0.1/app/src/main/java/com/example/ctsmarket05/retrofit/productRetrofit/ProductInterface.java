@@ -6,9 +6,13 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface ProductInterface {
 
     @GET("products")
     Call<List<Product>> productsList();
+
+    @GET("/product/{id}")
+    Call<Product> showProduct(@Path("id") int id);
 }
