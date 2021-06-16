@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0fc09119-42b1-43fe-8f61-d5b58a5603e6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/androidTest/java/com/example/ctsmarket05/ExampleInstrumentedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/brown_background-playstore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/ic_bowie-playstore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/ic_chairas-playstore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/ic_eskisltuna-playstore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/ic_imagge-playstore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/ic_launcher-playstore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/ic_machete-playstore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/ic_map-playstore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/ic_mercadopago-playstore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/ic_usuario-playstore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/ic_vaina-playstore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/CategoriasActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/ConfActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/ContactoActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/ExhibitionActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/FavoritosActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/HomeActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/InfoActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/LocationActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/LocationAddActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/LogginActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/NotificacionesActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/OnCustomClickListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/PedidosActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/QuantityBottomSheet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/RegisterActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/TalleresActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/UserActivty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/UserEditActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/productsClasses/Personalizado2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/productsClasses/PreguntaActivity3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/productsClasses/ProductoPersonalizado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/productsClasses/ProductsActivity1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/productsClasses/ProductsActivity2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/productsClasses/ProductsActivity3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/productsClasses/ProductsActivity4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/productsClasses/ProductsActivity5.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/activities/productsClasses/ProductsActivity6.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/adapters/ComplementAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/adapters/ExhibitionAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/adapters/ProductsAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/entities/Cart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/entities/Location.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/entities/Orders.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/entities/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/entities/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/retrofit/locationRetrofit/LocationGET.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/retrofit/locationRetrofit/LocationGETbyIdUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/retrofit/locationRetrofit/LocationInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/retrofit/locationRetrofit/LocationPOST.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/retrofit/locationRetrofit/LocationPUT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/retrofit/ordersRetrofit/OrderInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/retrofit/ordersRetrofit/OrderPOST.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/retrofit/productRetrofit/ProductGET.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/retrofit/productRetrofit/ProductInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/retrofit/productRetrofit/ProductsGET.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/retrofit/userRetrofit/UserGET.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/retrofit/userRetrofit/UserInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/retrofit/userRetrofit/UserPUTIdLoc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/retrofit/userRetrofit/UserPUTInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/room/AppDatabase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/room/dao/ProductoDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/room/dao/UsuariosDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/room/repository/ProductoRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/java/com/example/ctsmarket05/room/repository/UsuariosRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/_115230_cancel_close_cross_delete_114048.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/_115236_delete_min_minus_114026.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/_213460_account_avatar_head_person_profile_user_115386.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/_22619.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/_491254402_minussubtractreducediscount_82971.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/_53363.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/_643771_configuration_configure_gear_set_setting_113449.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/_849824_basket_buy_market_multimedia_shop_shopping_store_107977.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/alarm_alert_attention_bell_clock_notification_ring_icon_123203.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/align_left_icon_178581.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/angle_arrow_down_icon_icons_com_73683.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/arrow_arrows_back_direction_left_navigation_right_icon_123236.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/back_arrow_icon_icons_com_72866.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/background_for_et.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/background_for_et2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/background_for_prices.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/background_for_prices2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/background_quantity.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/brand_telegram_icon_151521.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/brown_background_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/btn_comprar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/btnlogin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/btnprevio_compra.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/btnregister.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/btns_home.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/button_confirmatio_loggin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/button_confirmation_register.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/card_account_details_icon_137804.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/degradante.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/direction_gps_location_map_maps_navigation_pin_icon_123206.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/facebook_icon_icons_com_59205.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/filter_filters_funnel_list_navigation_sort_sorting_icon_123212.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/google_icon_icons_com_62736.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/gui_shipping_icon_157590.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/heart_icon_178698.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/heart_vacio.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/ic_home_button_icon_icons_com_72700.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/ic_imagge_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/ic_machete_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/ic_map_background1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/ic_map_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/ic_menu_camera.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/ic_mercadopago_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/ic_usuario_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/id_card_icon_124180.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/info_badged_filled_icon_142884.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/knife_icon_136467.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/loggin_solapa.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/medal_icon_icons_com_59186.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/menubuttonofthreelines_79781.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/mercado_pago_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/minuslinear_106174.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/museum_3584.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/ok_icon_178936.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/plane_backround1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/plus_icon_icons_com_71848.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/publicmuseumsign_89226.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/question_mark_in_dark_circle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/register_solapa.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/searchmagnifierinterfacesymbol_79894.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/drawable/star_77949.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/font/quicksand_light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/font/quicksand_medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/font/quicksand_regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/font/quicksand_semibold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/font/quicksandbold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_categorias.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_contacto.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_exhibicion_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_exibicion.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_favoritos_activity.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_home.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_info.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_location.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_location_add.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_loggin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_notificaciones.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_pedido3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_pedidos.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_pregunta3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_products1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_products2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_products3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_products4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_products5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_products6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_register.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_talleres.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_user.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/activity_user_edit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/app_bar_home.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/app_bar_prodex.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/bottom_sheet_quantity.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/compartir_dialogo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/cv_complemento.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/cv_exhibicion.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/cv_producto.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/header.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/header_product_shipping.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/personalizado2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/layout/settings_activity.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/menu/menu.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-anydpi-v26/ic_map.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-anydpi-v26/ic_map_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-anydpi-v26/ic_usuario.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-anydpi-v26/ic_usuario_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-hdpi/ic_map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-hdpi/ic_map_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-hdpi/ic_usuario.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-hdpi/ic_usuario_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-hdpi/ic_usuario_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-mdpi/ic_map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-mdpi/ic_map_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-mdpi/ic_usuario.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-mdpi/ic_usuario_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-mdpi/ic_usuario_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xhdpi/ic_map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xhdpi/ic_map_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xhdpi/ic_usuario.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xhdpi/ic_usuario_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xhdpi/ic_usuario_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxhdpi/ic_map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxhdpi/ic_map_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxhdpi/ic_usuario.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxhdpi/ic_usuario_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxhdpi/ic_usuario_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxxhdpi/ic_map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxxhdpi/ic_map_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxxhdpi/ic_usuario.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxxhdpi/ic_usuario_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/mipmap-xxxhdpi/ic_usuario_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/navigation/main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/values/arrays.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/values/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/main/res/xml/root_preferences.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/app/src/test/java/com/example/ctsmarket05/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/projectFilesBackup/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CTSMarket0.1/settings.gradle" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3_XL_API_30]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1u2xbZq2JzySrsBosdGeOGv8fAm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CTS-Market/CTSMarket0.1" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="CTS_Market0.5.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0fc09119-42b1-43fe-8f61-d5b58a5603e6" name="Default Changelist" comment="" />
+      <created>1623877556385</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623877556385</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="477" y="266" key="#PSD" timestamp="1623877891705">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="477" y="266" key="#PSD/1920.200.1280.680/0.0.1920.1040@0.0.1920.1040" timestamp="1623877891705" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1623877900864">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/1920.200.1280.680/0.0.1920.1040@0.0.1920.1040" timestamp="1623877900864" />
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1623877790082">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/1920.200.1280.680/0.0.1920.1040@0.0.1920.1040" timestamp="1623877790082" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1623877790082">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.center/1920.200.1280.680/0.0.1920.1040@0.0.1920.1040" timestamp="1623877790082" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1623877790081">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.left/1920.200.1280.680/0.0.1920.1040@0.0.1920.1040" timestamp="1623877790081" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1623877790082">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.right/1920.200.1280.680/0.0.1920.1040@0.0.1920.1040" timestamp="1623877790082" />
+  </component>
+</project>
