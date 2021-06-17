@@ -171,7 +171,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline185" />
 
         <Button
-            android:id="@+id/btn_buy"
+            android:id="@+id/btn_buy2"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/button_confirmatio_loggin"
@@ -182,7 +182,21 @@
             app:layout_constraintStart_toStartOf="@+id/guideline184"
             app:layout_constraintTop_toTopOf="@+id/guideline190" />
 
-        <Button
+    <Button
+        android:id="@+id/btn_cart2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/button_confirmatio_loggin"
+        android:text="Agregar al carrito"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/guideline192"
+        app:layout_constraintEnd_toStartOf="@+id/guideline188"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline186"
+        app:layout_constraintTop_toTopOf="@+id/guideline191"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
             android:id="@+id/btn_question2"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -279,12 +293,12 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.86" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline191"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.97" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline191"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.94" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline194"

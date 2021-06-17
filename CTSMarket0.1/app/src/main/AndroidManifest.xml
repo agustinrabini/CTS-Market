@@ -24,6 +24,7 @@
         <activity android:name=".activities.PedidosActivity" />
         <activity android:name=".activities.NotificacionesActivity" />
         <activity android:name=".activities.LogoutActivity" />
+        <activity android:name=".activities.CartActivity" />
         <activity android:name=".activities.LocationAddActivity" />
         <activity android:name=".activities.UserEditActivity" />
         <activity android:name=".activities.productsClasses.ProductsActivity4" />

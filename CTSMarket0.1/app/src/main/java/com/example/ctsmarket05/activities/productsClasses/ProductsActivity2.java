@@ -2,6 +2,7 @@ package com.example.ctsmarket05.activities.productsClasses;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,14 +11,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.QuantityBottomSheet;
+import com.example.ctsmarket05.entities.Cart;
 import com.example.ctsmarket05.entities.Product;
+import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderPOST;
 import com.squareup.picasso.Picasso;
+
+import java.text.DateFormat;
+import java.util.Calendar;
 
 public class ProductsActivity2 extends AppCompatActivity implements QuantityBottomSheet.QuantityListener {
 
     private ImageView ivProduct2;
     private Button btnQuestion;
     private Button btnBuy;
+    private Button btnCart;
     private TextView tvName2;
     private TextView tvPrice2;
     private TextView tvBlade2;
@@ -37,6 +45,38 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
         changeQuantityProduct();
         btnBuy();
         btnQuestion();
+        btnCart();
+    }
+
+    private void btnCart() {
+
+        btnCart.setOnClickListener(v -> {
+
+            Intent Clicked = getIntent();
+
+            String id_prod = Clicked.getStringExtra("id_product");
+            Integer price = Clicked.getIntExtra("price",0);
+
+            Product.QUANTITY = quantityProduct;
+            Product.PRICE = price * quantityProduct;
+            Product.ID_PRODUCT = Integer.parseInt(id_prod);
+
+            Calendar calendar = Calendar.getInstance();
+            String date = DateFormat.getDateInstance().format(calendar.getTime());
+
+            Cart cart = new Cart(Product.QUANTITY,Product.ID_PRODUCT);
+
+            OrderPOST orderPOST = new OrderPOST();
+            orderPOST.orderPost(
+                        User.IDUSER,
+                        Product.PRICE,
+                        Product.QUANTITY,
+                        10,
+                        1,
+                        cart,
+                        date
+            );
+        });
     }
 
     private void getProductInfo() {
@@ -52,6 +92,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
         Integer price = Clicked.getIntExtra("price",0);
         Integer length = Clicked.getIntExtra("length",0);
 
+        Product.QUANTITY = quantityProduct;
         Product.ID_PRODUCT = Integer.parseInt(id_prod);
         Product.NAME = name;
         Product.PRICE = price;
@@ -82,7 +123,6 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
             Intent Clicked = getIntent();
             Integer price = Clicked.getIntExtra("price",0);
 
-            Product.QUANTITY = quantityProduct;
             Product.PRICE = price * quantityProduct;
 
             //Se va pasando por los activities toda la informacion del producto a medida que el usuario
@@ -110,8 +150,9 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
     private void findViews(){
         ivProduct2 = findViewById(R.id.iv_product2);
         tvQuantity = findViewById(R.id.tv_quantity2);
-        btnBuy = findViewById(R.id.btn_buy);
+        btnBuy = findViewById(R.id.btn_buy2);
         btnQuestion = findViewById(R.id.btn_question2);
+        btnCart = findViewById(R.id.btn_cart2);
         tvName2 = findViewById(R.id.tv_name2);
         tvPrice2 = findViewById(R.id.tv_price2);
         tvDescription2 = findViewById(R.id.tv_description2);

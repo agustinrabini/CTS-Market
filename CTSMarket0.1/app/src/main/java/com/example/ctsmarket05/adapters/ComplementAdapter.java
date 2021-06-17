@@ -11,7 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.OnCustomClickListener;
+import com.example.ctsmarket05.activities.clickListeners.ProductsOnCustomClickListener;
 import com.example.ctsmarket05.activities.productsClasses.ProductsActivity2;
 import com.example.ctsmarket05.entities.Product;
 import com.squareup.picasso.Picasso;
@@ -25,9 +25,9 @@ import java.util.List;
 public class ComplementAdapter extends RecyclerView.Adapter<ComplementAdapter.ComplementViewHolder> {
 
     private ArrayList<Product> complement = new ArrayList<>();
-    private final OnCustomClickListener listener;
+    private final ProductsOnCustomClickListener listener;
 
-    public ComplementAdapter( OnCustomClickListener listener) {
+    public ComplementAdapter( ProductsOnCustomClickListener listener) {
         this.listener = listener;
     }
 
@@ -59,7 +59,7 @@ public class ComplementAdapter extends RecyclerView.Adapter<ComplementAdapter.Co
             super(itemView);
         }
 
-        private void bind (Product product, OnCustomClickListener listener){
+        private void bind (Product product, ProductsOnCustomClickListener listener){
 
             ImageView ivImageComp = itemView.findViewById(R.id.iv_image_comp);
             TextView tvNameComp = itemView.findViewById(R.id.tv_name_comp);

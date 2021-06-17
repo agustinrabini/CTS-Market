@@ -96,7 +96,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         ivTalleres.setOnClickListener(v -> {
-            Intent talleres = new Intent(HomeActivity.this, TalleresActivity.class);
+            Intent talleres = new Intent(HomeActivity.this, CartActivity.class);
             startActivity(talleres);
         });
     }
@@ -129,7 +129,7 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(contacto);
                         break;
                     case R.id.nav_exhibicion:
-                        Intent ex = new Intent(getApplicationContext(),ProductsActivity1.class);
+                        Intent ex = new Intent(getApplicationContext(), ProductsActivity1.class);
                         startActivity(ex);
                         break;
                     case R.id.nav_talleres:

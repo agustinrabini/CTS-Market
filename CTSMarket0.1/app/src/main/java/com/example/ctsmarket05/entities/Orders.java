@@ -22,6 +22,25 @@ public class Orders {
         this.date = date;
     }
 
+    public Orders(Integer id_order, Integer id_user, Integer order_price, Integer quantity_products, Integer order_state, Integer shipping, Cart cart, String date) {
+        this.id_order = id_order;
+        this.id_user = id_user;
+        this.order_price = order_price;
+        this.quantity_products = quantity_products;
+        this.order_state = order_state;
+        this.shipping = shipping;
+        this.cart = cart;
+        this.date = date;
+    }
+
+    public Integer getId_order() {
+        return id_order;
+    }
+
+    public void setId_order(Integer id_order) {
+        this.id_order = id_order;
+    }
+
     public Integer getId_user() {
         return id_user;
     }

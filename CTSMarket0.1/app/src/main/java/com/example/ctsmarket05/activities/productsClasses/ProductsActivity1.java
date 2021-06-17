@@ -16,7 +16,7 @@ import com.example.ctsmarket05.activities.ConfActivity;
 import com.example.ctsmarket05.activities.ContactoActivity;
 import com.example.ctsmarket05.activities.ExhibitionActivity;
 import com.example.ctsmarket05.activities.HomeActivity;
-import com.example.ctsmarket05.activities.OnCustomClickListener;
+import com.example.ctsmarket05.activities.clickListeners.ProductsOnCustomClickListener;
 import com.example.ctsmarket05.activities.PedidosActivity;
 import com.example.ctsmarket05.activities.TalleresActivity;
 import com.example.ctsmarket05.activities.UserActivty;
@@ -26,7 +26,7 @@ import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.retrofit.productRetrofit.ProductsGET;
 import com.google.android.material.navigation.NavigationView;
 
-public class ProductsActivity1 extends AppCompatActivity implements OnCustomClickListener {
+public class ProductsActivity1 extends AppCompatActivity implements ProductsOnCustomClickListener {
 
     private ProductsAdapter productsAdapter = new ProductsAdapter(this);
     private ComplementAdapter complementAdapter = new ComplementAdapter(this);
