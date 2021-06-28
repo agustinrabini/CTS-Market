@@ -1,14 +1,17 @@
 package com.example.ctsmarket05.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ctsmarket05.R;
+import com.example.ctsmarket05.activities.CartExpandedActivity;
 import com.example.ctsmarket05.activities.clickListeners.OrdersOnCustomClickListener;
 import com.example.ctsmarket05.entities.Orders;
 
@@ -61,14 +64,21 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
             TextView tvOrderPrice = itemView.findViewById(R.id.tv_id_orderO);
             TextView tvIdOrder = itemView.findViewById(R.id.tv_id_orderO);
             TextView tvShipping = itemView.findViewById(R.id.tv_shippingO);
+            ImageView ivOptions = itemView.findViewById(R.id.iv_optionsO);
 
-            tvIdOrder.setText(String.valueOf(order.getId_order()));
+            Integer id_order = order.getId_order();
+
+            tvIdOrder.setText(String.valueOf(id_order));
             tvQuantityProducts.setText(String.valueOf(order.getQuantity_products()));
             tvOrderPrice.setText(String.valueOf(order.getOrder_price()));
             tvShipping.setText(String.valueOf(order.getShipping()));
 
-            clOrder.setOnClickListener(v -> {
+            ivOptions.setOnClickListener(v -> {
                 listener.onItemClick(order,getAdapterPosition());
+
+                Intent fromOrdersActivity = new Intent(v.getContext(), CartExpandedActivity.class);
+                fromOrdersActivity.putExtra("id_order", id_order);
+                v.getContext().startActivity(fromOrdersActivity);
             });
         }
     }

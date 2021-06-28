@@ -12,9 +12,18 @@ import retrofit2.http.Path;
 
 public interface OrderInterface {
 
-    @POST("orderAdd")
-    Call<Orders> postOrder(@Body Orders order);
+    @POST("/order/opfc/{id}")
+    Call<Orders> cartOrder(@Path("id") int id_user, @Body Orders order);
+
+    @POST("/orderAdd")
+    Call<Orders> orderPost(@Body Orders order);
 
     @GET("/order/suo/{id}")
     Call<List<Orders>> showUserOrders(@Path("id") int id_user);
+
+    @GET("/order/{id}")
+    Call<Orders> getOrder(@Path("id") int id_order);
+
+    @GET("/order/sopo/{id}")
+    Call<Orders> getOrderIdForProductsOrder(@Path("id") int id_user);
 }

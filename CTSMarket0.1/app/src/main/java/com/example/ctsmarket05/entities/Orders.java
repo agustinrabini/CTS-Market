@@ -1,5 +1,9 @@
 package com.example.ctsmarket05.entities;
 
+import com.example.ctsmarket05.entities.ProductsOrder;
+
+import java.util.List;
+
 public class Orders {
 
     private Integer id_order;
@@ -8,28 +12,16 @@ public class Orders {
     private Integer quantity_products;
     private Integer order_state;
     private Integer shipping;
-    private Cart cart;
     private String date;
 
+    public static Integer ID_ORDER;
 
-    public Orders(Integer id_user, Integer order_price, Integer quantity_products, Integer order_state, Integer shipping, Cart cart, String date) {
+    public Orders(Integer id_user, Integer order_price, Integer quantity_products, Integer order_state, Integer shipping, String date) {
         this.id_user = id_user;
         this.order_price = order_price;
         this.quantity_products = quantity_products;
         this.order_state = order_state;
         this.shipping = shipping;
-        this.cart = cart;
-        this.date = date;
-    }
-
-    public Orders(Integer id_order, Integer id_user, Integer order_price, Integer quantity_products, Integer order_state, Integer shipping, Cart cart, String date) {
-        this.id_order = id_order;
-        this.id_user = id_user;
-        this.order_price = order_price;
-        this.quantity_products = quantity_products;
-        this.order_state = order_state;
-        this.shipping = shipping;
-        this.cart = cart;
         this.date = date;
     }
 
@@ -79,14 +71,6 @@ public class Orders {
 
     public void setShipping(Integer shipping) {
         this.shipping = shipping;
-    }
-
-    public Cart getCart() {
-        return cart;
-    }
-
-    public void setCart(Cart cart) {
-        this.cart = cart;
     }
 
     public String getDate() {

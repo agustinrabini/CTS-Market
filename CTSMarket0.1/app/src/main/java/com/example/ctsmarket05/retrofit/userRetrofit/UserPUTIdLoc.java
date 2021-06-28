@@ -53,5 +53,4 @@ public class UserPUTIdLoc extends AppCompatActivity {
         });
         locationGETbyIdUser.getLocationByIdUser();
     }
-
 }

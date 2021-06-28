@@ -101,10 +101,6 @@ public class LocationAddActivity extends AppCompatActivity {
         }
     }
 
-    private void updatedb(){
-        UserPUTIdLoc userPUTIdLoc = new UserPUTIdLoc();
-        userPUTIdLoc.userPut();
-    }
 
     private void postL(){
         LocationPOST locationPOST = new LocationPOST();
@@ -122,6 +118,11 @@ public class LocationAddActivity extends AppCompatActivity {
         updatedb();
     }
 
+    private void updatedb(){
+        UserPUTIdLoc userPUTIdLoc = new UserPUTIdLoc();
+        userPUTIdLoc.userPut();
+    }
+
     private void backTo(){
 
         //Si viene desde ProductsActivity3 vuelve ahí
@@ -135,7 +136,7 @@ public class LocationAddActivity extends AppCompatActivity {
             finish();
         }
 
-        //si viene de otro LocationInfo vuelve ahí
+        //si viene de LocationInfo vuelve ahí
 
     }
 

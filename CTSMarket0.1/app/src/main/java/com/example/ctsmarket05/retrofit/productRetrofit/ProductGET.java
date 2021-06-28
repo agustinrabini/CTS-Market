@@ -17,7 +17,7 @@ public class ProductGET extends AppCompatActivity {
 
     private DataInterfaceProd mListener;
 
-    public void getProduct(Integer id){
+    public void getProduct(Integer id_product){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -25,7 +25,7 @@ public class ProductGET extends AppCompatActivity {
 
         ProductInterface productInterface = retrofit.create(ProductInterface.class);
 
-        Call<Product> call = productInterface.showProduct(id);
+        Call<Product> call = productInterface.showProduct(id_product);
         call.enqueue(new Callback<Product>() {
             @Override
             public void onResponse(Call<Product> call, Response<Product> response) {

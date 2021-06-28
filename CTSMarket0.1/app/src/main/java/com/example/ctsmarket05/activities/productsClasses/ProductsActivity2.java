@@ -2,7 +2,6 @@ package com.example.ctsmarket05.activities.productsClasses;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,10 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.QuantityBottomSheet;
-import com.example.ctsmarket05.entities.Cart;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.User;
-import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderPOST;
+import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderGetByIdUser;
+import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderCartPOST;
+import com.example.ctsmarket05.retrofit.productsOrderRetrofit.ProductsOrderPOST;
 import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
@@ -64,25 +64,29 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
             Calendar calendar = Calendar.getInstance();
             String date = DateFormat.getDateInstance().format(calendar.getTime());
 
-            Cart cart = new Cart(Product.QUANTITY,Product.ID_PRODUCT);
-
-            OrderPOST orderPOST = new OrderPOST();
-            orderPOST.orderPost(
+            OrderCartPOST orderCartPOST = new OrderCartPOST();
+            orderCartPOST.orderCartPOST(
                         User.IDUSER,
                         Product.PRICE,
                         Product.QUANTITY,
                         10,
                         1,
-                        cart,
                         date
             );
+
+            OrderGetByIdUser orderGetByIdUser = new OrderGetByIdUser();
+            orderGetByIdUser.OrderGetByIdUser();
+
+            ProductsOrderPOST productsOrderPOST = new ProductsOrderPOST();
+            productsOrderPOST.addCart(Product.ID_PRODUCT,User.IDUSER,Product.QUANTITY);
         });
     }
 
     private void getProductInfo() {
-        Intent Clicked = getIntent();
 
+        Intent Clicked = getIntent();
         String id_prod = Clicked.getStringExtra("id_product");
+        Product.ID_PRODUCT = Integer.parseInt(id_prod);
 
         String name = Clicked.getStringExtra("name");
         String blade = Clicked.getStringExtra("blade");
