@@ -22,9 +22,6 @@ public interface ProductsOrderInterface {
     @POST("productsOrder/addCart")
     Call<ProductsOrder> addCart(@Body ProductsOrder productsOrder);
 
-    @GET("productsOrder/sipofu/{id}")//show IdProductsOrder para hacer el update a products_order. Devuelve un Id_products_order.
-    Call<ProductsOrder> idProductsOrder(@Path("id") int id_user);
-
-    @PUT("/productsOrder/uwapo/{id}")//UpdateWhenAddProductsOrder, ultima call de la sequencia de agregado.
-    Call<ProductsOrder> updateWhenAddPO(@Body ProductsOrder productsOrder, @Path("id") int id_products_order);
+   //@PUT("/productsOrder/uwapo/{id}")//UpdateWhenAddProductsOrder, ultima call de la sequencia de agregado.
+   //Call<ProductsOrder> updateWhenAddPO(@Body ProductsOrder productsOrder, @Path("id") int id_products_order);
 }

@@ -14,7 +14,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class OrderCartPOST extends AppCompatActivity {
-
+    //POST Call para crear el carrito.
     public void orderCartPOST(Integer id_user, Integer order_price, Integer quantity_products, Integer order_state, Integer shipping, String date){
 
         Retrofit retrofit = new Retrofit.Builder()

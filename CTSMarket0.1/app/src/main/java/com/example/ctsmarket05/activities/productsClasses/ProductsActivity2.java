@@ -5,15 +5,20 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.FtsOptions;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.QuantityBottomSheet;
+import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderGET;
 import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderGetByIdUser;
 import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderCartPOST;
+import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderPricePUT;
 import com.example.ctsmarket05.retrofit.productsOrderRetrofit.ProductsOrderPOST;
 import com.squareup.picasso.Picasso;
 
@@ -49,36 +54,46 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
     }
 
     private void btnCart() {
-
+        //se agrega un ubjeto al carrito activo. El estado 10 indica que el carrito aun esta activo
+        //y se le pueden seguir agregando productos.
         btnCart.setOnClickListener(v -> {
 
             Intent Clicked = getIntent();
 
             String id_prod = Clicked.getStringExtra("id_product");
-            Integer price = Clicked.getIntExtra("price",0);
+            Integer price = Clicked.getIntExtra("price", 0);
 
             Product.QUANTITY = quantityProduct;
             Product.PRICE = price * quantityProduct;
             Product.ID_PRODUCT = Integer.parseInt(id_prod);
 
-            Calendar calendar = Calendar.getInstance();
-            String date = DateFormat.getDateInstance().format(calendar.getTime());
+            //Calendar calendar = Calendar.getInstance();
+            //String date = DateFormat.getDateInstance().format(calendar.getTime());
 
             OrderCartPOST orderCartPOST = new OrderCartPOST();
             orderCartPOST.orderCartPOST(
-                        User.IDUSER,
-                        Product.PRICE,
-                        Product.QUANTITY,
-                        10,
-                        1,
-                        date
+                    User.IDUSER,
+                    Product.PRICE,
+                    Product.QUANTITY,
+                    10,
+                    1,
+                    ""
             );
 
             OrderGetByIdUser orderGetByIdUser = new OrderGetByIdUser();
+            orderGetByIdUser.SetOnDataListenerOrdersPO(order -> {
+
+                Integer id_order = order.getId_order();
+
+                if (id_order != null){
+                    OrderPricePUT orderPricePUT = new OrderPricePUT();
+                    orderPricePUT.orderPricePut(Product.PRICE,Product.QUANTITY,id_order);
+                }
+            });
             orderGetByIdUser.OrderGetByIdUser();
 
             ProductsOrderPOST productsOrderPOST = new ProductsOrderPOST();
-            productsOrderPOST.addCart(Product.ID_PRODUCT,User.IDUSER,Product.QUANTITY);
+            productsOrderPOST.addCart(Product.ID_PRODUCT, User.IDUSER, Product.QUANTITY);
         });
     }
 
@@ -142,7 +157,6 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
             QuantityBottomSheet quantityBottomSheet = new QuantityBottomSheet();
             quantityBottomSheet.show(getSupportFragmentManager(), "quantityBottomSheet");
         });
-
     }
 
     @Override

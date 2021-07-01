@@ -96,7 +96,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         ivTalleres.setOnClickListener(v -> {
-            Intent talleres = new Intent(HomeActivity.this, CartActivity.class);
+            Intent talleres = new Intent(HomeActivity.this, OrdersActivity.class);
             startActivity(talleres);
         });
     }
