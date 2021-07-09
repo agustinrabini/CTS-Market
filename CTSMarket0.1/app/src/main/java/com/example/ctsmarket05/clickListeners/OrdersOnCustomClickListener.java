@@ -1,4 +1,4 @@
-package com.example.ctsmarket05.activities.clickListeners;
+package com.example.ctsmarket05.clickListeners;
 
 import com.example.ctsmarket05.entities.Orders;
 

@@ -14,6 +14,8 @@ public class Orders {
     private Integer shipping;
     private String date;
 
+    public static Integer ORDER_PRICE;
+
     public Orders(Integer id_user, Integer order_price, Integer quantity_products, Integer order_state, Integer shipping, String date) {
         this.id_user = id_user;
         this.order_price = order_price;
@@ -26,6 +28,12 @@ public class Orders {
     public Orders(Integer order_price, Integer quantity_products) {
         this.order_price = order_price;
         this.quantity_products = quantity_products;
+    }
+
+    public Orders(Integer order_state, Integer shipping, String date) {
+        this.order_state = order_state;
+        this.shipping = shipping;
+        this.date = date;
     }
 
     public Integer getId_order() {

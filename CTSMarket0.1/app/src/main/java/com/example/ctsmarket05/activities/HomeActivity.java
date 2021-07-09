@@ -112,14 +112,18 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.nav_mi_usuario:
                         Intent home = new Intent(getApplicationContext(),HomeActivity.class);
                         startActivity(home);
+                        break;
                     case R.id.nav_home:
                         Intent MiUsuario = new Intent(getApplicationContext(), UserActivty.class);
                         startActivity(MiUsuario);
+                        break;
                     case R.id.nav_pedidos:
                         Intent pedidos = new Intent(getApplicationContext(),PedidosActivity.class);
                         startActivity(pedidos);
+                        break;
                     case  R.id.nav_logout:
                         signOut();
+                        break;
                     case R.id.nav_productos:
                         Intent productos = new Intent(getApplicationContext(), ProductsActivity1.class);
                         startActivity(productos);

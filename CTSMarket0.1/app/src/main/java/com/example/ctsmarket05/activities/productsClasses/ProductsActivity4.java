@@ -62,9 +62,7 @@ public class ProductsActivity4 extends AppCompatActivity {
                 tvChangeUserInfo.setVisibility(View.VISIBLE);
                 tvChangeUserInfo.setText("Editar información");
                 tvUser.setText(
-                        "Nombre: " + user.getName_lastname()+ "\n"
-                                + "DNI: " + user.getDni().toString() + "\n"
-                                + "Celular:" + user.getPhone()
+                        "Nombre: " + user.getName_lastname()+ "\n" + "DNI: " + user.getDni().toString() + "\n" + "Celular:" + user.getPhone()
                 );
             }
         });
@@ -79,6 +77,7 @@ public class ProductsActivity4 extends AppCompatActivity {
         String price = sellerHome.getStringExtra("price");
         String sendingMethod = sellerHome.getStringExtra("sendingMethod");
         String quantity = sellerHome.getStringExtra("quantity");
+        String sequence = sellerHome.getStringExtra("sequence");
 
         btnBuy.setOnClickListener(v -> {
 
@@ -88,6 +87,19 @@ public class ProductsActivity4 extends AppCompatActivity {
           toProdActv5.putExtra("name", name);
           toProdActv5.putExtra("price", price);
           toProdActv5.putExtra("quantity", quantity);
+
+          String sequence2 = "";
+          switch (sequence){
+
+              case "cartSequence":{
+                  sequence2 = "cartSequence";
+              }break;
+
+              case "oneProductSequence":{
+                  sequence2 = "oneProductSequence";
+              }break;
+          }
+          toProdActv5.putExtra("sequence", sequence2);
 
           startActivity(toProdActv5);
         });

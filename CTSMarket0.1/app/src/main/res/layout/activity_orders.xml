@@ -40,7 +40,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.94" />
+        app:layout_constraintGuide_percent="0.89" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline440"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline438"
@@ -48,8 +55,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.75" />
-
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_orders"
@@ -62,7 +67,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline429" />
 
     <TextView
-        android:id="@+id/tv_cart"
+        android:id="@+id/tv_cartO"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text=""
@@ -70,4 +75,19 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline431"
         app:layout_constraintStart_toStartOf="@+id/guideline428"
         app:layout_constraintTop_toTopOf="@+id/guideline438" />
+
+    <Button
+        android:id="@+id/btn_buy_cartO"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Continuar compra"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline440"
+        app:layout_constraintEnd_toStartOf="@+id/guideline431"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline428"
+        app:layout_constraintTop_toTopOf="@+id/guideline437"
+        app:layout_constraintVertical_bias="0.0" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

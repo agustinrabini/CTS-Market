@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.LocationAddActivity;
+import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.retrofit.locationRetrofit.LocationGET;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;
@@ -49,8 +51,6 @@ public class ProductsActivity3 extends AppCompatActivity {
 
     private void showInfo() {
 
-        tvFinalPrice.setText("PRECIO: " + Product.PRICE.toString() + "$ARS");
-
         UserGET userGET = new UserGET();
         userGET.SetOnDataListenerUser(user -> {
 
@@ -83,31 +83,38 @@ public class ProductsActivity3 extends AppCompatActivity {
             }
         });
         userGET.getUserByGmail();
+
+        Intent from = getIntent();
+        String comingFrom = from.getStringExtra("from");
+
+        //determina el precio segun la secuencia de compra
+        switch (comingFrom){
+            case "cartSequence":{
+                tvFinalPrice.setText("Precio final de la orden: "+ Orders.ORDER_PRICE + "$ARS");
+            }break;
+
+            case "oneProductSequence":{
+                tvFinalPrice.setText("PRECIO: " + Product.PRICE.toString() + "$ARS");
+            }break;
+        }
     }
 
     private void sendToHome(){
-       // ivHome.setOnClickListener(v -> {
-       //     //Intent home = new Intent(this, ProductsActivity4.class );
-       //     //home.putExtra("method", "home");
-       //     //startActivity(home);
-       //     Toast.makeText(this, "No disponilbe, seleccione otro método", Toast.LENGTH_SHORT).show();
-       // });
     }
 
     private void sendByMail(){
-       // ivMail.setOnClickListener(v -> {
-       //     Toast.makeText(this, "No disponilbe, seleccione otro método", Toast.LENGTH_SHORT).show();
-       // });
     }
 
     private void retireAtSellerHome(){
+
         ivSellerHouse.setOnClickListener(v -> {
 
-            Intent topProdActv3 = getIntent();
-            String image = topProdActv3.getStringExtra("image");
-            String name = topProdActv3.getStringExtra("name");
-            String price = topProdActv3.getStringExtra("price");
-            String quantity = topProdActv3.getStringExtra("quantity");
+            Intent from = getIntent();
+            String image = from.getStringExtra("image");
+            String name = from.getStringExtra("name");
+            String price = from.getStringExtra("price");
+            String quantity = from.getStringExtra("quantity");
+            String comingFrom = from.getStringExtra("from");
 
             Intent sellerHome = new Intent(this, ProductsActivity4.class);
             sellerHome.putExtra("sendingMethod", "sellerHome");
@@ -115,6 +122,20 @@ public class ProductsActivity3 extends AppCompatActivity {
             sellerHome.putExtra("name", name);
             sellerHome.putExtra("price", price);
             sellerHome.putExtra("quantity", quantity);
+
+            //determina que secuencia se ejecuta, si es la compra de un solo producto ó de un carrito
+            String sequence = "";
+            switch (comingFrom){
+
+                case "cartSequence":{
+                    sequence = "cartSequence";
+                }break;
+
+                case "oneProductSequence":{
+                    sequence = "oneProductSequence";
+                }break;
+            }
+            sellerHome.putExtra("sequence", sequence);
             startActivity(sellerHome);
         });
     }

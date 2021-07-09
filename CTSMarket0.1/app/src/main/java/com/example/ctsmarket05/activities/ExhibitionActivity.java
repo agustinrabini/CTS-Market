@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.clickListeners.ProductsOnCustomClickListener;
+import com.example.ctsmarket05.clickListeners.ProductsOnCustomClickListener;
 import com.example.ctsmarket05.activities.productsClasses.ProductsActivity1;
 import com.example.ctsmarket05.adapters.ExhibitionAdapter;
 import com.example.ctsmarket05.entities.Product;

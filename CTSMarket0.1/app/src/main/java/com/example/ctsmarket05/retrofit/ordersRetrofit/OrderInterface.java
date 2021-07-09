@@ -28,9 +28,15 @@ public interface OrderInterface {
     @GET("order/sopo/{id}")
     Call<Orders> getOrderIdForProductsOrder(@Path("id") int id_user);
 
-    @GET("order/showCart/{id}")
+    @GET("order/showCart/{id}")//devuelve el carrito activo
     Call<Orders> getCart(@Path("id") int id_user);
 
     @PUT("order/uopa/{id}")//'update order product added' actualiza el order_price al añadir un producto.
-    Call<Orders> updateOrderPrice(@Body Orders order, @Path("id") int id_order);
+    Call<Orders> updateOrderPriceAdded(@Body Orders order, @Path("id") int id_order);
+
+    @PUT("/order/uopr/{id}")//'update order product removed' actualiza el order_price al añadir un producto.
+    Call<Orders> updateOrderPriceSubtract(@Body Orders order, @Path("id") int id_order);
+
+    @PUT("/order/uobc/{id}")//'update order cart bought' ejecuta una orden de compra al carrito y lo convierte en orden terminada
+    Call<Orders> updateOrderCartBought(@Body Orders order, @Path("id") int id_order);
 }

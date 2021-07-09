@@ -32,17 +32,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.18" />
+        app:layout_constraintGuide_percent="0.02" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline436"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25" />
+        app:layout_constraintGuide_percent="0.06" />
 
     <TextView
-        android:id="@+id/tv_options_cart_expanded"
+        android:id="@+id/tv_buy_cartCE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Opciones"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline434" />
 
     <TextView
-        android:id="@+id/tv_cart_products"
+        android:id="@+id/tv_cart_productsCE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Opciones"
@@ -60,4 +60,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline435" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_products_orderCE"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline434"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline436" />
 </androidx.constraintlayout.widget.ConstraintLayout>

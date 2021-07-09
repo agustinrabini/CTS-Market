@@ -12,12 +12,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-//devuelve el carrito activo
-public class OrdersCartGET extends AppCompatActivity {
 
-    private DataInterfaceOrderCart mListener;
+public class OrderCartBoughtPUT extends AppCompatActivity {
 
-    public void getOrderCart() {
+    public void boughtCart(Integer id_order, Integer order_state, Integer shipping, String date) {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
@@ -26,32 +24,24 @@ public class OrdersCartGET extends AppCompatActivity {
 
         OrderInterface orderInterface = retrofit.create(OrderInterface.class);
 
-        Call<Orders> call = orderInterface.getCart(User.IDUSER);
+        Orders orders = new Orders(order_state,shipping,date);
+
+        Call<Orders> call = orderInterface.updateOrderCartBought(orders, id_order);
 
         call.enqueue(new Callback<Orders>() {
+
             @Override
             public void onResponse(Call<Orders> call, Response<Orders> response) {
-
-                if (response.isSuccessful() && response.body() != null) {
-                    mListener.responseOrderCart(response.body());
-                } else {
-                    Toast.makeText(OrdersCartGET.this, "Error:" + response.code(), Toast.LENGTH_LONG).show();
-                }
+                Orders orderResponse = response.body();
+                orderResponse.setOrder_state(order_state);
+                orderResponse.setShipping(shipping);
+                orderResponse.setDate(date);
             }
 
-            @Override
             public void onFailure(Call<Orders> call, Throwable t) {
-                Toast.makeText(OrdersCartGET.this, "Error:" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(OrderCartBoughtPUT.this, "sad", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    public void SetOnDataListenerOrderCart (DataInterfaceOrderCart listener){
-        mListener = listener;
-    }
-
-    public interface DataInterfaceOrderCart {
-        void responseOrderCart(Orders order);
     }
 
 }

@@ -5,25 +5,18 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.FtsOptions;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.QuantityBottomSheet;
-import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.User;
-import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderGET;
 import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderGetByIdUser;
 import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderCartPOST;
-import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderPricePUT;
+import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderAddPricePUT;
 import com.example.ctsmarket05.retrofit.productsOrderRetrofit.ProductsOrderPOST;
 import com.squareup.picasso.Picasso;
-
-import java.text.DateFormat;
-import java.util.Calendar;
 
 public class ProductsActivity2 extends AppCompatActivity implements QuantityBottomSheet.QuantityListener {
 
@@ -76,7 +69,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
                     Product.PRICE,
                     Product.QUANTITY,
                     10,
-                    1,
+                    null,
                     ""
             );
 
@@ -84,10 +77,10 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
             orderGetByIdUser.SetOnDataListenerOrdersPO(order -> {
 
                 Integer id_order = order.getId_order();
-
+                //si es nulo es porque es la primera vez que se crea el carrito
                 if (id_order != null){
-                    OrderPricePUT orderPricePUT = new OrderPricePUT();
-                    orderPricePUT.orderPricePut(Product.PRICE,Product.QUANTITY,id_order);
+                    OrderAddPricePUT orderAddPricePUT = new OrderAddPricePUT();
+                    orderAddPricePUT.orderPricePut(Product.PRICE,Product.QUANTITY,id_order);
                 }
             });
             orderGetByIdUser.OrderGetByIdUser();
@@ -146,8 +139,9 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
 
             //Se va pasando por los activities toda la informacion del producto a medida que el usuario
             //recorre toda la secuencia de compra
-            Intent toProdActv3 = new Intent(this, ProductsActivity3.class);
-            startActivity(toProdActv3);
+            Intent from = new Intent(this, ProductsActivity3.class);
+            from.putExtra("from","oneProductSequence");
+            startActivity(from);
         });
     }
 

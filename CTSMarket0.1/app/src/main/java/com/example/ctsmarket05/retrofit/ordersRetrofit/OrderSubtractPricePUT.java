@@ -12,12 +12,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-//devuelve el carrito activo
-public class OrdersCartGET extends AppCompatActivity {
 
-    private DataInterfaceOrderCart mListener;
+public class OrderSubtractPricePUT extends AppCompatActivity {
 
-    public void getOrderCart() {
+    //actualiza el carrito con el valor y la cantidad que corresponda al añadir un objeto
+    public void subtractPrice(Integer product_price, Integer quantity_product, Integer id_order) {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
@@ -26,32 +25,22 @@ public class OrdersCartGET extends AppCompatActivity {
 
         OrderInterface orderInterface = retrofit.create(OrderInterface.class);
 
-        Call<Orders> call = orderInterface.getCart(User.IDUSER);
+        Orders orders = new Orders(product_price,quantity_product);
+
+        Call<Orders> call = orderInterface.updateOrderPriceSubtract(orders, id_order);
 
         call.enqueue(new Callback<Orders>() {
+
             @Override
             public void onResponse(Call<Orders> call, Response<Orders> response) {
-
-                if (response.isSuccessful() && response.body() != null) {
-                    mListener.responseOrderCart(response.body());
-                } else {
-                    Toast.makeText(OrdersCartGET.this, "Error:" + response.code(), Toast.LENGTH_LONG).show();
-                }
+                Orders orderResponse = response.body();
+                orderResponse.setOrder_price(product_price);
+                orderResponse.setQuantity_products(quantity_product);
             }
 
-            @Override
             public void onFailure(Call<Orders> call, Throwable t) {
-                Toast.makeText(OrdersCartGET.this, "Error:" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(OrderSubtractPricePUT.this, "sad", Toast.LENGTH_SHORT).show();
             }
         });
     }
-
-    public void SetOnDataListenerOrderCart (DataInterfaceOrderCart listener){
-        mListener = listener;
-    }
-
-    public interface DataInterfaceOrderCart {
-        void responseOrderCart(Orders order);
-    }
-
 }

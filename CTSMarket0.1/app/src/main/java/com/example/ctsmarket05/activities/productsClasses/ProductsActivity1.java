@@ -16,7 +16,7 @@ import com.example.ctsmarket05.activities.ConfActivity;
 import com.example.ctsmarket05.activities.ContactoActivity;
 import com.example.ctsmarket05.activities.ExhibitionActivity;
 import com.example.ctsmarket05.activities.HomeActivity;
-import com.example.ctsmarket05.activities.clickListeners.ProductsOnCustomClickListener;
+import com.example.ctsmarket05.clickListeners.ProductsOnCustomClickListener;
 import com.example.ctsmarket05.activities.PedidosActivity;
 import com.example.ctsmarket05.activities.TalleresActivity;
 import com.example.ctsmarket05.activities.UserActivty;
