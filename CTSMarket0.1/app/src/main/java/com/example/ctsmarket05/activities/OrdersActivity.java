@@ -22,6 +22,7 @@ public class OrdersActivity extends AppCompatActivity implements OrdersOnCustomC
 
     private OrdersAdapter ordersAdapter = new OrdersAdapter(this);
     private TextView tvCart;
+    private TextView tvOrders;
     private Button btnCart;
 
     @Override
@@ -38,6 +39,7 @@ public class OrdersActivity extends AppCompatActivity implements OrdersOnCustomC
     private void findViews() {
 
         tvCart = findViewById(R.id.tv_cartO);
+        tvOrders = findViewById(R.id.tv_orders_finalizedO);
         btnCart = findViewById(R.id.btn_buy_cartO);
 
     }

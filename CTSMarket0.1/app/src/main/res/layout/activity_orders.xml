@@ -76,6 +76,17 @@
         app:layout_constraintStart_toStartOf="@+id/guideline428"
         app:layout_constraintTop_toTopOf="@+id/guideline438" />
 
+    <TextView
+        android:id="@+id/tv_orders_finalizedO"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text=""
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/guideline429"
+        app:layout_constraintEnd_toStartOf="@+id/guideline431"
+        app:layout_constraintStart_toStartOf="@+id/guideline428"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btn_buy_cartO"
         android:layout_width="0dp"
