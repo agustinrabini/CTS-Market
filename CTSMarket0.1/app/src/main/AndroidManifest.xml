@@ -32,6 +32,7 @@
         <activity android:name=".activities.productsClasses.ProductsActivity5" />
         <activity android:name=".activities.productsClasses.ProductsActivity6" />
         <activity android:name=".activities.CartBuyFinalActivity" />
+        <activity android:name=".activities.LocationInfoActivity" />
         <activity
             android:name=".activities.ConfActivity"
             android:label="@string/title_activity_conf" />

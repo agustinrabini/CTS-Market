@@ -129,15 +129,21 @@ public class LocationAddActivity extends AppCompatActivity {
         Intent toLocationAdd = getIntent();
         String backTo = toLocationAdd.getStringExtra("locationAdd");
 
-        if (backTo.equals("fromPA3")) {//'fromLAA', 'desde locationActivityAdd', hace un recreate() el productsActivity3
-            Intent fromLAA = new Intent(this, ProductsActivity3.class);
-            fromLAA.putExtra("fromLAA","fromLAA");
-            startActivity(fromLAA);
-            finish();
+        switch (backTo){
+
+            case "fromPA3":{
+                Intent fromLAA = new Intent(this, ProductsActivity3.class);
+                fromLAA.putExtra("fromLAA","fromLAA");
+                startActivity(fromLAA);
+                finish();
+            }break;
+
+            case "location_info":{
+                Intent fromLAA = new Intent(this, LocationInfoActivity.class);
+                startActivity(fromLAA);
+                finish();
+            }break;
         }
-
-        //si viene de LocationInfo vuelve ahí
-
     }
 
     private void findViews(){

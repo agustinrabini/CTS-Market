@@ -99,11 +99,9 @@ public class ProductsActivity3 extends AppCompatActivity {
         }
     }
 
-    private void sendToHome(){
-    }
+    private void sendToHome(){}
 
-    private void sendByMail(){
-    }
+    private void sendByMail(){}
 
     private void retireAtSellerHome(){
 
@@ -151,5 +149,4 @@ public class ProductsActivity3 extends AppCompatActivity {
         ivSellerHouse = findViewById(R.id.iv_seller_house);
         tvContinue = findViewById(R.id.tv_continue3);
     }
-
 }
