@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.HomeActivity;
-import com.example.ctsmarket05.entities.Cart;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderCartPOST;
 import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderPOST;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;
 import com.squareup.picasso.Picasso;
@@ -67,7 +67,6 @@ public class ProductsActivity6 extends AppCompatActivity {
        userGET.getUserByGmail();
 
        tvQuantity.setText(Product.QUANTITY.toString());
-
     }
 
     private void confirmOrder() {
@@ -77,8 +76,6 @@ public class ProductsActivity6 extends AppCompatActivity {
            Calendar calendar = Calendar.getInstance();
            String date = DateFormat.getDateInstance().format(calendar.getTime());
 
-           Cart cart = new Cart(Product.QUANTITY,Product.ID_PRODUCT);
-
            OrderPOST orderPOST = new OrderPOST();
            orderPOST.orderPost(
 
@@ -87,7 +84,6 @@ public class ProductsActivity6 extends AppCompatActivity {
                    Product.QUANTITY,
                    0,
                    1,
-                   cart,
                    date
            );
 

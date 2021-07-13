@@ -11,6 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.QuantityBottomSheet;
 import com.example.ctsmarket05.entities.Product;
+import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderGetByIdUser;
+import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderCartPOST;
+import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderAddPricePUT;
+import com.example.ctsmarket05.retrofit.productsOrderRetrofit.ProductsOrderPOST;
 import com.squareup.picasso.Picasso;
 
 public class ProductsActivity2 extends AppCompatActivity implements QuantityBottomSheet.QuantityListener {
@@ -18,6 +23,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
     private ImageView ivProduct2;
     private Button btnQuestion;
     private Button btnBuy;
+    private Button btnCart;
     private TextView tvName2;
     private TextView tvPrice2;
     private TextView tvBlade2;
@@ -37,12 +43,58 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
         changeQuantityProduct();
         btnBuy();
         btnQuestion();
+        btnCart();
+    }
+
+    private void btnCart() {
+        //se agrega un ubjeto al carrito activo. El estado 10 indica que el carrito aun esta activo
+        //y se le pueden seguir agregando productos.
+        btnCart.setOnClickListener(v -> {
+
+            Intent Clicked = getIntent();
+
+            String id_prod = Clicked.getStringExtra("id_product");
+            Integer price = Clicked.getIntExtra("price", 0);
+
+            Product.QUANTITY = quantityProduct;
+            Product.PRICE = price * quantityProduct;
+            Product.ID_PRODUCT = Integer.parseInt(id_prod);
+
+            //Calendar calendar = Calendar.getInstance();
+            //String date = DateFormat.getDateInstance().format(calendar.getTime());
+
+            OrderCartPOST orderCartPOST = new OrderCartPOST();
+            orderCartPOST.orderCartPOST(
+                    User.IDUSER,
+                    Product.PRICE,
+                    Product.QUANTITY,
+                    10,
+                    null,
+                    ""
+            );
+
+            OrderGetByIdUser orderGetByIdUser = new OrderGetByIdUser();
+            orderGetByIdUser.SetOnDataListenerOrdersPO(order -> {
+
+                Integer id_order = order.getId_order();
+                //si es nulo es porque es la primera vez que se crea el carrito
+                if (id_order != null){
+                    OrderAddPricePUT orderAddPricePUT = new OrderAddPricePUT();
+                    orderAddPricePUT.orderPricePut(Product.PRICE,Product.QUANTITY,id_order);
+                }
+            });
+            orderGetByIdUser.OrderGetByIdUser();
+
+            ProductsOrderPOST productsOrderPOST = new ProductsOrderPOST();
+            productsOrderPOST.addCart(Product.ID_PRODUCT, User.IDUSER, Product.QUANTITY);
+        });
     }
 
     private void getProductInfo() {
-        Intent Clicked = getIntent();
 
+        Intent Clicked = getIntent();
         String id_prod = Clicked.getStringExtra("id_product");
+        Product.ID_PRODUCT = Integer.parseInt(id_prod);
 
         String name = Clicked.getStringExtra("name");
         String blade = Clicked.getStringExtra("blade");
@@ -52,6 +104,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
         Integer price = Clicked.getIntExtra("price",0);
         Integer length = Clicked.getIntExtra("length",0);
 
+        Product.QUANTITY = quantityProduct;
         Product.ID_PRODUCT = Integer.parseInt(id_prod);
         Product.NAME = name;
         Product.PRICE = price;
@@ -82,13 +135,13 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
             Intent Clicked = getIntent();
             Integer price = Clicked.getIntExtra("price",0);
 
-            Product.QUANTITY = quantityProduct;
             Product.PRICE = price * quantityProduct;
 
             //Se va pasando por los activities toda la informacion del producto a medida que el usuario
             //recorre toda la secuencia de compra
-            Intent toProdActv3 = new Intent(this, ProductsActivity3.class);
-            startActivity(toProdActv3);
+            Intent from = new Intent(this, ProductsActivity3.class);
+            from.putExtra("from","oneProductSequence");
+            startActivity(from);
         });
     }
 
@@ -98,7 +151,6 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
             QuantityBottomSheet quantityBottomSheet = new QuantityBottomSheet();
             quantityBottomSheet.show(getSupportFragmentManager(), "quantityBottomSheet");
         });
-
     }
 
     @Override
@@ -110,8 +162,9 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
     private void findViews(){
         ivProduct2 = findViewById(R.id.iv_product2);
         tvQuantity = findViewById(R.id.tv_quantity2);
-        btnBuy = findViewById(R.id.btn_buy);
+        btnBuy = findViewById(R.id.btn_buy2);
         btnQuestion = findViewById(R.id.btn_question2);
+        btnCart = findViewById(R.id.btn_cart2);
         tvName2 = findViewById(R.id.tv_name2);
         tvPrice2 = findViewById(R.id.tv_price2);
         tvDescription2 = findViewById(R.id.tv_description2);

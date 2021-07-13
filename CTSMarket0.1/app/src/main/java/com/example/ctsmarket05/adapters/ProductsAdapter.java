@@ -11,7 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.OnCustomClickListener;
+import com.example.ctsmarket05.clickListeners.ProductsOnCustomClickListener;
 import com.example.ctsmarket05.activities.productsClasses.ProductsActivity2;
 import com.example.ctsmarket05.entities.Product;
 import com.squareup.picasso.Picasso;
@@ -24,9 +24,9 @@ import java.util.List;
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder> {
 
     private ArrayList<Product> products = new ArrayList<>();
-    private final OnCustomClickListener listener;
+    private final ProductsOnCustomClickListener listener;
 
-    public ProductsAdapter(OnCustomClickListener listener) {
+    public ProductsAdapter(ProductsOnCustomClickListener listener) {
         this.listener = listener;
     }
     //el activity que corresponde a cada layout de los item de la lista
@@ -58,7 +58,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
             super(itemView);
         }
 
-        private void bind (Product product, OnCustomClickListener listener){
+        private void bind (Product product, ProductsOnCustomClickListener listener){
 
             ImageView ivImage = itemView.findViewById(R.id.iv_image1);
             TextView tvName = itemView.findViewById(R.id.tv_name1);

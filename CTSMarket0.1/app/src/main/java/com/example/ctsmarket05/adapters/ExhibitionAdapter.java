@@ -10,7 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.OnCustomClickListener;
+import com.example.ctsmarket05.clickListeners.ProductsOnCustomClickListener;
 import com.example.ctsmarket05.entities.Product;
 import com.squareup.picasso.Picasso;
 
@@ -22,9 +22,9 @@ import java.util.List;
 public class ExhibitionAdapter extends RecyclerView.Adapter<ExhibitionAdapter.ExibitionViewHolder > {
 
     private ArrayList<Product> exibition = new ArrayList<>();
-    private final OnCustomClickListener listener;
+    private final ProductsOnCustomClickListener listener;
 
-    public ExhibitionAdapter(OnCustomClickListener listener) {
+    public ExhibitionAdapter(ProductsOnCustomClickListener listener) {
         this.listener = listener;
     }
 
@@ -56,7 +56,7 @@ public class ExhibitionAdapter extends RecyclerView.Adapter<ExhibitionAdapter.Ex
             super(itemView);
         }
 
-       public void bind (Product product, OnCustomClickListener listener){
+       public void bind (Product product, ProductsOnCustomClickListener listener){
 
          ImageView ivImageEx = itemView.findViewById(R.id.iv_image_ex);
          TextView tvNameEx = itemView.findViewById(R.id.tv_name_ex);

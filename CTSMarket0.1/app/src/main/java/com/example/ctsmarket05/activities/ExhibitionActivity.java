@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ctsmarket05.R;
+import com.example.ctsmarket05.clickListeners.ProductsOnCustomClickListener;
 import com.example.ctsmarket05.activities.productsClasses.ProductsActivity1;
 import com.example.ctsmarket05.adapters.ExhibitionAdapter;
 import com.example.ctsmarket05.entities.Product;
@@ -27,7 +28,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ExhibitionActivity extends AppCompatActivity implements OnCustomClickListener {
+public class ExhibitionActivity extends AppCompatActivity implements ProductsOnCustomClickListener {
 
     //Al adapter se le pasa interface onCustomClicklistener
     private ExhibitionAdapter exhibitionAdapter = new ExhibitionAdapter(this);

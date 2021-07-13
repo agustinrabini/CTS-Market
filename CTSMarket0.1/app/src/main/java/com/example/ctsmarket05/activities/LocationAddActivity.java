@@ -101,10 +101,6 @@ public class LocationAddActivity extends AppCompatActivity {
         }
     }
 
-    private void updatedb(){
-        UserPUTIdLoc userPUTIdLoc = new UserPUTIdLoc();
-        userPUTIdLoc.userPut();
-    }
 
     private void postL(){
         LocationPOST locationPOST = new LocationPOST();
@@ -122,21 +118,32 @@ public class LocationAddActivity extends AppCompatActivity {
         updatedb();
     }
 
+    private void updatedb(){
+        UserPUTIdLoc userPUTIdLoc = new UserPUTIdLoc();
+        userPUTIdLoc.userPut();
+    }
+
     private void backTo(){
 
         //Si viene desde ProductsActivity3 vuelve ahí
         Intent toLocationAdd = getIntent();
         String backTo = toLocationAdd.getStringExtra("locationAdd");
 
-        if (backTo.equals("fromPA3")) {//'fromLAA', 'desde locationActivityAdd', hace un recreate() el productsActivity3
-            Intent fromLAA = new Intent(this, ProductsActivity3.class);
-            fromLAA.putExtra("fromLAA","fromLAA");
-            startActivity(fromLAA);
-            finish();
+        switch (backTo){
+
+            case "fromPA3":{
+                Intent fromLAA = new Intent(this, ProductsActivity3.class);
+                fromLAA.putExtra("fromLAA","fromLAA");
+                startActivity(fromLAA);
+                finish();
+            }break;
+
+            case "location_info":{
+                Intent fromLAA = new Intent(this, LocationInfoActivity.class);
+                startActivity(fromLAA);
+                finish();
+            }break;
         }
-
-        //si viene de otro LocationInfo vuelve ahí
-
     }
 
     private void findViews(){

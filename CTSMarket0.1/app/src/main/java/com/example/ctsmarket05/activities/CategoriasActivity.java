@@ -59,7 +59,7 @@ public class CategoriasActivity extends AppCompatActivity {
                         startActivity(contacto);
                         break;
                     case R.id.nav_exhibicion:
-                        Intent ex = new Intent(getApplicationContext(),ProductsActivity1.class);
+                        Intent ex = new Intent(getApplicationContext(), ProductsActivity1.class);
                         startActivity(ex);
                         break;
                     case R.id.nav_talleres:
