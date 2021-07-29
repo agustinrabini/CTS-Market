@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline428"
         android:layout_width="wrap_content"
@@ -47,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.95" />
+        app:layout_constraintGuide_percent="0.9" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline438"
@@ -67,7 +66,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline429" />
 
     <TextView
-        android:id="@+id/tv_cartO"
+        android:id="@+id/tv_cartO2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text=""
@@ -99,6 +98,21 @@
         app:layout_constraintStart_toStartOf="@+id/guideline428"
         app:layout_constraintTop_toTopOf="@+id/guideline437"
         app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_cart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/blackBlue"
+        app:itemBackground="@color/blackBlue"
+        app:itemIconTint="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline440"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_navigation_menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

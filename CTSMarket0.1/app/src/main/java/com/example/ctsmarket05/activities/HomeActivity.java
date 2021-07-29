@@ -1,65 +1,84 @@
 package com.example.ctsmarket05.activities;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.SearchView;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.productsClasses.ProductsActivity1;
 import com.example.ctsmarket05.entities.Location;
+import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.fragments.FavoritesFragment;
+import com.example.ctsmarket05.fragments.HomeFragment;
+import com.example.ctsmarket05.fragments.InfoFragment;
+import com.example.ctsmarket05.fragments.OrdersFragment;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class HomeActivity extends AppCompatActivity {
+
     private TextView tvUserName;
-    private ImageView ivProductos;
-    private ImageView ivContacto;
-    private ImageView ivExibicion;
-    private ImageView ivTalleres;
-    private ImageView ivMenu;
-    private NavigationView navigationView;
-    private DrawerLayout drawerLayout ;
-    private Dialog compartir;
-    private NavController navController;
-    private SearchView searchViewHome;
-    private ImageButton ibBackDc;
-    private Integer idlocation;
-    GoogleSignInClient mGoogleSignInClient;
+    private BottomNavigationView bottomNavigationView ;
+
+    FavoritesFragment favoritesFragment = new FavoritesFragment();
+    OrdersFragment ordersFragment = new OrdersFragment();
+    InfoFragment infoFragment = new InfoFragment();
+    HomeFragment homeFragment = new HomeFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        tvUserName = findViewById(R.id.tv_user_name);
-        ivProductos = findViewById(R.id.iv_productos);
-        ivContacto= findViewById(R.id.iv_contacto);
-        ivExibicion=  findViewById(R.id.iv_exhibicion);
-        ivTalleres= findViewById(R.id.iv_talleres);
-        ivMenu= findViewById(R.id.iv_menu);
-        searchViewHome = findViewById(R.id.searchViewHome);
-        navigationView = findViewById(R.id.nav_view);
-        drawerLayout = findViewById(R.id.dl);
-        ibBackDc = findViewById(R.id.ib_back_dc);
+        findViews();
+        navigationView();
+        userValues();
+        setStaticIdsValues();
+    }
 
-       // navController = Navigation.findNavController(this,R.id.nav_home_host);
+    private void navigationView() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedLiseter);
+        loadFragment(homeFragment);
+    }
+
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedLiseter = item -> {
+
+        switch (item.getItemId()){
+
+            case R.id.home:
+                loadFragment(homeFragment);
+                return true;
+
+            case R.id.cart:
+                loadFragment(ordersFragment);
+                return true;
+
+            case R.id.favorites:
+                loadFragment(favoritesFragment);
+                return true;
+
+            case R.id.info:
+                loadFragment(infoFragment);
+                return true;
+        }
+        return false;
+    };
+
+    private void userValues() {
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {
@@ -69,94 +88,14 @@ public class HomeActivity extends AppCompatActivity {
             Uri personPhoto = acct.getPhotoUrl();
 
             User.gmail = personEmail;
-            tvUserName.setText("Hola " +personName);
+            //User.PHOTO = personPhoto.toString();
         }
-
-        menu();
-        activities();
-        setStaticIdsValues();
     }
 
-    //Activities botones principales
-    private void activities (){
-        ivContacto.setOnClickListener(v -> {
-            Intent contacto = new Intent(HomeActivity.this, ContactoActivity.class);
-            startActivity(contacto);
-        });
-
-        ivProductos.setOnClickListener(v ->{
-
-            Intent productos = new Intent(HomeActivity.this, ProductsActivity1.class);
-            startActivity(productos);
-        });
-
-        ivExibicion.setOnClickListener(v -> {
-            Intent exibicion = new Intent(HomeActivity.this, ExhibitionActivity.class);
-            startActivity(exibicion);
-        });
-
-        ivTalleres.setOnClickListener(v -> {
-            Intent talleres = new Intent(HomeActivity.this, LocationInfoActivity.class);
-            startActivity(talleres);
-        });
-    }
-
-    //Lanzamiento de las activities del menú
-    private void menu(){
-        ivMenu.setOnClickListener(v -> {
-            drawerLayout.openDrawer(GravityCompat.START);
-
-            navigationView.setNavigationItemSelectedListener(item -> {
-
-                switch (item.getItemId()){
-                    case R.id.nav_mi_usuario:
-                        Intent home = new Intent(getApplicationContext(),HomeActivity.class);
-                        startActivity(home);
-                        break;
-                    case R.id.nav_home:
-                        Intent MiUsuario = new Intent(getApplicationContext(), UserActivty.class);
-                        startActivity(MiUsuario);
-                        break;
-                    case R.id.nav_pedidos:
-                        Intent pedidos = new Intent(getApplicationContext(),PedidosActivity.class);
-                        startActivity(pedidos);
-                        break;
-                    case  R.id.nav_logout:
-                        signOut();
-                        break;
-                    case R.id.nav_productos:
-                        Intent productos = new Intent(getApplicationContext(), ProductsActivity1.class);
-                        startActivity(productos);
-                        break;
-                    case R.id.nav_contacto:
-                        Intent contacto = new Intent(getApplicationContext(),ContactoActivity.class);
-                        startActivity(contacto);
-                        break;
-                    case R.id.nav_exhibicion:
-                        Intent ex = new Intent(getApplicationContext(), ProductsActivity1.class);
-                        startActivity(ex);
-                        break;
-                    case R.id.nav_talleres:
-                        Intent talleres = new Intent(getApplicationContext(),TalleresActivity.class);
-                        startActivity(talleres);
-                        break;
-                    case R.id.nav_categorias:
-                        Intent cat = new Intent(getApplicationContext(),CategoriasActivity.class);
-                        startActivity(cat);
-                        break;
-                    case R.id.nav_comp:
-                      // Intent comp = new Intent(getApplicationContext(),CompartirFragment.class);
-                      // startActivity(comp);
-                        break;
-                    case R.id.nav_puntuar:
-                        dialogoPuntuar();
-                    case  R.id.nav_conf:
-                        Intent conf = new Intent(getApplicationContext(),ConfActivity.class);
-                        startActivity(conf);
-                }
-                return true;
-            });
-        });
+    public void loadFragment(Fragment fragment){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.commit();
     }
 
     private void signOut() {
@@ -169,30 +108,6 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(logout);
     }
 
-    @Override
-    public void onBackPressed() {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else {
-            super.onBackPressed();
-        }
-    }
-
-    private void dialogoPuntuar(){
-        compartir= new Dialog(HomeActivity.this);
-        compartir.setContentView(R.layout.compartir_dialogo);
-        compartir.getWindow().setBackgroundDrawable(getDrawable(R.drawable.loggin_solapa));
-        compartir.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-     //  compartir.setCancelable(true);
-        compartir.getWindow().getAttributes().windowAnimations = R.style.animacion;
-
-        ibBackDc.setOnClickListener(v -> {
-            compartir.dismiss();
-        });
-
-        compartir.show();
-    }
     //Establece el valor de los atributos estaticos idLocation y idUser. Para ser usado en LocationGET
     public void setStaticIdsValues(){
         //para idLocation
@@ -220,4 +135,6 @@ public class HomeActivity extends AppCompatActivity {
     private void setUserId(Integer id){
            User.IDUSER= id;
     }
+
+    private void findViews(){ bottomNavigationView = findViewById(R.id.bottom_navigation_home);}
 }

@@ -60,9 +60,6 @@ public class CartExpandedActivity extends AppCompatActivity implements ProductsO
 
             Orders.ORDER_PRICE = price;
 
-            tvProducts.setText(price.toString() + quantity_products.toString() + state.toString());
-            tvProducts.setText(price.toString() + quantity_products.toString() + state.toString());
-
             ProductsOrdersGET productsOrdersGET = new ProductsOrdersGET();
             productsOrdersGET.SetOnDataListenerProductsOrders(productsOrders -> {
                 productsOrdersAdapter.setProductsOrders(productsOrders);
@@ -84,8 +81,7 @@ public class CartExpandedActivity extends AppCompatActivity implements ProductsO
 
     private void findviews() {
 
-        tvProducts = findViewById(R.id.tv_cart_productsCE);
-        tvBuyCart = findViewById(R.id.tv_buy_cartCE);
+        tvBuyCart = findViewById(R.id.btn_buy_cartCE);
     }
 
     @Override

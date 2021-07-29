@@ -4,14 +4,13 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.CartExpandedActivity;
+import com.example.ctsmarket05.activities.OrderExpandedActivity;
 import com.example.ctsmarket05.clickListeners.OrdersOnCustomClickListener;
 import com.example.ctsmarket05.entities.Orders;
 
@@ -61,22 +60,37 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
 
             ConstraintLayout clOrder = itemView.findViewById(R.id.cl_order);
             TextView tvQuantityProducts = itemView.findViewById(R.id.tv_quantity_productsO);
-            TextView tvOrderPrice = itemView.findViewById(R.id.tv_id_orderO);
-            TextView tvIdOrder = itemView.findViewById(R.id.tv_id_orderO);
-            TextView tvShipping = itemView.findViewById(R.id.tv_shippingO);
-            ImageView ivOptions = itemView.findViewById(R.id.iv_optionsO);
+            TextView tvOrderPrice = itemView.findViewById(R.id.tv_order_priceO);
+            TextView tvOrderState = itemView.findViewById(R.id.tv_stateO);
+            TextView tvOptions = itemView.findViewById(R.id.tv_optionsO);
+            TextView tvDate = itemView.findViewById(R.id.tv_dateO);
 
             Integer id_order = order.getId_order();
+            Integer state = order.getOrder_state();
 
-            tvIdOrder.setText(String.valueOf(id_order));
             tvQuantityProducts.setText(String.valueOf(order.getQuantity_products()));
             tvOrderPrice.setText(String.valueOf(order.getOrder_price()));
-            tvShipping.setText(String.valueOf(order.getShipping()));
+            tvDate.setText(order.getDate());
 
-            ivOptions.setOnClickListener(v -> {
+            switch (state){
+
+                case 0:
+                    tvOrderState.setText("En producción");
+                   break;
+
+                case 1:
+                    tvOrderState.setText("Producido");
+                    break;
+
+                case 2:
+                    tvOrderState.setText("Enviado");
+                    break;
+            }
+
+            tvOptions.setOnClickListener(v -> {
                 listener.onItemClick(order,getAdapterPosition());
 
-                Intent fromOrdersActivity = new Intent(v.getContext(), CartExpandedActivity.class);
+                Intent fromOrdersActivity = new Intent(v.getContext(), OrderExpandedActivity.class);
                 fromOrdersActivity.putExtra("id_order", id_order);
                 v.getContext().startActivity(fromOrdersActivity);
             });

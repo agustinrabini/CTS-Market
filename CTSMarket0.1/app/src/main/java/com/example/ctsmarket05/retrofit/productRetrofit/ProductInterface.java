@@ -10,8 +10,8 @@ import retrofit2.http.Path;
 
 public interface ProductInterface {
 
-    @GET("products")
-    Call<List<Product>> productsList();
+    @GET("/products/filter/{filter}")
+    Call<List<Product>> productsList(@Path("filter") String filter);
 
     @GET("/product/{id}")
     Call<Product> showProduct(@Path("id") int id);

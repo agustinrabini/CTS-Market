@@ -22,6 +22,7 @@ public class ProductsOrder {
         this.quantity = quantity;
     }
 
+
     public ProductsOrder(Integer id_order) {
         this.id_order = id_order;
     }

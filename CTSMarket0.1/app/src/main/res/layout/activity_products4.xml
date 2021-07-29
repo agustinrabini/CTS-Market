@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/blackBlue"
     android:fitsSystemWindows="true"
     tools:context=".activities.productsClasses.ProductsActivity4">
 
@@ -124,12 +124,12 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#8d6e63"
+        android:background="@color/lightBrown"
         android:elevation="35dp"
         android:fontFamily="@font/quicksand_semibold"
         android:gravity="center"
         android:text="INFORMACIÓN DE ENVÍO"
-        android:textColor="#000000"
+        android:textColor="#ffffff"
         android:textSize="15dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline345"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,7 +145,7 @@
         android:gravity="left"
         android:text=""
         android:textColor="#000000"
-        android:textSize="15dp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline356"
         app:layout_constraintEnd_toStartOf="@+id/guideline349"
         app:layout_constraintHorizontal_bias="0.0"
@@ -161,7 +161,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline347"
         app:layout_constraintStart_toStartOf="@+id/guideline346"
         app:layout_constraintTop_toTopOf="@+id/guideline353"
-        app:srcCompat="@drawable/background_for_et2" />
+        app:srcCompat="@drawable/background_general" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -171,7 +171,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline347"
         app:layout_constraintStart_toStartOf="@+id/guideline346"
         app:layout_constraintTop_toTopOf="@+id/guideline352"
-        app:srcCompat="@drawable/background_for_et" />
+        app:srcCompat="@drawable/background_general3" />
 
     <TextView
         android:id="@+id/tv_location4"
@@ -193,7 +193,7 @@
         android:id="@+id/tv_change_user_info4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:elevation="15dp"
+        android:elevation="25dp"
         android:fontFamily="@font/quicksand_regular"
         android:gravity="center_vertical"
         android:text="Editar infromación"
@@ -212,8 +212,8 @@
         android:fontFamily="@font/quicksand_medium"
         android:gravity="center"
         android:text="Ingrese los datos requeridos"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="10dp"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline351"
         app:layout_constraintEnd_toStartOf="@+id/guideline349"
         app:layout_constraintStart_toStartOf="@+id/guideline348"
@@ -223,11 +223,11 @@
         android:id="@+id/btn_buy4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/background_for_et"
+        android:background="@drawable/background_general3"
         android:fontFamily="@font/quicksand_semibold"
         android:gravity="center"
         android:text="CONTINUAR"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#ffffff"
         android:textSize="12dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline359"

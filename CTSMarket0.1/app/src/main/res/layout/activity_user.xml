@@ -1,20 +1,9 @@
-<androidx.drawerlayout.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/dl_prod"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/cl_final4"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
     android:background="#FFFFFF"
-    android:fitsSystemWindows="true"
-    tools:context=".activities.UserActivty"
-    tools:openDrawer="end">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_final4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline232"
@@ -260,20 +249,5 @@
             app:layout_constraintStart_toStartOf="@+id/guideline237"
             app:layout_constraintTop_toTopOf="@+id/guideline279"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/background_for_et" />
-
+            app:srcCompat="@drawable/background_general3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view_prod"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:headerLayout="@layout/header"
-        android:background="@color/colorPrimaryDark"
-        app:menu="@menu/menu"
-        app:itemTextColor="#ffffff"
-        tools:ignore="MissingConstraints"
-        tools:openDrawer="end"/>
-
-</androidx.drawerlayout.widget.DrawerLayout>

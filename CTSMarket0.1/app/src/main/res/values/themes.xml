@@ -28,4 +28,10 @@
         <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
         <item name="android:windowExitAnimation">@android:anim/fade_in</item>
     </style>
+
+    <style name="BottomNavigation">
+
+        <item name="android:background">@color/blackBlue</item>
+        <item name="itemIconTint">@color/orangeBrown</item>
+    </style>
 </resources>

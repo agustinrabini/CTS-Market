@@ -1,21 +1,9 @@
-<androidx.drawerlayout.widget.DrawerLayout
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/cl_products"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/dl_prod"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:fitsSystemWindows="true"
-    tools:context=".activities.productsClasses.ProductsActivity1"
-    tools:openDrawer="end">
-
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/cl_products"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:openDrawer="end">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_products"
@@ -194,30 +182,4 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.98" />
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/app_bar_prodex"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline134"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view_prod"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:headerLayout="@layout/header"
-        android:background="@color/colorPrimaryDark"
-        app:menu="@menu/menu"
-        app:itemTextColor="#ffffff"
-        tools:ignore="MissingConstraints" />
-
-</androidx.drawerlayout.widget.DrawerLayout>

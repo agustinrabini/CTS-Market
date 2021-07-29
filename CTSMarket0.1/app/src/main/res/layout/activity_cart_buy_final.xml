@@ -473,7 +473,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/guideline382"
-        app:srcCompat="@drawable/background_for_et2" />
+        app:srcCompat="@drawable/background_general2" />
 
     <ImageView
         android:id="@+id/imageView24"
@@ -483,7 +483,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/guideline363"
-        app:srcCompat="@drawable/background_for_et2" />
+        app:srcCompat="@drawable/background_general2" />
 
     <ImageView
         android:id="@+id/imageView21"
@@ -493,7 +493,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline385"
-        app:srcCompat="@drawable/background_for_et2" />
+        app:srcCompat="@drawable/background_general2" />
 
     <ImageView
         android:id="@+id/imageView22"
@@ -514,7 +514,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline373"
-        app:srcCompat="@drawable/background_for_et2" />
+        app:srcCompat="@drawable/background_general2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

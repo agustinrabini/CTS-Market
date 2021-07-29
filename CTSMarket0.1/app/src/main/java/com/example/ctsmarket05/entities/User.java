@@ -1,5 +1,7 @@
 package com.example.ctsmarket05.entities;
 
+import android.net.Uri;
+
 public class User {
 
     public Integer id_user;
@@ -14,12 +16,11 @@ public class User {
 
     private Integer phone;
 
-
-    public static String URL = "https://a3bfb3c2b35b.ngrok.io/";
-
-   
+    public static String URL = "https://8bba13764b8a.ngrok.io/";
 
     public static String gmail = "" ;
+
+    public static String PHOTO;
 
     public static Integer IDUSER;
 

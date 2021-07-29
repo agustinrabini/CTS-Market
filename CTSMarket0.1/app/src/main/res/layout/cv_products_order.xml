@@ -8,16 +8,14 @@
     android:layout_margin="6dp"
     android:clickable="true"
     android:focusable="true"
-    android:foreground="?android:attr/selectableItemBackground"
     card_view:cardCornerRadius="8dp"
-    card_view:cardBackgroundColor="#FFFFFF"
+    card_view:cardBackgroundColor="@color/blackBlue"
     android:elevation="100dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_prodcuts_order"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#efebe9"
         android:visibility="visible"
         card_view:layout_constraintBottom_toBottomOf="parent"
         card_view:layout_constraintHorizontal_bias="0.5"
@@ -29,34 +27,71 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text=""
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="15dp"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:padding="5dp"
+            android:gravity="center"
+            android:fontFamily="@font/quicksand_regular"
+            card_view:layout_constraintBottom_toTopOf="@+id/guideline427"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="@+id/guideline439"
+            card_view:layout_constraintTop_toTopOf="@+id/guideline426" />
+
+        <TextView
+            android:id="@+id/tv_pricePO"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text=""
+            android:padding="5dp"
+            android:textColor="@color/lightBrown"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:fontFamily="@font/quicksand_regular"
+            card_view:layout_constraintBottom_toTopOf="@+id/guideline427"
+            card_view:layout_constraintEnd_toStartOf="@+id/tv_quantityPO"
+            card_view:layout_constraintStart_toStartOf="@+id/guideline425"
+            card_view:layout_constraintTop_toTopOf="@+id/guideline426" />
+
+        <TextView
+            android:id="@+id/tv_product_namePO"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/quicksand_semibold"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text=""
+            android:textColor="#ffffff"
+            android:textSize="15sp"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline426"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="@+id/guideline425"
             card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_product_infoPO"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="aa"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="15dp"
-            card_view:layout_constraintBottom_toTopOf="@+id/guideline427"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="@+id/guideline425"
-            card_view:layout_constraintTop_toTopOf="@+id/guideline426" />
-
-        <TextView
             android:id="@+id/tv_deletePO"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="DELETE"
-            android:textColor="@color/colorPrimaryDark"
+            android:text="Eliminar"
+            android:textColor="@color/orangeBrown"
             android:textSize="15dp"
+            android:gravity="center"
+            android:fontFamily="@font/quicksand_semibold"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="@+id/guideline439"
+            card_view:layout_constraintTop_toTopOf="@+id/guideline427" />
+
+        <TextView
+            android:id="@+id/tv_see_productPO"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Ver producto"
+            android:textColor="@color/gray"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:fontFamily="@font/quicksand_semibold"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toStartOf="@+id/guideline439"
             card_view:layout_constraintStart_toStartOf="@+id/guideline425"
             card_view:layout_constraintTop_toTopOf="@+id/guideline427" />
 
@@ -65,7 +100,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            card_view:layout_constraintGuide_percent=".5" />
+            card_view:layout_constraintGuide_percent="0.4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline439"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            card_view:layout_constraintGuide_percent="0.7" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline426"
@@ -80,6 +122,23 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             card_view:layout_constraintGuide_percent="0.66" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline441"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            card_view:layout_constraintGuide_percent="0.66" />
+
+        <ImageView
+            android:id="@+id/iv_product_order"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toStartOf="@+id/guideline425"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

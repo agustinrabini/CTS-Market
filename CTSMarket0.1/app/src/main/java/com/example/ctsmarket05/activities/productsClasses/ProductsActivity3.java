@@ -77,7 +77,6 @@ public class ProductsActivity3 extends AppCompatActivity {
                     String postal_code = location.getPostal_code().toString();
 
                     tvLocation.setText(province+" "+city+" "+disctrict+ "\n"+street+" "+street_number+" "+floor+ "\n"+postal_code);
-
                 });
                 locationGET.getLocation();
             }

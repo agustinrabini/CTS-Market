@@ -60,21 +60,28 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
 
         private void bind (Product product, ProductsOnCustomClickListener listener){
 
-            ImageView ivImage = itemView.findViewById(R.id.iv_image1);
+            ImageView ivImage = itemView.findViewById(R.id.iv_product_cv);
             TextView tvName = itemView.findViewById(R.id.tv_name1);
             TextView tvPrice = itemView.findViewById(R.id.tv_price1);
-            TextView tvDescription = itemView.findViewById(R.id.tv_description1);
             TextView tvLength = itemView.findViewById(R.id.tv_length1);
+            TextView tvStock = itemView.findViewById(R.id.tv_stock);
             ConstraintLayout constraintLayoutProd = itemView.findViewById(R.id.cl_product1);
 
             Integer id = product.getId_product();
             String id_prod = id.toString();
+            Integer stock = product.getStock();
 
             tvName.setText(product.getName());
             tvPrice.setText(String.valueOf(product.getPrice()));
-            tvDescription.setText(product.getDescription());
-            tvLength.setText(String.valueOf(product.getLength()));
+            tvLength.setText(String.valueOf("Longitud hoja " + product.getLength())+"cm");
             Picasso.with(itemView.getContext()).load(product.getImage()).into(ivImage);
+
+            if (stock == 0 ){
+                tvStock.setText("Stock no disponible");
+
+            }else{
+                tvStock.setText("Stock disponible");
+            }
 
             constraintLayoutProd.setOnClickListener(v -> {
                 listener.onItemClick(product,getAdapterPosition());

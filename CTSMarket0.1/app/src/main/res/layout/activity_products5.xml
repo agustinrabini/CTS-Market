@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/blackBlue"
     android:fitsSystemWindows="true"
     tools:context=".activities.productsClasses.ProductsActivity5">
 
@@ -107,48 +107,6 @@
         app:layout_constraintGuide_percent="0.23" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline399"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline408"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.32" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline409"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.38" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline414"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.36" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline413"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.34" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline403"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
-
-    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline400"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -173,12 +131,12 @@
         android:id="@+id/textView59"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#8d6e63"
+        android:background="@color/lightBrown"
         android:elevation="35dp"
         android:fontFamily="@font/quicksand_semibold"
         android:gravity="center"
         android:text="MÉTODOS DE PAGO"
-        android:textColor="#000000"
+        android:textColor="#ffffff"
         android:textSize="15dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline395"
         app:layout_constraintEnd_toEndOf="parent"
@@ -193,8 +151,8 @@
         android:gravity="center"
         android:elevation="15dp"
         android:text="Seleccione un método de pago"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="12dp"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline397"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -224,41 +182,17 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline406"
         app:layout_constraintStart_toStartOf="@+id/guideline405"
         app:layout_constraintTop_toTopOf="@+id/guideline398"
-        app:srcCompat="@drawable/background_for_et2" />
-
-    <ImageView
-        android:id="@+id/iv_home2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline403"
-        app:layout_constraintEnd_toStartOf="@+id/guideline406"
-        app:layout_constraintStart_toStartOf="@+id/guideline405"
-        app:layout_constraintTop_toTopOf="@+id/guideline399"
-        app:srcCompat="@drawable/background_for_et2" />
-
-    <TextView
-        android:id="@+id/textView65"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="En efectivo al retirar el producto"
-        android:gravity="center_vertical"
-        android:textColor="#000000"
-        android:fontFamily="@font/quicksand_semibold"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline409"
-        app:layout_constraintEnd_toStartOf="@+id/guideline372"
-        app:layout_constraintStart_toStartOf="@+id/guideline411"
-        app:layout_constraintTop_toTopOf="@+id/guideline408" />
+        app:srcCompat="@drawable/background_general3" />
 
     <TextView
         android:id="@+id/textView67"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="MercadoPago"
+        android:text="En efectivo al retirar"
         android:fontFamily="@font/quicksand_semibold"
         android:gravity="center_vertical"
-        android:textColor="#000000"
-        android:textSize="15dp"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline422"
         app:layout_constraintEnd_toStartOf="@+id/guideline372"
         app:layout_constraintStart_toStartOf="@+id/guideline411"
@@ -271,38 +205,10 @@
         android:elevation="15dp"
         android:rotation="-90"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/guideline414"
+        app:layout_constraintBottom_toTopOf="@+id/guideline421"
         app:layout_constraintEnd_toStartOf="@+id/guideline406"
         app:layout_constraintStart_toStartOf="@+id/guideline410"
-        app:layout_constraintTop_toTopOf="@+id/guideline413"
+        app:layout_constraintTop_toTopOf="@+id/guideline420"
         app:srcCompat="@drawable/angle_arrow_down_icon_icons_com_73683" />
-
-    <TextView
-        android:id="@+id/tv_withdraw4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="15dp"
-        android:fontFamily="@font/quicksand_semibold"
-        android:gravity="center"
-        android:text="(próximamente disponible)"
-        android:textColor="#000000"
-        android:textSize="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline422"
-        app:layout_constraintEnd_toStartOf="@+id/guideline406"
-        app:layout_constraintStart_toStartOf="@+id/guideline372"
-        app:layout_constraintTop_toTopOf="@+id/guideline419" />
-
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/guideline422"
-        app:layout_constraintEnd_toStartOf="@+id/guideline423"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline424"
-        app:layout_constraintTop_toTopOf="@+id/guideline419"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/mercado_pago_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

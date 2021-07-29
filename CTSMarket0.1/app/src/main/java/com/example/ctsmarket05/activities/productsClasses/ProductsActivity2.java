@@ -21,13 +21,11 @@ import com.squareup.picasso.Picasso;
 public class ProductsActivity2 extends AppCompatActivity implements QuantityBottomSheet.QuantityListener {
 
     private ImageView ivProduct2;
-    private Button btnQuestion;
+    private TextView tvQuestion;
     private Button btnBuy;
-    private Button btnCart;
+    private ImageView ivCart;
     private TextView tvName2;
     private TextView tvPrice2;
-    private TextView tvBlade2;
-    private TextView tvBrand2;
     private TextView tvDescription2;
     private TextView tvLength;
     private TextView tvQuantity;
@@ -49,7 +47,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
     private void btnCart() {
         //se agrega un ubjeto al carrito activo. El estado 10 indica que el carrito aun esta activo
         //y se le pueden seguir agregando productos.
-        btnCart.setOnClickListener(v -> {
+        ivCart.setOnClickListener(v -> {
 
             Intent Clicked = getIntent();
 
@@ -103,6 +101,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
         String image = Clicked.getStringExtra("image");
         Integer price = Clicked.getIntExtra("price",0);
         Integer length = Clicked.getIntExtra("length",0);
+        Integer stock = Clicked.getIntExtra("stock",0);
 
         Product.QUANTITY = quantityProduct;
         Product.ID_PRODUCT = Integer.parseInt(id_prod);
@@ -110,17 +109,20 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
         Product.PRICE = price;
         Product.IMAGE = image;
 
+        if (stock == 0){
+            btnBuy.setText("SIN STOCK");
+            btnBuy.setEnabled(false);
+        }
+
         tvName2.setText(Product.NAME);
-        tvBlade2.setText(blade);
-        tvBrand2.setText(brand);
         tvDescription2.setText(description);
         Picasso.with(this).load(Product.IMAGE).into(ivProduct2);
-        tvPrice2.setText(Product.PRICE.toString() + " $ARS");
+        tvPrice2.setText(Product.PRICE.toString());
         tvLength.setText(String.valueOf(length + " cm"));
     }
 
     private void btnQuestion() {
-        btnQuestion.setOnClickListener(v -> {
+        tvQuestion.setOnClickListener(v -> {
             //Intent question = new Intent(this,PreguntaActivity3.class);
             //startActivity(question);
 
@@ -163,13 +165,11 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
         ivProduct2 = findViewById(R.id.iv_product2);
         tvQuantity = findViewById(R.id.tv_quantity2);
         btnBuy = findViewById(R.id.btn_buy2);
-        btnQuestion = findViewById(R.id.btn_question2);
-        btnCart = findViewById(R.id.btn_cart2);
+        tvQuestion = findViewById(R.id.tv_question2);
+        ivCart = findViewById(R.id.iv_cart2);
         tvName2 = findViewById(R.id.tv_name2);
         tvPrice2 = findViewById(R.id.tv_price2);
         tvDescription2 = findViewById(R.id.tv_description2);
-        tvBlade2 = findViewById(R.id.tv_blade2);
-        tvBrand2 = findViewById(R.id.tv_brand2);
         tvLength = findViewById(R.id.tv_length2);
     }
 }

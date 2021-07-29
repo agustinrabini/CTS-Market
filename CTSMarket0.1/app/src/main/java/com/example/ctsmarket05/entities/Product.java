@@ -34,6 +34,8 @@ public class Product {
 
     public static String IMAGE;
 
+    public static String FILTER;
+
     public Product(int id_product, String name, String blade, String brand, String description, String image, int price, int length, int stock) {
         this.id_product = id_product;
         this.name = name;

@@ -213,7 +213,7 @@
             app:layout_constraintStart_toStartOf="@+id/guideline237"
             app:layout_constraintTop_toTopOf="@+id/guideline279"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/background_for_et" />
+            app:srcCompat="@drawable/background_general3" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -225,7 +225,7 @@
             app:layout_constraintStart_toStartOf="@+id/guideline237"
             app:layout_constraintTop_toTopOf="@+id/guideline250"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/background_for_et2" />
+            app:srcCompat="@drawable/background_general2" />
 
     <TextView
             android:id="@+id/textView39"
