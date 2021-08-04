@@ -3,144 +3,57 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff">
+    android:background="@color/blackBlue">
 
     <Button
         android:id="@+id/btn_save_add"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/button_confirmation_register"
+        android:background="@drawable/background_general2"
+        android:fontFamily="@font/quicksandbold"
         android:text="GUARDAR"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline336"
         app:layout_constraintEnd_toStartOf="@+id/guideline315"
         app:layout_constraintStart_toStartOf="@+id/guideline313"
-        app:layout_constraintTop_toTopOf="@+id/guideline337" />
-
-    <EditText
-        android:id="@+id/id_province_add"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/button_confirmatio_loggin"
-        android:ems="15"
-        android:hint="Provincia"
-        android:textColor="#000000"
-        android:inputType="textAutoCorrect"
-        android:paddingLeft="10dp"
-        android:textColorHint="#8d6e63"
-        app:layout_constraintBottom_toTopOf="@+id/guideline318"
-        app:layout_constraintEnd_toStartOf="@+id/guideline315"
-        app:layout_constraintStart_toStartOf="@+id/guideline313"
-        app:layout_constraintTop_toTopOf="@+id/guideline317" />
-
-    <EditText
-        android:id="@+id/et_city_add"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/button_confirmatio_loggin"
-        android:ems="15"
-        android:hint="Ciudad"
-        android:paddingLeft="10dp"
-        android:textColorHint="#8d6e63"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guideline320"
-        app:layout_constraintEnd_toStartOf="@+id/guideline315"
-        app:layout_constraintStart_toStartOf="@+id/guideline313"
-        app:layout_constraintTop_toTopOf="@+id/guideline319" />
-
-    <EditText
-        android:id="@+id/et_district_add"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/button_confirmatio_loggin"
-        android:ems="15"
-        android:hint="Localidad / Barrio"
-        android:paddingLeft="10dp"
-        android:textColorHint="#8d6e63"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guideline322"
-        app:layout_constraintEnd_toStartOf="@+id/guideline315"
-        app:layout_constraintStart_toStartOf="@+id/guideline313"
-        app:layout_constraintTop_toTopOf="@+id/guideline321" />
-
-    <EditText
-        android:id="@+id/et_street_add"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/button_confirmatio_loggin"
-        android:ems="15"
-        android:hint="Calle"
-        android:paddingLeft="10dp"
-        android:textColorHint="#8d6e63"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guideline324"
-        app:layout_constraintEnd_toStartOf="@+id/guideline315"
-        app:layout_constraintStart_toStartOf="@+id/guideline313"
-        app:layout_constraintTop_toTopOf="@+id/guideline323" />
-
-    <EditText
-        android:id="@+id/et_street_number_add"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/button_confirmatio_loggin"
-        android:ems="15"
-        android:hint="Número de calle"
-        android:inputType="number"
-        android:paddingLeft="10dp"
-        android:textColorHint="#8d6e63"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guideline326"
-        app:layout_constraintEnd_toStartOf="@+id/guideline315"
-        app:layout_constraintStart_toStartOf="@+id/guideline313"
-        app:layout_constraintTop_toTopOf="@+id/guideline325" />
-
-    <EditText
-        android:id="@+id/et_floor_add"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/button_confirmatio_loggin"
-        android:ems="15"
-        android:hint="Casa / Departamento / Detalle"
-        android:paddingLeft="10dp"
-        android:textColorHint="#8d6e63"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guideline328"
-        app:layout_constraintEnd_toStartOf="@+id/guideline315"
-        app:layout_constraintStart_toStartOf="@+id/guideline313"
-        app:layout_constraintTop_toTopOf="@+id/guideline327" />
-
-
-    <EditText
-        android:id="@+id/et_postal_code_add"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/button_confirmatio_loggin"
-        android:ems="15"
-        android:hint="Código postal"
-        android:paddingLeft="10dp"
-        android:textColor="#000000"
-        android:textColorHint="#8d6e63"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/guideline306"
-        app:layout_constraintEnd_toStartOf="@+id/guideline315"
-        app:layout_constraintStart_toStartOf="@+id/guideline313"
-        app:layout_constraintTop_toTopOf="@+id/guideline305" />
+        app:layout_constraintTop_toTopOf="@+id/guideline326" />
 
     <TextView
         android:id="@+id/tv_info"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#8d6e63"
         android:elevation="10dp"
-        android:fontFamily="@font/quicksand_semibold"
+        android:fontFamily="@font/quicksandbold"
         android:gravity="center"
-        android:text="AGREGAR DIRECCIÓN"
-        android:textColor="#000000"
+        android:text="Ubicación "
+        android:textColor="#ffff"
+        android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline316"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="10dp"
+        android:fontFamily="@font/quicksandbold"
+        android:gravity="left"
+        android:text="*Todos los campos son obligatorios "
+        android:textColor="@color/orangeBrown"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline337"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline313"
+        app:layout_constraintTop_toTopOf="@+id/guideline317"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline313"
@@ -157,20 +70,6 @@
         app:layout_constraintGuide_percent="0.05" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline331"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.07" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline312"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.15" />
-
-    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline315"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -185,39 +84,32 @@
         app:layout_constraintGuide_percent="0.07" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline317"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.15" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline342"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.12" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline318"
+        android:id="@+id/guideline464"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.2" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline342"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline318"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.28" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline329"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.22" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline319"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25" />
+        app:layout_constraintGuide_percent="0.38" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline320"
@@ -231,105 +123,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.35" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline332"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.32" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline333"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.42" />
+        app:layout_constraintGuide_percent="0.4" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline334"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.52" />
+        app:layout_constraintGuide_percent="0.18" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline335"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.62" />
+        app:layout_constraintGuide_percent="0.7" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline322"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
+        app:layout_constraintGuide_percent="0.48" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline323"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.45" />
+        app:layout_constraintGuide_percent="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline324"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline325"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline326"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline327"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
+        app:layout_constraintGuide_percent="0.58" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline328"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline305"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline343"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.72" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline306"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_percent="0.78" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline336"
@@ -339,11 +175,32 @@
         app:layout_constraintGuide_percent="0.93" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline305"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline306"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline340"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline317"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline341"
@@ -357,19 +214,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.88" />
+        app:layout_constraintGuide_percent="0.84" />
 
-    <TextView
-        android:id="@+id/textView49"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center_vertical"
-        android:text="Provincia"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guideline317"
-        app:layout_constraintEnd_toStartOf="@+id/guideline315"
-        app:layout_constraintStart_toStartOf="@+id/guideline331"
-        app:layout_constraintTop_toTopOf="@+id/guideline342" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline326"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.89" />
 
     <TextView
         android:id="@+id/textView50"
@@ -378,54 +230,8 @@
         android:gravity="center_vertical"
         android:text="Ciudad"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guideline319"
         app:layout_constraintEnd_toStartOf="@+id/guideline315"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline331"
-        app:layout_constraintTop_toTopOf="@+id/guideline329"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView51"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center_vertical"
-        android:text="Localidad / Barrio"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guideline321"
-        app:layout_constraintEnd_toStartOf="@+id/guideline315"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline331"
-        app:layout_constraintTop_toTopOf="@+id/guideline332"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView52"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center_vertical"
-        android:text="Calle"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guideline323"
-        app:layout_constraintEnd_toStartOf="@+id/guideline315"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline331"
-        app:layout_constraintTop_toTopOf="@+id/guideline333"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView54"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center_vertical"
-        android:text="Número de calle"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guideline325"
-        app:layout_constraintEnd_toStartOf="@+id/guideline315"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline331"
-        app:layout_constraintTop_toTopOf="@+id/guideline334"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/guideline329" />
 
     <TextView
         android:id="@+id/textView55"
@@ -434,26 +240,8 @@
         android:gravity="center_vertical"
         android:text="Casa / Departamento / Detalle"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guideline327"
         app:layout_constraintEnd_toStartOf="@+id/guideline315"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline331"
-        app:layout_constraintTop_toTopOf="@+id/guideline335"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView43"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center_vertical"
-        android:text="Código postal"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/guideline305"
-        app:layout_constraintEnd_toStartOf="@+id/guideline315"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline331"
-        app:layout_constraintTop_toTopOf="@+id/guideline343"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/guideline335" />
 
     <TextView
         android:id="@+id/tv_cancelar_add"
@@ -461,8 +249,9 @@
         android:layout_height="0dp"
         android:text="Cancelar"
         android:gravity="center"
-        android:textColor="#8d6e63"
-        android:textSize="18dp"
+        android:textSize="18sp"
+        android:textColor="@color/lightBrown"
+        android:fontFamily="@font/quicksand_regular"
         app:layout_constraintBottom_toTopOf="@+id/guideline341"
         app:layout_constraintEnd_toStartOf="@+id/guideline315"
         app:layout_constraintStart_toStartOf="@+id/guideline313"
@@ -477,9 +266,163 @@
         android:rotationY="180"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/guideline316"
-        app:layout_constraintEnd_toStartOf="@+id/guideline312"
         app:layout_constraintStart_toStartOf="@+id/guideline313"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/arrow_arrows_back_direction_left_navigation_right_icon_123236" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pruebaLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textColorHint="@color/brown"
+        app:boxBackgroundMode="filled"
+        app:hintTextColor="@color/brown"
+        app:layout_constraintBottom_toTopOf="@+id/guideline334"
+        app:layout_constraintEnd_toStartOf="@+id/guideline315"
+        app:layout_constraintStart_toStartOf="@+id/guideline313"
+        app:layout_constraintTop_toTopOf="@+id/guideline342">
+
+        <AutoCompleteTextView
+            android:id="@+id/at_province_add"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:inputType="none"
+            android:text="Provincia"
+            android:textColor="@color/brown"
+            android:textSize="15sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="Ciudad"
+        android:textColorHint="@color/brown"
+        app:boxBackgroundMode="filled"
+        app:hintTextColor="@color/brown"
+        app:layout_constraintBottom_toTopOf="@+id/guideline318"
+        app:layout_constraintEnd_toStartOf="@+id/guideline315"
+        app:layout_constraintStart_toStartOf="@+id/guideline313"
+        app:layout_constraintTop_toTopOf="@+id/guideline464">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_city_add"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#000000" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="Localidad / Barrio"
+        android:textColorHint="@color/brown"
+        app:boxBackgroundMode="filled"
+        app:hintTextColor="@color/brown"
+        app:layout_constraintBottom_toTopOf="@+id/guideline329"
+        app:layout_constraintEnd_toStartOf="@+id/guideline315"
+        app:layout_constraintStart_toStartOf="@+id/guideline313"
+        app:layout_constraintTop_toTopOf="@+id/guideline320">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_district_add"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#000000" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="Calle"
+        android:textColorHint="@color/brown"
+        app:boxBackgroundMode="filled"
+        app:hintTextColor="@color/brown"
+        app:layout_constraintBottom_toTopOf="@+id/guideline322"
+        app:layout_constraintEnd_toStartOf="@+id/guideline315"
+        app:layout_constraintStart_toStartOf="@+id/guideline313"
+        app:layout_constraintTop_toTopOf="@+id/guideline321">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_street_add"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#000000" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="Numero de calle"
+        android:textColorHint="@color/brown"
+        app:boxBackgroundMode="filled"
+        app:hintTextColor="@color/brown"
+        app:layout_constraintBottom_toTopOf="@+id/guideline324"
+        app:layout_constraintEnd_toStartOf="@+id/guideline315"
+        app:layout_constraintStart_toStartOf="@+id/guideline313"
+        app:layout_constraintTop_toTopOf="@+id/guideline323">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_street_number_add"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#000000" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="Casa / Departamento / Manzana"
+        android:textColorHint="@color/brown"
+        app:boxBackgroundMode="filled"
+        app:hintTextColor="@color/brown"
+        app:layout_constraintBottom_toTopOf="@+id/guideline305"
+        app:layout_constraintEnd_toStartOf="@+id/guideline315"
+        app:layout_constraintStart_toStartOf="@+id/guideline313"
+        app:layout_constraintTop_toTopOf="@+id/guideline306">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_floor_add"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#000000"
+            tools:layout_editor_absoluteX="21dp"
+            tools:layout_editor_absoluteY="438dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="Código postal"
+        android:textColorHint="@color/brown"
+        app:boxBackgroundMode="filled"
+        app:hintTextColor="@color/brown"
+        app:layout_constraintBottom_toTopOf="@+id/guideline328"
+        app:layout_constraintEnd_toStartOf="@+id/guideline315"
+        app:layout_constraintStart_toStartOf="@+id/guideline313"
+        app:layout_constraintTop_toTopOf="@+id/guideline335">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_postal_code_add"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#000000" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

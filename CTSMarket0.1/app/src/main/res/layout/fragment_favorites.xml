@@ -1,14 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FavoritesFragment">
+    tools:context=".fragments.FavoritesFragment"
+    android:background="@color/blackBlue">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_products"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#020413">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_favs"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="25dp"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/guideline445"
+            app:layout_constraintEnd_toStartOf="@+id/guideline444"
+            app:layout_constraintStart_toStartOf="@+id/guideline447"
+            app:layout_constraintTop_toTopOf="@+id/guideline446" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline444"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline445"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline446"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.45" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline448"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.02" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline449"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.07" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline450"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline451"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/quicksandbold"
+            android:gravity="center"
+            android:text="Favoritos"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline449"
+            app:layout_constraintEnd_toStartOf="@+id/guideline444"
+            app:layout_constraintStart_toStartOf="@+id/guideline447"
+            app:layout_constraintTop_toTopOf="@+id/guideline448" />
+
+        <TextView
+            android:id="@+id/textView65"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/quicksand_regular"
+            android:gravity="left"
+            android:text="En esta sección podés ver los productos agregados a tu lista de favoritos"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline450"
+            app:layout_constraintEnd_toStartOf="@+id/guideline444"
+            app:layout_constraintStart_toStartOf="@+id/guideline447"
+            app:layout_constraintTop_toTopOf="@+id/guideline451" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline447"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.UserEditActivity;
+import com.example.ctsmarket05.activities.userActivities.UserInfoEditActivity;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;
 
 public class ProductsActivity4 extends AppCompatActivity {
@@ -34,7 +34,7 @@ public class ProductsActivity4 extends AppCompatActivity {
 
     private void changeUserInfo(){
         tvChangeUserInfo.setOnClickListener(v -> {
-            Intent toUserEdit = new Intent(this, UserEditActivity.class);
+            Intent toUserEdit = new Intent(this, UserInfoEditActivity.class);
             toUserEdit.putExtra("fromPA4","fromPA4");
             startActivity(toUserEdit);
             finish();

@@ -28,7 +28,7 @@
 
     <activity>
         android:id="@+id/nav_mi_usuario"
-        android:name="com.example.ctsmarket05.activities.UserActivty
+        android:name="com.example.ctsmarket05.activities.userActivities.UserActivty
         android:label="user"
         tools:layout="@layout/activity_mi_usuario"
     </activity>

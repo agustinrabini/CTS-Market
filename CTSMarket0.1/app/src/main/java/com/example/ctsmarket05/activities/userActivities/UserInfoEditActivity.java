@@ -1,4 +1,4 @@
-package com.example.ctsmarket05.activities;
+package com.example.ctsmarket05.activities.userActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,19 +12,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.productsClasses.ProductsActivity4;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserPUTInfo;
+import com.google.android.material.textfield.TextInputEditText;
 
-public class UserEditActivity extends AppCompatActivity {
+public class UserInfoEditActivity extends AppCompatActivity {
 
-    private EditText etName;
-    private EditText etDni;
-    private EditText etPhone;
+    private TextInputEditText etName;
+    private TextInputEditText etDni;
+    private TextInputEditText etPhone;
     private Button btnSave;
     private TextView tvCancelar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_edit);
+        setContentView(R.layout.activity_user_info_edit);
 
         findViews();
         updateUser();

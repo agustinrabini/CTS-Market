@@ -2,13 +2,13 @@ package com.example.ctsmarket05.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.text.Html;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
+import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.retrofit.locationRetrofit.LocationGET;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;
 
@@ -16,6 +16,7 @@ public class LocationInfoActivity extends AppCompatActivity {
 
     private TextView tvChangeLocation;
     private TextView tvLocation;
+    private TextView tvQuestion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,7 @@ public class LocationInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_location_info);
 
         findViews();
-        showInfo();
+        getData();
         changeLocation();
     }
 
@@ -38,11 +39,12 @@ public class LocationInfoActivity extends AppCompatActivity {
 
     private void findViews() {
 
-    tvChangeLocation = findViewById(R.id.tv_change_location_info);
-    tvLocation = findViewById(R.id.tv_location_info);
+    tvChangeLocation = findViewById(R.id.tv_change_location_infoLI);
+    tvLocation = findViewById(R.id.tv_location_infoLI);
+    tvQuestion = findViewById(R.id.tv_questionLI);
     }
 
-    private void showInfo() {
+    private void getData() {
 
         UserGET userGET = new UserGET();
         userGET.SetOnDataListenerUser(user -> {
@@ -77,5 +79,15 @@ public class LocationInfoActivity extends AppCompatActivity {
         });
         userGET.getUserByGmail();
 
+
+        String genericMesagge = getColoredSpanned("Si ya realizaste una compra y necesitas cambiar su direccion de envío ", "#B8C6CD");
+        String whatsApp = getColoredSpanned("hace click aquí","#2e7d32");
+        tvQuestion.setText(Html.fromHtml(genericMesagge+" "+whatsApp + " para hablar con un representante."));
     }
+
+    private String getColoredSpanned(String text, String color) {
+        String input = "<font color=" + color + ">" + text + "</font>";
+        return input;
+    }
+
 }

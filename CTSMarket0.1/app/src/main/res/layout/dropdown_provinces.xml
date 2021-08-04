@@ -1,0 +1,10 @@
+<TextView
+    android:id="@+id/textView72"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="TextView"
+    android:textColor="@color/blackBlue"
+    android:textSize="25sp"
+    android:gravity="center"
+    android:fontFamily="@font/quicksand_semibold"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,6 +1,6 @@
 package com.example.ctsmarket05.fragments;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -14,10 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.FilterBottomSheet;
+import com.example.ctsmarket05.activities.userActivities.UserActivty;
 import com.example.ctsmarket05.adapters.ProductsAdapter;
 import com.example.ctsmarket05.clickListeners.ProductsOnCustomClickListener;
 import com.example.ctsmarket05.entities.Product;
@@ -33,6 +33,7 @@ public class HomeFragment extends Fragment implements ProductsOnCustomClickListe
     private RecyclerView rvProducts;
     private ImageView ivUserPhoto;
     private String filter;
+    private String userName;
     private Uri personPhoto ;
     private TextView tvFilter;
     private TextView tvUserName;
@@ -64,7 +65,8 @@ public class HomeFragment extends Fragment implements ProductsOnCustomClickListe
             String personEmail = acct.getEmail();
             String personId = acct.getId();
             personPhoto = acct.getPhotoUrl();
-            User.gmail = personName;
+            User.gmail = personEmail;
+            userName = personName;
         }
 
     }
@@ -99,11 +101,25 @@ public class HomeFragment extends Fragment implements ProductsOnCustomClickListe
         });
 
         Picasso.with(v.getContext()).load(personPhoto).into(ivUserPhoto);
-        tvUserName.setText("Bienvenido, " +User.gmail + "." + "\n" +"¿Qué buscás hoy?");
+        tvUserName.setText("Bienvenido, " +userName + "." + "\n" +"¿Qué buscás hoy?");
 
         String genericMesagge = getColoredSpanned("Habla con un respresentante vía WhatsApp haciendo", "#B8C6CD");
-        String whatsApp = getColoredSpanned("click aquí.","#9E5E3B");
+        String whatsApp = getColoredSpanned("click aquí.","#2e7d32");
         tvQuestionsHome.setText(Html.fromHtml(genericMesagge+" "+whatsApp));
+
+        ivUserPhoto.setOnClickListener(v12 -> {
+            Intent userActv = new Intent(getContext(), UserActivty.class);
+            startActivity(userActv);
+        });
+
+        tvQuestionsHome.setOnClickListener(v14 -> {
+
+            String telefono = "+54 1132424233";
+            String url = "https://api.whatsapp.com/send?phone=";
+            Intent llamada = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:" + telefono));
+            llamada.setData(Uri.parse(url + telefono));
+            startActivity(llamada);
+        });
         return v;
     }
 
@@ -112,6 +128,7 @@ public class HomeFragment extends Fragment implements ProductsOnCustomClickListe
 
     @Override
     public void onButtonClickedFilter(String filterProduct) {
+
         if (filterProduct.equals("*")){
             tvFilter.setText("Todos");
         }else{tvFilter.setText(filterProduct+"s");}

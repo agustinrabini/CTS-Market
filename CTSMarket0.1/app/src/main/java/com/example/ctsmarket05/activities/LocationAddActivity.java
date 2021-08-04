@@ -2,6 +2,8 @@ package com.example.ctsmarket05.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,18 +18,25 @@ import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.retrofit.locationRetrofit.LocationPOST;
 import com.example.ctsmarket05.retrofit.locationRetrofit.LocationPUT;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserPUTIdLoc;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.ArrayList;
 
 public class LocationAddActivity extends AppCompatActivity {
 
-    private EditText etStreet;
-    private EditText etStreetNumber;
-    private EditText etCity;
-    private EditText etPostalCode;
-    private EditText etFloor;
-    private EditText etDistrict;
-    private EditText etProvince;
+    private TextInputEditText etStreet;
+    private TextInputEditText etStreetNumber;
+    private TextInputEditText etCity;
+    private TextInputEditText etPostalCode;
+    private TextInputEditText etFloor;
+    private TextInputEditText etDistrict;
     private TextView tvCancelar;
     private Button btnSave;
+    private AutoCompleteTextView atProvince;
+    private TextInputLayout prueba;
+    private ArrayList<String> arrayListProvinces;
+    private ArrayAdapter<String> arrayAdapterProvinces;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +45,27 @@ public class LocationAddActivity extends AppCompatActivity {
 
         findViews();
         btnGuardar();
+        provinces();
     }
+
+    private void provinces() {
+
+        prueba = (TextInputLayout) findViewById(R.id.pruebaLayout);
+        atProvince = (AutoCompleteTextView) findViewById(R.id.at_province_add);
+
+        arrayListProvinces = new ArrayList<>();
+        arrayListProvinces.add("CABA");
+        arrayListProvinces.add("Tucumán");
+        arrayListProvinces.add("Córdoba");
+        arrayListProvinces.add("Jujuy");
+        arrayListProvinces.add("Salta");
+
+        arrayAdapterProvinces = new ArrayAdapter<>(getApplicationContext(), R.layout.dropdown_provinces,arrayListProvinces);
+        atProvince.setAdapter(arrayAdapterProvinces);
+
+        atProvince.setThreshold(1);
+    }
+
 
     //si el usuario ya esta registrado se le hace un UPDATE a la DB updateLocation();
     //si es la primera vez que se registra se hace un POST con firstTimePost();
@@ -59,7 +88,7 @@ public class LocationAddActivity extends AppCompatActivity {
     private void updateLocation() {
 
         if(     //Chequea que todos los campos esten completos
-                etProvince.getText().toString().equals("") || etCity.getText().toString().equals("")
+                atProvince.getText().toString().equals("") || etCity.getText().toString().equals("")
                         || etDistrict.getText().toString().equals("") || etStreet.getText().toString().equals("")
                         || etStreetNumber.getText().toString().equals("") || etFloor.getText().toString().equals("")
                         || etPostalCode.getText().toString().equals("")
@@ -70,7 +99,7 @@ public class LocationAddActivity extends AppCompatActivity {
             //UPDATE a la tabla location.
             LocationPUT locationPUT = new LocationPUT();
             locationPUT.locationPUT(
-                    etProvince.getText().toString(),
+                    atProvince.getText().toString(),
                     etCity.getText().toString(),
                     etDistrict.getText().toString(),
                     etStreet.getText().toString(),
@@ -87,7 +116,7 @@ public class LocationAddActivity extends AppCompatActivity {
     private void firstTimePost(){
 
         if(
-                etProvince.getText().toString().equals("") || etCity.getText().toString().equals("")
+                atProvince.getText().toString().equals("") || etCity.getText().toString().equals("")
                         || etDistrict.getText().toString().equals("") || etStreet.getText().toString().equals("")
                         || etStreetNumber.getText().toString().equals("") || etFloor.getText().toString().equals("")
                         || etPostalCode.getText().toString().equals("")
@@ -101,12 +130,11 @@ public class LocationAddActivity extends AppCompatActivity {
         }
     }
 
-
     private void postL(){
         LocationPOST locationPOST = new LocationPOST();
         locationPOST.locationPost(
                 User.IDUSER,
-                etProvince.getText().toString(),
+                atProvince.getText().toString(),
                 etCity.getText().toString(),
                 etDistrict.getText().toString(),
                 etStreet.getText().toString(),
@@ -153,7 +181,7 @@ public class LocationAddActivity extends AppCompatActivity {
         etPostalCode = findViewById(R.id.et_postal_code_add);
         etFloor = findViewById(R.id.et_floor_add);
         etDistrict = findViewById(R.id.et_district_add);
-        etProvince = findViewById(R.id.id_province_add);
+        atProvince = findViewById(R.id.at_province_add);
         btnSave = findViewById(R.id.btn_save_add);
         tvCancelar = findViewById(R.id.tv_cancelar_add);
     }
