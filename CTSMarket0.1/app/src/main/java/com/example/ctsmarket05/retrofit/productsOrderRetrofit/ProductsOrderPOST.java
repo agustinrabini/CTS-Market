@@ -31,16 +31,10 @@ public class ProductsOrderPOST extends AppCompatActivity {
         call.enqueue(new Callback<ProductsOrder>() {
             @Override
             public void onResponse(Call<ProductsOrder> call, Response<ProductsOrder> response) {
-                ProductsOrder productsOrderResponse = response.body();
-
-                productsOrderResponse.setId_product(id_product);
-                productsOrderResponse.setId_user(id_user);
-                productsOrderResponse.setId_order(quantity);
             }
 
             @Override
             public void onFailure(Call<ProductsOrder> call, Throwable t) {
-                Toast.makeText(ProductsOrderPOST.this, "Error:" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

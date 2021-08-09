@@ -1,7 +1,6 @@
 package com.example.ctsmarket05.adapters;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,15 +12,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ctsmarket05.R;
+import com.example.ctsmarket05.activities.HomeActivity;
 import com.example.ctsmarket05.activities.OrdersActivity;
 import com.example.ctsmarket05.activities.productsClasses.ProductsActivity2;
 import com.example.ctsmarket05.clickListeners.ProductsOrdersOnCustomClickListener;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.ProductsOrder;
-import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderGetByIdUser;
-import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderSubtractPricePUT;
+import com.example.ctsmarket05.retrofit.ordersRetrofit.CartRemoveDELETE;
 import com.example.ctsmarket05.retrofit.productRetrofit.ProductGET;
-import com.example.ctsmarket05.retrofit.productsOrderRetrofit.ProductsOrderDELETE;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -76,12 +74,7 @@ public class ProductsOrdersAdapter extends RecyclerView.Adapter<ProductsOrdersAd
             TextView tvSeeProduct = itemView.findViewById(R.id.tv_see_productPO);
             ImageView ivProduct = itemView.findViewById(R.id.iv_product_order);
 
-            //obtengo el id_products_order correspondiente el cual se le pasa a la funcion delete
-            Integer id_products_order = productsOrder.getId_products_order();
-
-            //setteo el valor quantity que le voy a pasar a la funcion delete
             Integer quantity = productsOrder.getQuantity();
-            Product.QUANTITY= quantity;
 
             //obtengo el id_product del producto que se encuentra en el carrito
             Integer id_product= productsOrder.getId_product();
@@ -106,33 +99,19 @@ public class ProductsOrdersAdapter extends RecyclerView.Adapter<ProductsOrdersAd
             //borra un producto de un carrito activo
             tvDelete.setOnClickListener(v -> {
 
-                //update con los valores obtenido mas arriba
-                ProductsOrderDELETE productsOrderDELETE = new ProductsOrderDELETE();
-                productsOrderDELETE.removeProductOrder(id_products_order);
+                Integer id_order = productsOrder.getId_order();
+                Integer id_user = productsOrder.getId_user();
+                Integer id_products_order = productsOrder.getId_products_order();
 
-                OrderGetByIdUser orderGetByIdUser = new OrderGetByIdUser();
-                orderGetByIdUser.SetOnDataListenerOrdersPO(order -> {
+                CartRemoveDELETE cartRemoveDELETE = new CartRemoveDELETE();
+                cartRemoveDELETE.deleteCart(id_order,id_user,id_product,id_products_order);
 
-                    Integer id_order = order.getId_order();
-                    Integer orderState = order.getOrder_state();
-
-                    //si es nulo es porque es la primera vez que se crea el carrito
-                    if (id_order != null){
-                        OrderSubtractPricePUT subtractPricePUT = new OrderSubtractPricePUT();
-                        subtractPricePUT.subtractPrice(Product.PRICE,Product.QUANTITY,id_order);
-                    }
-
-                    if (orderState == 0){
-                        Toast.makeText(itemView.getContext(), "No es posible elmiminar un producto luego de haber realizado la compra", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                orderGetByIdUser.OrderGetByIdUser();
-
-                Intent reload = new Intent(v.getContext(), OrdersActivity.class);
+                Intent reload = new Intent(v.getContext(), HomeActivity.class);
+                Toast.makeText(v.getContext(), "Producto eliminado del carrito", Toast.LENGTH_SHORT).show();
                 v.getContext().startActivity(reload);
             });
 
-            //ver el objeto de la orden en detalle.
+            //ver el producto de la orden
             tvSeeProduct.setOnClickListener(v -> {
 
                 ProductGET productGET2 = new ProductGET();

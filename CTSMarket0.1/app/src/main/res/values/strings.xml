@@ -32,4 +32,18 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
 
+    <string name="info1">Es la aplicación móvil para "Cuchillos Titán del Sur"(CTS). Es la primera y única plataforma móvil
+        para la venta de herramientas de origen artesanal para el ámbito gastronómico.</string>
+
+    <string name="info2">Solo hacemos cabos en asta de ciervo los cuales son 100% naturales obtenidos en el desmogue. Algunos materiales como madera, bronce y
+        alpaca son utilizados unicamente para detalels. No realizamos cabos enteramente en madera</string>
+
+    <string name="info3">Es el proceso natural anual por el cual el ciervo pierde sus astas.
+        Al ser un proceso completamente natural el animal no persibe ningun tipo de dolor, ya que es parte de su anatomia y caracteristicas.
+    Esta acción nos permite aprovechar a nosotros estas bellas piezas sin alterar la naturaleza de estos bellos animales.</string>
+
+    <string name="info4">Realizamos envíos a toda la República Argentina, para envíos internacionales contactar primero a un representante antes de realizar la compra.
+        El valor del envío se incluye en el precio final de cada orden.</string>
+
+    <string name="info5">El encabado tarda 2 semanas una vez concretado el abono del producto o pedido, más la demora del envío a cargo de la empresa correspondiente. </string>
 </resources>

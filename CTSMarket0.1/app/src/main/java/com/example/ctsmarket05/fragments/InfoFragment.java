@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.ContactoActivity;
 import com.example.ctsmarket05.activities.HomeActivity;
+import com.example.ctsmarket05.activities.InfoActivity;
 
 public class InfoFragment extends Fragment {
 
@@ -67,7 +68,7 @@ public class InfoFragment extends Fragment {
             try {
                 startActivity(Intent.createChooser(intentG, "Seleccione una app"));
             } catch (android.content.ActivityNotFoundException ex) {
-                Toast.makeText(getActivity().getApplicationContext(), "No tienes aplciaciones de mensajeria por correro instaladas en tu celular", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getApplicationContext(), "No tienes aplciaciones de mensajeria por correo instaladas en tu celular", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -95,6 +96,12 @@ public class InfoFragment extends Fragment {
                 faceweb.setData(Uri.parse(url));
                 startActivity(faceweb);
             }
+        });
+
+        tvQuestions.setOnClickListener(v1 -> {
+
+            Intent info = new Intent(getContext(), InfoActivity.class);
+            startActivity(info);
         });
         return v;
     }

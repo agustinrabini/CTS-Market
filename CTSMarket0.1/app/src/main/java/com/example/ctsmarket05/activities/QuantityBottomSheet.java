@@ -10,11 +10,14 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 
 import com.example.ctsmarket05.R;
+import com.example.ctsmarket05.entities.Product;
+import com.example.ctsmarket05.retrofit.productRetrofit.ProductGET;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class QuantityBottomSheet extends BottomSheetDialogFragment {
 
     private QuantityListener mListener;
+    private Integer stockQuantity;
 
     @Nullable
     @Override
@@ -27,32 +30,55 @@ public class QuantityBottomSheet extends BottomSheetDialogFragment {
         Button btnQuantity4 = v.findViewById(R.id.btn_quantity_4);
         Button btnQuantity5 = v.findViewById(R.id.btn_quantity_5);
 
+        ((ViewGroup) btnQuantity5.getParent()).removeView(btnQuantity5);
+
         btnQuantity1.setOnClickListener(v12 -> {
             mListener.onButtonClicked(1);
             dismiss();
         });
 
-        btnQuantity2.setOnClickListener((View.OnClickListener) v1 -> {
+        btnQuantity2.setOnClickListener(v1 -> {
             mListener.onButtonClicked(2);
             dismiss();
         });
 
-        btnQuantity3.setOnClickListener((View.OnClickListener) v1 -> {
+        btnQuantity3.setOnClickListener(v1 -> {
             mListener.onButtonClicked(3);
             dismiss();
         });
 
-        btnQuantity4.setOnClickListener((View.OnClickListener) v1 -> {
+        btnQuantity4.setOnClickListener(v1 -> {
             mListener.onButtonClicked(4);
             dismiss();
         });
 
-        btnQuantity5.setOnClickListener((View.OnClickListener) v1 -> {
+        btnQuantity5.setOnClickListener(v1 -> {
             mListener.onButtonClicked(5);
             dismiss();
         });
 
         return v;
+    }
+
+    public Integer stock(){
+
+       //ProductGET productGET = new ProductGET();
+       //productGET.SetOnDataListenerProd(product -> {
+       // Integer stock = product.getStock();
+
+       //    switch (stock){
+
+       //        case 1:{
+       //            sequence = "cartSequence";
+       //        }break;
+
+       //        case 2:{
+       //            sequence = "oneProductSequence";
+       //        }break;
+       //    }
+       //});
+       //
+       return stockQuantity;
     }
 
     public interface QuantityListener {

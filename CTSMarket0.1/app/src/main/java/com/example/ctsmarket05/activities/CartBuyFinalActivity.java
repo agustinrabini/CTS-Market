@@ -3,21 +3,16 @@ package com.example.ctsmarket05.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.Product;
-import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderCartBoughtPUT;
-import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderPOST;
 import com.example.ctsmarket05.retrofit.ordersRetrofit.OrdersCartGET;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;
-import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
 import java.util.Calendar;

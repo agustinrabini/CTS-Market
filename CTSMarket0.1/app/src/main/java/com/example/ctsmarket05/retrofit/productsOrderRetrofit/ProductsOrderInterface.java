@@ -17,15 +17,9 @@ import retrofit2.http.Path;
 
 public interface ProductsOrderInterface {
 
-    @DELETE("/productsOrder/{id}")
-    Call<ProductsOrder> removeProductsOrders(@Path("id") int id_product_order);
-
     @POST("productsOrder/addCart")
     Call<ProductsOrder> addCart(@Body ProductsOrder productsOrder);
 
     @GET("/productsOrder/spobio/{id}")
     Call<List<ProductsOrder>> showProductsOrders(@Path("id") int id_order);
-
-   //@PUT("/productsOrder/uwapo/{id}")//UpdateWhenAddProductsOrder, ultima call de la sequencia de agregado.
-   //Call<ProductsOrder> updateWhenAddPO(@Body ProductsOrder productsOrder, @Path("id") int id_products_order);
 }

@@ -93,7 +93,7 @@ public class ProductsActivity3 extends AppCompatActivity {
             }break;
 
             case "oneProductSequence":{
-                tvFinalPrice.setText("PRECIO: " + Product.PRICE.toString() + "$ARS");
+                tvFinalPrice.setText("PRECIO: " + Orders.ORDER_PRICE.toString() + "$ARS");
             }break;
         }
     }

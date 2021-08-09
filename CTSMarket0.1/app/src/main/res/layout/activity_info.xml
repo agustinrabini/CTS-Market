@@ -1,9 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_info"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.InfoActivity">
+    android:background="@color/blackBlue">
+
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/quicksandbold"
+        android:gravity="center"
+        android:text="Sobre nosotros"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        expandableTextView:layout_constraintBottom_toTopOf="@+id/guideline312"
+        expandableTextView:layout_constraintEnd_toEndOf="parent"
+        expandableTextView:layout_constraintStart_toStartOf="parent"
+        expandableTextView:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_firstI"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_semibold"
+        android:gravity="center_vertical"
+        android:text="¿Qué es CTS Market?"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        expandableTextView:layout_constraintEnd_toStartOf="@+id/guideline469"
+        expandableTextView:layout_constraintHorizontal_bias="1.0"
+        expandableTextView:layout_constraintStart_toStartOf="@+id/guideline470"
+        expandableTextView:layout_constraintTop_toTopOf="@+id/guideline468" />
+
+    <TextView
+        android:id="@+id/tv_secondI"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_semibold"
+        android:gravity="center_vertical"
+        android:text="¿Qué materiales usan para los cabos?"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        expandableTextView:layout_constraintEnd_toStartOf="@+id/guideline469"
+        expandableTextView:layout_constraintHorizontal_bias="1.0"
+        expandableTextView:layout_constraintStart_toStartOf="@+id/guideline470"
+        expandableTextView:layout_constraintTop_toBottomOf="@+id/tv_responseI" />
+
+    <TextView
+        android:id="@+id/tv_thirdI"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_semibold"
+        android:gravity="center_vertical"
+        android:text="¿Qué es el desmogue?"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        expandableTextView:layout_constraintEnd_toStartOf="@+id/guideline469"
+        expandableTextView:layout_constraintHorizontal_bias="1.0"
+        expandableTextView:layout_constraintStart_toStartOf="@+id/guideline470"
+        expandableTextView:layout_constraintTop_toBottomOf="@+id/tv_response2I" />
+
+    <TextView
+        android:id="@+id/tv_fourthI"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_semibold"
+        android:gravity="center_vertical"
+        android:text="¿Realizan envíos?"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        expandableTextView:layout_constraintEnd_toStartOf="@+id/guideline469"
+        expandableTextView:layout_constraintHorizontal_bias="1.0"
+        expandableTextView:layout_constraintStart_toStartOf="@+id/guideline470"
+        expandableTextView:layout_constraintTop_toBottomOf="@+id/tv_response3I" />
+
+    <TextView
+        android:id="@+id/tv_fifthI"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_semibold"
+        android:gravity="center_vertical"
+        android:text="¿Cuánto tardo en recibir el producto?"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        expandableTextView:layout_constraintEnd_toStartOf="@+id/guideline469"
+        expandableTextView:layout_constraintHorizontal_bias="1.0"
+        expandableTextView:layout_constraintStart_toStartOf="@+id/guideline470"
+        expandableTextView:layout_constraintTop_toBottomOf="@+id/tv_response4I" />
+
+
+    <TextView
+        android:id="@+id/tv_responseI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blackBlue"
+        android:focusable="true"
+        android:fontFamily="@font/quicksand_regular"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:paddingLeft="5dp"
+        android:textSize="16sp"
+        expandableTextView:layout_constraintEnd_toStartOf="@+id/guideline469"
+        expandableTextView:layout_constraintHorizontal_bias="0.512"
+        expandableTextView:layout_constraintStart_toStartOf="@+id/guideline470"
+        expandableTextView:layout_constraintTop_toBottomOf="@+id/tv_firstI" />
+
+    <TextView
+        android:id="@+id/tv_response2I"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blackBlue"
+        android:focusable="true"
+        android:paddingLeft="5dp"
+        android:fontFamily="@font/quicksand_regular"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:textSize="16sp"
+        expandableTextView:layout_constraintEnd_toStartOf="@+id/guideline469"
+        expandableTextView:layout_constraintStart_toStartOf="@+id/guideline470"
+        expandableTextView:layout_constraintTop_toBottomOf="@+id/tv_secondI" />
+
+    <TextView
+        android:id="@+id/tv_response3I"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blackBlue"
+        android:focusable="true"
+        android:fontFamily="@font/quicksand_regular"
+        android:paddingLeft="5dp"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:textSize="16sp"
+        expandableTextView:layout_constraintEnd_toStartOf="@+id/guideline469"
+        expandableTextView:layout_constraintStart_toStartOf="@+id/guideline470"
+        expandableTextView:layout_constraintTop_toBottomOf="@+id/tv_thirdI" />
+
+    <TextView
+        android:id="@+id/tv_response4I"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blackBlue"
+        android:focusable="true"
+        android:fontFamily="@font/quicksand_regular"
+        android:paddingLeft="5dp"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:textSize="16sp"
+        expandableTextView:layout_constraintEnd_toStartOf="@+id/guideline469"
+        expandableTextView:layout_constraintStart_toStartOf="@+id/guideline470"
+        expandableTextView:layout_constraintTop_toBottomOf="@+id/tv_fourthI" />
+
+    <TextView
+        android:id="@+id/tv_response5I"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blackBlue"
+        android:focusable="true"
+        android:fontFamily="@font/quicksand_regular"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:paddingLeft="5dp"
+        expandableTextView:layout_constraintEnd_toStartOf="@+id/guideline469"
+        expandableTextView:layout_constraintStart_toStartOf="@+id/guideline470"
+        expandableTextView:layout_constraintTop_toBottomOf="@+id/tv_fifthI" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline312"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        expandableTextView:layout_constraintGuide_percent="0.07" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline468"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        expandableTextView:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline465"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        expandableTextView:layout_constraintGuide_percent="0.38" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline466"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        expandableTextView:layout_constraintGuide_percent="0.36" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline474"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        expandableTextView:layout_constraintGuide_percent="0.76" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline469"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        expandableTextView:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline470"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        expandableTextView:layout_constraintGuide_percent="0.05" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

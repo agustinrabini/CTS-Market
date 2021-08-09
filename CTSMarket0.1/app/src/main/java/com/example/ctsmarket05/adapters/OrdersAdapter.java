@@ -79,11 +79,19 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
                    break;
 
                 case 1:
-                    tvOrderState.setText("Producido");
+                    tvOrderState.setText("Listo para envío");
                     break;
 
                 case 2:
                     tvOrderState.setText("Enviado");
+                    break;
+
+                case 3:
+                    tvOrderState.setText("En camino");
+                    break;
+
+                case 4:
+                    tvOrderState.setText("Entregado");
                     break;
             }
 

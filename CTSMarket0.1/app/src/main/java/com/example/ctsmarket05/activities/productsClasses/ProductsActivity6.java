@@ -10,16 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.HomeActivity;
+import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.Product;
-import com.example.ctsmarket05.entities.ProductsOrder;
 import com.example.ctsmarket05.entities.User;
-import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderCartPOST;
-import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderPOST;
+import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderOneProductPOST;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;
 import com.squareup.picasso.Picasso;
 
-import java.text.DateFormat;
-import java.util.Calendar;
+import java.util.Date;
 
 public class ProductsActivity6 extends AppCompatActivity {
 
@@ -49,10 +47,6 @@ public class ProductsActivity6 extends AppCompatActivity {
        String sendingMethod = payment.getStringExtra("sendingMethod");
        String payMethod = payment.getStringExtra("payMethod");
 
-       tvProdName.setText(Product.NAME);
-       Picasso.with(this).load(Product.IMAGE).into(ivImage);
-       //tvQuantity.setText();
-
        if (sendingMethod.equals("sellerHome")){
            tvSendingMethod.setText("Retira en el domicilio del vendedor");
        }
@@ -60,33 +54,42 @@ public class ProductsActivity6 extends AppCompatActivity {
        if (payMethod.equals("payWithCash")){
            tvPayment.setText("En efectivo al retirar el producto");
        }
-       tvFinalPrice.setText(Product.PRICE + " " +  "$ARS");
+       tvFinalPrice.setText(Orders.ORDER_PRICE + " " +  "$ARS");
 
        UserGET userGET = new UserGET();
        userGET.SetOnDataListenerUser(user ->
                tvUserInfo.setText(user.getName_lastname() + " - " + "DNI: " + user.getDni().toString() + " - " + "\n" +"Contacto: " + user.getPhone().toString()));
        userGET.getUserByGmail();
 
-       tvQuantity.setText(Product.QUANTITY.toString());
+       tvQuantity.setText(Orders.ORDER_QUANTITY.toString());
+       tvProdName.setText(Product.NAME);
+       Picasso.with(this).load(Product.IMAGE).into(ivImage);
     }
 
     private void confirmOrder() {
 
        btnConfirmOrder.setOnClickListener(v -> {
 
-           Calendar calendar = Calendar.getInstance();
-           String date = DateFormat.getDateInstance().format(calendar.getTime());
+           String date = java.text.DateFormat.getDateTimeInstance().format(new Date());
 
-           OrderPOST orderPOST = new OrderPOST();
-           orderPOST.orderPost(
+           //OrderPOST orderPOST = new OrderPOST();
+           //orderPOST.orderPost(
+//
+           //        User.IDUSER,
+           //        Product.PRICE,
+           //        Product.QUANTITY,
+           //        0,
+           //        1,
+           //        date
+           //);
+//
+           //ProductsOrderPOST productsOrderPOST = new ProductsOrderPOST();
+           //productsOrderPOST.addCart(Product.ID_PRODUCT, User.IDUSER,Product.QUANTITY);
 
-                   User.IDUSER,
-                   Product.PRICE,
-                   Product.QUANTITY,
-                   0,
-                   1,
-                   date
-           );
+           Orders orders = new Orders(User.IDUSER,Orders.ORDER_PRICE,Orders.ORDER_QUANTITY,0,1, date);
+
+           OrderOneProductPOST orderOneProductPOST = new OrderOneProductPOST();
+           orderOneProductPOST.oneProductBougth(User.IDUSER, Product.ID_PRODUCT, orders);
 
            Intent finishBuySequence = new Intent(this, HomeActivity.class);
            startActivity(finishBuySequence);

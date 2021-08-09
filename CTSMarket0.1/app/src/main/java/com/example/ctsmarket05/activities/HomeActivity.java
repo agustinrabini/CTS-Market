@@ -98,16 +98,6 @@ public class HomeActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    private void signOut() {
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .build();
-        GoogleSignInClient googleSignInClient=GoogleSignIn.getClient(this,gso);
-        googleSignInClient.signOut();
-
-        Intent logout = new Intent(getApplicationContext(),MainActivity.class);
-        startActivity(logout);
-    }
-
     //Establece el valor de los atributos estaticos idLocation y idUser. Para ser usado en LocationGET
     public void setStaticIdsValues(){
         //para idLocation

@@ -10,7 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.LocationInfoActivity;
+import com.example.ctsmarket05.activities.MainActivity;
 import com.example.ctsmarket05.entities.User;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 //el usuario termina de agregar sus datos
 public class UserActivty extends AppCompatActivity {
@@ -20,6 +24,7 @@ public class UserActivty extends AppCompatActivity {
     private TextView tvUserPurchases;
     private TextView tvUserInfo;
     private TextView tvUserLocation;
+    private TextView tvLogoutU;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,20 @@ public class UserActivty extends AppCompatActivity {
         findViews();
         setData();
         clickListeners();
+        logout();
+    }
+
+    private void logout() {
+
+        tvLogoutU.setOnClickListener(v -> {
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .build();
+            GoogleSignInClient googleSignInClient= GoogleSignIn.getClient(this,gso);
+            googleSignInClient.signOut();
+
+            Intent logout = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(logout);
+        });
     }
 
     private void clickListeners() {
@@ -75,6 +94,7 @@ public class UserActivty extends AppCompatActivity {
         tvUserInfo = findViewById(R.id.tv_user_infoU);
         tvUserInfo = findViewById(R.id.tv_user_infoU);
         tvUserLocation= findViewById(R.id.tv_user_locationU);
+        tvLogoutU = findViewById(R.id.tv_logoutU);
     }
 
     private String getColoredSpanned(String text, String color) {

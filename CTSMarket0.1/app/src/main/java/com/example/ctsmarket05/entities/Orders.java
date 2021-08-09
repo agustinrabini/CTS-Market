@@ -15,6 +15,7 @@ public class Orders {
     private String date;
 
     public static Integer ORDER_PRICE;
+    public static Integer ORDER_QUANTITY;
 
     public Orders(Integer id_user, Integer order_price, Integer quantity_products, Integer order_state, Integer shipping, String date) {
         this.id_user = id_user;

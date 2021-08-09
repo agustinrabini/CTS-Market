@@ -40,7 +40,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline268" />
 
         <TextView
-            android:id="@+id/textView74"
+            android:id="@+id/tv_logoutU"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/background_general4"
