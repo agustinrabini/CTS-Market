@@ -32,6 +32,8 @@ public class Product {
 
     public static Integer QUANTITY;
 
+    public static Integer STOCK;
+
     public static String IMAGE;
 
     public static String FILTER;

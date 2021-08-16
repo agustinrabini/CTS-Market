@@ -1,13 +1,16 @@
 package com.example.ctsmarket05.activities.productsClasses;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.QuantityBottomSheet;
@@ -15,7 +18,13 @@ import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.retrofit.ordersRetrofit.CartAddPOST;
+import com.example.ctsmarket05.retrofit.ordersRetrofit.CartRemoveDELETE;
+import com.example.ctsmarket05.retrofit.productRetrofit.ProductInterface;
+import com.example.ctsmarket05.retrofit.productsOrderRetrofit.CheckCartPOST;
+import com.google.android.gms.common.util.IOUtils;
 import com.squareup.picasso.Picasso;
+
+import java.util.Arrays;
 
 public class ProductsActivity2 extends AppCompatActivity implements QuantityBottomSheet.QuantityListener {
 
@@ -28,7 +37,9 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
     private TextView tvDescription2;
     private TextView tvLength;
     private TextView tvQuantity;
+    private TextView tvStock;
     private Integer quantityProduct = 1;
+    private Integer a = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,91 +51,97 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
         changeQuantityProduct();
         btnBuy();
         btnQuestion();
-        btnCart();
+        cart();
+        checkCart();
     }
 
-    private void btnCart() {
+    private void checkCart() {
+
+        //se checkea el estado del producto en el carrito
+        CheckCartPOST checkCartPOST = new CheckCartPOST();
+        checkCartPOST.SetOnDataListenerCheck(check -> {
+
+            String c =  new String(check.getBytes());
+
+            Integer e = Integer.parseInt(c);
+
+            if (e == 10){
+                a=1;
+                ivCart.setImageResource(R.drawable.cart_brown);
+            }
+        });
+        checkCartPOST.check(Product.ID_PRODUCT, User.IDUSER);
+    }
+
+    private void cart() {
+
+        Intent Clicked = getIntent();
+        Integer stock = Clicked.getIntExtra("stock",0);
+        Integer id_prod = Clicked.getIntExtra("id_product",0);
+        Integer price = Clicked.getIntExtra("price",0);
+        Product.ID_PRODUCT = id_prod;
 
         ivCart.setOnClickListener(v -> {
 
-            Intent Clicked = getIntent();
-            String id_prod = Clicked.getStringExtra("id_product");
-            Integer price = Clicked.getIntExtra("price",0);
-            Product.ID_PRODUCT = Integer.parseInt(id_prod);
+            if(stock !=0){
 
-            CartAddPOST cartAddPOST = new CartAddPOST();
-            cartAddPOST.addCart(Product.ID_PRODUCT,User.IDUSER, price*quantityProduct,quantityProduct);
+                switch (a) {
+
+                    case 0: {
+
+                        a=1;
+                        CartAddPOST cartAddPOST = new CartAddPOST();
+                        Orders order = new Orders(User.IDUSER,price*quantityProduct,quantityProduct,10,null,"");
+                        cartAddPOST.addCart(Product.ID_PRODUCT, order);
+                        ivCart.setImageResource(R.drawable.cart_brown);
+                    }
+                    break;
+
+                    case 1:{
+
+                        CartRemoveDELETE removeDELETE = new CartRemoveDELETE();
+                        removeDELETE.deleteCart(User.IDUSER, Product.ID_PRODUCT);
+                        ivCart.setImageResource(R.drawable.ic_round_shopping_cart_24);
+                        a=0;
+                    }
+                    break;
+                }
+            }
         });
-
-        //se agrega un ubjeto al carrito activo. El estado 10 indica que el carrito aun esta activo
-        //y se le pueden seguir agregando productos.
-        //ivCart.setOnClickListener(v -> {
-//
-        //    Intent Clicked = getIntent();
-//
-        //    String id_prod = Clicked.getStringExtra("id_product");
-        //    Integer price = Clicked.getIntExtra("price", 0);
-//
-        //    Product.QUANTITY = quantityProduct;
-        //    Product.PRICE = price * quantityProduct;
-        //    Product.ID_PRODUCT = Integer.parseInt(id_prod);
-//
-        //    //Calendar calendar = Calendar.getInstance();
-        //    //String date = DateFormat.getDateInstance().format(calendar.getTime());
-//
-        //    OrderCartPOST orderCartPOST = new OrderCartPOST();
-        //    orderCartPOST.orderCartPOST(
-        //            User.IDUSER,
-        //            Product.PRICE,
-        //            Product.QUANTITY,
-        //            10,
-        //            null,
-        //            ""
-        //    );
-//
-        //    OrderGetByIdUser orderGetByIdUser = new OrderGetByIdUser();
-        //    orderGetByIdUser.SetOnDataListenerOrdersPO(order -> {
-//
-        //        Integer id_order = order.getId_order();
-        //        //si es nulo es porque es la primera vez que se crea el carrito
-        //        if (id_order != null){
-        //            OrderAddPricePUT orderAddPricePUT = new OrderAddPricePUT();
-        //            orderAddPricePUT.orderPricePut(Product.PRICE,Product.QUANTITY,id_order);
-        //        }
-        //    });
-        //    orderGetByIdUser.OrderGetByIdUser();
-//
-        //    ProductsOrderPOST productsOrderPOST = new ProductsOrderPOST();
-        //    productsOrderPOST.addCart(Product.ID_PRODUCT, User.IDUSER, Product.QUANTITY);
-        //});
     }
 
     private void getProductInfo() {
 
+        //se settea la iformacion en la pantalla
         Intent Clicked = getIntent();
-        String id_prod = Clicked.getStringExtra("id_product");
-        Product.ID_PRODUCT = Integer.parseInt(id_prod);
-
+        Integer id_prod = Clicked.getIntExtra("id_product",0);
         String name = Clicked.getStringExtra("name");
-        String blade = Clicked.getStringExtra("blade");
-        String brand = Clicked.getStringExtra("brand");
         String description = Clicked.getStringExtra("description");
         String image = Clicked.getStringExtra("image");
         Integer price = Clicked.getIntExtra("price",0);
         Integer length = Clicked.getIntExtra("length",0);
         Integer stock = Clicked.getIntExtra("stock",0);
 
+
+        Product.ID_PRODUCT = id_prod;
+        Product.STOCK=stock;
         Orders.ORDER_QUANTITY = quantityProduct;
-        Product.ID_PRODUCT = Integer.parseInt(id_prod);
         Product.NAME = name;
         Product.PRICE = price;
         Orders.ORDER_PRICE = price;
         Product.IMAGE = image;
 
+
         if (stock == 0){
             btnBuy.setText("SIN STOCK");
             btnBuy.setEnabled(false);
+            ivCart.setEnabled(false);
+        }else if(stock<=5 && stock>1){
+            tvStock.setText("!Últimos " + stock.toString() + " en stock!");
+        }else if(stock==1){
+            tvStock.setText("!Último en stock!");
         }
+
 
         tvName2.setText(Product.NAME);
         tvDescription2.setText(description);
@@ -134,13 +151,10 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
     }
 
     private void btnQuestion() {
-        tvQuestion.setOnClickListener(v -> {
-            //Intent question = new Intent(this,PreguntaActivity3.class);
-            //startActivity(question);
+       tvQuestion.setOnClickListener(v -> {
 
-            //Integer orderPrice = quantityProduct * price;
-            //Toast.makeText(this, orderPrice.toString(), Toast.LENGTH_SHORT).show();
-        });
+
+       });
     }
 
     private void btnBuy() {
@@ -175,7 +189,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
 
         quantityProduct = quantity;
         Orders.ORDER_QUANTITY = quantity;
-        tvQuantity.setText("Cant. : " + quantityProduct.toString());
+        tvQuantity.setText("Cant. " + quantityProduct.toString());
         Orders.ORDER_PRICE = (price * quantityProduct);
         tvPrice2.setText(Orders.ORDER_PRICE.toString());
     }
@@ -190,5 +204,6 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
         tvPrice2 = findViewById(R.id.tv_price2);
         tvDescription2 = findViewById(R.id.tv_description2);
         tvLength = findViewById(R.id.tv_length2);
+        tvStock = findViewById(R.id.tv_stock2);
     }
 }

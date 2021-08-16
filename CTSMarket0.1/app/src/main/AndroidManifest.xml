@@ -34,7 +34,7 @@
         <activity android:name=".activities.productsClasses.ProductsActivity5" />
         <activity android:name=".activities.productsClasses.ProductsActivity6" />
         <activity android:name=".activities.CartBuyFinalActivity" />
-        <activity android:name=".activities.LocationInfoActivity" />
+        <activity android:name=".activities.userActivities.LocationInfoActivity" />
         <activity android:name=".activities.userActivities.UserActivty" />
         <activity android:name=".activities.FavoritosActivity" />
         <activity android:name=".activities.TalleresActivity" />

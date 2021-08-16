@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CartAddPOST extends AppCompatActivity {
 
-    public void addCart(Integer id_product, Integer id_user, Integer order_price, Integer quantity_products){
+    public void addCart(Integer id_product, Orders orders){
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
@@ -23,8 +23,6 @@ public class CartAddPOST extends AppCompatActivity {
                 .build();
 
         OrderInterface orderInterface = retrofit.create(OrderInterface.class);
-
-        Orders orders = new Orders(id_user,order_price, quantity_products, 10, null,"");
 
         Call<Orders> call = orderInterface.addCart(id_product, orders);
         call.enqueue(new Callback<Orders>() {

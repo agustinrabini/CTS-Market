@@ -99,12 +99,10 @@ public class ProductsOrdersAdapter extends RecyclerView.Adapter<ProductsOrdersAd
             //borra un producto de un carrito activo
             tvDelete.setOnClickListener(v -> {
 
-                Integer id_order = productsOrder.getId_order();
                 Integer id_user = productsOrder.getId_user();
-                Integer id_products_order = productsOrder.getId_products_order();
 
                 CartRemoveDELETE cartRemoveDELETE = new CartRemoveDELETE();
-                cartRemoveDELETE.deleteCart(id_order,id_user,id_product,id_products_order);
+                cartRemoveDELETE.deleteCart(id_user,id_product);
 
                 Intent reload = new Intent(v.getContext(), HomeActivity.class);
                 Toast.makeText(v.getContext(), "Producto eliminado del carrito", Toast.LENGTH_SHORT).show();

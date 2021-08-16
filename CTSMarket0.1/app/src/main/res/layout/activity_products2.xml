@@ -119,15 +119,31 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:fontFamily="@font/quicksand_semibold"
         android:gravity="left"
         android:text="Detalles"
         android:textColor="@color/brown"
         android:textSize="18dp"
-        android:fontFamily="@font/quicksand_semibold"
         app:layout_constraintBottom_toTopOf="@+id/guideline185"
         app:layout_constraintEnd_toStartOf="@+id/guideline186"
         app:layout_constraintStart_toStartOf="@+id/guideline184"
         app:layout_constraintTop_toTopOf="@+id/guideline418" />
+
+    <TextView
+        android:id="@+id/tv_stock2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/quicksand_semibold"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/green"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline193"
+        app:layout_constraintEnd_toStartOf="@+id/guideline309"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline195"
+        app:layout_constraintTop_toTopOf="@+id/guideline190"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tv_description2"
@@ -363,17 +379,6 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline309"
         app:layout_constraintStart_toStartOf="@+id/guideline308"
         app:layout_constraintTop_toTopOf="@+id/tv_name2" />
-
-    <ImageView
-        android:id="@+id/imageView19"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="25dp"
-        android:rotation="-90"
-        app:layout_constraintEnd_toEndOf="@+id/tv_quantity"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline33"
-        app:srcCompat="@drawable/angle_arrow_down_icon_icons_com_73683" />
 
     <ImageView
         android:id="@+id/iv_fav2"

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.productsClasses.ProductsActivity3;
+import com.example.ctsmarket05.activities.userActivities.LocationInfoActivity;
 import com.example.ctsmarket05.entities.Location;
 import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.retrofit.locationRetrofit.LocationPOST;

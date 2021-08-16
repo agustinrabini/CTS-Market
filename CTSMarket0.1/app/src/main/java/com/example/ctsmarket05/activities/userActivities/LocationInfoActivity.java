@@ -1,4 +1,4 @@
-package com.example.ctsmarket05.activities;
+package com.example.ctsmarket05.activities.userActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
+import com.example.ctsmarket05.activities.LocationAddActivity;
 import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.retrofit.locationRetrofit.LocationGET;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;

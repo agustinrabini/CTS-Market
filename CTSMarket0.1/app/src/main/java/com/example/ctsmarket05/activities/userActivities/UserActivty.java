@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.LocationInfoActivity;
 import com.example.ctsmarket05.activities.MainActivity;
 import com.example.ctsmarket05.entities.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
