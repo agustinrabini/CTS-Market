@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blackBlue">
+    android:background="#ffff">
 
     <TextView
         android:id="@+id/tv_bsQuantity"
@@ -14,8 +14,8 @@
         android:gravity="center"
         android:padding="15dp"
         android:textSize="15sp"
-        android:fontFamily="@font/quicksand_semibold"
-        android:textColor="@color/gray"/>
+        android:fontFamily="@font/quicksandbold"
+        android:textColor="#000000"/>
 
     <Button
         android:id="@+id/btn_quantity_1"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:fontFamily="@font/quicksand_semibold"
-        android:textColor="@color/lightBrown"
+        android:textColor="@color/ligthBlue"
         android:background="@drawable/background_filter"
         android:text="1 Unidad"/>
 
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:fontFamily="@font/quicksand_semibold"
-        android:textColor="@color/lightBrown"
+        android:textColor="@color/ligthBlue"
         android:background="@drawable/background_filter"
         android:text="2 unidades" />
 
@@ -44,7 +44,7 @@
         android:text="3 unidades"
         android:textSize="15sp"
         android:fontFamily="@font/quicksand_semibold"
-        android:textColor="@color/lightBrown"
+        android:textColor="@color/ligthBlue"
         android:background="@drawable/background_filter" />
 
     <Button
@@ -54,7 +54,7 @@
         android:text="4 unidades"
         android:textSize="15sp"
         android:fontFamily="@font/quicksand_semibold"
-        android:textColor="@color/lightBrown"
+        android:textColor="@color/ligthBlue"
         android:background="@drawable/background_filter" />
 
     <Button
@@ -64,6 +64,6 @@
         android:text="5 unidades"
         android:textSize="15sp"
         android:fontFamily="@font/quicksand_semibold"
-        android:textColor="@color/lightBrown"
+        android:textColor="@color/ligthBlue"
         android:background="@drawable/background_filter" />
 </LinearLayout>

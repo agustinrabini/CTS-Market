@@ -64,7 +64,6 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
             TextView tvName = itemView.findViewById(R.id.tv_name1);
             TextView tvPrice = itemView.findViewById(R.id.tv_price1);
             TextView tvLength = itemView.findViewById(R.id.tv_length1);
-            TextView tvStock = itemView.findViewById(R.id.tv_stock);
             ConstraintLayout constraintLayoutProd = itemView.findViewById(R.id.cl_product1);
 
             Integer id_product = product.getId_product();
@@ -74,13 +73,6 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
             tvPrice.setText(String.valueOf(product.getPrice()));
             tvLength.setText(String.valueOf("Longitud hoja " + product.getLength())+"cm");
             Picasso.with(itemView.getContext()).load(product.getImage()).into(ivImage);
-
-            if (stock == 0 ){
-                tvStock.setText("Stock no disponible");
-
-            }else{
-                tvStock.setText("Stock disponible");
-            }
 
             constraintLayoutProd.setOnClickListener(v -> {
                 listener.onItemClick(product,getAdapterPosition());

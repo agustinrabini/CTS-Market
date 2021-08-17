@@ -3,18 +3,20 @@
       xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:card_view="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
-      android:layout_width="250dp"
-      android:layout_height="320dp"
-      android:layout_margin="6dp"
+      android:layout_width="165dp"
+      android:layout_height="248dp"
       android:clickable="true"
       android:focusable="true"
-      card_view:cardCornerRadius="8dp">
+      android:elevation="25dp"
+      android:layout_marginTop="10dp"
+      card_view:cardCornerRadius="5dp">
 
   <androidx.constraintlayout.widget.ConstraintLayout
       android:id="@+id/cl_product1"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:background="@drawable/degradante"
+      android:background="#ffff"
+      android:elevation="5dp"
       android:visibility="visible">
 
     <ImageView
@@ -22,7 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:elevation="15dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         card_view:layout_constraintBottom_toTopOf="@+id/guideline69"
         card_view:layout_constraintEnd_toEndOf="parent"
         card_view:layout_constraintHorizontal_bias="1.0"
@@ -33,15 +35,14 @@
     <TextView
         android:id="@+id/tv_name1"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:elevation="15dp"
         android:fontFamily="@font/quicksand_semibold"
-        android:gravity="left"
+        android:gravity="center_vertical"
         android:text=""
-        android:textColor="#ffffff"
-        android:textSize="18sp"
-        card_view:layout_constraintBottom_toTopOf="@+id/guideline56"
+        android:textColor="#000000"
+        android:textSize="16sp"
         card_view:layout_constraintEnd_toStartOf="@+id/guideline64"
         card_view:layout_constraintHorizontal_bias="0.0"
         card_view:layout_constraintStart_toStartOf="@+id/guideline57"
@@ -54,33 +55,15 @@
         android:layout_gravity="top"
         android:elevation="15dp"
         android:fontFamily="@font/quicksand_regular"
-        android:gravity="left"
+        android:gravity="center_vertical"
         android:text=""
-        android:textColor="#ffffff"
+        android:textColor="@color/green"
         android:textSize="14sp"
-        card_view:layout_constraintBottom_toTopOf="@+id/guideline162"
+        card_view:layout_constraintBottom_toTopOf="@+id/guideline62"
         card_view:layout_constraintEnd_toStartOf="@+id/guideline63"
         card_view:layout_constraintHorizontal_bias="0.0"
         card_view:layout_constraintStart_toEndOf="@+id/textView6"
-        card_view:layout_constraintTop_toTopOf="@+id/guideline56" />
-
-    <TextView
-        android:id="@+id/tv_stock"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_gravity="top"
-        android:elevation="15dp"
-        android:fontFamily="@font/quicksand_semibold"
-        android:gravity="center_vertical"
-        android:text=""
-        android:textColor="@color/lightBrown"
-        android:textSize="15sp"
-        card_view:layout_constraintBottom_toTopOf="@+id/guideline62"
-        card_view:layout_constraintEnd_toStartOf="@+id/guideline34"
-        card_view:layout_constraintHorizontal_bias="0.0"
-        card_view:layout_constraintStart_toStartOf="@+id/guideline57"
-        card_view:layout_constraintTop_toTopOf="@+id/guideline58"
-        card_view:layout_constraintVertical_bias="0.0" />
+        card_view:layout_constraintTop_toTopOf="@+id/guideline58" />
 
     <TextView
         android:id="@+id/textView6"
@@ -89,33 +72,31 @@
         android:layout_gravity="top"
         android:elevation="15dp"
         android:fontFamily="@font/quicksand_regular"
-        android:gravity="left"
+        android:gravity="center_vertical"
         android:text="$"
-        android:textColor="@color/lightBrown"
+        android:textColor="@color/green"
         android:textSize="14sp"
-        card_view:layout_constraintBottom_toTopOf="@+id/guideline162"
+        card_view:layout_constraintBottom_toTopOf="@+id/guideline62"
         card_view:layout_constraintEnd_toStartOf="@+id/guideline32"
         card_view:layout_constraintHorizontal_bias="1.0"
         card_view:layout_constraintStart_toStartOf="@+id/guideline57"
-        card_view:layout_constraintTop_toTopOf="@+id/guideline56"
+        card_view:layout_constraintTop_toTopOf="@+id/guideline58"
         card_view:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tv_length1"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:elevation="15dp"
         android:fontFamily="@font/quicksand_regular"
         android:gravity="left"
         android:text=""
-        android:textColor="#ffffff"
+        android:paddingTop="3dp"
+        android:textColor="#000000"
         android:textSize="14sp"
-        card_view:layout_constraintBottom_toTopOf="@+id/guideline162"
         card_view:layout_constraintEnd_toStartOf="@+id/guideline64"
-        card_view:layout_constraintHorizontal_bias="0.0"
-        card_view:layout_constraintStart_toStartOf="@+id/guideline35"
-        card_view:layout_constraintTop_toTopOf="@+id/guideline56"
-        card_view:layout_constraintVertical_bias="0.0" />
+        card_view:layout_constraintStart_toStartOf="@+id/guideline57"
+        card_view:layout_constraintTop_toBottomOf="@+id/tv_name1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline57"
@@ -157,7 +138,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        card_view:layout_constraintGuide_percent="0.98" />
+        card_view:layout_constraintGuide_percent="0.96" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline66"
@@ -171,7 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        card_view:layout_constraintGuide_percent="0.6" />
+        card_view:layout_constraintGuide_percent="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline56"
@@ -181,11 +162,18 @@
         card_view:layout_constraintGuide_percent="0.75" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline166"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        card_view:layout_constraintGuide_percent="0.78" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline162"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        card_view:layout_constraintGuide_percent="0.85" />
+        card_view:layout_constraintGuide_percent="0.86" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -193,7 +181,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        card_view:layout_constraintGuide_percent="0.90" />
+        card_view:layout_constraintGuide_percent="0.88" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline62"
@@ -207,17 +195,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        card_view:layout_constraintGuide_percent="0.6" />
+        card_view:layout_constraintGuide_percent="0.55" />
 
     <ImageView
         android:id="@+id/imageView20"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:scaleType="fitCenter"
         card_view:layout_constraintBottom_toTopOf="@+id/guideline62"
         card_view:layout_constraintEnd_toStartOf="@+id/guideline66"
         card_view:layout_constraintStart_toStartOf="@+id/guideline34"
         card_view:layout_constraintTop_toTopOf="@+id/guideline58"
-        card_view:srcCompat="@drawable/ic_round_star_24" />
+        card_view:srcCompat="@drawable/ic_heart1" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 

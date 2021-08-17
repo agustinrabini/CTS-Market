@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/register_solapa"
+        android:background="@drawable/bkg7"
         app:layout_constraintBottom_toTopOf="@+id/guideline179"
         app:layout_constraintEnd_toStartOf="@+id/guideline160"
         app:layout_constraintHorizontal_bias="0.0"

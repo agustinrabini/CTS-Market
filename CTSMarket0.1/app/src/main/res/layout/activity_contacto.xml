@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline94"
         app:layout_constraintStart_toStartOf="@+id/guideline93"
         app:layout_constraintTop_toTopOf="@+id/guideline91"
-        app:srcCompat="@drawable/register_solapa">
+        app:srcCompat="@drawable/bkg7">
 
     </ImageView>
 

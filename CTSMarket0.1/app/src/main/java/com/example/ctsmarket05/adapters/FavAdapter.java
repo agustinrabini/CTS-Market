@@ -68,30 +68,18 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.FavViewHolder> {
             TextView tvName = itemView.findViewById(R.id.tv_name1);
             TextView tvPrice = itemView.findViewById(R.id.tv_price1);
             TextView tvLength = itemView.findViewById(R.id.tv_length1);
-            TextView tvStock = itemView.findViewById(R.id.tv_stock);
             ConstraintLayout constraintLayoutProd = itemView.findViewById(R.id.cl_product1);
 
             Integer id = favourite.getId_product();
             String id_prod = id.toString();
 
-
             ProductGET productGET = new ProductGET();
             productGET.SetOnDataListenerProd(product -> {
-
-
 
             tvName.setText(product.getName());
             tvPrice.setText(String.valueOf(product.getPrice()));
             tvLength.setText(String.valueOf("Longitud hoja " + product.getLength())+"cm");
             Picasso.with(itemView.getContext()).load(product.getImage()).into(ivImage);
-
-                Integer stock = product.getStock();
-            if (stock == 0 ){
-                tvStock.setText("Stock no disponible");
-
-            }else{
-                tvStock.setText("Stock disponible");
-            }
 
             constraintLayoutProd.setOnClickListener(v -> {
                 listener.onItemClick(favourite,getAdapterPosition());

@@ -17,4 +17,9 @@
     <color name="gray">#B8C6CD </color>
     <color name="grayDarker">#605A57 </color>
     <color name="green">#2e7d32 </color>
+
+
+    <color name="yellow">#FCBF49 </color>
+    <color name="ligthBlue">#75AADB </color>
+    <color name="red">#e31b23 </color>
 </resources>

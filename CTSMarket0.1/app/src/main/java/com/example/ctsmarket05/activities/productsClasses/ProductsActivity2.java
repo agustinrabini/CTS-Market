@@ -67,7 +67,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
 
             if (e == 10){
                 a=1;
-                ivCart.setImageResource(R.drawable.cart_brown);
+                ivCart.setImageResource(R.drawable.ic_cart2);
             }
         });
         checkCartPOST.check(Product.ID_PRODUCT, User.IDUSER);
@@ -93,7 +93,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
                         CartAddPOST cartAddPOST = new CartAddPOST();
                         Orders order = new Orders(User.IDUSER,price*quantityProduct,quantityProduct,10,null,"");
                         cartAddPOST.addCart(Product.ID_PRODUCT, order);
-                        ivCart.setImageResource(R.drawable.cart_brown);
+                        ivCart.setImageResource(R.drawable.ic_cart2);
                     }
                     break;
 
@@ -101,7 +101,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
 
                         CartRemoveDELETE removeDELETE = new CartRemoveDELETE();
                         removeDELETE.deleteCart(User.IDUSER, Product.ID_PRODUCT);
-                        ivCart.setImageResource(R.drawable.ic_round_shopping_cart_24);
+                        ivCart.setImageResource(R.drawable.ic_cart1);
                         a=0;
                     }
                     break;
@@ -137,23 +137,21 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
             btnBuy.setEnabled(false);
             ivCart.setEnabled(false);
         }else if(stock<=5 && stock>1){
-            tvStock.setText("!Últimos " + stock.toString() + " en stock!");
+            tvStock.setText("¡Últimos " + stock.toString() + " en stock!");
         }else if(stock==1){
-            tvStock.setText("!Último en stock!");
+            tvStock.setText("¡Último en stock!");
         }
 
 
         tvName2.setText(Product.NAME);
         tvDescription2.setText(description);
         Picasso.with(this).load(Product.IMAGE).into(ivProduct2);
-        tvPrice2.setText(Product.PRICE.toString());
+        tvPrice2.setText("$ARS " + Product.PRICE.toString());
         tvLength.setText(String.valueOf(length + " cm"));
     }
 
     private void btnQuestion() {
        tvQuestion.setOnClickListener(v -> {
-
-
        });
     }
 
@@ -191,7 +189,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
         Orders.ORDER_QUANTITY = quantity;
         tvQuantity.setText("Cant. " + quantityProduct.toString());
         Orders.ORDER_PRICE = (price * quantityProduct);
-        tvPrice2.setText(Orders.ORDER_PRICE.toString());
+        tvPrice2.setText("$ARS " + Orders.ORDER_PRICE.toString());
     }
 
     private void findViews(){

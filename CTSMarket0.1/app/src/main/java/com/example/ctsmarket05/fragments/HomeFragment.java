@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -68,7 +69,6 @@ public class HomeFragment extends Fragment implements ProductsOnCustomClickListe
             User.gmail = personEmail;
             userName = personName;
         }
-
     }
 
     private String getColoredSpanned(String text, String color) {
@@ -78,8 +78,7 @@ public class HomeFragment extends Fragment implements ProductsOnCustomClickListe
 
     private void rvproducts(){
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        rvProducts.setLayoutManager(layoutManager);
+        rvProducts.setLayoutManager(new GridLayoutManager(getContext(), 2));
         rvProducts.setAdapter(productsAdapter);
     }
 
@@ -100,12 +99,12 @@ public class HomeFragment extends Fragment implements ProductsOnCustomClickListe
             filterBottomSheet.show(getChildFragmentManager(),"filterBottomSheet");
         });
 
-        Picasso.with(v.getContext()).load(personPhoto).into(ivUserPhoto);
+        if (personPhoto!= null){
+            Picasso.with(v.getContext()).load(personPhoto).into(ivUserPhoto);
+        }else{
+            Picasso.with(v.getContext()).load(R.drawable.ic_user_ligth_blue).into(ivUserPhoto);
+        }
         tvUserName.setText("Bienvenido, " +userName + "." + "\n" +"¿Qué buscás hoy?");
-
-        String genericMesagge = getColoredSpanned("Habla con un respresentante vía WhatsApp haciendo", "#B8C6CD");
-        String whatsApp = getColoredSpanned("click aquí.","#2e7d32");
-        tvQuestionsHome.setText(Html.fromHtml(genericMesagge+" "+whatsApp));
 
         ivUserPhoto.setOnClickListener(v12 -> {
             Intent userActv = new Intent(getContext(), UserActivty.class);
