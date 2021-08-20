@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blackBlue"
+    android:background="#ffff"
     android:fitsSystemWindows="true"
     tools:context=".activities.productsClasses.ProductsActivity5">
 
@@ -69,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.09" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline398"
@@ -114,6 +114,13 @@
         app:layout_constraintGuide_percent="0.25" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline301"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.13" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline401"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -131,7 +138,7 @@
         android:id="@+id/textView59"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/lightBrown"
+        android:background="@color/ligthBlue"
         android:elevation="35dp"
         android:fontFamily="@font/quicksand_semibold"
         android:gravity="center"
@@ -147,16 +154,18 @@
         android:id="@+id/textView69"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:elevation="15dp"
         android:fontFamily="@font/quicksand_medium"
         android:gravity="center"
-        android:elevation="15dp"
         android:text="Seleccione un método de pago"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline397"
+        app:layout_constraintBottom_toTopOf="@+id/guideline301"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline395" />
+        app:layout_constraintTop_toTopOf="@+id/guideline397"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tv_final_price5"
@@ -178,6 +187,7 @@
         android:id="@+id/iv_home"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:elevation="4dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline400"
         app:layout_constraintEnd_toStartOf="@+id/guideline406"
         app:layout_constraintStart_toStartOf="@+id/guideline405"
@@ -193,6 +203,7 @@
         android:gravity="center_vertical"
         android:textColor="#ffffff"
         android:textSize="15sp"
+        android:elevation="5dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline422"
         app:layout_constraintEnd_toStartOf="@+id/guideline372"
         app:layout_constraintStart_toStartOf="@+id/guideline411"

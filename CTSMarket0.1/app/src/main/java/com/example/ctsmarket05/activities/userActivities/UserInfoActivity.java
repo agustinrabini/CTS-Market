@@ -16,7 +16,6 @@ public class UserInfoActivity extends AppCompatActivity {
 
     private TextView tvChangeinfo;
     private TextView tvUserInfo;
-    private TextView tvQuestion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +30,7 @@ public class UserInfoActivity extends AppCompatActivity {
     private void changeLocation(){
 
         tvChangeinfo.setOnClickListener(v -> {
+            UserInfoEditActivity.from = "UserEditInfo";
             Intent toLocationAdd = new Intent(this, UserInfoEditActivity.class);
             toLocationAdd.putExtra("fromPA4","fromPA4");
             startActivity(toLocationAdd);
@@ -39,10 +39,6 @@ public class UserInfoActivity extends AppCompatActivity {
     }
 
     private void getData(){
-
-        String genericMesagge = getColoredSpanned("¿Alguna consulta? Habla con un respresentante vía WhatsApp haciendo", "#B8C6CD");
-        String whatsApp = getColoredSpanned("click aquí.","#2e7d32");
-        tvQuestion.setText(Html.fromHtml(genericMesagge+" "+whatsApp));
 
         UserGET userGET = new UserGET();
         userGET.SetOnDataListenerUser(user -> {
@@ -59,22 +55,16 @@ public class UserInfoActivity extends AppCompatActivity {
 
                 tvChangeinfo.setText("Editar información");
                 tvUserInfo.setText(
-                        "Nombre: " + user.getName_lastname()+ "\n" + "DNI: " + user.getDni().toString() + "\n" + "Celular:" + user.getPhone()
+                        "Nombre: " + user.getName_lastname()+ "\n" + "\n" +  "DNI: " + user.getDni().toString() + "\n" + "\n" +  "Celular:" + user.getPhone()
                 );
             }
         });
         userGET.getUserByGmail();
     }
 
-    private String getColoredSpanned(String text, String color) {
-        String input = "<font color=" + color + ">" + text + "</font>";
-        return input;
-    }
-
     private void findViews() {
 
         tvChangeinfo = findViewById(R.id.tv_change_user_infoUI);
         tvUserInfo = findViewById(R.id.tv_user_infoUI);
-        tvQuestion = findViewById(R.id.tv_questionUI);
     }
 }

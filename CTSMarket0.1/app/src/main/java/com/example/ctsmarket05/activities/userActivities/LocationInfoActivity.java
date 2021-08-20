@@ -17,7 +17,6 @@ public class LocationInfoActivity extends AppCompatActivity {
 
     private TextView tvChangeLocation;
     private TextView tvLocation;
-    private TextView tvQuestion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +41,6 @@ public class LocationInfoActivity extends AppCompatActivity {
 
     tvChangeLocation = findViewById(R.id.tv_change_location_infoLI);
     tvLocation = findViewById(R.id.tv_location_infoLI);
-    tvQuestion = findViewById(R.id.tv_questionLI);
     }
 
     private void getData() {
@@ -74,21 +72,10 @@ public class LocationInfoActivity extends AppCompatActivity {
                     tvLocation.setText(province+" "+city+" "+disctrict+ "\n"+street+" "+street_number+" "+floor+ "\n"+postal_code);
 
                 });
-                locationGET.getLocation();
+                locationGET.getLocation(User.IDUSER);
             }
 
         });
         userGET.getUserByGmail();
-
-
-        String genericMesagge = getColoredSpanned("Si ya realizaste una compra y necesitas cambiar su direccion de envío ", "#B8C6CD");
-        String whatsApp = getColoredSpanned("hace click aquí","#2e7d32");
-        tvQuestion.setText(Html.fromHtml(genericMesagge+" "+whatsApp + " para hablar con un representante."));
     }
-
-    private String getColoredSpanned(String text, String color) {
-        String input = "<font color=" + color + ">" + text + "</font>";
-        return input;
-    }
-
 }

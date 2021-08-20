@@ -6,7 +6,7 @@
     android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blackBlue">
+    android:background="#ffff">
 
     <Button
         android:id="@+id/btn_save_add"
@@ -15,7 +15,7 @@
         android:background="@drawable/background_general2"
         android:fontFamily="@font/quicksandbold"
         android:text="GUARDAR"
-        android:textColor="@color/gray"
+        android:textColor="@color/yellow"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline336"
         app:layout_constraintEnd_toStartOf="@+id/guideline315"
@@ -30,8 +30,9 @@
         android:fontFamily="@font/quicksandbold"
         android:gravity="center"
         android:text="Ubicación "
-        android:textColor="#ffff"
+        android:textColor="#000000"
         android:textSize="25sp"
+        android:background="@color/ligthBlue"
         app:layout_constraintBottom_toTopOf="@+id/guideline316"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -46,7 +47,7 @@
         android:fontFamily="@font/quicksandbold"
         android:gravity="left"
         android:text="*Todos los campos son obligatorios "
-        android:textColor="@color/orangeBrown"
+        android:textColor="@color/red"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline337"
         app:layout_constraintEnd_toEndOf="parent"
@@ -250,7 +251,7 @@
         android:text="Cancelar"
         android:gravity="center"
         android:textSize="18sp"
-        android:textColor="@color/lightBrown"
+        android:textColor="#000000"
         android:fontFamily="@font/quicksand_regular"
         app:layout_constraintBottom_toTopOf="@+id/guideline341"
         app:layout_constraintEnd_toStartOf="@+id/guideline315"
@@ -272,12 +273,15 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pruebaLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:textColorHint="@color/brown"
+        android:textColorHint="@color/ligthBlue"
         app:boxBackgroundMode="filled"
-        app:hintTextColor="@color/brown"
+        android:inputType="none"
+        android:hint="Provincia"
+        android:backgroundTint="@color/ligthBlue"
+        app:hintTextColor="@color/ligthBlue"
         app:layout_constraintBottom_toTopOf="@+id/guideline334"
         app:layout_constraintEnd_toStartOf="@+id/guideline315"
         app:layout_constraintStart_toStartOf="@+id/guideline313"
@@ -289,9 +293,9 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:inputType="none"
-            android:text="Provincia"
-            android:textColor="@color/brown"
-            android:textSize="15sp" />
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:fontFamily="@font/quicksand_semibold"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -300,9 +304,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:hint="Ciudad"
-        android:textColorHint="@color/brown"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:textColorHint="@color/ligthBlue"
+        app:hintTextColor="@color/ligthBlue"
         app:boxBackgroundMode="filled"
-        app:hintTextColor="@color/brown"
+        android:elevation="5dp"
+        android:background="#ffff"
         app:layout_constraintBottom_toTopOf="@+id/guideline318"
         app:layout_constraintEnd_toStartOf="@+id/guideline315"
         app:layout_constraintStart_toStartOf="@+id/guideline313"
@@ -312,6 +319,7 @@
             android:id="@+id/et_city_add"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="@font/quicksand_semibold"
             android:textColor="#000000" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -321,9 +329,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:hint="Localidad / Barrio"
-        android:textColorHint="@color/brown"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:textColorHint="@color/ligthBlue"
+        app:hintTextColor="@color/ligthBlue"
         app:boxBackgroundMode="filled"
-        app:hintTextColor="@color/brown"
+        android:elevation="5dp"
+        android:background="#ffff"
         app:layout_constraintBottom_toTopOf="@+id/guideline329"
         app:layout_constraintEnd_toStartOf="@+id/guideline315"
         app:layout_constraintStart_toStartOf="@+id/guideline313"
@@ -333,7 +344,8 @@
             android:id="@+id/et_district_add"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:fontFamily="@font/quicksand_semibold"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -342,9 +354,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:hint="Calle"
-        android:textColorHint="@color/brown"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:textColorHint="@color/ligthBlue"
+        app:hintTextColor="@color/ligthBlue"
         app:boxBackgroundMode="filled"
-        app:hintTextColor="@color/brown"
+        android:elevation="5dp"
+        android:background="#ffff"
         app:layout_constraintBottom_toTopOf="@+id/guideline322"
         app:layout_constraintEnd_toStartOf="@+id/guideline315"
         app:layout_constraintStart_toStartOf="@+id/guideline313"
@@ -354,7 +369,8 @@
             android:id="@+id/et_street_add"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:fontFamily="@font/quicksand_semibold" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -363,9 +379,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:hint="Numero de calle"
-        android:textColorHint="@color/brown"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:textColorHint="@color/ligthBlue"
+        app:hintTextColor="@color/ligthBlue"
         app:boxBackgroundMode="filled"
-        app:hintTextColor="@color/brown"
+        android:elevation="5dp"
+        android:background="#ffff"
         app:layout_constraintBottom_toTopOf="@+id/guideline324"
         app:layout_constraintEnd_toStartOf="@+id/guideline315"
         app:layout_constraintStart_toStartOf="@+id/guideline313"
@@ -375,7 +394,8 @@
             android:id="@+id/et_street_number_add"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:fontFamily="@font/quicksand_semibold" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -384,9 +404,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:hint="Casa / Departamento / Manzana"
-        android:textColorHint="@color/brown"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:textColorHint="@color/ligthBlue"
+        app:hintTextColor="@color/ligthBlue"
         app:boxBackgroundMode="filled"
-        app:hintTextColor="@color/brown"
+        android:elevation="5dp"
+        android:background="#ffff"
         app:layout_constraintBottom_toTopOf="@+id/guideline305"
         app:layout_constraintEnd_toStartOf="@+id/guideline315"
         app:layout_constraintStart_toStartOf="@+id/guideline313"
@@ -397,8 +420,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="#000000"
-            tools:layout_editor_absoluteX="21dp"
-            tools:layout_editor_absoluteY="438dp" />
+            android:fontFamily="@font/quicksand_semibold" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -407,9 +429,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:hint="Código postal"
-        android:textColorHint="@color/brown"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:textColorHint="@color/ligthBlue"
+        app:hintTextColor="@color/ligthBlue"
         app:boxBackgroundMode="filled"
-        app:hintTextColor="@color/brown"
+        android:elevation="5dp"
+        android:background="#ffff"
         app:layout_constraintBottom_toTopOf="@+id/guideline328"
         app:layout_constraintEnd_toStartOf="@+id/guideline315"
         app:layout_constraintStart_toStartOf="@+id/guideline313"
@@ -419,7 +444,8 @@
             android:id="@+id/et_postal_code_add"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:fontFamily="@font/quicksand_semibold"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

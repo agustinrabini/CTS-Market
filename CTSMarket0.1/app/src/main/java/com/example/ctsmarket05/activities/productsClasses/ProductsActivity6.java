@@ -17,6 +17,7 @@ import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderOneProductPOST;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;
 import com.squareup.picasso.Picasso;
 
+import java.net.PortUnreachableException;
 import java.util.Date;
 
 public class ProductsActivity6 extends AppCompatActivity {
@@ -42,28 +43,53 @@ public class ProductsActivity6 extends AppCompatActivity {
 
     private void setOrderValues() {
 
-       Intent payment = getIntent();
 
-       String sendingMethod = payment.getStringExtra("sendingMethod");
-       String payMethod = payment.getStringExtra("payMethod");
-
-       if (sendingMethod.equals("sellerHome")){
-           tvSendingMethod.setText("Retira en el domicilio del vendedor");
-       }
-
-       if (payMethod.equals("payWithCash")){
-           tvPayment.setText("En efectivo al retirar el producto");
-       }
-       tvFinalPrice.setText(Orders.ORDER_PRICE + " " +  "$ARS");
 
        UserGET userGET = new UserGET();
        userGET.SetOnDataListenerUser(user ->
                tvUserInfo.setText(user.getName_lastname() + " - " + "DNI: " + user.getDni().toString() + " - " + "\n" +"Contacto: " + user.getPhone().toString()));
        userGET.getUserByGmail();
 
-       tvQuantity.setText(Orders.ORDER_QUANTITY.toString());
        tvProdName.setText(Product.NAME);
        Picasso.with(this).load(Product.IMAGE).into(ivImage);
+
+        switch (Orders.ORDER_SEQUENCE){
+
+            case "cartSequence":{
+                tvQuantity.setText(Product.QUANTITY.toString());
+                tvFinalPrice.setText(Product.PRICE+ " " +  "$ARS");
+
+            }break;
+
+            case "oneProductSequence":{
+                tvQuantity.setText(Orders.ORDER_QUANTITY.toString());
+                tvFinalPrice.setText(Orders.ORDER_PRICE + " " +  "$ARS");
+            }break;
+        }
+
+        switch (Orders.ORDER_PAYMENT){
+
+            case "atRetire":{
+
+                tvPayment.setText("En efectivo al retirar");
+            }break;
+
+            case "send":{
+
+            }break;
+        }
+
+        switch (Orders.ORDER_SHIPPING){
+
+            case 1:{
+
+                tvSendingMethod.setText("Retira en taller");
+            }break;
+
+            case 2:{
+
+            }break;
+        }
     }
 
     private void confirmOrder() {
@@ -72,24 +98,20 @@ public class ProductsActivity6 extends AppCompatActivity {
 
            String date = java.text.DateFormat.getDateTimeInstance().format(new Date());
 
-           //OrderPOST orderPOST = new OrderPOST();
-           //orderPOST.orderPost(
-//
-           //        User.IDUSER,
-           //        Product.PRICE,
-           //        Product.QUANTITY,
-           //        0,
-           //        1,
-           //        date
-           //);
-//
-           //ProductsOrderPOST productsOrderPOST = new ProductsOrderPOST();
-           //productsOrderPOST.addCart(Product.ID_PRODUCT, User.IDUSER,Product.QUANTITY);
+           switch (Orders.ORDER_SEQUENCE){
 
-           Orders orders = new Orders(User.IDUSER,Orders.ORDER_PRICE,Orders.ORDER_QUANTITY,0,1, date);
+               case "cartSequence":{
 
-           OrderOneProductPOST orderOneProductPOST = new OrderOneProductPOST();
-           orderOneProductPOST.oneProductBougth(User.IDUSER, Product.ID_PRODUCT, orders);
+
+               }break;
+
+               case "oneProductSequence":{
+                   Orders orders = new Orders(User.IDUSER, Product.PRICE,Orders.ORDER_QUANTITY,0,1, date);
+
+                   OrderOneProductPOST orderOneProductPOST = new OrderOneProductPOST();
+                   orderOneProductPOST.oneProductBougth(User.IDUSER, Product.ID_PRODUCT, orders);
+               }break;
+           }
 
            Intent finishBuySequence = new Intent(this, HomeActivity.class);
            startActivity(finishBuySequence);

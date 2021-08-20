@@ -154,6 +154,7 @@
             android:background="@drawable/background_general5"
             android:elevation="55dp"
             android:fontFamily="@font/quicksand_regular"
+            android:textColor="#000000"
             android:padding="8dp"
             android:text=""
             android:textSize="15sp"

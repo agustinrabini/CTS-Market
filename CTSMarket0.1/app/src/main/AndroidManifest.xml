@@ -30,7 +30,7 @@
         <activity android:name=".activities.LocationAddActivity" />
         <activity android:name=".activities.userActivities.UserInfoEditActivity" />
         <activity android:name=".activities.userActivities.UserInfoActivity" />
-        <activity android:name=".activities.productsClasses.ProductsActivity4" />
+        <activity android:name=".activities.productsClasses.ProductsActivity3" />
         <activity android:name=".activities.productsClasses.ProductsActivity5" />
         <activity android:name=".activities.productsClasses.ProductsActivity6" />
         <activity android:name=".activities.CartBuyFinalActivity" />
@@ -41,7 +41,7 @@
         <activity android:name=".activities.ExhibitionActivity" />
         <activity android:name=".activities.ContactoActivity" />
         <activity android:name=".activities.productsClasses.ProductsActivity1" />
-        <activity android:name=".activities.productsClasses.ProductsActivity3" />
+        <activity android:name=".activities.productsClasses.ProductsActivity4" />
         <activity android:name=".activities.InfoActivity" />
         <activity android:name=".activities.LogginActivity" />
         <activity android:name=".activities.HomeActivity" />

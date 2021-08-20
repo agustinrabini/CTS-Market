@@ -18,7 +18,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 //el usuario termina de agregar sus datos
 public class UserActivty extends AppCompatActivity {
 
-    private TextView tvQuestion;
     private TextView tvUserName;
     private TextView tvUserPurchases;
     private TextView tvUserInfo;
@@ -56,15 +55,6 @@ public class UserActivty extends AppCompatActivity {
             startActivity(purchase);
         });
 
-        tvQuestion.setOnClickListener(v -> {
-
-            String telefono = "+54 1132424233";
-            String url = "https://api.whatsapp.com/send?phone=";
-            Intent llamada = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:" + telefono));
-            llamada.setData(Uri.parse(url + telefono));
-            startActivity(llamada);
-        });
-
         tvUserInfo.setOnClickListener(v -> {
             Intent location = new Intent(this, UserInfoActivity.class);
             startActivity(location);
@@ -78,26 +68,16 @@ public class UserActivty extends AppCompatActivity {
 
     private void setData() {
 
-        String genericMesagge = getColoredSpanned("¿Alguna consulta? Habla con un respresentante vía WhatsApp haciendo", "#B8C6CD");
-        String whatsApp = getColoredSpanned("click aquí.","#2e7d32");
-        tvQuestion.setText(Html.fromHtml(genericMesagge+" "+whatsApp));
-
         tvUserName.setText("Usuario: " + User.gmail);
     }
 
     private void findViews() {
 
-        tvQuestion = findViewById(R.id.tv_questionU);
         tvUserName = findViewById(R.id.tv_user_nameU);
         tvUserPurchases = findViewById(R.id.tv_user_purchases);
         tvUserInfo = findViewById(R.id.tv_user_infoU);
         tvUserInfo = findViewById(R.id.tv_user_infoU);
         tvUserLocation= findViewById(R.id.tv_user_locationU);
         tvLogoutU = findViewById(R.id.tv_logoutU);
-    }
-
-    private String getColoredSpanned(String text, String color) {
-        String input = "<font color=" + color + ">" + text + "</font>";
-        return input;
     }
 }

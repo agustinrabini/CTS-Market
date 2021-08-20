@@ -1,30 +1,22 @@
 package com.example.ctsmarket05.activities.productsClasses;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.QuantityBottomSheet;
+import com.example.ctsmarket05.activities.bottomSheets.QuantityBottomSheet;
 import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.retrofit.ordersRetrofit.CartAddPOST;
 import com.example.ctsmarket05.retrofit.ordersRetrofit.CartRemoveDELETE;
-import com.example.ctsmarket05.retrofit.productRetrofit.ProductInterface;
 import com.example.ctsmarket05.retrofit.productsOrderRetrofit.CheckCartPOST;
-import com.google.android.gms.common.util.IOUtils;
 import com.squareup.picasso.Picasso;
-
-import java.util.Arrays;
 
 public class ProductsActivity2 extends AppCompatActivity implements QuantityBottomSheet.QuantityListener {
 
@@ -162,11 +154,9 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
             Integer price = Clicked.getIntExtra("price",0);
 
             Orders.ORDER_PRICE = price * quantityProduct;
+            Orders.ORDER_SEQUENCE = "oneProductSequence";
 
-            //Se va pasando por los activities toda la informacion del producto a medida que el usuario
-            //recorre toda la secuencia de compra
             Intent from = new Intent(this, ProductsActivity3.class);
-            from.putExtra("from","oneProductSequence");
             startActivity(from);
         });
     }

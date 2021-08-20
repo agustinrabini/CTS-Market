@@ -6,10 +6,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.FilterBottomSheet;
+import com.example.ctsmarket05.activities.bottomSheets.FilterBottomSheet;
 import com.example.ctsmarket05.activities.userActivities.UserActivty;
 import com.example.ctsmarket05.adapters.ProductsAdapter;
 import com.example.ctsmarket05.clickListeners.ProductsOnCustomClickListener;
@@ -99,12 +97,10 @@ public class HomeFragment extends Fragment implements ProductsOnCustomClickListe
             filterBottomSheet.show(getChildFragmentManager(),"filterBottomSheet");
         });
 
-        if (personPhoto!= null){
-            Picasso.with(v.getContext()).load(personPhoto).into(ivUserPhoto);
-        }else{
-            Picasso.with(v.getContext()).load(R.drawable.ic_user_ligth_blue).into(ivUserPhoto);
-        }
-        tvUserName.setText("Bienvenido, " +userName + "." + "\n" +"¿Qué buscás hoy?");
+        //nombre y foto del user
+
+        Picasso.with(v.getContext()).load(personPhoto).into(ivUserPhoto);
+        tvUserName.setText("Bienvenido, " +userName);
 
         ivUserPhoto.setOnClickListener(v12 -> {
             Intent userActv = new Intent(getContext(), UserActivty.class);
@@ -130,7 +126,9 @@ public class HomeFragment extends Fragment implements ProductsOnCustomClickListe
 
         if (filterProduct.equals("*")){
             tvFilter.setText("Todos");
-        }else{tvFilter.setText(filterProduct+"s");}
+        }else{
+            tvFilter.setText(filterProduct+"s");
+        }
 
         ProductsGET productsGET = new ProductsGET();
         productsGET.SetOnDataListenerProd(products -> {

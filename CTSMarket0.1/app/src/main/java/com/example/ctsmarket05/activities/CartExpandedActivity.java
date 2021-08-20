@@ -9,8 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.productsClasses.ProductsActivity2;
-import com.example.ctsmarket05.activities.productsClasses.ProductsActivity3;
+import com.example.ctsmarket05.activities.productsClasses.ProductsActivity4;
 import com.example.ctsmarket05.clickListeners.ProductsOrdersOnCustomClickListener;
 import com.example.ctsmarket05.adapters.ProductsOrdersAdapter;
 import com.example.ctsmarket05.entities.Orders;
@@ -38,8 +37,9 @@ public class CartExpandedActivity extends AppCompatActivity implements ProductsO
 
         tvBuyCart.setOnClickListener(v -> {
 
-            Intent from= new Intent(this, ProductsActivity3.class);
-            from.putExtra("from", "cartSequence");
+            Orders.ORDER_SEQUENCE = "cartSequence";
+
+            Intent from= new Intent(this, ProductsActivity4.class);
             startActivity(from);
         });
 

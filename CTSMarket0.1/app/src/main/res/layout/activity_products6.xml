@@ -21,14 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline394"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.07" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline379"
@@ -56,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9" />
+        app:layout_constraintGuide_percent="0.93" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline361"
@@ -84,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.14945322" />
+        app:layout_constraintGuide_percent="0.16" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline375"
@@ -182,7 +175,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.09" />
+        app:layout_constraintGuide_percent="0.12" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline371"
@@ -287,9 +280,9 @@
         android:fontFamily="@font/quicksand_semibold"
         android:gravity="center"
         android:text="Último paso"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:textSize="20dp"
-        android:background="@color/blackBlue"
+        android:background="@color/ligthBlue"
         app:layout_constraintBottom_toTopOf="@+id/guideline363"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -407,7 +400,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline374"
         app:layout_constraintEnd_toStartOf="@+id/guideline365"
         app:layout_constraintStart_toStartOf="@+id/guideline379"
-        app:layout_constraintTop_toTopOf="@+id/guideline370" />
+        app:layout_constraintTop_toTopOf="@+id/guideline384" />
 
     <TextView
         android:id="@+id/textView63"
@@ -472,8 +465,10 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/guideline375"
         app:layout_constraintEnd_toStartOf="@+id/guideline379"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline364"
-        app:layout_constraintTop_toTopOf="@+id/guideline370"
+        app:layout_constraintTop_toTopOf="@+id/guideline384"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/background_general3" />
 
     <ImageView
@@ -484,13 +479,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/guideline382"
-        android:background="@color/blackBlue"/>
+        android:background="#ffff"/>
 
     <ImageView
         android:id="@+id/imageView24"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/blackBlue"
+        android:background="#ffff"
         app:layout_constraintBottom_toTopOf="@+id/guideline370"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
@@ -504,18 +499,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline385"
-        android:background="@color/blackBlue"/> />
+        android:background="#ffff"/><![CDATA[ />
 
-    <ImageView
-        android:id="@+id/imageView22"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/guideline378"
-        app:layout_constraintEnd_toStartOf="@+id/guideline365"
-        app:layout_constraintStart_toStartOf="@+id/guideline387"
-        app:layout_constraintTop_toTopOf="@+id/guideline377"
-        app:srcCompat="@drawable/question_mark_in_dark_circle" />
+    ]]>
 
     <ImageView
         android:id="@+id/imageView25"
@@ -525,7 +511,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline373"
-        android:background="@color/blackBlue"/> />
+        android:background="#ffff"/> />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

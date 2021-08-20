@@ -29,10 +29,7 @@ public class ProductsActivity5 extends AppCompatActivity {
 
     private void price() {
 
-        Intent toProdActv5 = getIntent();
-        String sequence = toProdActv5.getStringExtra("sequence");
-
-        switch (sequence){
+        switch (Orders.ORDER_SEQUENCE){
 
             case "cartSequence":{
                 tvFinalPrice.setText("Precio final de la orden: "+ Orders.ORDER_PRICE.toString() + "$ARS");
@@ -42,46 +39,28 @@ public class ProductsActivity5 extends AppCompatActivity {
                 tvFinalPrice.setText( "Precio final: " + Orders.ORDER_PRICE.toString() + "$ARS");
             }break;
         }
-
     }
 
     private void payWithCash() {
 
         cashContinue.setOnClickListener(v -> {
 
-            Intent toProdActv5 = getIntent();
-            String image = toProdActv5.getStringExtra("image");
-            String name = toProdActv5.getStringExtra("name");
-            String price = toProdActv5.getStringExtra("price");
-            String sendingMethod = toProdActv5.getStringExtra("sendingMethod");
-            String quantity = toProdActv5.getStringExtra("quantity");
-            String sequence = toProdActv5.getStringExtra("sequence");
+            Orders.ORDER_PAYMENT  = "atRetire";
 
-            switch (sequence){
+            switch (Orders.ORDER_SEQUENCE){
 
                 case "cartSequence":{
+
                     Intent payment = new Intent(this, CartBuyFinalActivity.class);
-                    payment.putExtra("sendingMethod", sendingMethod);
-                    payment.putExtra("image", image);
-                    payment.putExtra("name", name);
-                    payment.putExtra("price", price);
-                    payment.putExtra("payMethod", "payWithCash");
-                    payment.putExtra("quantity", quantity);
                     startActivity(payment);
                 }break;
 
                 case "oneProductSequence":{
+
                     Intent payment = new Intent(this, ProductsActivity6.class);
-                    payment.putExtra("sendingMethod", sendingMethod);
-                    payment.putExtra("image", image);
-                    payment.putExtra("name", name);
-                    payment.putExtra("price", price);
-                    payment.putExtra("payMethod", "payWithCash");
-                    payment.putExtra("quantity", quantity);
                     startActivity(payment);
                 }break;
             }
-
         });
     }
 

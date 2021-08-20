@@ -11,13 +11,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.productsClasses.ProductsActivity3;
+import com.example.ctsmarket05.activities.productsClasses.ProductsActivity4;
 import com.example.ctsmarket05.activities.userActivities.LocationInfoActivity;
 import com.example.ctsmarket05.entities.Location;
 import com.example.ctsmarket05.entities.User;
-import com.example.ctsmarket05.retrofit.locationRetrofit.LocationPOST;
-import com.example.ctsmarket05.retrofit.locationRetrofit.LocationPUT;
-import com.example.ctsmarket05.retrofit.userRetrofit.UserPUTIdLoc;
+import com.example.ctsmarket05.retrofit.locationRetrofit.LocationAddPOST;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -45,20 +43,47 @@ public class LocationAddActivity extends AppCompatActivity {
 
         findViews();
         btnGuardar();
+        btnCancelar();
         provinces();
+    }
+
+    private void btnCancelar() {
+
+        tvCancelar.setOnClickListener(v -> {
+            backTo();
+        });
     }
 
     private void provinces() {
 
-        prueba = (TextInputLayout) findViewById(R.id.pruebaLayout);
-        atProvince = (AutoCompleteTextView) findViewById(R.id.at_province_add);
+        prueba = findViewById(R.id.pruebaLayout);
+        atProvince = findViewById(R.id.at_province_add);
 
         arrayListProvinces = new ArrayList<>();
         arrayListProvinces.add("CABA");
-        arrayListProvinces.add("Tucumán");
+        arrayListProvinces.add("Buenos Aires");
+        arrayListProvinces.add("Catamarca");
+        arrayListProvinces.add("Chaco");
+        arrayListProvinces.add("Chubut");
         arrayListProvinces.add("Córdoba");
+        arrayListProvinces.add("Corrientes");
+        arrayListProvinces.add("Entre Ríos");
+        arrayListProvinces.add("Formosa");
         arrayListProvinces.add("Jujuy");
+        arrayListProvinces.add("La Pampa");
+        arrayListProvinces.add("La Rioja");
+        arrayListProvinces.add("Mendoza");
+        arrayListProvinces.add("Misiones");
+        arrayListProvinces.add("Neuquén");
+        arrayListProvinces.add("Río Negro");
         arrayListProvinces.add("Salta");
+        arrayListProvinces.add("San Juan");
+        arrayListProvinces.add("San Luis");
+        arrayListProvinces.add("Santa Cruz");
+        arrayListProvinces.add("Santa Fe");
+        arrayListProvinces.add("Santiago del Estero");
+        arrayListProvinces.add("Tierra del Fuego");
+        arrayListProvinces.add("Tucumán");
 
         arrayAdapterProvinces = new ArrayAdapter<>(getApplicationContext(), R.layout.dropdown_provinces,arrayListProvinces);
         atProvince.setAdapter(arrayAdapterProvinces);
@@ -66,39 +91,23 @@ public class LocationAddActivity extends AppCompatActivity {
         atProvince.setThreshold(1);
     }
 
-
-    //si el usuario ya esta registrado se le hace un UPDATE a la DB updateLocation();
-    //si es la primera vez que se registra se hace un POST con firstTimePost();
+    //checkea la info del usurio, si ya existe la actualiza y sino la crea.
     public void btnGuardar(){
-        btnSave.setOnClickListener(v -> {
-            if (Location.idLocation != null) {
 
-                updateLocation();
+        btnSave.setOnClickListener(v -> {
+
+            if(     //Chequea que todos los campos esten completos
+                    atProvince.getText().toString().equals("") || etCity.getText().toString().equals("")
+                            || etDistrict.getText().toString().equals("") || etStreet.getText().toString().equals("")
+                            || etStreetNumber.getText().toString().equals("") || etFloor.getText().toString().equals("")
+                            || etPostalCode.getText().toString().equals("")
+            ){
+                Toast.makeText(this, "Verifique que todos los campos estén completos", Toast.LENGTH_LONG).show();
             }else{
 
-                firstTimePost();
-            }
-        });
 
-        //tvCancelar.setOnClickListener(v -> {
-        //    backTo();
-        //});
-    }
-
-    private void updateLocation() {
-
-        if(     //Chequea que todos los campos esten completos
-                atProvince.getText().toString().equals("") || etCity.getText().toString().equals("")
-                        || etDistrict.getText().toString().equals("") || etStreet.getText().toString().equals("")
-                        || etStreetNumber.getText().toString().equals("") || etFloor.getText().toString().equals("")
-                        || etPostalCode.getText().toString().equals("")
-        ){
-            Toast.makeText(this, "Verifique que todos los campos estén completos", Toast.LENGTH_LONG).show();
-        }else{
-
-            //UPDATE a la tabla location.
-            LocationPUT locationPUT = new LocationPUT();
-            locationPUT.locationPUT(
+            Location location = new Location(
+                    User.IDUSER,
                     atProvince.getText().toString(),
                     etCity.getText().toString(),
                     etDistrict.getText().toString(),
@@ -107,48 +116,12 @@ public class LocationAddActivity extends AppCompatActivity {
                     etFloor.getText().toString(),
                     Integer.parseInt(etPostalCode.getText().toString()));
 
-            backTo();
-        }
-    }
-
-    //se ejecuta un INSERT a en la tabla location de la DB. Tambien se hace un UPDATE, a la tabla
-    //user donde se actualiza su idLocation que era nulo.
-    private void firstTimePost(){
-
-        if(
-                atProvince.getText().toString().equals("") || etCity.getText().toString().equals("")
-                        || etDistrict.getText().toString().equals("") || etStreet.getText().toString().equals("")
-                        || etStreetNumber.getText().toString().equals("") || etFloor.getText().toString().equals("")
-                        || etPostalCode.getText().toString().equals("")
-        ){
-            Toast.makeText(this, "Verifique que todos los campos estén completos", Toast.LENGTH_LONG).show();
-        }else{
-
-            postL();
+            LocationAddPOST locationAddPOST = new LocationAddPOST();
+            locationAddPOST.locationPost(location);
 
             backTo();
-        }
-    }
-
-    private void postL(){
-        LocationPOST locationPOST = new LocationPOST();
-        locationPOST.locationPost(
-                User.IDUSER,
-                atProvince.getText().toString(),
-                etCity.getText().toString(),
-                etDistrict.getText().toString(),
-                etStreet.getText().toString(),
-                Integer.parseInt(etStreetNumber.getText().toString()),
-                etFloor.getText().toString(),
-                Integer.parseInt(etPostalCode.getText().toString())
-        );
-
-        updatedb();
-    }
-
-    private void updatedb(){
-        UserPUTIdLoc userPUTIdLoc = new UserPUTIdLoc();
-        userPUTIdLoc.userPut();
+            }
+        });
     }
 
     private void backTo(){
@@ -160,21 +133,21 @@ public class LocationAddActivity extends AppCompatActivity {
         switch (backTo){
 
             case "fromPA3":{
-                Intent fromLAA = new Intent(this, ProductsActivity3.class);
-                fromLAA.putExtra("fromLAA","fromLAA");
-                startActivity(fromLAA);
+                Intent from = new Intent(this, ProductsActivity4.class);
+                startActivity(from);
                 finish();
             }break;
 
             case "location_info":{
-                Intent fromLAA = new Intent(this, LocationInfoActivity.class);
-                startActivity(fromLAA);
+                Intent from = new Intent(this, LocationInfoActivity.class);
+                startActivity(from);
                 finish();
             }break;
         }
     }
 
     private void findViews(){
+
         etStreet = findViewById(R.id.et_street_add);
         etStreetNumber = findViewById(R.id.et_street_number_add);
         etCity = findViewById(R.id.et_city_add);

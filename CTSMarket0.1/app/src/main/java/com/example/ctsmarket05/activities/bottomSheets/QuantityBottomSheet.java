@@ -1,4 +1,4 @@
-package com.example.ctsmarket05.activities;
+package com.example.ctsmarket05.activities.bottomSheets;
 
 import android.content.Context;
 import android.os.Bundle;

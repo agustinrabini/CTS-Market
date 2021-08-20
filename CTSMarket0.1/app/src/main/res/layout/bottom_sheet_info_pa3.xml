@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¿Dónde puedo retirar el producto?"
+        android:background="@drawable/background_filter"
+        android:gravity="center"
+        android:padding="15dp"
+        android:textSize="15sp"
+        android:fontFamily="@font/quicksandbold"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nuesto taller se encuentra en la Ciudad Autónoma de Buenos Aires (CABA), en la localidad de Mataderos. Por razones de seguridad la ubicación exacta se envía una vez concretada la compra a su teléfono celular vía WhatsApp."
+        android:gravity="center"
+        android:padding="15dp"
+        android:textSize="15sp"
+        android:fontFamily="@font/quicksand_regular"
+        android:textColor="#000000"/>
+
+</LinearLayout>

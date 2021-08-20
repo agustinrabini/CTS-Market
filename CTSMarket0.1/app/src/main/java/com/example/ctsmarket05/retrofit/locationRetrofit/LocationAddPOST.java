@@ -9,15 +9,12 @@ import com.example.ctsmarket05.entities.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class LocationGET {
+public class LocationAddPOST{
 
-    private DataInterface mListener;
-
-    public void getLocation(Integer id_user) {
+    public void locationPost(Location location) {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
@@ -26,27 +23,16 @@ public class LocationGET {
 
         LocationInterface locationInterface = retrofit.create(LocationInterface.class);
 
-        Call<Location> call = locationInterface.locationUser(id_user);
+        Call<Location> call = locationInterface.locationAdd(location);
 
         call.enqueue(new Callback<Location>() {
-            @Override
-            public void onResponse(Call<Location> call, Response<Location> response) {
 
-                mListener.responseLocation(response.body());
+            @Override
+            public void onResponse(Call<Location> call, retrofit2.Response<Location> response) {
             }
 
-            @Override
             public void onFailure(Call<Location> call, Throwable t) {
-
             }
         });
-    }
-
-    public void SetOnDataListener(DataInterface listener) {
-        mListener = listener;
-    }
-
-    public interface DataInterface {
-        void responseLocation(Location location);
     }
 }

@@ -3,114 +3,122 @@ package com.example.ctsmarket05.activities.productsClasses;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.userActivities.UserInfoEditActivity;
+import com.example.ctsmarket05.activities.LocationAddActivity;
+import com.example.ctsmarket05.activities.bottomSheets.InfoProdActv3BottomSheet;
+import com.example.ctsmarket05.entities.Orders;
+import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.retrofit.locationRetrofit.LocationGET;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;
 
 public class ProductsActivity4 extends AppCompatActivity {
 
-    private TextView tvUser;
-    private TextView tvChangeUserInfo;
-    private TextView tvNeedEditUser;
-    private Button btnBuy;
+    private TextView tvLocation;
+    private TextView tvChangeLocation;
+    private TextView tvNeedLocation;
+    private TextView tvContinue;
+    private TextView tvFinalPrice;
     private ImageView ivNeedLocation;
+    private ImageView ivHome;
+    private ImageView ivSellerHouse;
+    private ImageView ivTallerInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products4);
 
-        showUserInfo();
         findViews();
-        changeUserInfo();
-        next();
+        showInfo();
+        changeLocation();
+        sendToHome();
+        sendByMail();
+        retireAtSellerHome();
     }
 
-    private void changeUserInfo(){
-        tvChangeUserInfo.setOnClickListener(v -> {
-            Intent toUserEdit = new Intent(this, UserInfoEditActivity.class);
-            toUserEdit.putExtra("fromPA4","fromPA4");
-            startActivity(toUserEdit);
+    private void changeLocation(){
+        tvChangeLocation.setOnClickListener(v -> {
+
+            Intent toLocationAdd = new Intent(this, LocationAddActivity.class);
+            toLocationAdd.putExtra("locationAdd","fromPA3");
+            startActivity(toLocationAdd);
             finish();
         });
     }
 
-    private void showUserInfo(){
+    private void showInfo() {
 
         UserGET userGET = new UserGET();
         userGET.SetOnDataListenerUser(user -> {
 
-            String name = user.getName_lastname();
-            Integer dni = user.getDni();
-            Integer phone = user.getPhone();
+            Integer idlocation = user.getId_location();
 
-            if (name==null||dni==null||phone==null) {
+            if (idlocation==null) {
 
-                tvNeedEditUser.setVisibility(View.VISIBLE);
+                tvNeedLocation.setVisibility(View.VISIBLE);
                 ivNeedLocation.setVisibility(View.VISIBLE);
-                tvChangeUserInfo.setVisibility(View.VISIBLE);
-                tvChangeUserInfo.setText("Agregar información");
+                tvChangeLocation.setText("Agregar ubicación");
 
             }else{
-                btnBuy.setVisibility(View.VISIBLE);
-                tvChangeUserInfo.setVisibility(View.VISIBLE);
-                tvChangeUserInfo.setText("Editar información");
-                tvUser.setText(
-                        "Nombre: " + user.getName_lastname()+ "\n" + "DNI: " + user.getDni().toString() + "\n" + "Celular:" + user.getPhone()
-                );
+               tvContinue.setVisibility(View.VISIBLE);
+
+                LocationGET locationGET = new LocationGET();
+                locationGET.SetOnDataListener(location -> {
+
+                    String province = location.getProvince();
+                    String city = location.getCity();
+                    String district = location.getDistrict();
+                    String street = location.getStreet();
+                    String street_number = location.getStreet_number().toString();
+                    String floor = location.getFloor();
+                    String postal_code = location.getPostal_code().toString();
+
+                    tvLocation.setText("Provincia: " + province + "\n"+ "\n"+ "Ciudad: " + city + "\n"+ "\n"+
+                             "Localidad: " + district + "\n"+ "\n"+ "Calle: " +street + " " + street_number+". "+floor + "\n" + "\n"+  "Código postal: "+postal_code);
+                });
+                locationGET.getLocation(User.IDUSER);
             }
         });
         userGET.getUserByGmail();
+
+        tvFinalPrice.setText("Precio: "+ Orders.ORDER_PRICE + "$ARS");
     }
 
-    private void next(){
+    private void sendToHome(){}
 
-        Intent sellerHome = getIntent();
-        String image = sellerHome.getStringExtra("image");
-        String name = sellerHome.getStringExtra("name");
-        String price = sellerHome.getStringExtra("price");
-        String sendingMethod = sellerHome.getStringExtra("sendingMethod");
-        String quantity = sellerHome.getStringExtra("quantity");
-        String sequence = sellerHome.getStringExtra("sequence");
+    private void sendByMail(){}
 
-        btnBuy.setOnClickListener(v -> {
+    private void retireAtSellerHome(){
 
-          Intent toProdActv5 = new Intent(this, ProductsActivity5.class);
-          toProdActv5.putExtra("sendingMethod", sendingMethod);
-          toProdActv5.putExtra("image", image);
-          toProdActv5.putExtra("name", name);
-          toProdActv5.putExtra("price", price);
-          toProdActv5.putExtra("quantity", quantity);
+        ivTallerInfo.setOnClickListener(v -> {
 
-          String sequence2 = "";
-          switch (sequence){
-
-              case "cartSequence":{
-                  sequence2 = "cartSequence";
-              }break;
-
-              case "oneProductSequence":{
-                  sequence2 = "oneProductSequence";
-              }break;
-          }
-          toProdActv5.putExtra("sequence", sequence2);
-
-          startActivity(toProdActv5);
+            InfoProdActv3BottomSheet infoProdActv3BottomSheet = new InfoProdActv3BottomSheet();
+            infoProdActv3BottomSheet.show(getSupportFragmentManager(), "");
         });
 
+        ivSellerHouse.setOnClickListener(v -> {
+
+            Orders.ORDER_SHIPPING = 1;
+            Intent sellerHome = new Intent(this, ProductsActivity5.class);
+            startActivity(sellerHome);
+        });
     }
 
     private void findViews(){
-        tvChangeUserInfo = findViewById(R.id.tv_change_user_info4);
-        tvUser = findViewById(R.id.tv_user_info4);
-        tvNeedEditUser = findViewById(R.id.tv_need_to_add_user_info4);
-        ivNeedLocation = findViewById(R.id.iv_need_to_add_user_info4);
-        btnBuy = findViewById(R.id.btn_buy4);
+
+        tvFinalPrice = findViewById(R.id.tv_final_price3);
+        tvChangeLocation = findViewById(R.id.tv_change_location3);
+        tvLocation = findViewById(R.id.tv_location3);
+        tvNeedLocation = findViewById(R.id.tv_need_to_ad_location3);
+        ivNeedLocation = findViewById(R.id.iv_need_to_add_location3);
+        ivHome = findViewById(R.id.iv_home);
+        ivSellerHouse = findViewById(R.id.iv_seller_house);
+        ivTallerInfo = findViewById(R.id.iv_taller_info3);
+        tvContinue = findViewById(R.id.tv_continue3);
     }
 }
