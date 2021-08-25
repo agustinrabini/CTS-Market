@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,41 +30,52 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-private View btnRegistrarse;
-private View btnLoggin;
-private ImageButton ibGoogle;
-private String email;
-int RC_SIGN_IN = 0;
-GoogleSignInClient mGoogleSignInClient;
+    private Button btnLoggin;
+    private ImageButton ibGoogle;
+    private String email;
+    int RC_SIGN_IN = 0;
+    GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnLoggin = findViewById(R.id.btnLoggin);
-        btnRegistrarse= findViewById(R.id.btnRegistrarse);
-        ibGoogle= findViewById(R.id.ib_google);
+        findviews();
+        clickListeners();
+        googleSignIn();
+    }
 
-        btnRegistrarse.setOnClickListener(v -> {
-            Intent openRegister = new Intent(MainActivity.this, RegisterActivity.class);
-            startActivity(openRegister);
-        });
-
-        btnLoggin.setOnClickListener(v -> {
-            Intent openLoggin = new Intent(MainActivity.this, LogginActivity.class);
-            startActivity(openLoggin);
-        });
-
-        ibGoogle.setOnClickListener(v -> {
-            signIn();
-        });
+    private void googleSignIn() {
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 //.requestProfile()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+    }
+
+    private void clickListeners() {
+
+        //ivLoggin.setOnClickListener(v -> {
+        //    Intent openRegister = new Intent(MainActivity.this, RegisterActivity.class);
+        //    startActivity(openRegister);
+        //});
+//
+        //ivLoggin.setOnClickListener(v -> {
+        //    Intent openLoggin = new Intent(MainActivity.this, LogginActivity.class);
+        //    startActivity(openLoggin);
+        //});
+
+        ibGoogle.setOnClickListener(v -> {
+            signIn();
+        });
+    }
+
+    private void findviews() {
+
+        btnLoggin = findViewById(R.id.btn_loggin_main);
+        ibGoogle= findViewById(R.id.ib_google);
     }
 
     private void signIn() {

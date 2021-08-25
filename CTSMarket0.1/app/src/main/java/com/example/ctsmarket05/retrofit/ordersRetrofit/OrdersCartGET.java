@@ -1,11 +1,13 @@
 package com.example.ctsmarket05.retrofit.ordersRetrofit;
 
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.fragments.OrdersFragment;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,6 +36,8 @@ public class OrdersCartGET extends AppCompatActivity {
 
                 if (response.isSuccessful() && response.body() != null) {
                     mListener.responseOrderCart(response.body());
+                    OrdersFragment.progressBarOrders.setVisibility(View.INVISIBLE);
+                    OrdersFragment.rvProductsOrder.setVisibility(View.VISIBLE);
                 } else {
                     Toast.makeText(OrdersCartGET.this, "Error:" + response.code(), Toast.LENGTH_LONG).show();
                 }

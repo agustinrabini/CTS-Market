@@ -17,21 +17,21 @@ import retrofit2.http.Path;
 
 public interface OrderInterface {
 
-    @POST("order/opb/{user_id}/{product_id}")//sequencia de compra para un producto
+    @POST("/order/opb/{user_id}/{product_id}")//sequencia de compra para un producto
     Call<Orders> oneProductBougth(@Path("user_id") int id_user,@Path("product_id") int id_product, @Body Orders order);
 
-    @GET("order/suo/{id}")
+    @GET("/order/suo/{id}")
     Call<List<Orders>> showUserOrders(@Path("id") int id_user);
 
-    @GET("order/showCart/{id}")//devuelve el carrito activo
+    @GET("/order/showCart/{id}")//devuelve el carrito activo
     Call<Orders> getCart(@Path("id") int id_user);
 
     @PUT("/order/uobc/{id}")//'update order cart bought' ejecuta una orden de compra al carrito y lo convierte en orden terminada
     Call<Orders> updateOrderCartBought(@Body Orders order, @Path("id") int id_order);
 
-    @POST("order/cartAdd/{id_product}")
+    @POST("/order/cartAdd/{id_product}")
     Call<Orders> addCart(@Path("id_product") int id_product, @Body Orders order );
 
-    @DELETE("order/cartRemove/{user_id}/{product_id}")
+    @DELETE("/order/cartRemove/{user_id}/{product_id}")
     Call<Orders> removeCart(@Path("user_id") int id_user,@Path("product_id") int product_id);
 }

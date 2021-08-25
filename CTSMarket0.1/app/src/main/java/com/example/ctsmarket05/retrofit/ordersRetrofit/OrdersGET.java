@@ -1,12 +1,15 @@
 package com.example.ctsmarket05.retrofit.ordersRetrofit;
 
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.ctsmarket05.activities.userActivities.UserPurchaseActivity;
 import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.fragments.HomeFragment;
 import com.example.ctsmarket05.retrofit.productRetrofit.ProductGET;
 import com.example.ctsmarket05.retrofit.productRetrofit.ProductInterface;
 import com.example.ctsmarket05.retrofit.productRetrofit.ProductsGET;
@@ -38,6 +41,9 @@ public class OrdersGET extends AppCompatActivity {
 
                 if(response.isSuccessful() && response.body()!=null){
                     mListener.responseOrder(response.body());
+                    UserPurchaseActivity.progressBarOrders.setVisibility(View.INVISIBLE);
+                    UserPurchaseActivity.rvOrders.setVisibility(View.VISIBLE);
+                    UserPurchaseActivity.ivBkg.setVisibility(View.VISIBLE);
                 }
                 else{
                     Toast.makeText(OrdersGET.this, "Error:" + response.code(), Toast.LENGTH_LONG).show();

@@ -1,9 +1,11 @@
 package com.example.ctsmarket05.retrofit.userRetrofit;
 
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.ctsmarket05.activities.productsClasses.ProductsActivity3;
 import com.example.ctsmarket05.entities.User;
 
 import retrofit2.Call;
@@ -16,8 +18,6 @@ public class UserGET extends AppCompatActivity {
 
     private DataInterfaceUser mListener;
 
-    //hace una llamada a la api con un metodo GET. Como response devuelve un objeto User completo.
-    //lo envia al activity donde se solicite y ahi se leen los datos y se le asignan valores.
     //ennvia a la api el gmail como parametro para buscar y traer el objeto.
     public void getUserByGmail(){
         Retrofit retrofit = new Retrofit.Builder()
@@ -46,8 +46,6 @@ public class UserGET extends AppCompatActivity {
             }
         });
     }
-
-    //Interfaces para pasar la response a las demas activities:
 
     public void SetOnDataListenerUser(DataInterfaceUser listener){
         mListener = listener;

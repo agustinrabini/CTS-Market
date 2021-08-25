@@ -17,12 +17,12 @@ import retrofit2.http.Path;
 
 public interface ProductsOrderInterface {
 
-    @POST("productsOrder/addCart")
+    @POST("/productsOrder/addCart")
     Call<ProductsOrder> addCart(@Body ProductsOrder productsOrder);
 
     @GET("/productsOrder/spobio/{id}")
     Call<List<ProductsOrder>> showProductsOrders(@Path("id") int id_order);
 
-    @GET("productsOrder/cartCheck/{user_id}/{product_id}")
+    @GET("/productsOrder/cartCheck/{user_id}/{product_id}")
     Call<String> cartCheck(@Path("product_id") int id_product, @Path("user_id") int id_user);
 }

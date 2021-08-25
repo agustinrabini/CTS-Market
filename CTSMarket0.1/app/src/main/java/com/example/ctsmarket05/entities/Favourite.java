@@ -8,19 +8,16 @@ public class Favourite {
 
     private Integer id_user;
 
-    private Integer state;
 
-    public Favourite(Integer id_favourite, Integer id_product, Integer id_user, Integer state) {
+    public Favourite(Integer id_favourite, Integer id_product, Integer id_user) {
         this.id_favourite = id_favourite;
         this.id_product = id_product;
         this.id_user = id_user;
-        this.state = state;
     }
 
-    public Favourite(Integer id_product, Integer id_user, Integer state) {
+    public Favourite(Integer id_product, Integer id_user) {
         this.id_product = id_product;
         this.id_user = id_user;
-        this.state = state;
     }
 
     public Integer getId_favourite() {
@@ -45,13 +42,5 @@ public class Favourite {
 
     public void setId_user(Integer id_user) {
         this.id_user = id_user;
-    }
-
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
     }
 }

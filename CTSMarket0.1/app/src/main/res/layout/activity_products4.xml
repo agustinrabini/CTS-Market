@@ -60,28 +60,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.98" />
+            app:layout_constraintGuide_percent="0.95" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline263"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.93" />
+            app:layout_constraintGuide_percent="0.9" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline245"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.85" />
+            app:layout_constraintGuide_percent="0.83" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline261"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.9" />
+            app:layout_constraintGuide_percent="0.88" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline248"
@@ -277,7 +277,7 @@
             android:id="@+id/textView68"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:elevation="15dp"
+            android:elevation="6dp"
             android:fontFamily="@font/quicksand_semibold"
             android:gravity="center_vertical"
             android:text="Retiro en taller"
@@ -320,19 +320,21 @@
             android:id="@+id/iv_seller_house"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:elevation="5dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline291"
             app:layout_constraintEnd_toStartOf="@+id/guideline238"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline237"
             app:layout_constraintTop_toTopOf="@+id/guideline248"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/background_general4" />
+            app:srcCompat="@drawable/background_general3" />
 
         <ImageView
             android:id="@+id/imageView14"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:rotation="-90"
+            android:elevation="6dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline297"
             app:layout_constraintEnd_toStartOf="@+id/guideline238"
             app:layout_constraintHorizontal_bias="1.0"
@@ -391,12 +393,25 @@
             android:elevation="15dp"
             android:fontFamily="@font/quicksand_semibold"
             android:gravity="center"
+            android:visibility="invisible"
             android:textColor="#2e7d32"
             android:textSize="15dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline262"
             app:layout_constraintEnd_toStartOf="@+id/guideline287"
             app:layout_constraintStart_toStartOf="@+id/guideline288"
             app:layout_constraintTop_toTopOf="@+id/guideline263" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/pb_prod_actv4"
+            style="@style/SpinKitView.Large.Pulse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline278"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline250" />
 
         <ImageView
             android:id="@+id/iv_taller_info3"

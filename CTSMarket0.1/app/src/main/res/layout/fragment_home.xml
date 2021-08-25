@@ -21,7 +21,7 @@
             android:layout_height="0dp"
             android:elevation="5dp"
             android:orientation="horizontal"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:foregroundGravity="center"
             app:layout_constraintBottom_toTopOf="@+id/guideline409"
             app:layout_constraintEnd_toStartOf="@+id/guideline115"
@@ -164,6 +164,18 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.75" />
 
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/pb_home"
+            android:elevation="25dp"
+            style="@style/SpinKitView.Large.Pulse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/tv_frequents_questions"
             android:layout_width="0dp"
@@ -204,7 +216,7 @@
             android:gravity="center"
             android:text=""
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline133"
             app:layout_constraintEnd_toStartOf="@+id/guideline72"
             app:layout_constraintHorizontal_bias="0.0"

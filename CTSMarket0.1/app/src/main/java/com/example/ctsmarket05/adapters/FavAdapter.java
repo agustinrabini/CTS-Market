@@ -13,10 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.productsClasses.ProductsActivity2;
 import com.example.ctsmarket05.clickListeners.FavOnCustomClickListener;
-import com.example.ctsmarket05.clickListeners.ProductsOnCustomClickListener;
 import com.example.ctsmarket05.entities.Favourite;
 import com.example.ctsmarket05.entities.Product;
-import com.example.ctsmarket05.retrofit.favouriteRetrofit.FavsGET;
+import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.retrofit.favouriteRetrofit.FavCheckGET;
 import com.example.ctsmarket05.retrofit.productRetrofit.ProductGET;
 import com.squareup.picasso.Picasso;
 
@@ -65,6 +65,7 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.FavViewHolder> {
         private void bind (Favourite favourite, FavOnCustomClickListener listener){
 
             ImageView ivImage = itemView.findViewById(R.id.iv_product_cv);
+            ImageView ivFav = itemView.findViewById(R.id.iv_fav_1);
             TextView tvName = itemView.findViewById(R.id.tv_name1);
             TextView tvPrice = itemView.findViewById(R.id.tv_price1);
             TextView tvLength = itemView.findViewById(R.id.tv_length1);
@@ -72,6 +73,7 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.FavViewHolder> {
 
             Integer id = favourite.getId_product();
             String id_prod = id.toString();
+            Product.ID_PRODUCT = id;
 
             ProductGET productGET = new ProductGET();
             productGET.SetOnDataListenerProd(product -> {
@@ -98,6 +100,8 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.FavViewHolder> {
 
                     v.getContext().startActivity(clicked);
                 });
+
+            ivFav.setImageResource(R.drawable.ic_heart2);
             });
             productGET.getProduct(id);
         }

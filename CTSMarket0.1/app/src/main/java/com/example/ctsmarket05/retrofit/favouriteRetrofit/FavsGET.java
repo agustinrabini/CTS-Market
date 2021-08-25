@@ -1,14 +1,13 @@
 package com.example.ctsmarket05.retrofit.favouriteRetrofit;
 
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.entities.Favourite;
-import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.User;
-import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderInterface;
-import com.example.ctsmarket05.retrofit.ordersRetrofit.OrdersGET;
+import com.example.ctsmarket05.fragments.FavoritesFragment;
 
 import java.util.List;
 
@@ -37,6 +36,8 @@ public class FavsGET extends AppCompatActivity {
 
                 if (response.isSuccessful() && response.body() != null) {
                     mListener.responseFavourite(response.body());
+                    FavoritesFragment.progressBarFav.setVisibility(View.INVISIBLE);
+                    FavoritesFragment.rvFavs.setVisibility(View.VISIBLE);
                 } else {
                     Toast.makeText(FavsGET.this, "Error:" + response.code(), Toast.LENGTH_LONG).show();
                 }

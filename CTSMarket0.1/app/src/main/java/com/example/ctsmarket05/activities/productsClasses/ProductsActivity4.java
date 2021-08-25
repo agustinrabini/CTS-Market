@@ -1,9 +1,12 @@
 package com.example.ctsmarket05.activities.productsClasses;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +18,8 @@ import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.retrofit.locationRetrofit.LocationGET;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.ThreeBounce;
 
 public class ProductsActivity4 extends AppCompatActivity {
 
@@ -27,6 +32,8 @@ public class ProductsActivity4 extends AppCompatActivity {
     private ImageView ivHome;
     private ImageView ivSellerHouse;
     private ImageView ivTallerInfo;
+    private ProgressBar progressBarProdActv4;
+    private int ligthBlueColor = Color.parseColor("#75AADB");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +59,11 @@ public class ProductsActivity4 extends AppCompatActivity {
     }
 
     private void showInfo() {
+
+        Sprite pb = new ThreeBounce();
+        pb.setColor(ligthBlueColor);
+        progressBarProdActv4.setIndeterminateDrawable(pb);
+        ivSellerHouse.setEnabled(false);
 
         UserGET userGET = new UserGET();
         userGET.SetOnDataListenerUser(user -> {
@@ -85,6 +97,19 @@ public class ProductsActivity4 extends AppCompatActivity {
             }
         });
         userGET.getUserByGmail();
+
+        new CountDownTimer(1500, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+            }
+
+            public void onFinish() {
+                progressBarProdActv4.setVisibility(View.INVISIBLE);
+                tvLocation.setVisibility(View.VISIBLE);
+                tvFinalPrice.setVisibility(View.VISIBLE);
+                ivSellerHouse.setEnabled(true);
+            }
+        }.start();
 
         tvFinalPrice.setText("Precio: "+ Orders.ORDER_PRICE + "$ARS");
     }
@@ -120,5 +145,6 @@ public class ProductsActivity4 extends AppCompatActivity {
         ivSellerHouse = findViewById(R.id.iv_seller_house);
         ivTallerInfo = findViewById(R.id.iv_taller_info3);
         tvContinue = findViewById(R.id.tv_continue3);
+        progressBarProdActv4 = findViewById(R.id.pb_prod_actv4);
     }
 }

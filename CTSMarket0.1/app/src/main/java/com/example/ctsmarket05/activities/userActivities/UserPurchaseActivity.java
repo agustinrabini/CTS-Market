@@ -1,10 +1,13 @@
 package com.example.ctsmarket05.activities.userActivities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,12 +19,16 @@ import com.example.ctsmarket05.adapters.OrdersAdapter;
 import com.example.ctsmarket05.clickListeners.OrdersOnCustomClickListener;
 import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.retrofit.ordersRetrofit.OrdersGET;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.ThreeBounce;
 
 public class UserPurchaseActivity extends AppCompatActivity implements OrdersOnCustomClickListener {
 
     private OrdersAdapter ordersAdapter = new OrdersAdapter(this);
-    private RecyclerView rvOrders;
-    private TextView tvQuestion;
+    public static RecyclerView rvOrders;
+    public static ProgressBar progressBarOrders;
+    public static ImageView ivBkg;
+    private int ligthBlueColor = Color.parseColor("#75AADB");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,24 +42,15 @@ public class UserPurchaseActivity extends AppCompatActivity implements OrdersOnC
 
     private void getData() {
 
+        Sprite pb = new ThreeBounce();
+        pb.setColor(ligthBlueColor);
+        progressBarOrders.setIndeterminateDrawable(pb);
+
         OrdersGET ordersGET = new OrdersGET();
         ordersGET.SetOnDataListenerOrders(orders -> {
             ordersAdapter.setOrders(orders);
         });
         ordersGET.getOrders();
-
-        String genericMesagge = getColoredSpanned("Si necesitas realizar una consulta por una compra", "#B8C6CD");
-        String whatsApp = getColoredSpanned("hace click aquí ","#2e7d32");
-        tvQuestion.setText(Html.fromHtml(genericMesagge+" "+whatsApp + "para hablar vía WhatsApp con un representante."));
-
-        tvQuestion.setOnClickListener(v -> {
-
-            String telefono = "+54 1132424233";
-            String url = "https://api.whatsapp.com/send?phone=";
-            Intent llamada = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:" + telefono));
-            llamada.setData(Uri.parse(url + telefono));
-            startActivity(llamada);
-        });
     }
 
     private void rvOrders() {
@@ -65,12 +63,8 @@ public class UserPurchaseActivity extends AppCompatActivity implements OrdersOnC
     private void findViews() {
 
         rvOrders = findViewById(R.id.rv_ordersUP);
-        tvQuestion = findViewById(R.id.tv_questionUP);
-    }
-
-    private String getColoredSpanned(String text, String color) {
-        String input = "<font color=" + color + ">" + text + "</font>";
-        return input;
+        progressBarOrders = findViewById(R.id.pb_ordersP);
+        ivBkg = findViewById(R.id.iv_orders_bkgUP);
     }
 
     @Override

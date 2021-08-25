@@ -1,11 +1,13 @@
 package com.example.ctsmarket05.retrofit.productRetrofit;
 
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.fragments.HomeFragment;
 
 import java.util.List;
 
@@ -34,7 +36,10 @@ public class ProductsGET extends AppCompatActivity {
 
                 if(response.isSuccessful() && response.body()!=null){
                     mListener.responseProd(response.body());
+                    HomeFragment.progressBarHome.setVisibility(View.INVISIBLE);
+                    HomeFragment.rvProducts.setVisibility(View.VISIBLE);
                 }
+
                 else{
                     Toast.makeText(ProductsGET.this, "Error:" + response.code(), Toast.LENGTH_LONG).show();
                 }

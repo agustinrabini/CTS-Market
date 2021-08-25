@@ -79,7 +79,6 @@ public class OrdersActivity extends AppCompatActivity implements OrdersOnCustomC
 
     private void findViews() {
 
-        tvCart = findViewById(R.id.tv_cartO);
         tvOrders = findViewById(R.id.tv_orders_finalizedO);
         btnCart = findViewById(R.id.btn_buy_cartO);
         bottomNavigationView = findViewById(R.id.bottom_navigation_cart);

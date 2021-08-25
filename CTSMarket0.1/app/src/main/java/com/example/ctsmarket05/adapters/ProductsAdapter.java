@@ -14,6 +14,8 @@ import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.clickListeners.ProductsOnCustomClickListener;
 import com.example.ctsmarket05.activities.productsClasses.ProductsActivity2;
 import com.example.ctsmarket05.entities.Product;
+import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.retrofit.favouriteRetrofit.FavCheckGET;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -64,6 +66,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
             TextView tvName = itemView.findViewById(R.id.tv_name1);
             TextView tvPrice = itemView.findViewById(R.id.tv_price1);
             TextView tvLength = itemView.findViewById(R.id.tv_length1);
+            ImageView ivFav = itemView.findViewById(R.id.iv_fav_1);
             ConstraintLayout constraintLayoutProd = itemView.findViewById(R.id.cl_product1);
 
             Integer id_product = product.getId_product();
@@ -91,6 +94,19 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
 
                 v.getContext().startActivity(clicked);
             });
+
+            FavCheckGET favCheckGET = new FavCheckGET();
+            favCheckGET.SetOnDataListenerFavCheck(check -> {
+
+                String c =  new String(check.getBytes());
+
+                Integer e = Integer.parseInt(c);
+
+                if (e == 10){
+                    ivFav.setImageResource(R.drawable.ic_heart2);
+                }
+            });
+            favCheckGET.check(User.IDUSER, id_product);
         }
     }
 }

@@ -69,7 +69,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
             Integer state = order.getOrder_state();
 
             tvQuantityProducts.setText(String.valueOf(order.getQuantity_products()));
-            tvOrderPrice.setText(String.valueOf(order.getOrder_price()));
+            tvOrderPrice.setText(String.valueOf("$ARS " + order.getOrder_price()));
             tvDate.setText(order.getDate());
 
             switch (state){

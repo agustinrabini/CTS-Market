@@ -1,6 +1,7 @@
 package com.example.ctsmarket05.fragments;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.ctsmarket05.R;
@@ -22,6 +24,8 @@ import com.example.ctsmarket05.clickListeners.ProductsOnCustomClickListener;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.retrofit.productRetrofit.ProductsGET;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.ThreeBounce;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.squareup.picasso.Picasso;
@@ -29,7 +33,7 @@ import com.squareup.picasso.Picasso;
 public class HomeFragment extends Fragment implements ProductsOnCustomClickListener, FilterBottomSheet.FilterListenerBottomSheet {
 
     private ProductsAdapter productsAdapter = new ProductsAdapter(this);
-    private RecyclerView rvProducts;
+    public static RecyclerView rvProducts;
     private ImageView ivUserPhoto;
     private String filter;
     private String userName;
@@ -37,6 +41,8 @@ public class HomeFragment extends Fragment implements ProductsOnCustomClickListe
     private TextView tvFilter;
     private TextView tvUserName;
     private TextView tvQuestionsHome;
+    public static ProgressBar progressBarHome;
+    private int ligthBlueColor = Color.parseColor("#75AADB");
 
     public HomeFragment() {
         // Required empty public constructor
@@ -46,10 +52,13 @@ public class HomeFragment extends Fragment implements ProductsOnCustomClickListe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getData();
     }
 
     public void getData(){
+
+        Sprite pb = new ThreeBounce();
+        pb.setColor(ligthBlueColor);
+        progressBarHome.setIndeterminateDrawable(pb);
 
         ProductsGET productsGET = new ProductsGET();
         productsGET.SetOnDataListenerProd(products -> {
@@ -89,7 +98,9 @@ public class HomeFragment extends Fragment implements ProductsOnCustomClickListe
         tvFilter = v.findViewById(R.id.tv_filter);
         tvUserName = v.findViewById(R.id.tv_user_name);
         tvQuestionsHome = v.findViewById(R.id.tv_questions_home);
+        progressBarHome = v.findViewById(R.id.pb_home);
 
+        getData();
         rvproducts();
 
         tvFilter.setOnClickListener(v1 -> {
@@ -98,7 +109,6 @@ public class HomeFragment extends Fragment implements ProductsOnCustomClickListe
         });
 
         //nombre y foto del user
-
         Picasso.with(v.getContext()).load(personPhoto).into(ivUserPhoto);
         tvUserName.setText("Bienvenido, " +userName);
 
@@ -115,6 +125,7 @@ public class HomeFragment extends Fragment implements ProductsOnCustomClickListe
             llamada.setData(Uri.parse(url + telefono));
             startActivity(llamada);
         });
+
         return v;
     }
 

@@ -1,9 +1,13 @@
 package com.example.ctsmarket05.activities.productsClasses;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +19,8 @@ import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.retrofit.ordersRetrofit.OrderOneProductPOST;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.ThreeBounce;
 import com.squareup.picasso.Picasso;
 
 import java.net.PortUnreachableException;
@@ -30,6 +36,8 @@ public class ProductsActivity6 extends AppCompatActivity {
     private TextView tvPayment;
     private TextView tvFinalPrice;
     private Button btnConfirmOrder;
+    private ProgressBar progressBarProdActv6;
+    private int ligthBlueColor = Color.parseColor("#75AADB");
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -43,7 +51,26 @@ public class ProductsActivity6 extends AppCompatActivity {
 
     private void setOrderValues() {
 
+        Sprite pb = new ThreeBounce();
+        pb.setColor(ligthBlueColor);
+        progressBarProdActv6.setIndeterminateDrawable(pb);
 
+        new CountDownTimer(1500, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+            }
+
+            public void onFinish() {
+                progressBarProdActv6.setVisibility(View.INVISIBLE);
+                tvFinalPrice.setVisibility(View.VISIBLE);
+                tvQuantity.setVisibility(View.VISIBLE);
+                tvSendingMethod.setVisibility(View.VISIBLE);
+                tvPayment.setVisibility(View.VISIBLE);
+                tvProdName.setVisibility(View.VISIBLE);
+                tvUserInfo.setVisibility(View.VISIBLE);
+                btnConfirmOrder.setVisibility(View.VISIBLE);
+            }
+        }.start();
 
        UserGET userGET = new UserGET();
        userGET.SetOnDataListenerUser(user ->
@@ -102,7 +129,6 @@ public class ProductsActivity6 extends AppCompatActivity {
 
                case "cartSequence":{
 
-
                }break;
 
                case "oneProductSequence":{
@@ -129,5 +155,6 @@ public class ProductsActivity6 extends AppCompatActivity {
         tvPayment = findViewById(R.id.tv_payment6);
         tvFinalPrice = findViewById(R.id.tv_final_price6);
         btnConfirmOrder = findViewById(R.id.btn_confirm_order6);
+        progressBarProdActv6 = findViewById(R.id.pb_prod_actv6);
     }
 }

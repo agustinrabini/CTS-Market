@@ -17,6 +17,7 @@
             android:layout_height="0dp"
             android:fontFamily="@font/quicksandbold"
             android:gravity="center"
+            android:background="@drawable/background_general3"
             android:text="Sobre nosotros"
             android:textColor="#000000"
             android:textSize="25dp"
@@ -142,10 +143,10 @@
             android:id="@+id/tv_questions_info"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fontFamily="@font/quicksand_regular"
+            android:fontFamily="@font/quicksandbold"
             android:gravity="center"
             android:text="Click aquí para ver preguntas frecuentes"
-            android:textColor="@color/red"
+            android:textColor="@color/yellow"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline45"
             app:layout_constraintEnd_toStartOf="@+id/guideline94"
@@ -178,7 +179,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.07" />
+            app:layout_constraintGuide_percent="0.1" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline102"
@@ -297,7 +298,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.1" />
+            app:layout_constraintGuide_percent="0.05" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline123"
@@ -318,7 +319,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.9" />
+            app:layout_constraintGuide_percent="0.95" />
 
 
 

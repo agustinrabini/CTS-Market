@@ -13,6 +13,8 @@ import com.example.ctsmarket05.activities.bottomSheets.QuantityBottomSheet;
 import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.retrofit.favouriteRetrofit.FavCheckGET;
+import com.example.ctsmarket05.retrofit.favouriteRetrofit.FavInteractionPOST;
 import com.example.ctsmarket05.retrofit.ordersRetrofit.CartAddPOST;
 import com.example.ctsmarket05.retrofit.ordersRetrofit.CartRemoveDELETE;
 import com.example.ctsmarket05.retrofit.productsOrderRetrofit.CheckCartPOST;
@@ -24,6 +26,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
     private TextView tvQuestion;
     private Button btnBuy;
     private ImageView ivCart;
+    private ImageView ivFav;
     private TextView tvName2;
     private TextView tvPrice2;
     private TextView tvDescription2;
@@ -32,6 +35,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
     private TextView tvStock;
     private Integer quantityProduct = 1;
     private Integer a = 0;
+    private Integer f = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +48,43 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
         btnBuy();
         btnQuestion();
         cart();
+        fav();
         checkCart();
+        checkFav();
+    }
+
+    private void fav() {
+
+        ivFav.setOnClickListener(v -> {
+
+            FavInteractionPOST favInteractionPOST = new FavInteractionPOST();
+            favInteractionPOST.interaction(User.IDUSER, Product.ID_PRODUCT);
+            if (f==1){
+                ivFav.setImageResource(R.drawable.ic_heart1);
+                f=0;
+            }else if(f==0){
+                ivFav.setImageResource(R.drawable.ic_heart2);
+                f=1;
+            }
+        });
+    }
+
+    private void checkFav() {
+
+        FavCheckGET favCheckGET = new FavCheckGET();
+        favCheckGET.SetOnDataListenerFavCheck(check -> {
+
+            String c =  new String(check.getBytes());
+
+            Integer e = Integer.parseInt(c);
+
+            if (e == 10){
+                f=1;
+                ivFav.setImageResource(R.drawable.ic_heart2);
+            }
+        });
+        favCheckGET.check(User.IDUSER, Product.ID_PRODUCT);
+
     }
 
     private void checkCart() {
@@ -188,6 +228,7 @@ public class ProductsActivity2 extends AppCompatActivity implements QuantityBott
         btnBuy = findViewById(R.id.btn_buy2);
         tvQuestion = findViewById(R.id.tv_question2);
         ivCart = findViewById(R.id.iv_cart2);
+        ivFav = findViewById(R.id.iv_fav2);
         tvName2 = findViewById(R.id.tv_name2);
         tvPrice2 = findViewById(R.id.tv_price2);
         tvDescription2 = findViewById(R.id.tv_description2);

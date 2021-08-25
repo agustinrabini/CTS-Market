@@ -14,12 +14,13 @@
     <color name="lightBrown">#AE8B72 </color>
     <color name="orangeBrown">#9C310F </color>
     <color name="orangeBrownDarker">#5B1F0C </color>
-    <color name="gray">#B8C6CD </color>
     <color name="grayDarker">#605A57 </color>
     <color name="green">#2e7d32 </color>
 
 
     <color name="yellow">#FCBF49 </color>
     <color name="ligthBlue">#75AADB </color>
+    <color name="intenseLigthBlue">#38b6ff </color>
     <color name="red">#e31b23 </color>
+    <color name="gray">#dbdbdf </color>
 </resources>

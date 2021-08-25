@@ -8,14 +8,14 @@
     android:layout_margin="6dp"
     android:clickable="true"
     android:focusable="true"
-    card_view:cardCornerRadius="8dp"
+    android:background="@drawable/background_general2"
     android:elevation="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_order"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/blackBlue"
+        android:background="#ffff"
         android:visibility="visible"
         card_view:layout_constraintBottom_toBottomOf="parent"
         card_view:layout_constraintHorizontal_bias="0.5"
@@ -25,10 +25,10 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fontFamily="@font/quicksand_semibold"
+            android:fontFamily="@font/quicksand_regular"
             android:gravity="center_vertical"
             android:text="Estado de orden:"
-            android:textColor="@color/lightBrown"
+            android:textColor="#000000"
             android:textSize="15dp"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline426"
             card_view:layout_constraintEnd_toStartOf="@+id/guideline425"
@@ -43,7 +43,7 @@
             android:fontFamily="@font/quicksand_semibold"
             android:gravity="center"
             android:text=""
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:textSize="15dp"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline426"
             card_view:layout_constraintEnd_toEndOf="parent"
@@ -55,10 +55,10 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fontFamily="@font/quicksand_semibold"
+            android:fontFamily="@font/quicksand_regular"
             android:gravity="center_vertical"
             android:text="Cantidad objetos:"
-            android:textColor="@color/lightBrown"
+            android:textColor="#000000"
             android:textSize="15sp"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline271"
             card_view:layout_constraintEnd_toStartOf="@+id/tv_quantity_productsO"
@@ -69,10 +69,10 @@
             android:id="@+id/textView70"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fontFamily="@font/quicksand_semibold"
+            android:fontFamily="@font/quicksand_regular"
             android:gravity="center_vertical"
             android:text="Fecha:"
-            android:textColor="@color/lightBrown"
+            android:textColor="#000000"
             android:textSize="15sp"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline273"
             card_view:layout_constraintEnd_toStartOf="@+id/tv_quantity_productsO"
@@ -86,7 +86,7 @@
             android:fontFamily="@font/quicksand_semibold"
             android:gravity="center"
             android:text=""
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:textSize="15sp"
             card_view:layout_constraintBottom_toBottomOf="@+id/textView70"
             card_view:layout_constraintEnd_toEndOf="parent"
@@ -98,9 +98,9 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text=""
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:textSize="15sp"
-            android:fontFamily="@font/quicksand_regular"
+            android:fontFamily="@font/quicksand_semibold"
             android:gravity="center"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline271"
             card_view:layout_constraintEnd_toEndOf="parent"
@@ -111,9 +111,9 @@
             android:id="@+id/tv_order_priceO"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fontFamily="@font/quicksand_regular"
+            android:fontFamily="@font/quicksand_semibold"
             android:text=""
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:textSize="15sp"
             android:gravity="center"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline427"
@@ -127,10 +127,10 @@
             android:id="@+id/tv_order_priceO2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fontFamily="@font/quicksand_semibold"
+            android:fontFamily="@font/quicksand_regular"
             android:gravity="center_vertical"
             android:text="Precio de la orden:"
-            android:textColor="@color/lightBrown"
+            android:textColor="#000000"
             android:textSize="15sp"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline427"
             card_view:layout_constraintEnd_toStartOf="@+id/tv_order_priceO"
@@ -142,7 +142,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            card_view:layout_constraintGuide_percent="0.5" />
+            card_view:layout_constraintGuide_percent="0.4" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline194"
@@ -200,7 +200,7 @@
             android:fontFamily="@font/quicksandbold"
             android:gravity="center"
             android:text="Ver orden completa"
-            android:textColor="#ffffff"
+            android:textColor="@color/ligthBlue"
             android:textSize="15sp"
             card_view:layout_constraintBottom_toTopOf="@+id/guideline294"
             card_view:layout_constraintEnd_toEndOf="parent"
@@ -208,26 +208,6 @@
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="@+id/guideline273"
             card_view:layout_constraintVertical_bias="0.0" />
-
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="@+id/guideline294"
-            card_view:srcCompat="@drawable/background_general" />
-
-        <ImageView
-            android:id="@+id/imageView18"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            card_view:layout_constraintBottom_toTopOf="@+id/guideline310"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent"
-            card_view:srcCompat="@drawable/background_general" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

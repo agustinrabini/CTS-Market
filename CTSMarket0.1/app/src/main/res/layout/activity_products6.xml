@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/gray"
     android:fitsSystemWindows="true"
     tools:context=".activities.productsClasses.ProductsActivity6">
 
@@ -56,14 +56,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.72" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline366"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_percent="0.77" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline396"
@@ -84,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2" />
+        app:layout_constraintGuide_percent="0.21" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline381"
@@ -126,35 +126,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.82" />
+        app:layout_constraintGuide_percent="0.79" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline392"
+        android:id="@+id/guideline356"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
+        app:layout_constraintGuide_percent="0.69" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline300"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.64" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline368"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.88" />
+        app:layout_constraintGuide_percent="0.86" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline393"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9" />
+        app:layout_constraintGuide_percent="0.88" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline369"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.95" />
+        app:layout_constraintGuide_percent="0.96" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline370"
@@ -175,7 +182,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.12" />
+        app:layout_constraintGuide_percent="0.11" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline371"
@@ -245,7 +252,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
+        app:layout_constraintGuide_percent="0.66" />
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/pb_prod_actv6"
+        style="@style/SpinKitView.Large.Pulse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline368"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline356" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -263,8 +282,9 @@
         android:id="@+id/textView57"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fontFamily="@font/quicksand_semibold"
+        android:fontFamily="@font/quicksandbold"
         android:gravity="center"
+        android:elevation="5dp"
         android:text="Confirmá tu compra"
         android:textColor="#000000"
         android:textSize="20dp"
@@ -277,12 +297,12 @@
         android:id="@+id/textView60"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fontFamily="@font/quicksand_semibold"
+        android:background="@color/ligthBlue"
+        android:fontFamily="@font/quicksandbold"
         android:gravity="center"
         android:text="Último paso"
         android:textColor="#000000"
         android:textSize="20dp"
-        android:background="@color/ligthBlue"
         app:layout_constraintBottom_toTopOf="@+id/guideline363"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -296,9 +316,10 @@
         android:layout_height="0dp"
         android:fontFamily="@font/quicksand_medium"
         android:gravity="center"
+        android:elevation="5dp"
         android:text="Precio final :"
         android:textColor="#2e7d32"
-        android:textSize="15dp"
+        android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline368"
         app:layout_constraintEnd_toStartOf="@+id/guideline360"
         app:layout_constraintStart_toStartOf="@+id/guideline364"
@@ -353,6 +374,7 @@
         android:fontFamily="@font/quicksand_regular"
         android:gravity="center"
         android:text=""
+        android:visibility="invisible"
         android:textColor="#ffffff"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline378"
@@ -367,6 +389,7 @@
         android:fontFamily="@font/quicksand_regular"
         android:gravity="center"
         android:text=""
+        android:visibility="invisible"
         android:textColor="#ffffff"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline389"
@@ -381,9 +404,10 @@
         android:fontFamily="@font/quicksand_regular"
         android:gravity="center"
         android:text=""
+        android:visibility="invisible"
         android:textColor="#ffffff"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline392"
+        app:layout_constraintBottom_toTopOf="@+id/guideline300"
         app:layout_constraintEnd_toStartOf="@+id/guideline365"
         app:layout_constraintStart_toStartOf="@+id/guideline364"
         app:layout_constraintTop_toTopOf="@+id/guideline391" />
@@ -395,6 +419,8 @@
         android:fontFamily="@font/quicksand_light"
         android:gravity="center_vertical"
         android:text=""
+        android:paddingLeft="3dp"
+        android:visibility="invisible"
         android:textColor="#ffffff"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline374"
@@ -409,6 +435,7 @@
         android:fontFamily="@font/quicksand_light"
         android:gravity="center_vertical"
         android:text="Cantidad :"
+        android:paddingLeft="3dp"
         android:textColor="#ffffff"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline375"
@@ -423,6 +450,7 @@
         android:fontFamily="@font/quicksand_light"
         android:gravity="center"
         android:text=""
+        android:visibility="invisible"
         android:textColor="#ffffff"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline375"
@@ -436,9 +464,11 @@
         android:layout_height="0dp"
         android:fontFamily="@font/quicksand_medium"
         android:gravity="center"
-        android:text="$4444"
+        android:text=""
+        android:visibility="invisible"
+        android:elevation="5dp"
         android:textColor="#2e7d32"
-        android:textSize="15dp"
+        android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline368"
         app:layout_constraintEnd_toStartOf="@+id/guideline365"
         app:layout_constraintStart_toStartOf="@+id/guideline360"
@@ -448,9 +478,12 @@
         android:id="@+id/btn_confirm_order6"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:elevation="5dp"
+        android:visibility="invisible"
         android:background="@drawable/background_for_prices"
         android:fontFamily="@font/quicksand_semibold"
         android:text="Confirmar compra"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline369"
         app:layout_constraintEnd_toStartOf="@+id/guideline365"
         app:layout_constraintHorizontal_bias="1.0"
@@ -479,13 +512,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/guideline382"
-        android:background="#ffff"/>
+        android:background="@color/gray"/>
 
     <ImageView
         android:id="@+id/imageView24"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#ffff"
+        android:background="@color/gray"
         app:layout_constraintBottom_toTopOf="@+id/guideline370"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
@@ -499,9 +532,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline385"
-        android:background="#ffff"/><![CDATA[ />
-
-    ]]>
+        android:background="@color/gray"/>
 
     <ImageView
         android:id="@+id/imageView25"
@@ -511,7 +542,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline373"
-        android:background="#ffff"/> />
+        android:background="@color/gray"/>
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline356"
+        app:srcCompat="@drawable/background_general10" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
