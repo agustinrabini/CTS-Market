@@ -116,13 +116,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_info3"
+            android:id="@+id/tv_order_historyUP"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:elevation="55dp"
             android:fontFamily="@font/quicksand_regular"
             android:gravity="center_vertical"
-            android:text="Este es tu historial de compras:"
+            android:text=""
             android:textColor="#000000"
             android:textSize="15sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline278"

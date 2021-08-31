@@ -27,7 +27,7 @@
         android:elevation="10dp"
         android:fontFamily="@font/quicksandbold"
         android:gravity="center"
-        android:text="Ubicación "
+        android:text="Mis datos"
         android:textColor="#000000"
         android:textSize="25sp"
         android:background="@color/ligthBlue"

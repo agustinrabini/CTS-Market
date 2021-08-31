@@ -10,6 +10,18 @@
         tools:context=".activities.productsClasses.ProductsActivity2"
         tools:openDrawer="end">
 
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/pb_pa2"
+        style="@style/SpinKitView.Large.Pulse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:id="@+id/iv_product2"
@@ -17,6 +29,7 @@
         android:layout_height="0dp"
         android:elevation="55dp"
         android:scaleType="centerCrop"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline272"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -31,7 +44,8 @@
         android:fontFamily="@font/quicksand_semibold"
         android:gravity="center"
         android:paddingTop="5dp"
-        android:text="Cuchilla Eskilstuna"
+        android:text=""
+        android:visibility="invisible"
         android:textColor="#000000"
         android:textSize="20dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline167"
@@ -40,12 +54,13 @@
         app:layout_constraintTop_toTopOf="@+id/guideline37" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/tv_generic3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:elevation="55dp"
         android:gravity="center"
         android:paddingBottom="2dp"
+        android:visibility="invisible"
         android:text="Medida hoja:"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -63,6 +78,7 @@
         android:fontFamily="@font/quicksand_regular"
         android:gravity="center"
         android:text=""
+        android:visibility="invisible"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline40"
@@ -71,12 +87,13 @@
         app:layout_constraintTop_toTopOf="@+id/guideline36" />
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/tv_generic2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="@font/quicksand_regular"
         android:gravity="center"
         android:paddingBottom="2dp"
+        android:visibility="invisible"
         android:text="Precio:"
         android:textColor="#000000"
         android:textSize="18dp"
@@ -93,6 +110,7 @@
         android:gravity="center"
         android:text=""
         android:textColor="@color/green"
+        android:visibility="invisible"
         android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline192"
         app:layout_constraintEnd_toStartOf="@+id/guideline186"
@@ -101,12 +119,13 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView49"
+        android:id="@+id/tv_generic"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="@font/quicksand_regular"
         android:gravity="left"
         android:text="Detalles"
+        android:visibility="invisible"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline418"
@@ -122,6 +141,7 @@
         android:gravity="center"
         android:text=""
         android:textColor="@color/green"
+        android:visibility="invisible"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline193"
         app:layout_constraintEnd_toStartOf="@+id/guideline333"
@@ -139,9 +159,10 @@
         android:text=""
         android:textColor="#000000"
         android:textSize="18dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/guideline333"
         app:layout_constraintStart_toStartOf="@+id/guideline184"
-        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_generic" />
 
     <Button
         android:id="@+id/btn_buy2"
@@ -151,6 +172,7 @@
         android:fontFamily="@font/quicksandbold"
         android:textSize="18sp"
         android:text="COMPRAR"
+        android:visibility="invisible"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toTopOf="@+id/guideline192"
         app:layout_constraintEnd_toStartOf="@+id/guideline333"
@@ -165,6 +187,7 @@
         android:layout_height="0dp"
         android:elevation="5dp"
         android:gravity="center"
+        android:visibility="invisible"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_cart1"
         app:layout_constraintBottom_toTopOf="@+id/guideline40"
@@ -183,6 +206,7 @@
         android:text="¿Alguna consulta? Hablá con nosotros vía WhatsApp haciendo click aquí"
         android:textColor="@color/grayDarker"
         android:textSize="10sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline331"
         app:layout_constraintEnd_toStartOf="@+id/guideline333"
         app:layout_constraintStart_toStartOf="@+id/guideline184"
@@ -366,6 +390,7 @@
         android:gravity="center"
         android:text="Cant. 1"
         android:textColor="#000000"
+        android:visibility="invisible"
         android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline39"
         app:layout_constraintEnd_toStartOf="@+id/guideline309"
@@ -378,6 +403,7 @@
         android:layout_height="0dp"
         android:elevation="5dp"
         android:gravity="center"
+        android:visibility="invisible"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_heart1"
         app:layout_constraintBottom_toTopOf="@+id/guideline40"
@@ -388,11 +414,12 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView19"
+        android:id="@+id/iv_bkg_pa2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/bkg7"
         android:elevation="4dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline417"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

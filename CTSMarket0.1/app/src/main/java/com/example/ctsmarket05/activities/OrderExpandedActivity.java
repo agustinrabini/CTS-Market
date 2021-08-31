@@ -1,9 +1,14 @@
 package com.example.ctsmarket05.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.Html;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -16,12 +21,18 @@ import com.example.ctsmarket05.adapters.ProductsOrdersAdapter;
 import com.example.ctsmarket05.clickListeners.ProductsOrdersOnCustomClickListener;
 import com.example.ctsmarket05.entities.ProductsOrder;
 import com.example.ctsmarket05.retrofit.productsOrderRetrofit.ProductsOrdersGET;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.ThreeBounce;
 
 public class OrderExpandedActivity extends AppCompatActivity implements ProductsOrdersOnCustomClickListener {
 
     private ProductsOrdersAdapter productsOrdersAdapter = new ProductsOrdersAdapter(this);
     private TextView tvQuestion;
     public TextView tvOrderNumber;
+    public static ImageView ivBkg;
+    public static RecyclerView rvProductsOrder;
+    public static ProgressBar progressBarOrderExpanded;
+    private int ligthBlueColor = Color.parseColor("#75AADB");
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,12 +59,34 @@ public class OrderExpandedActivity extends AppCompatActivity implements Products
 
         tvQuestion = findViewById(R.id.tv_questionOE);
         tvOrderNumber = findViewById(R.id.tv_order_numberOE);
+        ivBkg = findViewById(R.id.iv_bkgOE);
+        rvProductsOrder = findViewById(R.id.rv_products_orderOE);
+        progressBarOrderExpanded = findViewById(R.id.pb_orders_expanded);
     }
 
     private void getData() {
 
-        String genericMesagge = getColoredSpanned("¿Alguna consulta? Hablá con un respresentante de nuestro equipo vía WhatsApp haciendo ", "#B8C6CD");
-        String genericMesagge2 = getColoredSpanned("click aquí.","#9E5E3B");
+
+        Sprite pb = new ThreeBounce();
+        pb.setColor(ligthBlueColor);
+        progressBarOrderExpanded.setIndeterminateDrawable(pb);
+
+        new CountDownTimer(1000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+            }
+
+            public void onFinish() {
+
+                tvQuestion.setVisibility(View.VISIBLE);
+                progressBarOrderExpanded.setVisibility(View.INVISIBLE);
+                ivBkg.setVisibility(View.VISIBLE);
+                rvProductsOrder.setVisibility(View.VISIBLE);
+            }
+        }.start();
+
+        String genericMesagge = getColoredSpanned("¿Alguna consulta? Hablá con un respresentante de nuestro equipo vía WhatsApp haciendo ", "#000000");
+        String genericMesagge2 = getColoredSpanned("click aquí.","#2e7d32");
         tvQuestion.setText(Html.fromHtml(genericMesagge +" "+ genericMesagge2));
 
         Intent fromOrdersActivity = getIntent();
@@ -77,7 +110,6 @@ public class OrderExpandedActivity extends AppCompatActivity implements Products
 
     private void rvProductsOrder() {
 
-        RecyclerView rvProductsOrder = findViewById(R.id.rv_products_orderOE);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rvProductsOrder.setLayoutManager(layoutManager);
         rvProductsOrder.setAdapter(productsOrdersAdapter);

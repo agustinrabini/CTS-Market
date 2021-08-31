@@ -1,5 +1,7 @@
 package com.example.ctsmarket05.adapters;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +13,12 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ctsmarket05.R;
+import com.example.ctsmarket05.activities.HomeActivity;
 import com.example.ctsmarket05.clickListeners.ProductsOnCustomClickListener;
 import com.example.ctsmarket05.activities.productsClasses.ProductsActivity2;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.fragments.HomeFragment;
 import com.example.ctsmarket05.retrofit.favouriteRetrofit.FavCheckGET;
 import com.squareup.picasso.Picasso;
 
@@ -56,6 +60,8 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
 
     public static class ProductsViewHolder extends RecyclerView.ViewHolder{
 
+        private Context ctx;
+
         public ProductsViewHolder(View itemView) {
             super(itemView);
         }
@@ -77,6 +83,21 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
             tvLength.setText(String.valueOf("Longitud hoja " + product.getLength())+"cm");
             Picasso.with(itemView.getContext()).load(product.getImage()).into(ivImage);
 
+            FavCheckGET favCheckGET = new FavCheckGET();
+            favCheckGET.SetOnDataListenerFavCheck(check -> {
+
+                String c =  new String(check.getBytes());
+
+                Integer e = Integer.parseInt(c);
+
+                if (e == 10){
+                    ivFav.setImageResource(R.drawable.ic_heart2);
+                    e=null;
+                    c=null;
+                }
+            });
+            favCheckGET.check(User.IDUSER, id_product);
+
             constraintLayoutProd.setOnClickListener(v -> {
                 listener.onItemClick(product,getAdapterPosition());
 
@@ -92,21 +113,10 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
                 clicked.putExtra("stock", product.getStock());
                 clicked.putExtra("id_product", id_product);
 
+                ctx= v.getContext();
+                ((Activity) ctx).finish();
                 v.getContext().startActivity(clicked);
             });
-
-            FavCheckGET favCheckGET = new FavCheckGET();
-            favCheckGET.SetOnDataListenerFavCheck(check -> {
-
-                String c =  new String(check.getBytes());
-
-                Integer e = Integer.parseInt(c);
-
-                if (e == 10){
-                    ivFav.setImageResource(R.drawable.ic_heart2);
-                }
-            });
-            favCheckGET.check(User.IDUSER, id_product);
         }
     }
 }

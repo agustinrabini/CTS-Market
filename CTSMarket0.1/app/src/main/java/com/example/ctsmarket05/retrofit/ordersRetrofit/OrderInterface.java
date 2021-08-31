@@ -23,6 +23,12 @@ public interface OrderInterface {
     @GET("/order/suo/{id}")
     Call<List<Orders>> showUserOrders(@Path("id") int id_user);
 
+    @GET("/order/cno/{id_user}")//checkea si existe ordenes para mostrar
+    Call<String> checkNullOrder(@Path("id_user") int id_user);
+
+    @GET("/order/cnc/{id_user}")//checkea si existe carritos para mostrar
+    Call<String> checkNullCart(@Path("id_user") int id_user);
+
     @GET("/order/showCart/{id}")//devuelve el carrito activo
     Call<Orders> getCart(@Path("id") int id_user);
 

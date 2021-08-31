@@ -69,6 +69,7 @@ public class ProductsActivity6 extends AppCompatActivity {
                 tvProdName.setVisibility(View.VISIBLE);
                 tvUserInfo.setVisibility(View.VISIBLE);
                 btnConfirmOrder.setVisibility(View.VISIBLE);
+                ivImage.setVisibility(View.VISIBLE);
             }
         }.start();
 
@@ -132,7 +133,7 @@ public class ProductsActivity6 extends AppCompatActivity {
                }break;
 
                case "oneProductSequence":{
-                   Orders orders = new Orders(User.IDUSER, Product.PRICE,Orders.ORDER_QUANTITY,0,1, date);
+                   Orders orders = new Orders(User.IDUSER, Product.PRICE*Orders.ORDER_QUANTITY,Orders.ORDER_QUANTITY,0,1, date);
 
                    OrderOneProductPOST orderOneProductPOST = new OrderOneProductPOST();
                    orderOneProductPOST.oneProductBougth(User.IDUSER, Product.ID_PRODUCT, orders);

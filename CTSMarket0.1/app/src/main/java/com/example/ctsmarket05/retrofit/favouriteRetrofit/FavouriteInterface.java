@@ -17,6 +17,9 @@ public interface FavouriteInterface {
     @GET("/favourite/favCheck/{user_id}/{product_id}")
     Call<String> favCheck(@Path("user_id") int id_user, @Path("product_id") int id_product);
 
-    @POST("fav/favInteracion/{user_id}/{product_id}")
+    @POST("/fav/favInteracion/{user_id}/{product_id}")
     Call<Void> favInteraction(@Path("user_id") int id_user, @Path("product_id") int id_product);
+
+    @GET("/fav/cnf/{id_user}")
+    Call<String> nullFavCheck(@Path("id_user") int id_user);
 }

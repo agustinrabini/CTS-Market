@@ -84,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.15" />
+            app:layout_constraintGuide_percent="0.14" />
 
         <TextView
             android:id="@+id/textView7"
@@ -102,12 +102,12 @@
             app:layout_constraintTop_toTopOf="@+id/guideline448" />
 
         <TextView
-            android:id="@+id/textView65"
+            android:id="@+id/tv_fav"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:fontFamily="@font/quicksand_regular"
             android:gravity="center_vertical"
-            android:text="Productos en lista de favoritos:"
+            android:text=""
             android:textColor="#000000"
             android:textSize="15sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline450"

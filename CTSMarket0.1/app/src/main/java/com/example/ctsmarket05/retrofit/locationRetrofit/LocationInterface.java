@@ -11,12 +11,12 @@ import retrofit2.http.Path;
 
 public interface LocationInterface {
 
-    @POST("location/li")
+    @POST("/location/li")
     Call<Location> locationAdd(@Body Location location);
 
-    @GET("location/{id}")
+    @GET("/location/{id}")
     Call<Location> locationId(@Path("id") int id_location);
 
-    @GET("location/liu/{id}")
+    @GET("/location/liu/{id}")
     Call<Location> locationUser(@Path("id") int id_user);
 }

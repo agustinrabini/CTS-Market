@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.15" />
+            app:layout_constraintGuide_percent="0.14" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline311"
@@ -158,13 +158,13 @@
             app:layout_constraintTop_toTopOf="@+id/guideline293" />
 
         <TextView
-            android:id="@+id/tv_detailsO"
+            android:id="@+id/tv_cart"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:elevation="55dp"
             android:fontFamily="@font/quicksand_regular"
             android:gravity="center_vertical"
-            android:text="Productos en carrito:"
+            android:text=""
             android:textColor="#000000"
             android:textSize="15sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline311"
@@ -177,12 +177,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/background_general5"
+            android:elevation="5dp"
             android:fontFamily="@font/quicksand_semibold"
             android:text="Comprar carrito"
             android:textColor="#2e7d32"
             android:textSize="18sp"
-            android:elevation="5dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/guideline437"
             app:layout_constraintEnd_toStartOf="@+id/guideline431"
             app:layout_constraintHorizontal_bias="0.0"

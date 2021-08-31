@@ -10,10 +10,10 @@ import retrofit2.http.Path;
 
 public interface UserInterface {
 
-    @GET("userCheck/{email}")//en el mainAcivity
+    @GET("/userCheck/{email}")//en el mainAcivity
     Call<Void> checkUser(@Path("email") String email);
 
-    @GET("subg/{email}")// 'show user by gmail' busca User con gmail como parametro.
+    @GET("/subg/{email}")// 'show user by gmail' busca User con gmail como parametro.
     Call<User> getByGmail(@Path("email") String email);
 
     @PUT("/user/uuoal/{id}")//'update user on add lcoation'
