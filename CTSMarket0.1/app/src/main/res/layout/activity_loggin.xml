@@ -18,13 +18,13 @@
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/loggin_solapa" />
+        app:srcCompat="@drawable/background_general3" />
 
     <EditText
         android:id="@+id/editTextTextPassword5"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/button_confirmatio_loggin"
+        android:background="@drawable/background_general3"
         android:ems="10"
         android:hint="Contraseña"
         android:paddingLeft="10dp"
@@ -55,7 +55,7 @@
         android:id="@+id/editTextTextPersonName4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/button_confirmatio_loggin"
+        android:background="@drawable/background_general3"
         android:ems="10"
         android:hint="Email"
         android:paddingLeft="10dp"
@@ -72,7 +72,6 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/quicksandbold"
         android:text="INGRESAR"
-        android:textColor="@color/colorPrimaryDark"
         android:textSize="24dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline27"
         app:layout_constraintEnd_toStartOf="@+id/guideline15"
@@ -236,12 +235,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="INGRESAR"
-        android:background="@drawable/button_confirmatio_loggin"
+        android:background="@drawable/background_general3"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline15"
         app:layout_constraintStart_toStartOf="@+id/guideline14"
         app:layout_constraintTop_toTopOf="@+id/guideline12"
-        android:textColor="@color/colorPrimaryDark"
         android:fontFamily="@font/quicksandbold"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,21 +1,15 @@
 package com.example.ctsmarket05.activities;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.productsClasses.ProductsActivity1;
 import com.example.ctsmarket05.entities.Location;
-import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.fragments.FavoritesFragment;
 import com.example.ctsmarket05.fragments.HomeFragment;
@@ -24,8 +18,6 @@ import com.example.ctsmarket05.fragments.OrdersFragment;
 import com.example.ctsmarket05.retrofit.userRetrofit.UserGET;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
