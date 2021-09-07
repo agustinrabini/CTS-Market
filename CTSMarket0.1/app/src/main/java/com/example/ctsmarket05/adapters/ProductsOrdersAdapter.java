@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.activities.HomeActivity;
-import com.example.ctsmarket05.activities.OrdersActivity;
 import com.example.ctsmarket05.activities.productsClasses.ProductsActivity2;
 import com.example.ctsmarket05.clickListeners.ProductsOrdersOnCustomClickListener;
 import com.example.ctsmarket05.entities.Product;

@@ -2,17 +2,17 @@
     <!-- Base application theme. -->
     <style name="Theme.CTSMarket05" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/colorPrimaryDark</item>
-        <item name="colorPrimaryVariant">@color/colorPrimary</item>
-        <item name="colorOnPrimary">@color/colorAccent</item>
+        <item name="colorPrimary">@color/ligthBlue</item>
+        <item name="colorPrimaryVariant">@color/ligthBlue</item>
+        <item name="colorOnPrimary">#ffff</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/colorPrimaryText</item>
-        <item name="colorSecondaryVariant">@color/colorSecondaryText</item>
-        <item name="colorOnSecondary">@color/colorIcons</item>
+        <item name="colorSecondary">#ffff</item>
+        <item name="colorSecondaryVariant">#ffff</item>
+        <item name="colorOnSecondary">#ffff</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorAccent</item>
-        <item name="android:textColorHint">@android:color/black</item>
-        <item name="android:editTextColor">@android:color/black</item>
+        <item name="android:textColorHint">#ffff</item>
+        <item name="android:editTextColor">#ffff</item>
         <item name="android:windowAnimationStyle">@style/animacion</item>
     </style>
 
@@ -31,8 +31,8 @@
 
     <style name="BottomNavigation">
 
-        <item name="android:background">@color/blackBlue</item>
-        <item name="itemIconTint">@color/orangeBrown</item>
+        <item name="android:background">#ffff</item>
+        <item name="itemIconTint">@color/ligthBlue</item>
     </style>
 
     <style name="Dialog" parent="Theme.AppCompat.NoActionBar">

@@ -10,14 +10,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.ContactoActivity;
-import com.example.ctsmarket05.activities.HomeActivity;
 import com.example.ctsmarket05.activities.InfoActivity;
 
 public class InfoFragment extends Fragment {
