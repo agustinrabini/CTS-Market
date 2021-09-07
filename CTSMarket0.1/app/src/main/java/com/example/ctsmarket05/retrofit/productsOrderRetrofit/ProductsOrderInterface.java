@@ -17,9 +17,6 @@ import retrofit2.http.Path;
 
 public interface ProductsOrderInterface {
 
-    @POST("/productsOrder/addCart")
-    Call<ProductsOrder> addCart(@Body ProductsOrder productsOrder);
-
     @GET("/productsOrder/spobio/{id}")
     Call<List<ProductsOrder>> showProductsOrders(@Path("id") int id_order);
 
