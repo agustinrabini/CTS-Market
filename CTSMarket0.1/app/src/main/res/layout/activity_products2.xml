@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ffff"
-        tools:context=".activities.productsClasses.ProductsActivity2"
+        tools:context=".view.activities.oneProductSequence.OPSActivity"
         tools:openDrawer="end">
 
     <com.github.ybq.android.spinkit.SpinKitView

@@ -10,6 +10,8 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string name="APIurl">https://b408-2800-2141-5400-373-25d9-b4d-224b-e719.ngrok.io</string>
+
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>

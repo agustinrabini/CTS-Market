@@ -10,8 +10,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.OrderExpandedActivity;
-import com.example.ctsmarket05.clickListeners.OrdersOnCustomClickListener;
+import com.example.ctsmarket05.view.activities.OrderExpandedActivity;
+import com.example.ctsmarket05.interfaces.clickListeners.OrdersOnCustomClickListener;
 import com.example.ctsmarket05.entities.Orders;
 
 import org.jetbrains.annotations.NotNull;

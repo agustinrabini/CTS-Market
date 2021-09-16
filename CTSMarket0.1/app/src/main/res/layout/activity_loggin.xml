@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:rotationY="360"
-    tools:context=".activities.RegisterActivity">
+    tools:context=".view.activities.RegisterActivity">
 
     <ImageView
         android:id="@+id/solapa_register"

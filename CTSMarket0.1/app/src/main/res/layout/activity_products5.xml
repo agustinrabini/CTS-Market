@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#ffff"
     android:fitsSystemWindows="true"
-    tools:context=".activities.productsClasses.ProductsActivity5">
+    tools:context=".view.activities.oneProductSequence.OPSActivity4">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline372"

@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffff"
-    tools:context=".fragments.HomeFragment">
+    tools:context=".view.fragments.ProductsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_products"
@@ -20,10 +20,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:elevation="5dp"
+            android:foregroundGravity="center"
             android:orientation="horizontal"
             android:visibility="invisible"
-            android:foregroundGravity="center"
-            app:layout_constraintBottom_toTopOf="@+id/guideline409"
+            app:layout_constraintBottom_toTopOf="@+id/guideline413"
             app:layout_constraintEnd_toStartOf="@+id/guideline115"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline136"
@@ -36,6 +36,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.89" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.35" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline48"
@@ -84,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.65" />
+            app:layout_constraintGuide_percent="0.45" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline404"
@@ -192,22 +199,6 @@
             app:layout_constraintTop_toTopOf="@+id/guideline48" />
 
         <TextView
-            android:id="@+id/tv_questions_home"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:fontFamily="@font/quicksand_regular"
-            android:gravity="center"
-            android:text="Ante cualquier duda escribinos a nuestro WhatsApp, el número se encuentra en la sección de información"
-            android:textColor="@color/yellow"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline413"
-            app:layout_constraintEnd_toStartOf="@+id/guideline115"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/guideline136"
-            app:layout_constraintTop_toTopOf="@+id/guideline48"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <TextView
             android:id="@+id/tv_user_name"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -225,7 +216,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/textView29"
+            android:id="@+id/tv_generic_pf"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:fontFamily="@font/quicksand_light"
@@ -235,8 +226,10 @@
             android:textSize="18dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline403"
             app:layout_constraintEnd_toStartOf="@+id/tv_filter"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline136"
-            app:layout_constraintTop_toTopOf="@+id/guideline404" />
+            app:layout_constraintTop_toTopOf="@+id/guideline404"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/tv_filter"
@@ -267,7 +260,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline408" />
 
         <ImageView
-            android:id="@+id/imageView11"
+            android:id="@+id/iv_generic_pf"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:elevation="2dp"
@@ -276,6 +269,63 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline115"
             app:layout_constraintStart_toStartOf="@+id/guideline136"
             app:layout_constraintTop_toTopOf="@+id/guideline28" />
+
+        <ImageView
+            android:id="@+id/iv_home_pf"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="5dp"
+            android:src="@drawable/ic_outline_home_blue"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/guideline399"
+            app:layout_constraintEnd_toStartOf="@+id/guideline115"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline136"
+            app:layout_constraintTop_toTopOf="@+id/guideline30"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/iv_reload_pf"
+            android:layout_width="4dp"
+            android:layout_height="2dp"
+            android:elevation="2dp"
+            android:src="@drawable/ic_baseline_refresh_24"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/tv_error_pf"
+            app:layout_constraintEnd_toStartOf="@+id/guideline72"
+            app:layout_constraintStart_toStartOf="@+id/guideline116"
+            app:layout_constraintTop_toTopOf="@+id/guideline30" />
+
+        <TextView
+            android:id="@+id/tv_error_pf"
+            android:elevation="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_semibold"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:visibility="gone"
+            android:text=" ¡Algo salió mal! Por favor intentá mas tarde"
+            android:drawableStart="@drawable/ic_baseline_error_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_null_list_pf"
+            android:elevation="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_semibold"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:visibility="gone"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -6,7 +6,7 @@
     android:background="#FFFFFF"
     android:visibility="visible"
     android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
-    tools:context=".activities.MainActivity">
+    tools:context=".view.activities.MainActivity">
 
     <TextView
         android:id="@+id/textView2"

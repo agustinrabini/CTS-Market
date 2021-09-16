@@ -13,13 +13,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.HomeActivity;
-import com.example.ctsmarket05.clickListeners.ProductsOnCustomClickListener;
-import com.example.ctsmarket05.activities.productsClasses.ProductsActivity2;
+import com.example.ctsmarket05.interfaces.clickListeners.ProductsOnCustomClickListener;
+import com.example.ctsmarket05.view.activities.oneProductSequence.OPSActivity;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.User;
-import com.example.ctsmarket05.fragments.HomeFragment;
-import com.example.ctsmarket05.retrofit.favouriteRetrofit.FavCheckGET;
+import com.example.ctsmarket05.model.favourite.FavCheckGET;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -101,7 +99,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
             constraintLayoutProd.setOnClickListener(v -> {
                 listener.onItemClick(product,getAdapterPosition());
 
-                Intent clicked = new Intent(v.getContext(), ProductsActivity2.class);
+                Intent clicked = new Intent(v.getContext(), OPSActivity.class);
 
                 clicked.putExtra("name", product.getName());
                 clicked.putExtra("blade", product.getBlade());

@@ -12,13 +12,13 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.activities.HomeActivity;
-import com.example.ctsmarket05.activities.productsClasses.ProductsActivity2;
-import com.example.ctsmarket05.clickListeners.ProductsOrdersOnCustomClickListener;
+import com.example.ctsmarket05.view.activities.HomeActivity;
+import com.example.ctsmarket05.view.activities.oneProductSequence.OPSActivity;
+import com.example.ctsmarket05.interfaces.clickListeners.ProductsOrdersOnCustomClickListener;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.entities.ProductsOrder;
-import com.example.ctsmarket05.retrofit.ordersRetrofit.CartRemoveDELETE;
-import com.example.ctsmarket05.retrofit.productRetrofit.ProductGET;
+import com.example.ctsmarket05.model.orders.CartRemoveDELETE;
+import com.example.ctsmarket05.model.product.ProductGET;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -117,7 +117,7 @@ public class ProductsOrdersAdapter extends RecyclerView.Adapter<ProductsOrdersAd
                     Integer id = product.getId_product();
                     String id_prod = id.toString();
 
-                    Intent clicked = new Intent(v.getContext(), ProductsActivity2.class);
+                    Intent clicked = new Intent(v.getContext(), OPSActivity.class);
 
                     clicked.putExtra("name", product.getName());
                     clicked.putExtra("blade", product.getBlade());
