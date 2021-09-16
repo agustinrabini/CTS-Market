@@ -95,12 +95,12 @@ public class OrderExpandedActivity extends AppCompatActivity implements Products
 
         tvOrderNumber.setText("Número de orden: " + id_order.toString());
 
-        ProductsOrdersGET productsOrdersGET = new ProductsOrdersGET();
-        productsOrdersGET.SetOnDataListenerProductsOrders(productsOrders -> {
-            productsOrdersAdapter.setProductsOrders(productsOrders);
-        });
-        productsOrdersGET.getProductsOrders(id_order);
-        rvProductsOrder();
+        //ProductsOrdersGET productsOrdersGET = new ProductsOrdersGET();
+        //productsOrdersGET.SetOnDataListenerProductsOrders(productsOrders -> {
+        //    productsOrdersAdapter.setProductsOrders(productsOrders);
+        //});
+        //productsOrdersGET.getProductsOrders(id_order);
+        //rvProductsOrder();
     }
 
     private String getColoredSpanned(String text, String color) {

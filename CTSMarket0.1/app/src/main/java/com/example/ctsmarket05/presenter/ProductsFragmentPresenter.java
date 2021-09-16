@@ -63,6 +63,5 @@ public class ProductsFragmentPresenter extends BasePresenterFragments implements
 
     @Override
     public void onItemClick(Product product, int position) {
-
     }
 }

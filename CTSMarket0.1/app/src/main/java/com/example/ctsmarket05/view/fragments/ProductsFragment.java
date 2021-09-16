@@ -32,7 +32,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class ProductsFragment extends BaseFragment<ProductsFragmentPresenter> implements ProductsOnCustomClickListener, FilterBottomSheet.FilterListenerBottomSheet, ProductsFragmentInterface {
+public class ProductsFragment extends BaseFragment<ProductsFragmentPresenter> implements FilterBottomSheet.FilterListenerBottomSheet, ProductsFragmentInterface {
 
     public static RecyclerView rvProducts;
     private ImageView ivUserPhoto;
@@ -97,21 +97,6 @@ public class ProductsFragment extends BaseFragment<ProductsFragmentPresenter> im
     }
 
     @Override
-    public void onItemClick (Product product, int position) {}
-
-    @Override
-    public void onButtonClickedFilter(String filterProduct) {
-
-        if (filterProduct.equals("*")){
-            tvFilter.setText("Todos");
-        }else{
-            tvFilter.setText(filterProduct+"s");
-        }
-
-        fetchData(filterProduct);
-    }
-
-    @Override
     public void showProgressBar() {
         Sprite pb = new ThreeBounce();
         pb.setColor(ligthBlueColor);
@@ -154,6 +139,8 @@ public class ProductsFragment extends BaseFragment<ProductsFragmentPresenter> im
         progressBarHome.setVisibility(View.GONE);
         tvError.setVisibility(View.VISIBLE);
         ivReload.setVisibility(View.VISIBLE);
+        ivHome.setVisibility(View.INVISIBLE);
+        tvFilter.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -195,5 +182,15 @@ public class ProductsFragment extends BaseFragment<ProductsFragmentPresenter> im
         presenterFragment.fetchData(filter);
     }
 
+    @Override
+    public void onButtonClickedFilter(String filterProduct) {
 
+        if (filterProduct.equals("*")){
+            tvFilter.setText("Todos");
+        }else{
+            tvFilter.setText(filterProduct+"s");
+        }
+
+        fetchData(filterProduct);
+    }
 }

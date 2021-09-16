@@ -1,9 +1,5 @@
 package com.example.ctsmarket05.model.productsOrder;
 
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.ctsmarket05.entities.ProductsOrder;
 import com.example.ctsmarket05.entities.User;
 
@@ -15,11 +11,14 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ProductsOrdersGET extends AppCompatActivity {
+public class ProductsOrdersGET{
 
-private DataInterfaceProductsOrders mListener;
+    public interface onProductsOrdersFetched{
+        void onSucces(List<ProductsOrder> productsOrdersFetchedData);
+        void onFailure();
+    }
 
-    public void getProductsOrders(Integer id_order){
+    public void getProductsOrders(Integer id_order, final onProductsOrdersFetched listener){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -32,26 +31,26 @@ private DataInterfaceProductsOrders mListener;
             @Override
             public void onResponse(Call<List<ProductsOrder>> call, Response<List<ProductsOrder>> response) {
 
-                if(response.isSuccessful() && response.body()!=null){
-                    mListener.responseProductsOrders(response.body());
+                if(!response.isSuccessful()){
+                    listener.onFailure();
+                    return;
                 }
-                else{
-                    Toast.makeText(ProductsOrdersGET.this, "Error:" + response.code(), Toast.LENGTH_LONG).show();
+
+                List<ProductsOrder> productsOrdersList = response.body();
+
+                if (productsOrdersList !=null){
+                    listener.onSucces(response.body());
+
+                }else if(productsOrdersList ==null){
+                    listener.onFailure();
                 }
+
             }
 
             @Override
             public void onFailure(Call<List<ProductsOrder>> call, Throwable t) {
-                Toast.makeText(ProductsOrdersGET.this, "Error:" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                listener.onFailure();
             }
         });
-    }
-
-    public void SetOnDataListenerProductsOrders(DataInterfaceProductsOrders listener){
-        mListener = listener;
-    }
-
-    public interface DataInterfaceProductsOrders {
-        void responseProductsOrders(List<ProductsOrder> productsOrders);
     }
 }

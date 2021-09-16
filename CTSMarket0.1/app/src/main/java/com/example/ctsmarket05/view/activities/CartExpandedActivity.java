@@ -14,7 +14,7 @@ import com.example.ctsmarket05.interfaces.clickListeners.ProductsOrdersOnCustomC
 import com.example.ctsmarket05.adapters.ProductsOrdersAdapter;
 import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.ProductsOrder;
-import com.example.ctsmarket05.model.orders.OrdersCartGET;
+import com.example.ctsmarket05.model.orders.CartGET;
 import com.example.ctsmarket05.model.productsOrder.ProductsOrdersGET;
 
 public class CartExpandedActivity extends AppCompatActivity implements ProductsOrdersOnCustomClickListener {
@@ -50,25 +50,25 @@ public class CartExpandedActivity extends AppCompatActivity implements ProductsO
         //Intent fromOrdersActivity = getIntent();
         //Integer id_order = fromOrdersActivity.getIntExtra("id_order",0);
 
-        OrdersCartGET ordersCartGET = new OrdersCartGET();
-        ordersCartGET.SetOnDataListenerOrderCart(order -> {
-
-            Integer id_order = order.getId_order();
-            Integer price = order.getOrder_price();
-            Integer quantity_products = order.getQuantity_products();
-            Integer state = order.getOrder_state();
-
-            Orders.ORDER_PRICE = price;
-
-            ProductsOrdersGET productsOrdersGET = new ProductsOrdersGET();
-            productsOrdersGET.SetOnDataListenerProductsOrders(productsOrders -> {
-                productsOrdersAdapter.setProductsOrders(productsOrders);
-            });
-            productsOrdersGET.getProductsOrders(id_order);
-
-            rvProductsOrder();
-        });
-        ordersCartGET.getOrderCart();
+        //CartGET cartGET = new CartGET();
+        //cartGET.SetOnDataListenerOrderCart(order -> {
+//
+        //    Integer id_order = order.getId_order();
+        //    Integer price = order.getOrder_price();
+        //    Integer quantity_products = order.getQuantity_products();
+        //    Integer state = order.getOrder_state();
+//
+        //    Orders.ORDER_PRICE = price;
+//
+        //    ProductsOrdersGET productsOrdersGET = new ProductsOrdersGET();
+        //    productsOrdersGET.SetOnDataListenerProductsOrders(productsOrders -> {
+        //        productsOrdersAdapter.setProductsOrders(productsOrders);
+        //    });
+        //    productsOrdersGET.getProductsOrders(id_order);
+//
+        //    rvProductsOrder();
+        //});
+        //cartGET.getCart();
     }
 
     private void rvProductsOrder() {

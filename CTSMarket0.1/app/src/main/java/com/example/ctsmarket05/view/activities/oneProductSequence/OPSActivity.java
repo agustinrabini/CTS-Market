@@ -292,6 +292,6 @@ public class OPSActivity extends AppCompatActivity implements QuantityBottomShee
     @Override
     public void onBackPressed() {
 
-        startActivity(new Intent(this, HomeActivity.class));
+        finish();
     }
 }

@@ -17,7 +17,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ProductsGET extends AppCompatActivity {
+public class ProductsGET{
 
     public interface onProductsFetched{
         void onSucces(List<Product> productsFetchedData);
@@ -46,10 +46,9 @@ public class ProductsGET extends AppCompatActivity {
                 List<Product> productList = response.body();
 
                 if (productList !=null){
-
                     listener.onSucces(response.body());
-                }else if(productList==null){
 
+                }else if(productList==null){
                     listener.nullList(filter);
                 }
             }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragments.OrdersFragment">
+    tools:context=".view.fragments.CartFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -75,6 +75,20 @@
             app:layout_constraintGuide_percent="0.2" />
 
         <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.45" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.35" />
+
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline168"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -109,6 +123,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -116,25 +131,26 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_products_orderOF"
+            android:id="@+id/rv_products_order_cf"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/background_general9"
             android:elevation="5dp"
-            android:visibility="invisible"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/guideline60"
             app:layout_constraintEnd_toStartOf="@+id/guideline431"
             app:layout_constraintStart_toStartOf="@+id/guideline299"
             app:layout_constraintTop_toTopOf="@+id/guideline311" />
 
         <TextView
-            android:id="@+id/textView64"
+            android:id="@+id/tv_generic_cf"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/background_general3"
             android:fontFamily="@font/quicksandbold"
             android:gravity="center"
             android:text="Carrito"
+            android:visibility="gone"
             android:textColor="#000000"
             android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline187"
@@ -143,12 +159,13 @@
             app:layout_constraintTop_toTopOf="@+id/guideline168" />
 
         <TextView
-            android:id="@+id/tv_cart_price_OF"
+            android:id="@+id/tv_cart_price_cf"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:elevation="5dp"
             android:fontFamily="@font/quicksand_regular"
             android:gravity="center"
+            android:visibility="gone"
             android:text=""
             android:textColor="#000000"
             android:textSize="14sp"
@@ -158,13 +175,14 @@
             app:layout_constraintTop_toTopOf="@+id/guideline293" />
 
         <TextView
-            android:id="@+id/tv_cart"
+            android:id="@+id/tv_cart_cf"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:elevation="55dp"
             android:fontFamily="@font/quicksand_regular"
             android:gravity="center_vertical"
             android:text=""
+            android:visibility="gone"
             android:textColor="#000000"
             android:textSize="15sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline311"
@@ -173,7 +191,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline189" />
 
         <Button
-            android:id="@+id/btn_buy_cartO"
+            android:id="@+id/btn_buy_cart_cf"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/background_general5"
@@ -182,13 +200,57 @@
             android:text="Comprar carrito"
             android:textColor="#2e7d32"
             android:textSize="18sp"
-            android:visibility="invisible"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/guideline437"
             app:layout_constraintEnd_toStartOf="@+id/guideline431"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline299"
             app:layout_constraintTop_toTopOf="@+id/guideline304"
             app:layout_constraintVertical_bias="0.0" />
+
+
+        <ImageView
+            android:id="@+id/iv_cart_cf"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="5dp"
+            android:src="@drawable/ic_outline_shopping_cart_blue"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/guideline31"
+            app:layout_constraintEnd_toStartOf="@+id/guideline431"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline299"
+            app:layout_constraintTop_toTopOf="@+id/guideline38"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/iv_reload_cf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="2dp"
+            android:src="@drawable/ic_baseline_refresh_24"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/tv_error_pf"
+            app:layout_constraintEnd_toStartOf="@+id/guideline72"
+            app:layout_constraintStart_toStartOf="@+id/guideline116"
+            app:layout_constraintTop_toTopOf="@+id/guideline30" />
+
+        <TextView
+            android:id="@+id/tv_error_cf"
+            android:elevation="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_semibold"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:visibility="gone"
+            android:text=" ¡Algo salió mal! Por favor intentá mas tarde"
+            android:drawableStart="@drawable/ic_baseline_error_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

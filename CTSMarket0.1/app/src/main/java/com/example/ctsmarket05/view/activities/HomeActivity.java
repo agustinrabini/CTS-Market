@@ -1,29 +1,21 @@
 package com.example.ctsmarket05.view.activities;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.base.BaseActivity;
-import com.example.ctsmarket05.entities.Location;
-import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.interfaces.HomeActivityInterface;
 import com.example.ctsmarket05.presenter.HomeActivityPresenter;
 import com.example.ctsmarket05.view.fragments.FavoritesFragment;
 import com.example.ctsmarket05.view.fragments.ProductsFragment;
 import com.example.ctsmarket05.view.fragments.InfoFragment;
-import com.example.ctsmarket05.view.fragments.OrdersFragment;
+import com.example.ctsmarket05.view.fragments.CartFragment;
 import com.example.ctsmarket05.model.user.UserGET;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -32,7 +24,7 @@ public class HomeActivity extends BaseActivity<HomeActivityPresenter> implements
     private BottomNavigationView bottomNavigationView ;
 
     FavoritesFragment favoritesFragment = new FavoritesFragment();
-    OrdersFragment ordersFragment = new OrdersFragment();
+    CartFragment cartFragment = new CartFragment();
     InfoFragment infoFragment = new InfoFragment();
     ProductsFragment productsFragment = new ProductsFragment();
 
@@ -63,7 +55,7 @@ public class HomeActivity extends BaseActivity<HomeActivityPresenter> implements
                 return true;
 
             case R.id.cart:
-                loadFragment(ordersFragment);
+                loadFragment(cartFragment);
                 return true;
 
             case R.id.favorites:
@@ -93,5 +85,12 @@ public class HomeActivity extends BaseActivity<HomeActivityPresenter> implements
     @Override
     public void setFragment() {
         navigationView();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        finish();
     }
 }

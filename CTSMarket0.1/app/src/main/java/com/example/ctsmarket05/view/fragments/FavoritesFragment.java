@@ -1,40 +1,52 @@
 package com.example.ctsmarket05.view.fragments;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.adapters.FavAdapter;
-import com.example.ctsmarket05.interfaces.clickListeners.FavOnCustomClickListener;
+import com.example.ctsmarket05.base.BaseFragment;
+import com.example.ctsmarket05.interfaces.FavoritesFragmentInterface;
 import com.example.ctsmarket05.entities.Favourite;
-import com.example.ctsmarket05.entities.User;
-import com.example.ctsmarket05.model.favourite.FavNullCheckGET;
 import com.example.ctsmarket05.model.favourite.FavsGET;
+import com.example.ctsmarket05.presenter.FavoritesFragmentPresenter;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.ThreeBounce;
 
+import org.jetbrains.annotations.NotNull;
 
-public class FavoritesFragment extends Fragment implements FavOnCustomClickListener {
+import java.util.List;
+
+
+public class FavoritesFragment extends BaseFragment<FavoritesFragmentPresenter> implements FavoritesFragmentInterface{
 
     public static RecyclerView rvFavs;
-    private FavAdapter favAdapter = new FavAdapter(this);
     private TextView tvFav;
+    private TextView tvGeneric;
+    private TextView tvError;
+    private ImageView ivFav;
+    private ImageView ivReload;
     public static ProgressBar progressBarFav;
     private int ligthBlueColor = Color.parseColor("#75AADB");
 
     public FavoritesFragment() {
-        // Required empty public constructor
+    }
+
+    @NotNull
+    @Override
+    protected FavoritesFragmentPresenter createPresenter(@NotNull Context context) {
+        return new FavoritesFragmentPresenter(this, new FavsGET());
     }
 
     @Override
@@ -43,86 +55,75 @@ public class FavoritesFragment extends Fragment implements FavOnCustomClickListe
 
     }
 
-    public void nullChecker(){
-
-        Sprite pb = new ThreeBounce();
-        pb.setColor(ligthBlueColor);
-        progressBarFav.setIndeterminateDrawable(pb);
-
-        new CountDownTimer(1000, 1000) {
-
-            public void onTick(long millisUntilFinished) {
-            }
-
-            public void onFinish() {
-                progressBarFav.setVisibility(View.INVISIBLE);
-
-            }
-        }.start();
-
-        FavNullCheckGET favNullCheckGET = new FavNullCheckGET();
-        favNullCheckGET.SetOnDataInterfaceFavCheck (check -> {
-
-            String c =  new String(check.getBytes());
-
-            Integer e = Integer.parseInt(c);
-
-            switch (e) {
-
-                case 0: {
-
-                    tvFav.setText("Esta es tu lista de favoritos. Cuando guardes productos en favoritos aparecerán aquí.");
-                }
-                break;
-
-                case 1:{
-
-                    rvFavs();
-                    getData();
-                    tvFav.setText("Esta es tu lista de favoritos:");
-                }
-                break;
-            }
-
-        });
-        favNullCheckGET.check(User.IDUSER);
-    }
-
-    private void getData() {
-
-        int ligthBlueColor = Color.parseColor("#75AADB");
-        Sprite doubleBounce = new ThreeBounce();
-        doubleBounce.setColor(ligthBlueColor);
-        progressBarFav.setIndeterminateDrawable(doubleBounce);
-
-        FavsGET favsGET = new FavsGET();
-        favsGET.SetOnDataListenerFavourite(favourites -> {
-            favAdapter.setFavs(favourites);
-        });
-        favsGET.getFavs();
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
         View v = inflater.inflate(R.layout.fragment_favorites, container, false);
 
         rvFavs= v.findViewById(R.id.rv_favs);
         progressBarFav = v.findViewById(R.id.pb_fav);
         tvFav = v.findViewById(R.id.tv_fav);
+        tvGeneric = v.findViewById(R.id.tv_generic_fav);
+        tvError = v.findViewById(R.id.tv_error_fav);
+        ivFav = v.findViewById(R.id.iv_fav);
+        ivReload = v.findViewById(R.id.iv_reload_fav);
 
-        nullChecker();
+        fetchData();
         return v;
     }
 
-    private void rvFavs() {
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        rvFavs.setLayoutManager(layoutManager);
-        rvFavs.setAdapter(favAdapter);
+    @Override
+    public void fetchData() {
+        presenterFragment.fetchFavs();
     }
 
     @Override
-    public void onItemClick(Favourite favourite, int position) {}
+    public void favoritesNull(String message) {
+        tvFav.setText(message);
+        tvFav.setVisibility(View.VISIBLE);
+        tvGeneric.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void setFavsList(List<Favourite> favouriteList, FavAdapter favAdapter) {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        rvFavs.setLayoutManager(layoutManager);
+        rvFavs.setAdapter(favAdapter);
+        favAdapter.setFavs(favouriteList);
+    }
+
+    @Override
+    public void showProgressBar() {
+        Sprite threeBounce = new ThreeBounce();
+        threeBounce.setColor(ligthBlueColor);
+        progressBarFav.setIndeterminateDrawable(threeBounce);
+        progressBarFav.setVisibility(View.VISIBLE);
+        ivFav.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        progressBarFav.setVisibility(View.INVISIBLE);
+        ivFav.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void setLayoutVisible() {
+        tvFav.setText("Esta es tu lista de productos favoritos:");
+        tvFav.setVisibility(View.VISIBLE);
+        tvGeneric.setVisibility(View.VISIBLE);
+        rvFavs.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onError() {
+        ivReload.setVisibility(View.VISIBLE);
+        tvError.setVisibility(View.VISIBLE);
+        ivFav.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void reload() {
+        presenterFragment.fetchFavs();
+    }
 }

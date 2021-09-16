@@ -11,8 +11,7 @@ import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.Product;
 import com.example.ctsmarket05.model.orders.OrderCartBoughtPUT;
-import com.example.ctsmarket05.model.orders.OrdersCartGET;
-import com.example.ctsmarket05.model.user.UserGET;
+import com.example.ctsmarket05.model.orders.CartGET;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -67,15 +66,15 @@ public class CartBuyFinalActivity extends AppCompatActivity {
             Calendar calendar = Calendar.getInstance();
             String date = DateFormat.getDateInstance().format(calendar.getTime());
 
-            OrdersCartGET ordersCartGET = new OrdersCartGET();
-            ordersCartGET.SetOnDataListenerOrderCart(order -> {
-
-                Integer id_order = order.getId_order();
-
-                OrderCartBoughtPUT orderCartBoughtPUT = new OrderCartBoughtPUT();
-                orderCartBoughtPUT.boughtCart(id_order,1,1,date);
-            });
-            ordersCartGET.getOrderCart();
+            //CartGET cartGET = new CartGET();
+            //cartGET.SetOnDataListenerOrderCart(order -> {
+//
+            //    Integer id_order = order.getId_order();
+//
+            //    OrderCartBoughtPUT orderCartBoughtPUT = new OrderCartBoughtPUT();
+            //    orderCartBoughtPUT.boughtCart(id_order,1,1,date);
+            //});
+            //cartGET.getCart();
 
 
             Intent finishBuySequence = new Intent(this, HomeActivity.class);
