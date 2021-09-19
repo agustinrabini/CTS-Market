@@ -97,7 +97,6 @@ public class CartFragment extends BaseFragment<CartFragmentPresenter> implements
         return v;
     }
 
-
     @Override
     public void fetchData() {
         presenterFragment.fetchCart();
@@ -113,11 +112,10 @@ public class CartFragment extends BaseFragment<CartFragmentPresenter> implements
     }
 
     @Override
-    public void setProductsOrderList(List<ProductsOrder> productsOrdersList, ProductsOrdersAdapter productsOrdersAdapter, Integer cartPrice) {
+    public void setProductsOrderList(ProductsOrdersAdapter productsOrdersAdapter, Integer cartPrice) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         rvProductsCart.setLayoutManager(layoutManager);
         rvProductsCart.setAdapter(productsOrdersAdapter);
-        productsOrdersAdapter.setProductsOrders(productsOrdersList);
         tvCartPrice.setText("El valor del carrito es de " + cartPrice.toString()+"$ARS");
     }
 

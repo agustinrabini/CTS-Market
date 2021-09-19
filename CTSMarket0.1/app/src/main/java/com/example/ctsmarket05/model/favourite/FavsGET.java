@@ -50,7 +50,7 @@ public class FavsGET{
 
             @Override
             public void onFailure(Call<List<Favourite>> call, Throwable t) {
-
+                listener.onFailure();
             }
         });
     }

@@ -156,12 +156,11 @@ public class ProductsFragment extends BaseFragment<ProductsFragmentPresenter> im
     }
 
     @Override
-    public void setProductsList(List<Product> products, ProductsAdapter productsAdapter) {
+    public void setProductsList(ProductsAdapter productsAdapter) {
 
         rvProducts.setLayoutManager(new GridLayoutManager(getContext(), 2));
         rvProducts.setAdapter(productsAdapter);
         rvProducts.setVisibility(View.VISIBLE);
-        productsAdapter.setProducts(products);
     }
 
     @Override

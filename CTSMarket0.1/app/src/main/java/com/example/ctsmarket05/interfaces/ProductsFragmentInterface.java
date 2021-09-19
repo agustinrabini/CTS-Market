@@ -20,7 +20,7 @@ public interface ProductsFragmentInterface {
     void getUserData(Context context);
     void showUserData(String userName, String userPhoto, Context context);
 
-    void setProductsList(List<Product> products, ProductsAdapter productsAdapter);
+    void setProductsList(ProductsAdapter productsAdapter);
 
     void fetchData(String filter);
 

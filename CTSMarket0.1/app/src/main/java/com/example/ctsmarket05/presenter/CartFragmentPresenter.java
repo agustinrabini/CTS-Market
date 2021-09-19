@@ -31,7 +31,8 @@ public class CartFragmentPresenter extends BasePresenterFragments implements Car
 
     @Override
     public void onSucces(List<ProductsOrder> productsOrderList, Integer cartPrice) {
-        view.setProductsOrderList(productsOrderList, productsOrdersAdapter, cartPrice);
+        view.setProductsOrderList(productsOrdersAdapter, cartPrice);
+        productsOrdersAdapter.setProductsOrders(productsOrderList);
         view.hideProgressBar();
         view.setLayoutVisible();
     }

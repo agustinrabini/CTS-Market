@@ -15,7 +15,7 @@ public interface CartFragmentInterface {
     void nullChecker(String message);
     void setLayoutVisible();
 
-    void setProductsOrderList(List<ProductsOrder> productsOrdersList, ProductsOrdersAdapter productsOrdersAdapter, Integer cartPrice);
+    void setProductsOrderList(ProductsOrdersAdapter productsOrdersAdapter, Integer cartPrice);
 
     void onError();
     void reload();

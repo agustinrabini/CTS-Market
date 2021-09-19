@@ -11,7 +11,7 @@ public interface FavoritesFragmentInterface {
 
     void fetchData();
     void favoritesNull(String message);
-    void setFavsList(List<Favourite> favouriteList, FavAdapter favAdapter);
+    void setFavsList(FavAdapter favAdapter);
 
     void showProgressBar();
     void hideProgressBar();

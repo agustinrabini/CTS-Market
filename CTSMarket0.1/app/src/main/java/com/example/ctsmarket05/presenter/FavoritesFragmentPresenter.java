@@ -31,10 +31,12 @@ public class FavoritesFragmentPresenter extends BasePresenterFragments implement
 
     @Override
     public void onSucces(List<Favourite> favouriteList) {
-        view.setFavsList(favouriteList, favAdapter);
+        view.setFavsList(favAdapter);
+        favAdapter.setFavs(favouriteList);
         view.hideProgressBar();
         view.setLayoutVisible();
     }
+
 
     @Override
     public void onFailure() {
@@ -50,4 +52,5 @@ public class FavoritesFragmentPresenter extends BasePresenterFragments implement
     @Override
     public void onItemClick(Favourite favourite, int position) {
     }
+
 }

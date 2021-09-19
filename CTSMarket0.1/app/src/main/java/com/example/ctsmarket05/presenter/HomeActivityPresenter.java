@@ -20,9 +20,6 @@ public class HomeActivityPresenter extends BasePresenterActivities implements Us
 
     private HomeActivityInterface view;
     private UserGET userInteractor;
-    private HomeActivity HomeActivity;
-    public SharedPreferences userSP;
-    AppCompatActivity appCompatActivity;
 
     public HomeActivityPresenter(@NonNull HomeActivityInterface view, @NonNull UserGET userInteractor){
         this.view = view;

@@ -85,11 +85,10 @@ public class FavoritesFragment extends BaseFragment<FavoritesFragmentPresenter> 
     }
 
     @Override
-    public void setFavsList(List<Favourite> favouriteList, FavAdapter favAdapter) {
+    public void setFavsList(FavAdapter favAdapter) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         rvFavs.setLayoutManager(layoutManager);
         rvFavs.setAdapter(favAdapter);
-        favAdapter.setFavs(favouriteList);
     }
 
     @Override

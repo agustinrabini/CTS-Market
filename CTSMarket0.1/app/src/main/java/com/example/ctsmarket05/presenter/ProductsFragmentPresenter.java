@@ -16,7 +16,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 import java.util.List;
 
-public class ProductsFragmentPresenter extends BasePresenterFragments implements ProductsGET.onProductsFetched, ProductsOnCustomClickListener {
+public class ProductsFragmentPresenter extends BasePresenterFragments implements ProductsGET.onProductsFetched, ProductsOnCustomClickListener{
 
     private ProductsFragmentInterface view;
     private ProductsGET productsInteractor;
@@ -47,7 +47,8 @@ public class ProductsFragmentPresenter extends BasePresenterFragments implements
     public void onSucces(List<Product> productsFetchedData) {
         view.hideProgressBar();
         view.showRv();
-        view.setProductsList(productsFetchedData, productsAdapter);
+        productsAdapter.setProducts(productsFetchedData);
+        view.setProductsList(productsAdapter);
     }
 
     @Override
