@@ -26,5 +26,7 @@ public interface OPSActivityInterface {
     void activeCart();
     void activeFav();
 
+    void nextActivity();
+
     void onError();
 }

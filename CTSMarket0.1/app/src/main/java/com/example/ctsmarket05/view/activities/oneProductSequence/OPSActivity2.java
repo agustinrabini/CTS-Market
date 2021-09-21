@@ -1,32 +1,47 @@
 package com.example.ctsmarket05.view.activities.oneProductSequence;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.ctsmarket05.R;
+import com.example.ctsmarket05.base.BaseActivity;
+import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.interfaces.OPS2ActivityInterface;
+import com.example.ctsmarket05.model.OPS2Interactor;
+import com.example.ctsmarket05.presenter.OPS2ActivityPresenter;
 import com.example.ctsmarket05.view.activities.userActivities.UserInfoEditActivity;
-import com.example.ctsmarket05.model.user.UserGET;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.ThreeBounce;
 
-public class OPSActivity2 extends AppCompatActivity {
+import org.jetbrains.annotations.NotNull;
+
+public class OPSActivity2 extends BaseActivity<OPS2ActivityPresenter> implements OPS2ActivityInterface {
 
     private TextView tvUser;
     private TextView tvChangeUserInfo;
-    private TextView tvNeedEditUser;
+    private TextView tvAlert;
+    private TextView tvError;
+    private TextView tvGeneric;
+    private TextView tvGeneric2;
+    private TextView tvGeneric3;
+    private ImageView ivGeneric;
+    private ImageView ivGeneric2;
     private Button btnBuy;
-    private ImageView ivNeedLocation;
     private ProgressBar progressBarPA3;
     private int ligthBlueColor = Color.parseColor("#75AADB");
+
+    @NotNull
+    @Override
+    protected OPS2ActivityPresenter createPresenter(@NotNull Context context) {
+        return new OPS2ActivityPresenter(this, new OPS2Interactor());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,83 +51,119 @@ public class OPSActivity2 extends AppCompatActivity {
         findViews();
         changeUserInfo();
         next();
-        showUserInfo();
+        fetchUserData();
     }
 
     private void changeUserInfo(){
 
         tvChangeUserInfo.setOnClickListener(v -> {
-            UserInfoEditActivity.from = "boughtSequence";
-            Intent toUserEdit = new Intent(this, UserInfoEditActivity.class);
-            startActivity(toUserEdit);
-            finish();
+            changeClicked();
         });
-    }
-
-    private void showUserInfo(){
-
-        Sprite pb = new ThreeBounce();
-        pb.setColor(ligthBlueColor);
-        progressBarPA3.setIndeterminateDrawable(pb);
-        btnBuy.setEnabled(false);
-
-        new CountDownTimer(3000, 1000) {
-
-            public void onTick(long millisUntilFinished) {
-            }
-
-            public void onFinish() {
-                progressBarPA3.setVisibility(View.INVISIBLE);
-                tvUser.setVisibility(View.VISIBLE);
-                btnBuy.setEnabled(true);
-            }
-        }.start();
-
-
-        //UserGET userGET = new UserGET();
-        //userGET.SetOnDataListenerUser(user -> {
-//
-//
-        //    String name = user.getName_lastname();
-        //    Integer dni = user.getDni();
-        //    Integer phone = user.getPhone();
-//
-        //    if (name==null||dni==null||phone==null) {
-//
-        //        tvNeedEditUser.setVisibility(View.VISIBLE);
-        //        ivNeedLocation.setVisibility(View.VISIBLE);
-        //        tvChangeUserInfo.setVisibility(View.VISIBLE);
-        //        tvChangeUserInfo.setText("Agregar información");
-//
-        //    }else{
-        //        btnBuy.setVisibility(View.VISIBLE);
-        //        tvChangeUserInfo.setVisibility(View.VISIBLE);
-        //        tvChangeUserInfo.setText("Editar información");
-        //        tvUser.setText(
-        //                "Nombre: " + user.getName_lastname()+ "\n" + "\n" +"DNI: " + user.getDni().toString() + "\n" + "\n" + "Celular:" + user.getPhone()
-        //        );
-        //    }
-        //});
-        //userGET.getUserByGmail();
     }
 
     private void next(){
 
         btnBuy.setOnClickListener(v -> {
 
-          Intent toProdActv5 = new Intent(this, OPSActivity3.class);
-          startActivity(toProdActv5);
+          nextActivity();
         });
 
     }
 
     private void findViews(){
 
-        tvChangeUserInfo = findViewById(R.id.tv_change_user_info4);
-        tvUser = findViewById(R.id.tv_user_info4);
-        tvNeedEditUser = findViewById(R.id.tv_need_to_add_user_info4);
-        ivNeedLocation = findViewById(R.id.iv_need_to_add_user_info4);
-        btnBuy = findViewById(R.id.btn_buy4);
-        progressBarPA3 = findViewById(R.id.pb_prod_actv3);
+        //SharedPreferences orderPref = getSharedPreferences("OPS", Context.MODE_PRIVATE);
+//
+        //Gson gson = new Gson();
+        //String jsonOPSOrder = orderPref.getString("orderOPS", "");
+        //Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
+        //Integer idProduct = orderPref.getInt("idProduct",0);
+
+
+        tvChangeUserInfo = findViewById(R.id.tv_change_user_info_ops2);
+        tvUser = findViewById(R.id.tv_user_info_ops2);
+        tvAlert = findViewById(R.id.tv_add_user_info_ops2);
+        tvError = findViewById(R.id.tv_error_ops2);
+        btnBuy = findViewById(R.id.btn_buy_ops2);
+        progressBarPA3 = findViewById(R.id.pb_ops2);
+        tvError= findViewById(R.id.tv_error_ops2);;
+        tvGeneric= findViewById(R.id.tv_generic_ops2);;
+        tvGeneric2= findViewById(R.id.tv_generic2_ops2);;
+        tvGeneric3= findViewById(R.id.tv_generic3_ops2);;
+        ivGeneric= findViewById(R.id.iv_generic_ops2);;
+        ivGeneric2= findViewById(R.id.iv_generic2_ops2);;
+    }
+
+    @Override
+    public void setLayoutVisible() {
+        tvUser.setVisibility(View.VISIBLE);
+        tvChangeUserInfo.setVisibility(View.VISIBLE);
+        tvGeneric.setVisibility(View.VISIBLE);
+        tvGeneric2.setVisibility(View.VISIBLE);
+        ivGeneric.setVisibility(View.VISIBLE);
+        ivGeneric2.setVisibility(View.VISIBLE);
+        tvGeneric3.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void showProgressBar() {
+        Sprite pb = new ThreeBounce();
+        pb.setColor(ligthBlueColor);
+        progressBarPA3.setIndeterminateDrawable(pb);
+        progressBarPA3.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        progressBarPA3.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void setUserData(User user) {
+        tvUser.setText(
+                user.getName_lastname() + "\n" + "\n" + user.getPhone().toString() + "\n" + "\n" + user.getDni().toString()
+        );
+    }
+
+    @Override
+    public void fetchUserData() {
+        presenterActivity.fetchUserData();
+    }
+
+    @Override
+    public void changeClicked() {
+        UserInfoEditActivity.from = "boughtSequence";
+        Intent toUserEdit = new Intent(this, UserInfoEditActivity.class);
+        startActivity(toUserEdit);
+        finish();
+    }
+
+    @Override
+    public void dataFounded() {
+        btnBuy.setVisibility(View.VISIBLE);
+        tvChangeUserInfo.setText("Editar información");
+    }
+
+    @Override
+    public void dataNotFounded() {
+        tvAlert.setVisibility(View.VISIBLE);
+        tvChangeUserInfo.setText("Añadir información");
+    }
+
+    @Override
+    public void nextActivity() {
+        Intent toProdActv5 = new Intent(this, OPSActivity3.class);
+        startActivity(toProdActv5);
+    }
+
+    @Override
+    public void onError() {
+        tvError.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

@@ -1,6 +1,5 @@
 package com.example.ctsmarket05.presenter;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,23 +12,21 @@ import com.example.ctsmarket05.interfaces.OPSActivityInterface;
 import com.example.ctsmarket05.model.OPSInteractor;
 import com.example.ctsmarket05.view.fragments.bottomSheets.QuantityBottomSheet;
 
-import java.net.UnknownServiceException;
-
-public class OPSActivityPresenter extends BasePresenterActivities implements OPSInteractor.onProductState, OPSInteractor.onCartInteraction{
+public class OPSActivityPresenter extends BasePresenterActivities implements OPSInteractor.opsInteractor {
 
     private OPSActivityInterface view;
-    private OPSInteractor productsInteractor;
+    private OPSInteractor interactor;
     private Integer f;
     private Integer c;
 
-    public OPSActivityPresenter(@NonNull OPSActivityInterface view, @NonNull OPSInteractor productsInteractor){
+    public OPSActivityPresenter(@NonNull OPSActivityInterface view, @NonNull OPSInteractor interactor){
         this.view = view;
-        this.productsInteractor = productsInteractor;
+        this.interactor = interactor;
     }
 
     public void getProductState(Integer idProduct){
         view.showProgressBar();
-        productsInteractor.checkCart(idProduct, User.IDUSER, this);
+        interactor.checkCart(idProduct, User.IDUSER, this);
     }
 
     public void changeQuantity(FragmentManager fragmentManager, Integer stock){
@@ -48,32 +45,36 @@ public class OPSActivityPresenter extends BasePresenterActivities implements OPS
 
         if (c == 10){
 
-            productsInteractor.deleteCart(User.IDUSER, idProd);
+            interactor.deleteCart(User.IDUSER, idProd, this);
             view.cartRemove();
+            c=0;
 
-        }else{
+        }else if(c==0){
 
             Orders order = new Orders(User.IDUSER,price*quantityProduct,quantityProduct,10,null,"");
-            productsInteractor.addCart(idProd, order);
+            interactor.addCart(idProd, order, this);
             view.activeCart();
+            c=10;
         }
 
     }
 
+    //añade o quita un objeto de la lista de favoritos segun corresponda.
     public void favClicked(Integer idProd){
 
         if (f==10){
             view.favRemove();
-        }else{
+            f=1;
+        }else if(f == 1){
             view.activeFav();
+            f=10;
         }
 
-        productsInteractor.favInteraction(User.IDUSER, idProd);
-
+        interactor.favInteraction(User.IDUSER, idProd, this);
     }
 
     @Override
-    public void onSuccesProductState(String cartState, String favState) {
+    public void onSucces(String cartState, String favState) {
 
         c = Integer.parseInt(cartState);
         f = Integer.parseInt(favState);
@@ -92,18 +93,9 @@ public class OPSActivityPresenter extends BasePresenterActivities implements OPS
     }
 
     @Override
-    public void onFailureProductState() {
-
-    }
-
-    @Override
-    public void onSuccesCartInteraction(String cartState) {
-
-    }
-
-    @Override
-    public void onFailureCartInteraction() {
+    public void onFailure() {
         view.onError();
+        view.hideProgressBar();
     }
 
 }

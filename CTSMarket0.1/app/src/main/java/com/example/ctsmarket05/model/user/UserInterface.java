@@ -16,6 +16,9 @@ public interface UserInterface {
     @GET("/subg/{email}")// 'show user by gmail' busca User con gmail como parametro.
     Call<User> getByGmail(@Path("email") String email);
 
+    @GET("/user/{id}")
+    Call<User> getUser(@Path("id") Integer idUser);
+
     @PUT("/user/uuoal/{id}")//'update user on add lcoation'
     Call<User> userPUTIdLoc(@Body User user, @Path("id") int id_user);
 

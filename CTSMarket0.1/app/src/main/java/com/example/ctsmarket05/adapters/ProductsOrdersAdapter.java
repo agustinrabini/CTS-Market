@@ -100,8 +100,8 @@ public class ProductsOrdersAdapter extends RecyclerView.Adapter<ProductsOrdersAd
 
                 Integer id_user = productsOrder.getId_user();
 
-                CartRemoveDELETE cartRemoveDELETE = new CartRemoveDELETE();
-                cartRemoveDELETE.deleteCart(id_user,id_product);
+                //CartRemoveDELETE cartRemoveDELETE = new CartRemoveDELETE();
+                //cartRemoveDELETE.deleteCart(id_user,id_product);
 
                 Intent reload = new Intent(v.getContext(), HomeActivity.class);
                 Toast.makeText(v.getContext(), "Producto eliminado del carrito", Toast.LENGTH_SHORT).show();

@@ -36,8 +36,8 @@ public interface OrderInterface {
     Call<Orders> updateOrderCartBought(@Body Orders order, @Path("id") int id_order);
 
     @POST("/order/cartAdd/{id_product}")
-    Call<Orders> addCart(@Path("id_product") int id_product, @Body Orders order );
+    Call<Void> addCart(@Path("id_product") int id_product, @Body Orders order );
 
     @DELETE("/order/cartRemove/{user_id}/{product_id}")
-    Call<Orders> removeCart(@Path("user_id") int id_user,@Path("product_id") int product_id);
+    Call<Void> removeCart(@Path("user_id") int id_user,@Path("product_id") int product_id);
 }

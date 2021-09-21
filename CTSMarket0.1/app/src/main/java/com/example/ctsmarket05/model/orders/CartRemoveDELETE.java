@@ -11,25 +11,25 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CartRemoveDELETE {
 
-    public void deleteCart(Integer id_user, Integer id_product){
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(User.URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        OrderInterface orderInterface = retrofit.create(OrderInterface.class);
-
-        Call<Orders> call = orderInterface.removeCart(id_user, id_product);
-        call.enqueue(new Callback<Orders>() {
-            @Override
-            public void onResponse(Call<Orders> call, Response<Orders> response) {
-            }
-
-            @Override
-            public void onFailure(Call<Orders> call, Throwable t) {
-
-            }
-        });
-    }
+    //public void deleteCart(Integer id_user, Integer id_product){
+//
+    //    Retrofit retrofit = new Retrofit.Builder()
+    //            .baseUrl(User.URL)
+    //            .addConverterFactory(GsonConverterFactory.create())
+    //            .build();
+//
+    //    OrderInterface orderInterface = retrofit.create(OrderInterface.class);
+//
+    //    Call<Orders> call = orderInterface.removeCart(id_user, id_product);
+    //    call.enqueue(new Callback<Orders>() {
+    //        @Override
+    //        public void onResponse(Call<Orders> call, Response<Orders> response) {
+    //        }
+//
+    //        @Override
+    //        public void onFailure(Call<Orders> call, Throwable t) {
+//
+    //        }
+    //    });
+    //}
 }

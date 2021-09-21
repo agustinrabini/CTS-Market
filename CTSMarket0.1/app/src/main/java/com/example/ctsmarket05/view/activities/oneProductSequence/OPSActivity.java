@@ -2,6 +2,7 @@ package com.example.ctsmarket05.view.activities.oneProductSequence;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.base.BaseActivity;
+import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.interfaces.OPSActivityInterface;
 import com.example.ctsmarket05.model.OPSInteractor;
 import com.example.ctsmarket05.presenter.OPSActivityPresenter;
@@ -21,12 +23,19 @@ import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.view.fragments.bottomSheets.QuantityBottomSheet;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.ThreeBounce;
+import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
 public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements OPSActivityInterface, QuantityBottomSheet.QuantityListener {
 
+    private Integer stock;
+    private Integer price;
+    private Integer length;
+    private String description;
+    private String image;
+    private String name;
     private ImageView ivProduct2;
     private TextView tvQuestion;
     private Button btnBuy;
@@ -34,6 +43,7 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
     private ImageView ivFav;
     private ImageView ivBkg;
     private TextView tvName2;
+    private TextView tvError;
     private TextView tvPrice2;
     private TextView tvDescription2;
     private TextView tvLength;
@@ -65,19 +75,10 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
     private void clickListeners() {
 
         btnBuy.setOnClickListener(v -> {
-
-            Intent Clicked = getIntent();
-            Integer price = Clicked.getIntExtra("price",0);
-
-            Orders.ORDER_PRICE = price * quantityProduct;
-            Orders.ORDER_SEQUENCE = "oneProductSequence";
-
-            Intent from = new Intent(this, OPSActivity2.class);
-            startActivity(from);
+            nextActivity();
         });
 
         tvQuantity.setOnClickListener(v -> {
-
             changeQuantity();
         });
 
@@ -100,6 +101,7 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
         ivFav = findViewById(R.id.iv_fav2);
         ivBkg = findViewById(R.id.iv_bkg_pa2);
         tvName2 = findViewById(R.id.tv_name2);
+        tvError = findViewById(R.id.tv_error_ops);
         tvPrice2 = findViewById(R.id.tv_price2);
         tvDescription2 = findViewById(R.id.tv_description2);
         tvLength = findViewById(R.id.tv_length2);
@@ -112,7 +114,6 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
 
     @Override
     public void onBackPressed() {
-
         finish();
     }
 
@@ -153,14 +154,20 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
     public void setProduct() {
 
         Intent Clicked = getIntent();
+        stock = Clicked.getIntExtra("stock",0);
+        price = Clicked.getIntExtra("price",0);
+        length = Clicked.getIntExtra("length",0);
+        description = Clicked.getStringExtra("description");
+        image = Clicked.getStringExtra("image");
+        name = Clicked.getStringExtra("name");
 
-        tvName2.setText(Clicked.getStringExtra("name"));
-        tvDescription2.setText(Clicked.getStringExtra("description"));
-        tvPrice2.setText( "$ARS " + String.valueOf(Clicked.getIntExtra("price",0)));
-        tvLength.setText(String.valueOf(Clicked.getIntExtra("length",0)+ " cm"));
-        tvStock.setText("¡Quedan " + String.valueOf(Clicked.getIntExtra("stock",0) + " en stock! "));
+        tvName2.setText(name);
+        tvDescription2.setText(description);
+        tvPrice2.setText( "$ARS " + price.toString());
+        tvLength.setText(length.toString()+ " cm");
+        tvStock.setText("¡Quedan " + stock.toString() + " en stock! ");
         tvQuantity.setText("Cant. : " + quantityProduct.toString());
-        Picasso.with(this).load(Clicked.getStringExtra("image")).into(ivProduct2);
+        Picasso.with(this).load(image).into(ivProduct2);
     }
 
     @Override
@@ -234,9 +241,51 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
     }
 
     @Override
+    public void nextActivity() {
+        Intent Clicked = getIntent();
+
+        Orders orders = new Orders(
+                User.IDUSER,
+                (Clicked.getIntExtra("price",0)*quantityProduct),
+                quantityProduct,
+                null,
+                null,
+                null);
+
+        SharedPreferences orderPref = getSharedPreferences("OPS", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = orderPref.edit();
+
+        Gson gson = new Gson();
+        String jsonOPSOrder = gson.toJson(orders);
+        editor.putString("orderOPS", jsonOPSOrder);
+        editor.putInt("idProduct",Clicked.getIntExtra("idProduct",0));
+        editor.commit();
+        editor.apply();
+
+        Intent from = new Intent(this, OPSActivity2.class);
+        startActivity(from);
+    }
+
+    @Override
     public void onError() {
-        tvName2.setVisibility(View.VISIBLE);
-        tvName2.setText("ERROR");
+        tvError.setVisibility(View.VISIBLE);
+
+        ivProduct2.setVisibility(View.INVISIBLE);
+        tvQuestion.setVisibility(View.INVISIBLE);
+        btnBuy.setVisibility(View.INVISIBLE);
+        ivCart.setVisibility(View.INVISIBLE);
+        ivFav.setVisibility(View.INVISIBLE);
+        tvName2.setVisibility(View.INVISIBLE);
+        tvPrice2.setVisibility(View.INVISIBLE);
+        tvDescription2.setVisibility(View.INVISIBLE);
+        tvLength.setVisibility(View.INVISIBLE);
+        tvQuantity.setVisibility(View.INVISIBLE);
+        tvStock.setVisibility(View.INVISIBLE);
+        progressBarPA2.setVisibility(View.INVISIBLE);
+        tvGeneric.setVisibility(View.INVISIBLE);
+        tvGeneric2.setVisibility(View.INVISIBLE);
+        tvGeneric3.setVisibility(View.INVISIBLE);
+        ivBkg.setVisibility(View.INVISIBLE);
     }
 
     @Override

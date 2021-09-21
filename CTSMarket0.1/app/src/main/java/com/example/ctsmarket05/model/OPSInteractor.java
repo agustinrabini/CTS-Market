@@ -14,19 +14,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class OPSInteractor {
 
-    public interface onProductState {
-        void onSuccesProductState(String cartState, String favState);
-
-        void onFailureProductState();
-    }
-
-    public interface onCartInteraction {
-        void onSuccesCartInteraction(String cartState);
-        void onFailureCartInteraction();
+    public interface opsInteractor {
+        void onSucces(String cartState, String favState);
+        void onFailure();
     }
 
     //checkea el estado del producto en relacion con el carrito.
-    public void checkCart(Integer idProduct, Integer idUser, final onProductState listener){
+    public void checkCart(Integer idProduct, Integer idUser, final opsInteractor listener){
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
@@ -41,7 +35,7 @@ public class OPSInteractor {
             public void onResponse(Call<String> call, Response<String> response) {
 
                 if(!response.isSuccessful()){
-                    listener.onFailureProductState();
+                    listener.onFailure();
                     return;
                 }
 
@@ -58,13 +52,13 @@ public class OPSInteractor {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                listener.onFailureProductState();
+                listener.onFailure();
             }
         });
     }
 
     //checkea el estado del producto en relacion con la lista de favoritos.
-    public void favState(Integer id_user, Integer id_product, String cartState, final onProductState listener){
+    public void favState(Integer id_user, Integer id_product, String cartState, final opsInteractor listener){
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
@@ -79,29 +73,29 @@ public class OPSInteractor {
             public void onResponse(Call<String> call, Response<String> response) {
 
                 if(!response.isSuccessful()){
-                    listener.onFailureProductState();
+                    listener.onFailure();
                     return;
                 }
 
                 String favState = response.body();
 
                 if (favState !=null){
-                    listener.onSuccesProductState(cartState, favState);
+                    listener.onSucces(cartState, favState);
 
                 }else if(favState == null){
-                    listener.onSuccesProductState(cartState, null);
+                    listener.onSucces(cartState, null);
                 }
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                listener.onFailureProductState();
+                listener.onFailure();
             }
         });
     }
 
     //agrega el prodcuto al carrito.
-    public void addCart(Integer id_product, Orders orders){
+    public void addCart(Integer id_product, Orders orders, final opsInteractor listener){
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
@@ -110,20 +104,24 @@ public class OPSInteractor {
 
         OrderInterface orderInterface = retrofit.create(OrderInterface.class);
 
-        Call<Orders> call = orderInterface.addCart(id_product, orders);
-        call.enqueue(new Callback<Orders>() {
+        Call<Void> call = orderInterface.addCart(id_product, orders);
+        call.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<Orders> call, Response<Orders> response) {
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(!response.isSuccessful()){
+                    listener.onFailure();
+                    return;
+                }
             }
 
             @Override
-            public void onFailure(Call<Orders> call, Throwable t) {
-
+            public void onFailure(Call<Void> call, Throwable t) {
+                listener.onFailure();
             }
         });
     }
 
-    public void deleteCart(Integer id_user, Integer id_product){
+    public void deleteCart(Integer id_user, Integer id_product, final opsInteractor listener){
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
@@ -132,20 +130,24 @@ public class OPSInteractor {
 
         OrderInterface orderInterface = retrofit.create(OrderInterface.class);
 
-        Call<Orders> call = orderInterface.removeCart(id_user, id_product);
-        call.enqueue(new Callback<Orders>() {
+        Call<Void> call = orderInterface.removeCart(id_user, id_product);
+        call.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<Orders> call, Response<Orders> response) {
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(!response.isSuccessful()){
+                listener.onFailure();
+                return;
+            }
             }
 
             @Override
-            public void onFailure(Call<Orders> call, Throwable t) {
-
+            public void onFailure(Call<Void> call, Throwable t) {
+                listener.onFailure();
             }
         });
     }
 
-    public void favInteraction(Integer id_user, Integer id_product){
+    public void favInteraction(Integer id_user, Integer id_product, final opsInteractor listener){
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
@@ -158,10 +160,17 @@ public class OPSInteractor {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
+
+                if(!response.isSuccessful()){
+                    listener.onFailure();
+                    return;
+                }
+
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
+                listener.onFailure();
             }
         });
     }
