@@ -12,8 +12,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CheckCartPOST  {
 
-    private DataInterfaceCheck mListener;
-
     public void check(Integer id_product, Integer id_user){
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -28,21 +26,13 @@ public class CheckCartPOST  {
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                    mListener.responseCheck(response.body());
+
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
             }
         });
-    }
-
-    public void SetOnDataListenerCheck(DataInterfaceCheck listener){
-        mListener = listener;
-    }
-
-    public interface DataInterfaceCheck {
-        void responseCheck(String check);
     }
 }
 

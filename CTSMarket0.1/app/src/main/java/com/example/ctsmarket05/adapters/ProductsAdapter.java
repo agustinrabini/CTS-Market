@@ -16,16 +16,14 @@ import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.interfaces.OPSActivityInterface;
 import com.example.ctsmarket05.interfaces.clickListeners.ProductsOnCustomClickListener;
-import com.example.ctsmarket05.model.ProductChecker;
+import com.example.ctsmarket05.model.OPSInteractor;
 import com.example.ctsmarket05.model.favourite.FavCheckGET;
-import com.example.ctsmarket05.presenter.OPSActivityPresenter;
 import com.example.ctsmarket05.view.activities.oneProductSequence.OPSActivity;
 import com.example.ctsmarket05.entities.Product;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,7 +65,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         private Integer favValue;
 
         private OPSActivityInterface view;
-        private ProductChecker productsInteractor;
+        private OPSInteractor productsInteractor;
         private ProductsAdapter ProductsAdapter;
 
         public ProductsViewHolder(View itemView) {

@@ -17,7 +17,6 @@ public class FilterBottomSheet extends BottomSheetDialogFragment {
 
     private FilterListenerBottomSheet filterListener;
     private ProductsFragment productsFragment;
-    private FilterBottomSheet filterBottomSheet;
     private Button btnTodos ;
     private Button btnCuchillos;
     private Button btnCuchillas;

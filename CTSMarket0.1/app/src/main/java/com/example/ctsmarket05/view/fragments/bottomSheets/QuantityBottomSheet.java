@@ -25,6 +25,10 @@ public class QuantityBottomSheet extends BottomSheetDialogFragment {
     private Button btnQuantity5;
     private TextView tvBsQuantity;
 
+    public interface QuantityListener {
+        void onButtonClicked(Integer quantity);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -66,12 +70,13 @@ public class QuantityBottomSheet extends BottomSheetDialogFragment {
 
         return v;
     }
-    public interface QuantityListener {
-        void onButtonClicked(Integer quantity);
-    }
 
-    private void stock(){
-        switch (Product.STOCK) {
+    public void stock(){
+
+        Bundle mArgs = getArguments();
+        Integer stock = mArgs.getInt("stock");
+
+        switch (stock) {
 
             case 0: {
                 tvBsQuantity.setText("No hay stock");

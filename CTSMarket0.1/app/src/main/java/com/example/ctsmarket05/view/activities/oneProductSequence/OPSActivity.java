@@ -4,35 +4,28 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.fragment.app.FragmentManager;
+
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.base.BaseActivity;
 import com.example.ctsmarket05.interfaces.OPSActivityInterface;
-import com.example.ctsmarket05.model.ProductChecker;
-import com.example.ctsmarket05.model.product.ProductsGET;
+import com.example.ctsmarket05.model.OPSInteractor;
 import com.example.ctsmarket05.presenter.OPSActivityPresenter;
-import com.example.ctsmarket05.view.fragments.bottomSheets.QuantityBottomSheet;
 import com.example.ctsmarket05.entities.Orders;
-import com.example.ctsmarket05.entities.Product;
-import com.example.ctsmarket05.entities.User;
-import com.example.ctsmarket05.model.favourite.FavCheckGET;
-import com.example.ctsmarket05.model.favourite.FavInteractionPOST;
-import com.example.ctsmarket05.model.orders.CartAddPOST;
-import com.example.ctsmarket05.model.orders.CartRemoveDELETE;
-import com.example.ctsmarket05.model.productsOrder.CheckCartPOST;
+import com.example.ctsmarket05.view.fragments.bottomSheets.QuantityBottomSheet;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.ThreeBounce;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
-public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements QuantityBottomSheet.QuantityListener, OPSActivityInterface {
+public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements OPSActivityInterface, QuantityBottomSheet.QuantityListener {
 
     private ImageView ivProduct2;
     private TextView tvQuestion;
@@ -50,15 +43,13 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements Q
     private TextView tvGeneric2;
     private TextView tvGeneric3;
     private Integer quantityProduct = 1;
-    private Integer a = 0;
-    private Integer f = 0;
     private ProgressBar progressBarPA2;
     private int ligthBlueColor = Color.parseColor("#75AADB");
 
     @NotNull
     @Override
     protected OPSActivityPresenter createPresenter(@NotNull Context context) {
-        return new OPSActivityPresenter(this, new ProductChecker());
+        return new OPSActivityPresenter(this, new OPSInteractor());
     }
 
     @Override
@@ -67,18 +58,12 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements Q
         setContentView(R.layout.activity_products2);
 
         findViews();
-        changeQuantityProduct();
-        btnBuy();
-        btnQuestion();
+        clickListeners();
         getProductState();
     }
 
-    private void btnQuestion() {
-       tvQuestion.setOnClickListener(v -> {
-       });
-    }
+    private void clickListeners() {
 
-    private void btnBuy() {
         btnBuy.setOnClickListener(v -> {
 
             Intent Clicked = getIntent();
@@ -90,27 +75,20 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements Q
             Intent from = new Intent(this, OPSActivity2.class);
             startActivity(from);
         });
-    }
-
-    private void changeQuantityProduct() {
 
         tvQuantity.setOnClickListener(v -> {
-            QuantityBottomSheet quantityBottomSheet = new QuantityBottomSheet();
-            quantityBottomSheet.show(getSupportFragmentManager(), "quantityBottomSheet");
+
+            changeQuantity();
         });
-    }
 
-    @Override
-    public void onButtonClicked(Integer quantity) {
+        ivCart.setOnClickListener(v -> {
+            cartClicked();
+        });
 
-        Intent Clicked = getIntent();
-        Integer price = Clicked.getIntExtra("price",0);
+        ivFav.setOnClickListener(v -> {
+            favClicked();
+        });
 
-        quantityProduct = quantity;
-        Orders.ORDER_QUANTITY = quantity;
-        tvQuantity.setText("Cant. " + quantityProduct.toString());
-        Orders.ORDER_PRICE = (price * quantityProduct);
-        tvPrice2.setText("$ARS " + Orders.ORDER_PRICE.toString());
     }
 
     private void findViews(){
@@ -178,7 +156,7 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements Q
 
         tvName2.setText(Clicked.getStringExtra("name"));
         tvDescription2.setText(Clicked.getStringExtra("description"));
-        tvPrice2.setText(String.valueOf(Clicked.getIntExtra("price",0)));
+        tvPrice2.setText( "$ARS " + String.valueOf(Clicked.getIntExtra("price",0)));
         tvLength.setText(String.valueOf(Clicked.getIntExtra("length",0)+ " cm"));
         tvStock.setText("¡Quedan " + String.valueOf(Clicked.getIntExtra("stock",0) + " en stock! "));
         tvQuantity.setText("Cant. : " + quantityProduct.toString());
@@ -203,8 +181,51 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements Q
     }
 
     @Override
-    public void quantity() {
+    public void cartClicked() {
+        Intent Clicked = getIntent();
+        Integer idProd = Clicked.getIntExtra("idProduct",0);
+        Integer price = Clicked.getIntExtra("price",0);
+        presenterActivity.cartClicked(idProd, price, quantityProduct);
+    }
 
+    @Override
+    public void favClicked() {
+        Intent Clicked = getIntent();
+        Integer idProd = Clicked.getIntExtra("idProduct",0);
+        presenterActivity.favClicked(idProd);
+    }
+
+    @Override
+    public void cartRemove() {
+        ivCart.setImageResource(R.drawable.ic_cart1);
+    }
+
+    @Override
+    public void favRemove() {
+        ivFav.setImageResource(R.drawable.ic_heart1);
+    }
+
+    @Override
+    public void quantityUpdate(Integer quantity) {
+
+        Intent Clicked = getIntent();
+        Integer price = Clicked.getIntExtra("price", 0);
+        Integer p = price*quantity;
+
+        quantityProduct = quantity;
+
+        tvPrice2.setText( "$ARS " + p.toString());
+        tvQuantity.setText("Cant. : " + quantity.toString());
+    }
+
+    @Override
+    public void changeQuantity() {
+
+        Intent Clicked = getIntent();
+        Integer stock = Clicked.getIntExtra("stock",0);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        presenterActivity.changeQuantity(fragmentManager, stock);
     }
 
     @Override
@@ -216,5 +237,10 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements Q
     public void onError() {
         tvName2.setVisibility(View.VISIBLE);
         tvName2.setText("ERROR");
+    }
+
+    @Override
+    public void onButtonClicked(Integer quantity) {
+        quantityUpdate(quantity);
     }
 }
