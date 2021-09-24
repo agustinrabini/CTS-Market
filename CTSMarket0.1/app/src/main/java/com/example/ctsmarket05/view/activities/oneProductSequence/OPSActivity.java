@@ -259,7 +259,6 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
         String jsonOPSOrder = gson.toJson(orders);
         editor.putString("orderOPS", jsonOPSOrder);
         editor.putInt("idProduct",Clicked.getIntExtra("idProduct",0));
-        editor.commit();
         editor.apply();
 
         Intent from = new Intent(this, OPSActivity2.class);

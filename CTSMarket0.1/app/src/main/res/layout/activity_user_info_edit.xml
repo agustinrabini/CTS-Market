@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline337" />
 
     <TextView
-        android:id="@+id/tv_info"
+        android:id="@+id/tv_generic_UIE"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:elevation="10dp"
@@ -233,6 +233,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
+        android:id="@+id/tv_alert_UIE"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:elevation="10dp"
@@ -241,11 +242,25 @@
         android:text="*Todos los campos son obligatorios"
         android:textColor="@color/red"
         android:textSize="14sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/guideline342"
         app:layout_constraintEnd_toStartOf="@+id/guideline315"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline313"
         app:layout_constraintTop_toTopOf="@+id/guideline325"
         app:layout_constraintVertical_bias="0.0" />
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/pb_UIE"
+        style="@style/SpinKitView.Large.Pulse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="25dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

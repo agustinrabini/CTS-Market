@@ -12,23 +12,23 @@ public class LocationAddPOST{
 
     public void locationPost(Location location) {
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(User.URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        LocationInterface locationInterface = retrofit.create(LocationInterface.class);
-
-        Call<Location> call = locationInterface.locationAdd(location);
-
-        call.enqueue(new Callback<Location>() {
-
-            @Override
-            public void onResponse(Call<Location> call, retrofit2.Response<Location> response) {
-            }
-
-            public void onFailure(Call<Location> call, Throwable t) {
-            }
-        });
+        //Retrofit retrofit = new Retrofit.Builder()
+        //        .baseUrl(User.URL)
+        //        .addConverterFactory(GsonConverterFactory.create())
+        //        .build();
+//
+        //LocationInterface locationInterface = retrofit.create(LocationInterface.class);
+//
+        //Call<Location> call = locationInterface.locationInteraction(location);
+//
+        //call.enqueue(new Callback<Location>() {
+//
+        //    @Override
+        //    public void onResponse(Call<Location> call, retrofit2.Response<Location> response) {
+        //    }
+//
+        //    public void onFailure(Call<Location> call, Throwable t) {
+        //    }
+        //});
     }
 }

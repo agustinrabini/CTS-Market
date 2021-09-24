@@ -2,6 +2,8 @@ package com.example.ctsmarket05.view.activities;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -22,6 +24,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class HomeActivity extends BaseActivity<HomeActivityPresenter> implements HomeActivityInterface {
 
     private BottomNavigationView bottomNavigationView ;
+    private TextView tvError ;
 
     FavoritesFragment favoritesFragment = new FavoritesFragment();
     CartFragment cartFragment = new CartFragment();
@@ -75,7 +78,10 @@ public class HomeActivity extends BaseActivity<HomeActivityPresenter> implements
         transaction.commit();
     }
 
-    private void findViews(){ bottomNavigationView = findViewById(R.id.bottom_navigation_home);}
+    private void findViews(){
+        bottomNavigationView = findViewById(R.id.bottom_navigation_home);
+        tvError = findViewById(R.id.tv_error_home);
+    }
 
     @Override
     public void getUserId() {
@@ -85,6 +91,11 @@ public class HomeActivity extends BaseActivity<HomeActivityPresenter> implements
     @Override
     public void setFragment() {
         navigationView();
+    }
+
+    @Override
+    public void onError() {
+        tvError.setVisibility(View.VISIBLE);
     }
 
     @Override

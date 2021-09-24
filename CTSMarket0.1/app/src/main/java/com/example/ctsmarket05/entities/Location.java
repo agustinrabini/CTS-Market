@@ -14,15 +14,13 @@ public class Location {
 
     private String street;
 
-    private Integer street_number;
+    private String street_number;
 
     private String floor;
 
-    private Integer postal_code;
+    private String postal_code;
 
-    public static Integer idLocation;
-
-    public Location(Integer id_user, String province, String city, String district, String street, Integer street_number, String floor, Integer postal_code) {
+    public Location(Integer id_user, String province, String city, String district, String street, String street_number, String floor, String postal_code) {
         this.id_user = id_user;
         this.province = province;
         this.city = city;
@@ -33,7 +31,7 @@ public class Location {
         this.postal_code = postal_code;
     }
 
-    public Location(String province, String city, String district, String street, Integer street_number, String floor, Integer postal_code) {
+    public Location(String province, String city, String district, String street, String street_number, String floor, String postal_code) {
         this.province = province;
         this.city = city;
         this.district = district;
@@ -91,11 +89,11 @@ public class Location {
         this.street = street;
     }
 
-    public Integer getStreet_number() {
+    public String getStreet_number() {
         return street_number;
     }
 
-    public void setStreet_number(Integer street_number) {
+    public void setStreet_number(String street_number) {
         this.street_number = street_number;
     }
 
@@ -107,11 +105,11 @@ public class Location {
         this.floor = floor;
     }
 
-    public Integer getPostal_code() {
+    public String getPostal_code() {
         return postal_code;
     }
 
-    public void setPostal_code(Integer postal_code) {
+    public void setPostal_code(String postal_code) {
         this.postal_code = postal_code;
     }
 }

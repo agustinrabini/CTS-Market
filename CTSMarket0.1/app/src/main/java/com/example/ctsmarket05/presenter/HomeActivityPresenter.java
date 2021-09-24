@@ -46,6 +46,6 @@ public class HomeActivityPresenter extends BasePresenterActivities implements Us
 
     @Override
     public void onFailure() {
-
+        view.onError();
     }
 }

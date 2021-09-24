@@ -41,11 +41,13 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
+        android:id="@+id/tv_alert_LAA"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:elevation="10dp"
         android:fontFamily="@font/quicksandbold"
         android:gravity="left"
+        android:visibility="gone"
         android:text="*Todos los campos son obligatorios "
         android:textColor="@color/red"
         android:textSize="14sp"
@@ -55,6 +57,19 @@
         app:layout_constraintStart_toStartOf="@+id/guideline313"
         app:layout_constraintTop_toTopOf="@+id/guideline317"
         app:layout_constraintVertical_bias="0.0" />
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/pb_LAA"
+        style="@style/SpinKitView.Large.Pulse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="25dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline313"
@@ -272,7 +287,6 @@
         app:srcCompat="@drawable/arrow_arrows_back_direction_left_navigation_right_icon_123236" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/pruebaLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="0dp"
         android:layout_height="0dp"

@@ -64,21 +64,12 @@ public class OPSActivity2 extends BaseActivity<OPS2ActivityPresenter> implements
     private void next(){
 
         btnBuy.setOnClickListener(v -> {
-
           nextActivity();
         });
 
     }
 
     private void findViews(){
-
-        //SharedPreferences orderPref = getSharedPreferences("OPS", Context.MODE_PRIVATE);
-//
-        //Gson gson = new Gson();
-        //String jsonOPSOrder = orderPref.getString("orderOPS", "");
-        //Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
-        //Integer idProduct = orderPref.getInt("idProduct",0);
-
 
         tvChangeUserInfo = findViewById(R.id.tv_change_user_info_ops2);
         tvUser = findViewById(R.id.tv_user_info_ops2);
@@ -121,7 +112,7 @@ public class OPSActivity2 extends BaseActivity<OPS2ActivityPresenter> implements
     @Override
     public void setUserData(User user) {
         tvUser.setText(
-                user.getName_lastname() + "\n" + "\n" + user.getPhone().toString() + "\n" + "\n" + user.getDni().toString()
+                "Entrega a nombre de: " + user.getName_lastname() + "\n" + "\n" + "\n" +"Número de contacto:  "+ user.getPhone().toString() + "\n" + "\n" + "\n"+ "Documento de quien recibe: " + user.getDni().toString()
         );
     }
 
@@ -132,9 +123,9 @@ public class OPSActivity2 extends BaseActivity<OPS2ActivityPresenter> implements
 
     @Override
     public void changeClicked() {
-        UserInfoEditActivity.from = "boughtSequence";
-        Intent toUserEdit = new Intent(this, UserInfoEditActivity.class);
-        startActivity(toUserEdit);
+        Intent from = new Intent(this, UserInfoEditActivity.class);
+        from.putExtra("from", "OPS");
+        startActivity(from);
         finish();
     }
 

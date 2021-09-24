@@ -7,7 +7,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ctsmarket05.R;
-import com.example.ctsmarket05.model.user.UserGET;
 
 public class UserInfoActivity extends AppCompatActivity {
 
@@ -27,10 +26,9 @@ public class UserInfoActivity extends AppCompatActivity {
     private void changeLocation(){
 
         tvChangeinfo.setOnClickListener(v -> {
-            UserInfoEditActivity.from = "UserEditInfo";
-            Intent toLocationAdd = new Intent(this, UserInfoEditActivity.class);
-            toLocationAdd.putExtra("fromPA4","fromPA4");
-            startActivity(toLocationAdd);
+            Intent from = new Intent(this, UserInfoEditActivity.class);
+            from.putExtra("from","userEdit");
+            startActivity(from);
             finish();
         });
     }

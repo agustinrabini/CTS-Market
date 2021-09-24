@@ -16,7 +16,7 @@ public class User {
 
     private Integer phone;
 
-    public static String URL = "https://c359-2800-2141-5400-373-c102-5950-928c-77f4.ngrok.io";
+    public static String URL = "https://5054-2800-2141-5400-373-70df-3312-6716-a041.ngrok.io";
 
     public static String gmail = "" ;
 
