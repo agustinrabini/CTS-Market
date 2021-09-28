@@ -18,7 +18,7 @@ import com.example.ctsmarket05.interfaces.OPS3ActivityInterface;
 import com.example.ctsmarket05.model.OPS3Interactor;
 import com.example.ctsmarket05.presenter.OPS3ActivityPresenter;
 import com.example.ctsmarket05.view.activities.LocationAddActivity;
-import com.example.ctsmarket05.view.fragments.bottomSheets.InfoProdActv3BottomSheet;
+import com.example.ctsmarket05.view.fragments.bottomSheets.InfoOPS3BottomSheet;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.ThreeBounce;
 import com.google.gson.Gson;
@@ -48,7 +48,6 @@ public class OPSActivity3 extends BaseActivity<OPS3ActivityPresenter> implements
     private ImageView ivGeneric4;
     private ProgressBar progressBar;
     private int ligthBlueColor = Color.parseColor("#75AADB");
-    private Integer shippingPrice;
 
     @NotNull
     @Override
@@ -78,10 +77,14 @@ public class OPSActivity3 extends BaseActivity<OPS3ActivityPresenter> implements
 
         ivTaller.setOnClickListener(v -> {
             retireAtTaller();
+            Intent ops4 = new Intent(this, OPSActivity4.class);
+            startActivity(ops4);
         });
 
         ivSend.setOnClickListener(v -> {
-            sendToCustomer(shippingPrice);
+            sendToCustomer();
+            Intent ops4 = new Intent(this, OPSActivity4.class);
+            startActivity(ops4);
         });
     }
 
@@ -122,60 +125,33 @@ public class OPSActivity3 extends BaseActivity<OPS3ActivityPresenter> implements
     @Override
     public void orderPrice() {
 
-        SharedPreferences orderPref = getSharedPreferences("OPS", Context.MODE_PRIVATE);
+        SharedPreferences orderPref = getSharedPreferences("sequence", Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String jsonOPSOrder = orderPref.getString("orderOPS", "");
         Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
-        Integer idProduct = orderPref.getInt("idProduct",0);
 
         tvFinalPrice.setText("Precio del pedido: $ARS" + orders.getOrder_price().toString());
     }
 
     @Override
     public void info() {
-        InfoProdActv3BottomSheet infoProdActv3BottomSheet = new InfoProdActv3BottomSheet();
-        infoProdActv3BottomSheet.show(getSupportFragmentManager(), "");
+        InfoOPS3BottomSheet infoOPS3BottomSheet = new InfoOPS3BottomSheet();
+        infoOPS3BottomSheet.show(getSupportFragmentManager(), "");
     }
 
     @Override
     public void retireAtTaller() {
-
-        SharedPreferences orderPref = getSharedPreferences("OPS", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = orderPref.edit();
-
-        Gson gson = new Gson();
-        String jsonOPSOrder = orderPref.getString("orderOPS", "");
-        Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
-        orders.setShipping(1);
-        editor.putString("orderOPS", jsonOPSOrder);
+        presenterActivity.retireTaller(getApplicationContext());
     }
 
     @Override
-    public void sendToCustomer(Integer shippingPrice) {
-
-        SharedPreferences orderPref = getSharedPreferences("OPS", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = orderPref.edit();
-
-        Gson gson = new Gson();
-        String jsonOPSOrder = orderPref.getString("orderOPS", "");
-        Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
-        orders.setShipping(2);
-
-        Integer oldOrderPrice = orders.getOrder_price();
-        this.shippingPrice = oldOrderPrice*shippingPrice;
-
-        orders.setOrder_price(this.shippingPrice);
-        editor.putString("orderOPS", jsonOPSOrder);
+    public void sendToCustomer() {
+        presenterActivity.sendToCustomer(getApplicationContext());
     }
 
     @Override
-    public void setShippingCost(Integer priceShipping) {
-        if (priceShipping==0){
-            tvSendCost.setText("Gratis");
-        }else{
-            shippingPrice = priceShipping;
-            tvSendCost.setText("$ARS" + priceShipping.toString());
-        }
+    public void setShippingCost(String priceShipping) {
+       tvSendCost.setText(priceShipping);
     }
 
     @Override

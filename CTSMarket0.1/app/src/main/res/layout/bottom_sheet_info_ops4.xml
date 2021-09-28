@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¿Cómo realizo la transferencia vía MercadoPago?"
+        android:background="@drawable/background_filter"
+        android:gravity="center"
+        android:padding="15dp"
+        android:textSize="15sp"
+        android:fontFamily="@font/quicksandbold"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enviando una transferencia con el valor del pedido al correo que figura en la sección de información. A través de la app de MercadoPago."
+        android:gravity="center"
+        android:padding="15dp"
+        android:textSize="15sp"
+        android:fontFamily="@font/quicksand_regular"
+        android:textColor="#000000"/>
+
+</LinearLayout>

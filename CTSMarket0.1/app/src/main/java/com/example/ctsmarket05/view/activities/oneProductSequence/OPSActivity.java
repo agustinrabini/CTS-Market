@@ -252,13 +252,14 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
                 null,
                 null);
 
-        SharedPreferences orderPref = getSharedPreferences("OPS", Context.MODE_PRIVATE);
+        SharedPreferences orderPref = getSharedPreferences("sequence", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = orderPref.edit();
 
         Gson gson = new Gson();
         String jsonOPSOrder = gson.toJson(orders);
         editor.putString("orderOPS", jsonOPSOrder);
         editor.putInt("idProduct",Clicked.getIntExtra("idProduct",0));
+        editor.putInt("type",1);
         editor.apply();
 
         Intent from = new Intent(this, OPSActivity2.class);

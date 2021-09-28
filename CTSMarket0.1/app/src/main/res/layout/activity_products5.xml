@@ -16,20 +16,6 @@
         app:layout_constraintGuide_percent="0.7" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline423"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.55" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline424"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.4" />
-
-    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline410"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -134,31 +120,57 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.9" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline73"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
     <TextView
-        android:id="@+id/textView59"
+        android:id="@+id/tv_generic3_ops4"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/ligthBlue"
         android:elevation="35dp"
-        android:fontFamily="@font/quicksand_semibold"
+        android:fontFamily="@font/quicksandbold"
         android:gravity="center"
         android:text="MÉTODOS DE PAGO"
-        android:textColor="#ffffff"
-        android:textSize="15dp"
+        android:textColor="#000000"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline395"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView69"
+        android:id="@+id/tv_generic4_ops4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="35dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:gravity="center"
+        android:text="Incluye el precio del envío"
+        android:textColor="@color/green"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline402"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline73"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_generic2_ops4"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:elevation="15dp"
         android:fontFamily="@font/quicksand_medium"
         android:gravity="center"
         android:text="Seleccione un método de pago"
-        android:textColor="#000000"
+        android:textColor="@color/ligthBlue"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline301"
         app:layout_constraintEnd_toEndOf="parent"
@@ -168,7 +180,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/tv_final_price5"
+        android:id="@+id/tv_final_price_ops4"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="@font/quicksand_semibold"
@@ -184,7 +196,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline402" />
 
     <ImageView
-        android:id="@+id/iv_home"
+        android:id="@+id/iv_payment_ops4"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:elevation="4dp"
@@ -195,7 +207,7 @@
         app:srcCompat="@drawable/background_general3" />
 
     <TextView
-        android:id="@+id/textView67"
+        android:id="@+id/tv_type_payment_ops4"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="En efectivo al retirar"
@@ -210,7 +222,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline419" />
 
     <ImageView
-        android:id="@+id/iv_cash_continue5"
+        android:id="@+id/iv_generic_ops4"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:elevation="15dp"
@@ -221,5 +233,16 @@
         app:layout_constraintStart_toStartOf="@+id/guideline410"
         app:layout_constraintTop_toTopOf="@+id/guideline420"
         app:srcCompat="@drawable/angle_arrow_down_icon_icons_com_73683" />
+
+    <ImageView
+        android:id="@+id/iv_info_ops4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/guideline301"
+        app:layout_constraintEnd_toStartOf="@+id/guideline406"
+        app:layout_constraintStart_toStartOf="@+id/guideline410"
+        app:layout_constraintTop_toTopOf="@+id/guideline397"
+        app:srcCompat="@drawable/info_badged_filled_icon_142884" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -70,7 +70,6 @@ public class OPSActivity2 extends BaseActivity<OPS2ActivityPresenter> implements
     }
 
     private void findViews(){
-
         tvChangeUserInfo = findViewById(R.id.tv_change_user_info_ops2);
         tvUser = findViewById(R.id.tv_user_info_ops2);
         tvAlert = findViewById(R.id.tv_add_user_info_ops2);

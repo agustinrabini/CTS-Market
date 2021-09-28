@@ -10,12 +10,12 @@ import androidx.annotation.Nullable;
 import com.example.ctsmarket05.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-public class InfoProdActv3BottomSheet extends BottomSheetDialogFragment {
+public class InfoOPS3BottomSheet extends BottomSheetDialogFragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.bottom_sheet_info_pa3, container, false);
+        View v = inflater.inflate(R.layout.bottom_sheet_info_ops3, container, false);
 
         return v;
     }

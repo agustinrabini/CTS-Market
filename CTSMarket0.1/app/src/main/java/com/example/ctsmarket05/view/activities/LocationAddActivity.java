@@ -186,7 +186,7 @@ public class LocationAddActivity extends BaseActivity<LocationAddActivityPresent
 
     @Override
     public void onError() {
-        Toast.makeText(this, "Algo salío mal actualizando la información, por favor intente nuevamente.", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Algo salío mal actualizando la información, por favor más tarde.", Toast.LENGTH_LONG).show();
     }
 
     private void findViews(){

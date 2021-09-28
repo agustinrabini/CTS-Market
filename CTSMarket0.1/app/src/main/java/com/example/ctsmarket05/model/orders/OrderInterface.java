@@ -18,7 +18,7 @@ import retrofit2.http.Path;
 public interface OrderInterface {
 
     @POST("/order/opb/{user_id}/{product_id}")//sequencia de compra para un producto
-    Call<Orders> oneProductBougth(@Path("user_id") int id_user,@Path("product_id") int id_product, @Body Orders order);
+    Call<Void> oneProductBougth(@Path("user_id") int id_user,@Path("product_id") int id_product, @Body Orders order);
 
     @GET("/order/suo/{id}")
     Call<List<Orders>> showUserOrders(@Path("id") int id_user);

@@ -4,7 +4,6 @@ import com.example.ctsmarket05.entities.Location;
 
 public interface OPS3ActivityInterface {
 
-
     void fetchLocation();
 
     void setLocation(Location location);
@@ -17,9 +16,9 @@ public interface OPS3ActivityInterface {
     void info();
 
     void retireAtTaller();
-    void sendToCustomer(Integer shippingPrice);
+    void sendToCustomer();
 
-    void setShippingCost(Integer priceShipping);
+    void setShippingCost(String priceShipping);
 
     void showPb();
     void hidePb();

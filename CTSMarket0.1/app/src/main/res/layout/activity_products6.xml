@@ -255,21 +255,22 @@
         app:layout_constraintGuide_percent="0.66" />
 
     <com.github.ybq.android.spinkit.SpinKitView
-        android:id="@+id/pb_prod_actv6"
+        android:id="@+id/pb_op5"
         style="@style/SpinKitView.Large.Pulse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:elevation="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline368"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline356" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/iv_generic2_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="gone"
         android:background="@drawable/background_general3"
         app:layout_constraintBottom_toTopOf="@+id/guideline362"
         app:layout_constraintEnd_toEndOf="parent"
@@ -279,9 +280,10 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView57"
+        android:id="@+id/tv_generic6_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="gone"
         android:fontFamily="@font/quicksandbold"
         android:gravity="center"
         android:elevation="5dp"
@@ -294,12 +296,13 @@
         app:layout_constraintTop_toTopOf="@+id/guideline361" />
 
     <TextView
-        android:id="@+id/textView60"
+        android:id="@+id/tv_generic_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/ligthBlue"
         android:fontFamily="@font/quicksandbold"
         android:gravity="center"
+        android:visibility="gone"
         android:text="Último paso"
         android:textColor="#000000"
         android:textSize="20dp"
@@ -311,9 +314,10 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView58"
+        android:id="@+id/tv_generic7_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="gone"
         android:fontFamily="@font/quicksand_medium"
         android:gravity="center"
         android:elevation="5dp"
@@ -326,9 +330,10 @@
         app:layout_constraintTop_toTopOf="@+id/guideline367" />
 
     <TextView
-        android:id="@+id/textView61"
+        android:id="@+id/tv_generic3_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="gone"
         android:fontFamily="@font/quicksand_semibold"
         android:gravity="center"
         android:text="Formato de entrega"
@@ -340,9 +345,10 @@
         app:layout_constraintTop_toTopOf="@+id/guideline376" />
 
     <TextView
-        android:id="@+id/textView66"
+        android:id="@+id/tv_generic4_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="gone"
         android:fontFamily="@font/quicksand_semibold"
         android:gravity="center"
         android:text="Titular del pedido"
@@ -354,9 +360,10 @@
         app:layout_constraintTop_toTopOf="@+id/guideline371" />
 
     <TextView
-        android:id="@+id/textView62"
+        android:id="@+id/tv_generic5_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="gone"
         android:fontFamily="@font/quicksand_semibold"
         android:gravity="center"
         android:text="Método de pago"
@@ -368,7 +375,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline390" />
 
     <TextView
-        android:id="@+id/tv_shipping_method6"
+        android:id="@+id/tv_shipping_method_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="@font/quicksand_regular"
@@ -383,7 +390,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline377" />
 
     <TextView
-        android:id="@+id/tv_user_info6"
+        android:id="@+id/tv_user_info_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="@font/quicksand_regular"
@@ -398,7 +405,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline388" />
 
     <TextView
-        android:id="@+id/tv_payment6"
+        android:id="@+id/tv_payment_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="@font/quicksand_regular"
@@ -413,14 +420,14 @@
         app:layout_constraintTop_toTopOf="@+id/guideline391" />
 
     <TextView
-        android:id="@+id/tv_prod_name6"
+        android:id="@+id/tv_prod_name_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="@font/quicksand_light"
         android:gravity="center_vertical"
         android:text=""
         android:paddingLeft="3dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:textColor="#ffffff"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline374"
@@ -429,9 +436,10 @@
         app:layout_constraintTop_toTopOf="@+id/guideline384" />
 
     <TextView
-        android:id="@+id/textView63"
+        android:id="@+id/tv_generic2_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="gone"
         android:fontFamily="@font/quicksand_light"
         android:gravity="center_vertical"
         android:text="Cantidad :"
@@ -444,13 +452,13 @@
         app:layout_constraintTop_toTopOf="@+id/guideline374" />
 
     <TextView
-        android:id="@+id/tv_quantity6"
+        android:id="@+id/tv_quantity_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="@font/quicksand_light"
         android:gravity="center"
         android:text=""
-        android:visibility="invisible"
+        android:visibility="gone"
         android:textColor="#ffffff"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline375"
@@ -459,13 +467,13 @@
         app:layout_constraintTop_toTopOf="@+id/guideline374" />
 
     <TextView
-        android:id="@+id/tv_final_price6"
+        android:id="@+id/tv_final_price_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="@font/quicksand_medium"
         android:gravity="center"
         android:text=""
-        android:visibility="invisible"
+        android:visibility="gone"
         android:elevation="5dp"
         android:textColor="#2e7d32"
         android:textSize="18dp"
@@ -475,11 +483,11 @@
         app:layout_constraintTop_toTopOf="@+id/guideline367" />
 
     <Button
-        android:id="@+id/btn_confirm_order6"
+        android:id="@+id/btn_confirm_order_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:elevation="5dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:background="@drawable/background_for_prices"
         android:fontFamily="@font/quicksand_semibold"
         android:text="Confirmar compra"
@@ -492,11 +500,11 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/iv_prod_image6"
+        android:id="@+id/iv_prod_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitCenter"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/guideline375"
         app:layout_constraintEnd_toStartOf="@+id/guideline379"
         app:layout_constraintHorizontal_bias="0.0"
@@ -506,17 +514,18 @@
         app:srcCompat="@drawable/background_general3" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/iv_generic4_ops5"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/gray"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/guideline381"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/guideline382"
-        android:background="@color/gray"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline382" />
 
     <ImageView
-        android:id="@+id/imageView24"
+        android:id="@+id/iv_generic_op5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/gray"
@@ -545,15 +554,34 @@
         app:layout_constraintTop_toTopOf="@+id/guideline373"
         android:background="@color/gray"/>
 
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="1dp"
+    <TextView
+        android:id="@+id/tv_error_ops5"
+        android:elevation="55dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_semibold"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:visibility="gone"
+        android:text=" ¡Algo salió mal! Por favor intentá mas tarde"
+        android:drawableStart="@drawable/ic_baseline_error_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_generic3_op5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="1dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline356"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/background_general10" />
 
 
