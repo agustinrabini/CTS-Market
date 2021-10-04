@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,23 +16,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.base.BaseFragment;
 import com.example.ctsmarket05.interfaces.CartFragmentInterface;
-import com.example.ctsmarket05.interfaces.ProductsOrderInterface;
-import com.example.ctsmarket05.model.orders.CartGET;
-import com.example.ctsmarket05.model.product.ProductsGET;
+import com.example.ctsmarket05.model.CartInteractor;
 import com.example.ctsmarket05.presenter.CartFragmentPresenter;
-import com.example.ctsmarket05.presenter.ProductsFragmentPresenter;
-import com.example.ctsmarket05.view.activities.CartExpandedActivity;
 import com.example.ctsmarket05.adapters.ProductsOrdersAdapter;
-import com.example.ctsmarket05.entities.ProductsOrder;
+import com.example.ctsmarket05.view.activities.oneProductSequence.OPSActivity2;
+import com.example.ctsmarket05.view.activities.oneProductSequence.OPSActivity6;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.ThreeBounce;
-
-import java.util.List;
 
 public class CartFragment extends BaseFragment<CartFragmentPresenter> implements CartFragmentInterface {
 
@@ -49,7 +42,7 @@ public class CartFragment extends BaseFragment<CartFragmentPresenter> implements
     private int ligthBlueColor = Color.parseColor("#75AADB");
 
     protected CartFragmentPresenter createPresenter(@NonNull Context context){
-        return new CartFragmentPresenter(this, new CartGET());
+        return new CartFragmentPresenter(this, new CartInteractor());
     }
 
     public CartFragment() {
@@ -77,19 +70,17 @@ public class CartFragment extends BaseFragment<CartFragmentPresenter> implements
         progressBarCart = v.findViewById(R.id.pb_orders);
 
         btnCart.setOnClickListener(z -> {
-
-            Intent expandCart= new Intent(getContext(), CartExpandedActivity.class);
+            Intent expandCart= new Intent(getContext(), OPSActivity2.class);
+            presenterFragment.setSequence(getContext());
             startActivity(expandCart);
         });
 
         tvCart.setOnClickListener(a -> {
-
-            Intent expandCart= new Intent(getContext(), CartExpandedActivity.class);
+            Intent expandCart= new Intent(getContext(), OPSActivity2.class);
             startActivity(expandCart);
         });
 
         ivReload.setOnClickListener(a -> {
-
             reload();
         });
 

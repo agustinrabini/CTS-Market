@@ -1,8 +1,9 @@
-package com.example.ctsmarket05.model.orders;
+package com.example.ctsmarket05.model;
 
 import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.ProductsOrder;
 import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.model.orders.OrderInterface;
 import com.example.ctsmarket05.model.productsOrder.ProductsOrderInterface;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CartGET {
+public class CartInteractor {
 
     public interface onCartFetched{
         void onSucces(List<ProductsOrder> productsOrderList, Integer cartPrice);
@@ -93,5 +94,4 @@ public class CartGET {
             }
         });
     }
-
 }

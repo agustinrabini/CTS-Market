@@ -46,7 +46,7 @@ public class OPSActivity2 extends BaseActivity<OPS2ActivityPresenter> implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_products3);
+        setContentView(R.layout.activity_ops2);
 
         findViews();
         changeUserInfo();
@@ -55,18 +55,15 @@ public class OPSActivity2 extends BaseActivity<OPS2ActivityPresenter> implements
     }
 
     private void changeUserInfo(){
-
         tvChangeUserInfo.setOnClickListener(v -> {
             changeClicked();
         });
     }
 
     private void next(){
-
         btnBuy.setOnClickListener(v -> {
           nextActivity();
         });
-
     }
 
     private void findViews(){

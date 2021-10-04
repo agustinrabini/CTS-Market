@@ -33,7 +33,7 @@ public interface OrderInterface {
     Call<Orders> getCart(@Path("id") int id_user);
 
     @PUT("/order/uobc/{id}")//'update order cart bought' ejecuta una orden de compra al carrito y lo convierte en orden terminada
-    Call<Orders> updateOrderCartBought(@Body Orders order, @Path("id") int id_order);
+    Call<Void> updateOrderCartBought(@Body Orders order, @Path("id") int idUser);
 
     @POST("/order/cartAdd/{id_product}")
     Call<Void> addCart(@Path("id_product") int id_product, @Body Orders order );

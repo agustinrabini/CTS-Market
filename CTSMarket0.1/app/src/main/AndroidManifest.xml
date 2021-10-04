@@ -17,13 +17,13 @@
         <activity android:name=".view.activities.oneProductSequence.OPSActivity" android:screenOrientation="portrait"/>
         <activity android:name=".view.activities.userActivities.UserPurchaseActivity" android:screenOrientation="portrait"/>
         <activity android:name=".view.activities.OrderExpandedActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".view.activities.CartExpandedActivity" android:screenOrientation="portrait" />
         <activity android:name=".view.activities.LocationAddActivity" android:screenOrientation="portrait"/>
         <activity android:name=".view.activities.userActivities.UserInfoEditActivity" android:screenOrientation="portrait"/>
         <activity android:name=".view.activities.userActivities.UserInfoActivity" android:screenOrientation="portrait"/>
         <activity android:name=".view.activities.oneProductSequence.OPSActivity2" android:screenOrientation="portrait"/>
         <activity android:name=".view.activities.oneProductSequence.OPSActivity4" android:screenOrientation="portrait"/>
         <activity android:name=".view.activities.oneProductSequence.OPSActivity5" android:screenOrientation="portrait"/>
+        <activity android:name=".view.activities.oneProductSequence.OPSActivity6" android:screenOrientation="portrait"/>
         <activity android:name=".view.activities.CartBuyFinalActivity" android:screenOrientation="portrait"/>
         <activity android:name=".view.activities.userActivities.LocationInfoActivity" android:screenOrientation="portrait"/>
         <activity android:name=".view.activities.userActivities.UserActivty" android:screenOrientation="portrait"/>

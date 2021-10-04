@@ -10,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.Product;
-import com.example.ctsmarket05.model.orders.OrderCartBoughtPUT;
-import com.example.ctsmarket05.model.orders.CartGET;
 
 import java.text.DateFormat;
 import java.util.Calendar;

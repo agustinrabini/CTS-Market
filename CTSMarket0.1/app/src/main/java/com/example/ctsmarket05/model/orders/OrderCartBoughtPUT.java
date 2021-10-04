@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class OrderCartBoughtPUT extends AppCompatActivity {
 
-    public void boughtCart(Integer id_order, Integer order_state, Integer shipping, String date) {
+    public void boughtCart(Orders orders) {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
@@ -24,21 +24,15 @@ public class OrderCartBoughtPUT extends AppCompatActivity {
 
         OrderInterface orderInterface = retrofit.create(OrderInterface.class);
 
-        Orders orders = new Orders(order_state,shipping,date);
+        Call<Void> call = orderInterface.updateOrderCartBought(orders, orders.getId_order());
 
-        Call<Orders> call = orderInterface.updateOrderCartBought(orders, id_order);
-
-        call.enqueue(new Callback<Orders>() {
+        call.enqueue(new Callback<Void>() {
 
             @Override
-            public void onResponse(Call<Orders> call, Response<Orders> response) {
-                Orders orderResponse = response.body();
-                orderResponse.setOrder_state(order_state);
-                orderResponse.setShipping(shipping);
-                orderResponse.setDate(date);
+            public void onResponse(Call<Void> call, Response<Void> response) {
             }
 
-            public void onFailure(Call<Orders> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
                 Toast.makeText(OrderCartBoughtPUT.this, "sad", Toast.LENGTH_SHORT).show();
             }
         });

@@ -15,13 +15,15 @@ import com.google.gson.Gson;
 
 import java.util.Date;
 
-public class OPS5ActivityPresenter extends BasePresenterActivities implements OPS5Interactor.Interactor, OPS5Interactor.OnConfirmedOrder {
+public class OPS5ActivityPresenter extends BasePresenterActivities implements OPS5Interactor.OPSInteractor, OPS5Interactor.OnConfirmedOrder, OPS5Interactor.OnUserFetched, OPS5Interactor.OnCartBougth{
 
     private OPS5ActivityInterface view;
     private OPS5Interactor interactor;
     private Orders ordersFinal;
+    private User user;
     private Integer idProduct;
     private Integer typeSequence;
+    private Integer quantityOrder;
 
     public OPS5ActivityPresenter(@NonNull OPS5ActivityInterface view, @NonNull OPS5Interactor interactor){
         this.view = view;
@@ -33,17 +35,22 @@ public class OPS5ActivityPresenter extends BasePresenterActivities implements OP
         view.showPB();
 
         SharedPreferences orderPref = context.getSharedPreferences("sequence", Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String jsonOPSOrder = orderPref.getString("ops", "");
-        idProduct = orderPref.getInt("idProduct",0);
-        Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
-
-        ordersFinal = orders;
         typeSequence = orderPref.getInt("type",0);
+        idProduct = orderPref.getInt("idProduct",0);
 
         if (typeSequence==1){
+            Gson gson = new Gson();
+            String jsonOPSOrder = orderPref.getString("ops", "");
+            Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
+            ordersFinal = orders;
             opsSequence();
+
         }else if (typeSequence ==2){
+            cartSequence();
+            Gson gson = new Gson();
+            String jsonOPSOrder = orderPref.getString("cart", "");
+            Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
+            ordersFinal = orders;
             cartSequence();
         }
     }
@@ -53,7 +60,9 @@ public class OPS5ActivityPresenter extends BasePresenterActivities implements OP
         interactor.getProduct( idProduct, User.IDUSER, this);
     }
 
-    private void cartSequence(){}
+    private void cartSequence(){
+        interactor.fetchUser(User.IDUSER, this);
+    }
 
     public void confirmOrder(){
 
@@ -65,26 +74,55 @@ public class OPS5ActivityPresenter extends BasePresenterActivities implements OP
 
             interactor.oneProductBougth(User.IDUSER, idProduct, ordersFinal, this);
         }
+
         else if(typeSequence==2){
 
-        }
+            String date = java.text.DateFormat.getDateTimeInstance().format(new Date());
+            ordersFinal.setDate(date);
+            ordersFinal.setOrder_state(0);
 
+            interactor.boughtCart(ordersFinal, User.IDUSER,this);
+        }
     }
 
     @Override
-    public void onSucces(User user, Product product) {
+    public void opsOnSucces(User user, Product product) {
         view.setOPSValues(user, product, ordersFinal);
-        view.setLayoutVisible();
+        view.setOPSLayoutVisible();
         view.hidePB();
     }
 
     @Override
-    public void onSucces() {
+    public void opsOnFailure() { view.onError(); }
 
+    @Override
+    public void onOPSSucces() {
+        view.lastSequenceActivity();
     }
 
     @Override
-    public void onFailure() {
+    public void onOPSFailure() {
         view.onError();
+    }
+
+    @Override
+    public void onUserSucces(User user) {
+        view.setCartLayoutVisible();
+        view.setCartValues(user, ordersFinal);
+    }
+
+    @Override
+    public void onUserFailure() {
+        view.onError();
+    }
+
+    @Override
+    public void onBougthSucces() {
+        view.lastSequenceActivity();
+    }
+
+    @Override
+    public void onBougthFailure() {
+        onOPSFailure();
     }
 }

@@ -8,7 +8,6 @@ public interface OPS2ActivityInterface {
     void showProgressBar();
     void hideProgressBar();
 
-
     void setUserData(User user);
     void fetchUserData();
 

@@ -11,7 +11,7 @@ public interface OPS3ActivityInterface {
 
     void changeLocation();
 
-    void orderPrice();
+    void orderPrice(Integer price);
 
     void info();
 

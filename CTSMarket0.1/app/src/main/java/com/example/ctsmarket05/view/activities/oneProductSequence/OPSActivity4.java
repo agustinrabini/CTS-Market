@@ -26,7 +26,7 @@ public class OPSActivity4 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_products5);
+        setContentView(R.layout.activity_ops4);
 
         findviews();
         getData();
@@ -42,19 +42,39 @@ public class OPSActivity4 extends AppCompatActivity {
     }
 
     private void getData() {
+
         SharedPreferences orderPref = getSharedPreferences("sequence", Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String jsonOPSOrder = orderPref.getString("ops", "");
-        Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
 
-        tvFinalPrice.setText("Precio del pedido: $ARS" + orders.getOrder_price().toString());
+        Integer typeSequence = orderPref.getInt("type",0);
+        if (typeSequence == 1){
+            Gson gson = new Gson();
+            String jsonOPSOrder = orderPref.getString("ops", "");
+            Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
+            tvFinalPrice.setText("Precio del pedido: $ARS" + orders.getOrder_price().toString());
 
-        if (orders.getShipping() == 1){
-            tvTypePayment.setText("En efectivo al retirar");
-        }else if(orders.getShipping()==2){
-            tvTypePayment.setText("Mercadopago");
-            tvGeneric4.setVisibility(View.VISIBLE);
-            ivInfo.setVisibility(View.VISIBLE);
+            if (orders.getShipping() == 1){
+                tvTypePayment.setText("En efectivo al retirar");
+                tvGeneric4.setVisibility(View.INVISIBLE);
+            }else if(orders.getShipping()==2){
+                tvTypePayment.setText("Mercadopago");
+                tvGeneric4.setVisibility(View.VISIBLE);
+                ivInfo.setVisibility(View.VISIBLE);
+            }
+
+        }else if (typeSequence == 2) {
+            Gson gson = new Gson();
+            String jsonOPSOrder = orderPref.getString("cart", "");
+            Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
+            tvFinalPrice.setText("Precio del pedido: $ARS" + orders.getOrder_price().toString());
+
+            if (orders.getShipping() == 1){
+                tvTypePayment.setText("En efectivo al retirar");
+                tvGeneric4.setVisibility(View.INVISIBLE);
+            }else if(orders.getShipping()==2){
+                tvTypePayment.setText("Mercadopago");
+                tvGeneric4.setVisibility(View.VISIBLE);
+                ivInfo.setVisibility(View.VISIBLE);
+            }
         }
     }
 

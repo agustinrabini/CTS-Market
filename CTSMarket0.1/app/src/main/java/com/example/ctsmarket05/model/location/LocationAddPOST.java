@@ -27,7 +27,7 @@ public class LocationAddPOST{
         //    public void onResponse(Call<Location> call, retrofit2.Response<Location> response) {
         //    }
 //
-        //    public void onFailure(Call<Location> call, Throwable t) {
+        //    public void opsOnFailure(Call<Location> call, Throwable t) {
         //    }
         //});
     }

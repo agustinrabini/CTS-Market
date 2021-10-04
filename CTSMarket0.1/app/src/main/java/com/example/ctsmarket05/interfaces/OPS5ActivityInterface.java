@@ -14,8 +14,13 @@ public interface OPS5ActivityInterface {
 
     void onError();
 
-    void setLayoutVisible();
+    void setOPSLayoutVisible();
+    void setCartLayoutVisible();
+
     void setOPSValues(User user, Product product, Orders order);
+    void setCartValues(User user, Orders cart);
 
     void confirmOrder();
+
+    void lastSequenceActivity();
 }

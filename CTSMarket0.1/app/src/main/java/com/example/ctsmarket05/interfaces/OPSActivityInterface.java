@@ -10,7 +10,7 @@ public interface OPSActivityInterface {
     void showProgressBar();
     void hideProgressBar();
 
-    void setProduct();
+    void setProduct(String name, String description, String image, Integer stock,Integer price,Integer length);
     void getProductState();//checkea si el producto esta en carrito y lista de favoritos.
 
     void buy();
@@ -26,7 +26,7 @@ public interface OPSActivityInterface {
     void activeCart();
     void activeFav();
 
-    void nextActivity();
+    void nullStockCheck();
 
     void onError();
 }

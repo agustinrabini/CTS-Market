@@ -20,50 +20,94 @@ public class OPS3ActivityPresenter extends BasePresenterActivities implements OP
     private OPS3ActivityInterface view;
     private OPS3Interactor interactor;
     private Integer priceShipping;
+    private Integer orderPrice;
+    private Integer typeSequence;
+    private SharedPreferences orderPref;
 
     public OPS3ActivityPresenter(@NonNull OPS3ActivityInterface view, @NonNull OPS3Interactor interactor){
         this.view = view;
         this.interactor = interactor;
     }
 
-    public void fetchUserData(){
+    public void fetchUserData(Context context){
         view.showPb();
         interactor.getUser(User.IDUSER, this);
+        sequence(context);
     }
 
-    public void retireTaller(Context context){
-        SharedPreferences orderPref = context.getSharedPreferences("sequence", Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String jsonOPSOrder = orderPref.getString("orderOPS", "");
-        Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
-
-        orders.setShipping(1);
-
-        SharedPreferences.Editor editor = orderPref.edit();
-        Gson gson1 = new Gson();
-        String json = gson1.toJson(orders);
-        editor.putString("ops", json);
-        editor.commit();
+    public void sequence(Context context){
+        orderPref = context.getSharedPreferences("sequence", Context.MODE_PRIVATE);
+        typeSequence = orderPref.getInt("type",0);
     }
 
-    public void sendToCustomer(Context context){
+    public void retireTaller(){
+        if(typeSequence==1){//sequencia para un solo producto
 
-        SharedPreferences orderPref = context.getSharedPreferences("sequence", Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String jsonOPSOrder = orderPref.getString("orderOPS", "");
-        Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
+            Gson gson = new Gson();
+            String jsonOPSOrder = orderPref.getString("ops", "");
+            Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
 
-        Integer oldOrderPrice = orders.getOrder_price();
-        Integer newOrderPrice = oldOrderPrice + priceShipping;
+            orders.setShipping(1);
 
-        orders.setShipping(2);
-        orders.setOrder_price(newOrderPrice);
+            SharedPreferences.Editor editor = orderPref.edit();
+            Gson gson1 = new Gson();
+            String json = gson1.toJson(orders);
+            editor.putString("ops", json);
+            editor.commit();
 
-        SharedPreferences.Editor editor = orderPref.edit();
-        Gson gson1 = new Gson();
-        String json = gson1.toJson(orders);
-        editor.putString("ops", json);
-        editor.commit();
+        }else if (typeSequence==2){//sequencia para carrito
+
+            Gson gson = new Gson();
+            String jsonOPSOrder = orderPref.getString("cart", "");
+            Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
+
+            orders.setShipping(1);
+
+            SharedPreferences.Editor editor = orderPref.edit();
+            Gson gson1 = new Gson();
+            String json = gson1.toJson(orders);
+            editor.putString("cart", json);
+            editor.commit();
+        }
+    }
+
+    public void sendToCustomer(){
+        if(typeSequence==1){//sequencia para un solo producto
+
+            Gson gson = new Gson();
+            String jsonOPSOrder = orderPref.getString("ops", "");
+            Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
+
+            Integer oldOrderPrice = orders.getOrder_price();
+            Integer newOrderPrice = oldOrderPrice + priceShipping;
+
+            orders.setShipping(2);
+            orders.setOrder_price(newOrderPrice);
+
+            SharedPreferences.Editor editor = orderPref.edit();
+            Gson gson1 = new Gson();
+            String json = gson1.toJson(orders);
+            editor.putString("ops", json);
+            editor.commit();
+
+        }else if (typeSequence==2){//sequencia para carrito
+
+            Gson gson = new Gson();
+            String jsonOPSOrder = orderPref.getString("cart", "");
+            Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
+
+            Integer oldOrderPrice = orders.getOrder_price();
+            Integer newOrderPrice = oldOrderPrice + priceShipping;
+
+            orders.setShipping(2);
+            orders.setOrder_price(newOrderPrice);
+
+            SharedPreferences.Editor editor = orderPref.edit();
+            Gson gson1 = new Gson();
+            String json = gson1.toJson(orders);
+            editor.putString("cart", json);
+            editor.commit();
+        }
     }
 
     @Override
@@ -71,7 +115,6 @@ public class OPS3ActivityPresenter extends BasePresenterActivities implements OP
         view.setLocation(locationFechted);
         view.hidePb();
         view.setLayoutVisible();
-        view.orderPrice();
 
         if(locationFechted.getProvince().equals("CABA")){
             view.setShippingCost("¡Gratis!");
@@ -79,6 +122,22 @@ public class OPS3ActivityPresenter extends BasePresenterActivities implements OP
         }else {
             view.setShippingCost("$ARS 1000");
             priceShipping = 1000;
+        }
+
+        if(typeSequence==1){//precio producto
+            Gson gson = new Gson();
+            String jsonOPSOrder = orderPref.getString("ops", "");
+            Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
+
+            view.orderPrice(orders.getOrder_price());
+
+        }else if (typeSequence==2){//precio carrito
+
+            Gson gson = new Gson();
+            String jsonOPSOrder = orderPref.getString("cart", "");
+            Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
+
+            view.orderPrice(orders.getOrder_price());
         }
     }
 
@@ -90,7 +149,6 @@ public class OPS3ActivityPresenter extends BasePresenterActivities implements OP
 
     @Override
     public void nullLocation() {
-        view.orderPrice();
         view.setLayoutVisible();
         view.hidePb();
         view.noLocation();

@@ -58,7 +58,7 @@ public class OPSActivity3 extends BaseActivity<OPS3ActivityPresenter> implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_products4);
+        setContentView(R.layout.activity_ops3);
 
         findViews();
         fetchLocation();
@@ -90,12 +90,11 @@ public class OPSActivity3 extends BaseActivity<OPS3ActivityPresenter> implements
 
     @Override
     public void fetchLocation() {
-        presenterActivity.fetchUserData();
+        presenterActivity.fetchUserData(getBaseContext());
     }
 
     @Override
     public void setLocation(Location location) {
-
         tvLocation.setText(
                 location.getProvince() + " " +
                 location.getCity() + "\n"+"\n"+
@@ -123,14 +122,8 @@ public class OPSActivity3 extends BaseActivity<OPS3ActivityPresenter> implements
     }
 
     @Override
-    public void orderPrice() {
-
-        SharedPreferences orderPref = getSharedPreferences("sequence", Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String jsonOPSOrder = orderPref.getString("orderOPS", "");
-        Orders orders = gson.fromJson(jsonOPSOrder, Orders.class);
-
-        tvFinalPrice.setText("Precio del pedido: $ARS" + orders.getOrder_price().toString());
+    public void orderPrice(Integer price) {
+        tvFinalPrice.setText("Precio del pedido: $ARS" + price.toString());
     }
 
     @Override
@@ -141,12 +134,12 @@ public class OPSActivity3 extends BaseActivity<OPS3ActivityPresenter> implements
 
     @Override
     public void retireAtTaller() {
-        presenterActivity.retireTaller(getApplicationContext());
+        presenterActivity.retireTaller();
     }
 
     @Override
     public void sendToCustomer() {
-        presenterActivity.sendToCustomer(getApplicationContext());
+        presenterActivity.sendToCustomer();
     }
 
     @Override

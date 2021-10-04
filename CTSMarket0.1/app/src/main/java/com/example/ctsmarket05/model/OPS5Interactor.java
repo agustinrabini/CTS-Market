@@ -1,11 +1,18 @@
 package com.example.ctsmarket05.model;
 
+import android.widget.Toast;
+
 import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.entities.Product;
+import com.example.ctsmarket05.entities.ProductsOrder;
 import com.example.ctsmarket05.entities.User;
+import com.example.ctsmarket05.model.orders.OrderCartBoughtPUT;
 import com.example.ctsmarket05.model.orders.OrderInterface;
 import com.example.ctsmarket05.model.product.ProductInterface;
+import com.example.ctsmarket05.model.productsOrder.ProductsOrderInterface;
 import com.example.ctsmarket05.model.user.UserInterface;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,17 +22,27 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class OPS5Interactor {
 
-    public interface Interactor {
-        void onSucces(User user, Product product);
-        void onFailure();
+    public interface OPSInteractor {
+        void opsOnSucces(User user, Product product);
+        void opsOnFailure();
     }
 
     public interface OnConfirmedOrder {
-        void onSucces();
-        void onFailure();
+        void onOPSSucces();
+        void onOPSFailure();
     }
 
-    public void getProduct(Integer idProduct, Integer idUser, final Interactor listener){
+    public interface OnUserFetched {
+        void onUserSucces(User user);
+        void onUserFailure();
+    }
+
+    public interface OnCartBougth{
+        void onBougthSucces();
+        void onBougthFailure();
+    }
+
+    public void getProduct(Integer idProduct, Integer idUser, final OPSInteractor listener){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -39,7 +56,7 @@ public class OPS5Interactor {
             public void onResponse(Call<Product> call, Response<Product> response) {
 
                 if(!response.isSuccessful()){
-                    listener.onFailure();
+                    listener.opsOnFailure();
                     return;
                 }
 
@@ -52,12 +69,12 @@ public class OPS5Interactor {
 
             @Override
             public void onFailure(Call<Product> call, Throwable t) {
-                listener.onFailure();
+                listener.opsOnFailure();
             }
         });
     }
 
-    public void getUser(Integer idUser,Product product, final Interactor listener){
+    public void getUser(Integer idUser,Product product, final OPSInteractor listener){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -71,25 +88,25 @@ public class OPS5Interactor {
             public void onResponse(Call<User> call, Response<User> response) {
 
                 if(!response.isSuccessful()){
-                    listener.onFailure();
+                    listener.opsOnFailure();
                     return;
                 }
 
                 User user = response.body();
 
                 if (user !=null){
-                    listener.onSucces(user, product);
+                    listener.opsOnSucces(user, product);
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                listener.onFailure();
+                listener.opsOnFailure();
             }
         });
     }
 
-    public void oneProductBougth(Integer id_user, Integer id_product,  Orders orders, final OnConfirmedOrder onConfirmedOrder){
+    public void oneProductBougth(Integer id_user, Integer id_product,  Orders orders, final OnConfirmedOrder listener){
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(User.URL)
@@ -103,10 +120,80 @@ public class OPS5Interactor {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
+                if(!response.isSuccessful()){
+                    listener.onOPSFailure();
+                    return;
+                }else {
+                    listener.onOPSSucces();
+                }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
+                listener.onOPSFailure();
+            }
+        });
+    }
+
+    public void fetchUser(Integer idUser, final OnUserFetched listener){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(User.URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        UserInterface userInterface= retrofit.create(UserInterface.class);
+
+        Call<User> call = userInterface.getUser(idUser);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+
+                if(!response.isSuccessful()){
+                    listener.onUserFailure();
+                    return;
+                }
+
+                User user = response.body();
+
+                if (user !=null){
+                    listener.onUserSucces(user);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                listener.onUserFailure();
+            }
+        });
+    }
+
+    public void boughtCart(Orders orders, Integer idUser, final OnCartBougth listener) {
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(User.URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        OrderInterface orderInterface = retrofit.create(OrderInterface.class);
+
+        Call<Void> call = orderInterface.updateOrderCartBought(orders, idUser);
+
+        call.enqueue(new Callback<Void>() {
+
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+                if(!response.isSuccessful()){
+                    listener.onBougthFailure();
+                    return;
+                }else{
+
+                    listener.onBougthSucces();
+                }
+            }
+
+            public void onFailure(Call<Void> call, Throwable t) {
+                listener.onBougthFailure();
             }
         });
     }

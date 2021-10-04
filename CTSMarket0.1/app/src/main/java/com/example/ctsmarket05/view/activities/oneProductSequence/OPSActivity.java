@@ -2,7 +2,6 @@ package com.example.ctsmarket05.view.activities.oneProductSequence;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -15,27 +14,18 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.ctsmarket05.R;
 import com.example.ctsmarket05.base.BaseActivity;
-import com.example.ctsmarket05.entities.User;
 import com.example.ctsmarket05.interfaces.OPSActivityInterface;
 import com.example.ctsmarket05.model.OPSInteractor;
 import com.example.ctsmarket05.presenter.OPSActivityPresenter;
-import com.example.ctsmarket05.entities.Orders;
 import com.example.ctsmarket05.view.fragments.bottomSheets.QuantityBottomSheet;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.ThreeBounce;
-import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
 public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements OPSActivityInterface, QuantityBottomSheet.QuantityListener {
 
-    private Integer stock;
-    private Integer price;
-    private Integer length;
-    private String description;
-    private String image;
-    private String name;
     private ImageView ivProduct2;
     private TextView tvQuestion;
     private Button btnBuy;
@@ -65,7 +55,7 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_products2);
+        setContentView(R.layout.activity_ops);
 
         findViews();
         clickListeners();
@@ -73,9 +63,8 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
     }
 
     private void clickListeners() {
-
         btnBuy.setOnClickListener(v -> {
-            nextActivity();
+            buy();
         });
 
         tvQuantity.setOnClickListener(v -> {
@@ -89,7 +78,6 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
         ivFav.setOnClickListener(v -> {
             favClicked();
         });
-
     }
 
     private void findViews(){
@@ -151,16 +139,7 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
     }
 
     @Override
-    public void setProduct() {
-
-        Intent Clicked = getIntent();
-        stock = Clicked.getIntExtra("stock",0);
-        price = Clicked.getIntExtra("price",0);
-        length = Clicked.getIntExtra("length",0);
-        description = Clicked.getStringExtra("description");
-        image = Clicked.getStringExtra("image");
-        name = Clicked.getStringExtra("name");
-
+    public void setProduct(String name, String description, String image, Integer stock,Integer price,Integer length) {
         tvName2.setText(name);
         tvDescription2.setText(description);
         tvPrice2.setText( "$ARS " + price.toString());
@@ -173,8 +152,8 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
     @Override
     public void getProductState() {
         Intent Clicked = getIntent();
-        Integer idProd = Clicked.getIntExtra("idProduct", 0);
-        presenterActivity.getProductState(idProd);
+        presenterActivity.getProductState(Clicked);
+        presenterActivity.nullStock();
     }
 
     @Override
@@ -184,22 +163,19 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
 
     @Override
     public void buy() {
-
+        presenterActivity.buy(getApplicationContext(), quantityProduct);
+        Intent from = new Intent(this, OPSActivity2.class);
+        startActivity(from);
     }
 
     @Override
     public void cartClicked() {
-        Intent Clicked = getIntent();
-        Integer idProd = Clicked.getIntExtra("idProduct",0);
-        Integer price = Clicked.getIntExtra("price",0);
-        presenterActivity.cartClicked(idProd, price, quantityProduct);
+        presenterActivity.cartClicked(quantityProduct);
     }
 
     @Override
     public void favClicked() {
-        Intent Clicked = getIntent();
-        Integer idProd = Clicked.getIntExtra("idProduct",0);
-        presenterActivity.favClicked(idProd);
+        presenterActivity.favClicked();
     }
 
     @Override
@@ -214,7 +190,6 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
 
     @Override
     public void quantityUpdate(Integer quantity) {
-
         Intent Clicked = getIntent();
         Integer price = Clicked.getIntExtra("price", 0);
         Integer p = price*quantity;
@@ -227,12 +202,8 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
 
     @Override
     public void changeQuantity() {
-
-        Intent Clicked = getIntent();
-        Integer stock = Clicked.getIntExtra("stock",0);
-
         FragmentManager fragmentManager = getSupportFragmentManager();
-        presenterActivity.changeQuantity(fragmentManager, stock);
+        presenterActivity.changeQuantity(fragmentManager);
     }
 
     @Override
@@ -241,35 +212,16 @@ public class OPSActivity extends BaseActivity<OPSActivityPresenter> implements O
     }
 
     @Override
-    public void nextActivity() {
-        Intent Clicked = getIntent();
-
-        Orders orders = new Orders(
-                User.IDUSER,
-                (Clicked.getIntExtra("price",0)*quantityProduct),
-                quantityProduct,
-                null,
-                null,
-                null);
-
-        SharedPreferences orderPref = getSharedPreferences("sequence", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = orderPref.edit();
-
-        Gson gson = new Gson();
-        String jsonOPSOrder = gson.toJson(orders);
-        editor.putString("orderOPS", jsonOPSOrder);
-        editor.putInt("idProduct",Clicked.getIntExtra("idProduct",0));
-        editor.putInt("type",1);
-        editor.apply();
-
-        Intent from = new Intent(this, OPSActivity2.class);
-        startActivity(from);
+    public void nullStockCheck() {
+        btnBuy.setEnabled(false);
+        btnBuy.setText("SIN STOCK");
+        ivCart.setEnabled(false);
+        tvQuantity.setText("Cant.: 0");
     }
 
     @Override
     public void onError() {
         tvError.setVisibility(View.VISIBLE);
-
         ivProduct2.setVisibility(View.INVISIBLE);
         tvQuestion.setVisibility(View.INVISIBLE);
         btnBuy.setVisibility(View.INVISIBLE);

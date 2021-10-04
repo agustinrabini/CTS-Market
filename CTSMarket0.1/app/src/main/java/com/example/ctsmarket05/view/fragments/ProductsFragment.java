@@ -75,13 +75,11 @@ public class ProductsFragment extends BaseFragment<ProductsFragmentPresenter> im
         progressBarHome = v.findViewById(R.id.pb_home);
 
         tvFilter.setOnClickListener(v1 -> {
-
             FilterBottomSheet filterBottomSheet = new FilterBottomSheet();
             filterBottomSheet.show(getChildFragmentManager(),"filterBottomSheet");
         });
 
         ivUserPhoto.setOnClickListener(v12 -> {
-
             Intent userActv = new Intent(getContext(), UserActivty.class);
             startActivity(userActv);
         });
@@ -157,7 +155,6 @@ public class ProductsFragment extends BaseFragment<ProductsFragmentPresenter> im
 
     @Override
     public void setProductsList(ProductsAdapter productsAdapter) {
-
         rvProducts.setLayoutManager(new GridLayoutManager(getContext(), 2));
         rvProducts.setAdapter(productsAdapter);
         rvProducts.setVisibility(View.VISIBLE);
